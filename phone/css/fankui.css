@@ -1,0 +1,154 @@
+.nav{
+	height: 98px;
+	line-height: 98px;
+	font-size: 24px;
+	font-weight: bold;
+	padding: 0 40px;
+	border-bottom: 14px solid #CCCCCC;
+}
+.nav img{
+	width: 204px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.main{
+	background-color: #FFFFFF;
+	width: 100%;
+}
+.box{
+	width: 90%;
+	padding: 0.3rem 0.24rem;
+	background: #FFFFFF;
+	
+}
+.nav-right span{float:left; }
+
+@media only screen and (min-width: 100px) and (max-width: 768px) {
+	.nav{
+		height: 60px;
+		font-size: 14px;
+		line-height: 60px;
+		padding: 0 20px;
+		border-bottom: 8px solid #CCCCCC;
+	}
+	.nav img{
+		width: 114px;
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+
+
+
+
+.cList{float:left; width:94%;margin:0 3%;  border-bottom:1px dotted #eee; }
+	.cList_select{float:left; width:25px;}
+	.cList_select input{margin-top:12px;width:20px; height:20px;}
+	.cList_title{float:left; width:200px;  overflow:hidden; font-size:14px;}
+	.cList_price{float:left; width:50px;}
+	.cList_num{float:left; width:50px;}
+	.cList_time{float:right; padding-right:5px;}
+	.cList_memo{font-size:14px;}
+.cList_title1{height:28px; line-height:28px; font-weight:300;
+	overflow: hidden;
+	font-size: 14px;
+	padding-top: 10px;
+
+}
+
+.cDeal{float:left; width:94%;padding:0;margin-left:3%;heigth:45px; line-height:45px;  font-size:13px; color:#666666;}
+		.cDeal .cDefault{float:left;}
+		.cDeal .cDelete{float:left; margin-left:20px;}
+		.cDeal .cEdit{float:left;}
+		
+.scNav{float:left;width:100%;clear:both; margin-top:10px; margin-bottom:8px;}
+.scNav li{float:left;padding:2px 10px;font-size:16px;text-align:center; border-bottom:2px solid #ffffff;height:40px; line-height:40px;}
+.scNav li a{float:left;width:100%;color:#333333;}
+.scNav .esp a{float:left;width:100%;border-bottom:2px solid #ff0000;color:#ff0000;}
+.scNav .rt{float:right;border:2px solid #8dd2c4;background-color:#c6f0fd;}
+.chooseGoods{
+	width: 100%;
+	margin: 0 auto;
+}
+.chooseGoods p.dzf{
+	text-align: right;
+	color: #222;
+	padding-right: 10px;
+	line-height: 45px;
+	padding-left: 10px;
+}
+.chooseGoods p.dzf em{color:#ff0000; font-size:14px;  font-weight:bold;}
+.chooseGoods p.dzf .em2{color:#ff0000; font-size:14px;  font-weight:bold;}
+.chooseGoods ul li{
+	position: relative;
+}
+.chooseGoods ul li img{max-width:100%;clear:both;}
+.chooseGoods ul li input{
+	position: absolute;
+	left: 5%;
+	top: 44%;
+}
+.chooseGoods ul li .shangPin{
+	overflow: hidden;
+	padding: 10px;
+	background-color:#f6f6f6;
+	line-height:1.8;
+}
+
+.chooseGoods ul li .shangPin a{
+	display: block;
+	width: 22%;
+	overflow: hidden;
+	float: left;
+}
+.chooseGoods ul li .shangPin a img{
+	width: 80%;
+}
+.chooseGoods ul li .shangPin h3{
+	color: #000;
+	font-size: 14px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    float: left;
+    padding-left: 2px;
+    line-height:2;
+    font-weight: normal;
+	float: left;
+	width:49%;
+	overflow: hidden;
+}
+.geduan{width:100%;height:10px; background-color:#f5f5f5; clear:both;}
+.bigButton{float:left;width:45%;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	background: rgb(111, 177, 202);
+	border-radius: 3px;
+	text-align: center;
+	color: #fff;
+	margin-right: 8%;
+	border: 1px solid #6fb1ca;
+}
+.quxBtn{float:left;width:45%;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	background: #FFFFFF;
+	border-radius: 5px;
+	text-align: center;
+	color: #CCCCCC;
+	border: 1px solid #CCCCCC;
+}
+.vMyOrder_rq{float:left; width:98%; text-align:right; font-size:14px; color:#555; line-height: 20px;}
+.vMyOrder_cz{float:left; width:98%; text-align:right; font-size:14px; color:#888; margin-bottom:5px; margin-bottom: 5px;  }
+.vMyOrder_cz input{float:right; padding:2px 10px; color:#ffffff; border:1px solid #ff0000;background-color:#ff0000 }
+		
+.TabPage{width:100%;margin-top:20px; border-top:1px solid #eeeeee; background-color:#f0f0f0; height:35px; line-height:35px;}
+	.TabPage li{ float:left; margin-right:15px;}
+.TabTool{margin-bottom:5px; margin-bottom:5px; background-color:#f1f5ff; }
+	.TabTool td{padding:4px;}
+	.TabTool a i{margin-top:5px;}
+	.TabTool a i img{width:30px;}
+	.TabTool a span{margin-top:5px; margin-left:8px;}
+
+.orderAdd td{padding-top:10px;}
+.orderAdd input{height:35px;line-height:35px;border:1px solid #b7d8d0;width:100%;}		
+.orderAdd .textbox{border:none;}		

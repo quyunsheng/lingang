@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>临钢网</title>
+		<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+		<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/all.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/shop.css?vid=0417" />
+		<script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/phone.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.index-none{
+				padding: 0.2rem;
+			}
+			.index-none table{
+				padding: 0.1rem;
+				margin-bottom: 0.3rem;
+				background: #FFFFFF;
+				/* border-collapse: collapse; */
+				border-bottom: 2px solid #079ce5;
+			}
+			.index-none table td{
+				padding: 5px;
+			}
+			.showList td{
+				border-bottom:1px solid #cccccc;
+			}
+			.ckht{
+				border:0px solid #007AFF;
+				background-color: #0068A5;
+				color:#ffffff;
+				margin-right: 0.1rem;
+				float: right;
+				border-radius: 8px;
+			}
+			.tjdd{
+				border:0px solid #00510F;
+				background-color: #CC0000;
+				color:#ffffff;
+				float: right;
+				border-radius: 8px;
+			}
+			.upDd{
+				padding: 3px;
+				font-size: 13px;
+				border: 1px solid #0055ff;
+				border-radius: 3px;
+			}
+			.myJG{
+				border-bottom: 1px solid #cccccc;
+			}
+			.changeJG{
+				padding: 3px 5px;
+                background: #bde0f1;
+                color:rgb(47, 115, 142);
+                border-radius: 3px;
+			}
+			.jgSure{
+				padding: 3px 5px;
+				border: 1px solid #CCCCCC;
+				display: none;
+			}
+			.ktkt {
+				float: right;
+				border: 0;
+				height:  0.6rem;
+				line-height:  0.6rem;
+				background: rgb(245, 94, 117);
+				border-radius: 3px;
+				text-align: center;
+				color: #fff;
+				cursor: pointer;
+			}
+			
+			.koko {
+				float: right;
+				border: 0;
+				height: 0.6rem;
+				line-height:  0.6rem;
+				background: rgb(111, 177, 202);
+				border-radius: 3px;
+				text-align: center;
+				color: #fff;
+				cursor: pointer;
+			}
+			.showTime{
+				color: #00AA7F;
+			}
+			.delThiz span{
+				float: right;
+				padding: 5px 10px;
+				border: 1px solid #FF0000;
+				color: #FF0000;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+			.delThiz{border-bottom:1px dotted #079ce5;padding-bottom: 3px;}
+			.delThiz img{width:auto !important;height:auto !important}
+			.myKf{
+				width: 20px;
+				height: 20px;
+			}
+		</style>
+	</head>
+	<body style="padding-top: 100px;padding-bottom: 50px;">
+		<div id="cart-head" class="show">
+			<div class="cart-head">
+				<a class="return" href="user.html">
+					<span class="arrow-left"></span>
+				</a>
+				<div class="head-title">我的订单</div>
+				<a class="head-shop" href="tel:0539-6387606">
+					<i class="fa fa-phone fa-lg"></i> &nbsp;0539-6387606
+				</a>
+			</div>
+		</div>
+		<div class="order-box">
+			<div class="order-top">
+				<ul class="clearfix">
+					<li id="myOrder"><a href="javascript:showAll();">全部订单</a></li>
+					<li id="myOrder2" class="myOrder-type"><a href="javascript:showDd(1);">待审核</a></li>
+					<li id="myOrder3" class="myOrder-type"><a href="javascript:showDd(2);">初审</a></li>
+					<li id="myOrder4" class="myOrder-type"><a href="javascript:showDd(3);">审核通过</a></li>
+					<li id="myOrder5" class="myOrder-type"><a href="javascript:showDd(4);">订单完结</a></li>
+				</ul>
+			</div>
+			<div class="index-none">
+
+				<!-- <p>我已经到达底线了哦\(^o^)/~</p> -->
+			</div>
+		</div>
+		<!--底部-->
+		<div class="footerpage"></div>
+		<script src="js/tools.js?vid=0601" type="text/javascript" charset="utf-8"></script>
+		<script src="js/all.js?vid=0601" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(function() {
+				/*公共部分
+				 * 导航栏
+				 * footer CopyRight
+				 */
+				$('.footerpage').load('footer.html');
+				var tkn = getCookie(tk);
+				if (isEmpty(tkn)) {
+					window.location.href='./login.html?ref|user-order.html?orderType=1';
+					return;
+				};
+			});
+			
+			function getHt(cId){
+				window.open(path+"/linA/exportPdf?orderId="+cId);
+			}
+			
+			function myTimer(timeId){
+				$('.showTime').each(function(i){
+					var myTime = $(this).attr('data-time');
+					var timer = $.myTime.DateToUnix(myTime);
+					console.log(timer)
+					var timestamp = Date.parse(new Date())/1000;
+					if(timestamp>timer){
+						var useTime = timer + 1800 - timestamp
+						setInterval(function(){
+							useTime=useTime-1;
+							if(0<useTime<1800){
+								var minute=parseInt(useTime/60);
+								var second=parseInt(useTime%60);
+								$('.live'+i).html(minute+'分'+second+'秒后自动取消，<br>请及时提交订单');
+							}else{
+								$('.live'+i).html('订单失效');
+							}
+						},1000)
+					}
+				})
+			}
+		</script>
+		<script type="text/javascript">
+			// 获取页面 A 访问的 url
+			var ur =location.href;
+			// 获取页面 A 访问的 url 的 = 后面的 数字 （对应着这个页面的 id）
+			var type = ur.split('?')[1].split("=")[1];
+			if(type == 1){
+				showAll();
+			}else{
+				showDd(type-1);
+			}
+			function showDd(zt) {
+				var tkn = getCookie(tk);
+				$.ajax({
+					url: path + '/linA/listdd',
+					type: 'GET',
+					data: {},
+					dataType: 'json', //后台返回的数据类型是json文本
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					success: function(result) {
+						// console.log(result)
+						if (result != "" && result.code == 1) {
+							$('.myOrder-type').eq(zt-1).addClass('on').siblings().removeClass('on');
+							$('.index-none').html('');
+							// console.log(zt)
+							var myOrder = result.order;
+
+							// console.log(myOrder)
+							for (var i in myOrder) {
+								// cCategory 订单类别 1=普通订单 2=拼团订单"
+								if (myOrder[i].cCategory == 1 && myOrder[i].cState == zt) {
+									var orderBody =
+										'<table style="width:100%;"><tr><td  colspan="2" style="text-align: left;background: #f5f5f5;padding:5px;">' +
+										myOrder[i].cOrderNo + '</td><td style="text-align: center;background: #f5f5f5;padding:5px;font-size:12px;" colspan="2">' + myOrder[i].cCreateTime +'</td></tr>';
+									
+									if (zt == 0) {
+										orderBody += '<td style="color: #ff0000;">待提交</td><td style="color: #0055ff;cursor: pointer;"><button  class="tjdd" onclick="postDd(\'' + myOrder[i].cId + '\')">提交订单</button>&nbsp;<button class="ckht" onclick="quxiao(\'' +
+											myOrder[i].cId + '\')">取消订单</button></td></tr>'
+									} else if (zt == 1) {
+										orderBody += '<td colspan="2" style="color: #0055ff;">待审核</td><td colspan="2" style="color: #0055ff;cursor: pointer;"><button class="ckht" onclick="quxiao(\'' +
+											myOrder[i].cId + '\')">取消订单</button></td></tr>'
+									} else if (zt == 2) {
+										orderBody += '<tr><td colspan="2" style="color: #ff00ff;">初审</td><td colspan="2" style="color: #ff00ff;">审核中</td></tr>'
+									} else if (zt == 3) {
+										orderBody += '<td colspan="2" style="color: #ff5500;">审核通过</td><td colspan="2" style="color: #ff5500;"><button class="ckht" onclick="getHt(\''+myOrder[i].cId+'\')">查看合同</button></td></tr>'
+									} else if (zt == 4) {
+									orderBody += '<td colspan="2" style="color: #00aa00;">订单完结</td><td colspan="2"><button class="ckht" onclick="getHt(\''+myOrder[i].cId+'\')">查看合同</button></td></tr>'
+									};
+									// console.log(orderBody)
+									for (var j in myOrder[i].detailList) {
+										var myOrder1 = myOrder[i]
+										orderBody +=
+											'<tr><td>' + myOrder1.detailList[j].dShopcolumntype +'</td><td>' + myOrder1.detailList[j].dProducttexture +'</td><td>' + myOrder1.detailList[j].dProductspec +'</td><td>' + myOrder1.detailList[j].dTonnum +'吨</td></tr>'+
+											'<tr><td colspan="2">单价/吨：' + myOrder1.detailList[j].dPrnPrice +'</td><td colspan="2">订单单价：' + myOrder1.detailList[j].dPrice +'</td></tr>'+
+											'<tr><td style="width:1.6rem;"><i class="myDid hidden">'+myOrder1.detailList[j].dId+'</i>加工说明：</td><td>'
+											if(zt < 1){
+												orderBody +=
+												'<span class="changeJG" onclick="showChange(this)">修改</span>'
+											}
+											orderBody +=
+											'<span class="jgSure" onclick="changeJG(this)">确定</span></td><td class="myJG" colspan="2"><div>' + myOrder1.detailList[j].dProcessrequirement +'</div></td></tr>';
+											if(myOrder[i].cState == 0){
+												orderBody +=
+												'<tr><td colspan="4" class="delThiz">数量：' + myOrder1.detailList[j].dProductnum +'&nbsp;&nbsp;<img src="img/user/payfor.png" onclick="numThiz(\'' +myOrder1.detailList[j].dId+ '\',\'' +myOrder1.detailList[j].dProductnum+ '\')">&nbsp;&nbsp;<span onclick="delThiz(\'' +myOrder1.detailList[j].dId+ '\')">删除商品</span></td></tr>'
+											}
+									}
+									// console.log(orderBody)
+									orderBody +=
+										'<tr><td>优惠券:</td><td>' + myOrder[i].cCouponComment + '&nbsp;' + myOrder[i].cCouponPrice +'元</td><td colspan="2">白条: ' + myOrder[i].cWhiteNotePrice +'元</td></tr>'+
+										'<tr><td>平台优惠:</td><td>' + myOrder[i].cPlatformPrice +'元</td><td colspan="2">钢豆: ' + myOrder[i].cNum + '<i style="font-size: 12px; color: #cccccc;">( 抵用' +myOrder[i].cGold + '元)<i></td></tr>'+
+										// '<tr><td>物流费：</td><td style="text-align:left;">' + (myOrder[i].cTransportPrice == null ? "0" : myOrder[i].cTransportPrice) +'元</td></tr>'+
+										'<tr><td colspan="4">提货方式：' + myOrder[i].detailList[0].dExtract +'</td></tr>'+
+										'<tr><td colspan="3" style="color: #ff0000;font-weight:blod;font-size:16px;">总费用：' + myOrder[i].cPrice +'元</td>	'+
+										'<td><a href="news-page.html?id='+ myOrder[i].cId +'"><img class="myKf" src="img/footer/mage.png">联系客服</a></td>'
+										// if (myOrder[i].cState == 1) {
+										// 	orderBody += '<td><button class="ktkt" onclick="postDd(\'' + myOrder[i].cId + '\')">提交订单</button></td>'
+										// }
+										orderBody+= '</tr></table>';
+									$('.index-none').append(orderBody);
+								}
+								if (myOrder[i].cCategory == 2 && myOrder[i].cState == zt) {
+									var orderBody =
+										'<table style="width:100%;"><tr><td  colspan="2" style="text-align: center;background: #f5f5f5;padding:5px;">' +
+										myOrder[i].cOrderNo + '</td><td style="text-align: center;background: #f5f5f5;padding:5px;" colspan="2">' + myOrder[i].cCreateTime +'</td></tr>';
+
+									if (zt == 0) {
+										orderBody += '<td colspan="2">' + myOrder[i].cCreateTime +
+												'</td><td style="color: #ff0000;">待提交</td><td colspan="2" style="color: #0055ff;cursor: pointer;"><button  class="tjdd" onclick="postDd()">提交订单</button></td></tr>'
+									} else if (zt == 1) {
+										orderBody += '<td colspan="2" style="color: #0055ff;">待审核</td><td colspan="2" style="color: #0055ff;cursor: pointer;"></td></tr>'
+									} else if (zt == 2) {
+										orderBody += '<tr><td colspan="2" style="color: #ff00ff;">初审</td><td colspan="2" style="color: #ff00ff;">审核中</td></tr>'
+									} else if (zt == 3) {
+										orderBody += '<td colspan="2" style="color: #ff5500;">审核通过</td><td colspan="2" style="color: #ff5500;"><button class="ckht" onclick="getHt(\''+myOrder[i].cId+'\')">查看合同</button></td></tr>'
+									} else if (zt == 4) {
+										orderBody += '<td colspan="2" style="color: #00aa00;">订单完结</td><td colspan="2"><button class="ckht" onclick="getHt(\''+myOrder[i].cId+'\')">查看合同</button></td></tr>'
+									};
+									// console.log(orderBody)
+									for (var j in myOrder[i].detailList) {
+										var myOrder1 = myOrder[i]
+										orderBody +=
+											'<tr><td>' + myOrder1.detailList[j].dShopcolumntype +'</td><td>' + myOrder1.detailList[j].dProducttexture +'</td><td>' + myOrder1.detailList[j].dProductspec +'</td><td>' + myOrder1.detailList[j].dTonnum +'吨</td></tr>'+
+											'<tr><td colspan="2">单价/吨：' + myOrder1.detailList[j].dPrnPrice +'</td><td colspan="2">订单单价：' + myOrder1.detailList[j].dPrice +'</td></tr>'
+									}
+									// console.log(orderBody)
+									orderBody +=
+										// var orderFoot =
+										'<tr><td>优惠券:</td><td>' + myOrder[i].cCouponComment + '&nbsp;' + myOrder[i].cCouponPrice +'元</td><td colspan="2">白条: ' + myOrder[i].cWhiteNotePrice +'元</td></tr>'+
+										'<tr><td>平台优惠:</td><td>' + myOrder[i].cPlatformPrice +'元</td><td colspan="2">钢豆: ' + myOrder[i].cNum + '<i style="font-size: 12px; color: #cccccc;">( 抵用' +myOrder[i].cGold + '元)<i></td></tr>'+
+										// '<tr><td>物流费：</td><td style="text-align:left;">' + (myOrder[i].cTransportPrice == null ? "0" : myOrder[i].cTransportPrice) +'</td></tr>'
+										'<tr><td colspan="4">提货方式：' + myOrder[i].detailList[0].dExtract +'</td></tr>'
+
+									orderBody+= '<tr><td colspan="3" style="color: #ff0000;font-weight:blod;font-size:16px;">总费用：' + myOrder[i].cPrice +'元</td>'+
+									'<td><a href="news-page.html?id='+ myOrder[i].cId +'"><img class="myKf" src="img/footer/mage.png">联系客服</a></td></tr></table>';
+									$('.index-none').append(orderBody);
+
+
+								}
+							}
+						} else {
+							myProcessErr(result.msg)
+						}
+					}
+				})
+			};
+			function  showAll(){
+				var tkn = getCookie(tk);
+				$.ajax({
+					url: path + '/linA/listdd',
+					type: 'GET',
+					data: {},
+					dataType: 'json', //后台返回的数据类型是json文本
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					success: function(result) {
+						console.log(result)
+						if (result != "" && result.code == 1) {
+							$('#myOrder').addClass('on').siblings().removeClass('on');
+							$('.index-none').html('');
+							// console.log(zt)
+							var myOrder = result.order;
+				
+							// console.log(myOrder)
+							for (var i in myOrder) {
+								// cCategory 订单类别 1=普通订单 2=拼团订单"
+								if (myOrder[i].cCategory == 1) {
+									var orderBody =
+										'<table style="width:100%;"><tr><td  colspan="2" style="text-align: left;background: #f5f5f5;padding:5px;">' +
+										myOrder[i].cOrderNo + '</td>';
+				
+									if (myOrder[i].cState == 0) {
+										orderBody += '<td colspan="2" style="text-align: center;background: #f5f5f5;padding:5px;" class="showTime live' + i +'" data-time="' + myOrder[i].cCreateTime +'">' + 
+											'</td></tr><tr><td colspan="2" style="color: #ff0000;">待提交</td><td colspan="2" style="color: #0055ff;cursor: pointer;"><button  class="tjdd fr" onclick="postDd(\'' + myOrder[i].cId + '\')">提交订单</button>&nbsp;<button class="ckht fr" onclick="quxiao(\'' +
+											myOrder[i].cId + '\')">取消订单</button></td></tr>'
+									} else if (myOrder[i].cState == 1) {
+										orderBody += 
+											'<td style="text-align: center;background: #f5f5f5;padding:5px;font-size:12px;" colspan="2">' + myOrder[i].cCreateTime +'</td></tr>'+
+											'<tr><td colspan="2" style="color: #0055ff;">待审核</td><td colspan="2" style="color: #0055ff;cursor: pointer;"><button class="ckht" onclick="quxiao(\'' +
+											myOrder[i].cId + '\')">取消订单</button></td></tr>'
+									} else if (myOrder[i].cState == 2) {
+										orderBody += 
+										'<td style="text-align: center;background: #f5f5f5;padding:5px;font-size:12px;" colspan="2">' + myOrder[i].cCreateTime +'</td></tr>'+
+										'<tr><td colspan="2" style="color: #ff00ff;">初审</td><td colspan="2" style="color: #ff00ff;">审核中</td></tr>'
+									} else if (myOrder[i].cState == 3) {
+										orderBody += 
+										'<td style="text-align: center;background: #f5f5f5;padding:5px;font-size:12px;" colspan="2">' + myOrder[i].cCreateTime +'</td></tr>'+
+										'<tr><td colspan="2" style="color: #ff5500;">审核通过</td><td colspan="2" style="color: #ff5500;"><button class="ckht" onclick="getHt(\''+myOrder[i].cId+'\')">查看合同</button></td></tr>'
+									} else if (myOrder[i].cState == 4) {
+										orderBody += 
+										'<td style="text-align: center;background: #f5f5f5;padding:5px;font-size:12px;" colspan="2">' + myOrder[i].cCreateTime +'</td></tr>'+
+										'<tr><td colspan="2" style="color: #00aa00;">订单完结</td><td colspan="2"><button class="ckht" onclick="getHt(\''+myOrder[i].cId+'\')">查看合同</button></td></tr>'
+									};
+									// console.log(orderBody)
+									for (var j in myOrder[i].detailList) {
+										var myOrder1 = myOrder[i]
+										orderBody +=
+											'<tr><td>' + myOrder1.detailList[j].dShopcolumntype +'</td><td>' + myOrder1.detailList[j].dProducttexture +'</td><td>' + myOrder1.detailList[j].dProductspec +'</td><td>' + (myOrder1.detailList[j].dProductnum*myOrder1.detailList[j].dTonnum).toFixed(4)  +'吨</td></tr>'+
+											'<tr><td colspan="2">单价/吨：' + myOrder1.detailList[j].dPrnPrice +'</td><td colspan="2">订单单价：' + myOrder1.detailList[j].dPrice +'</td></tr>'+
+											'<tr><td style="width:1.6rem;"><i class="myDid hidden">'+myOrder1.detailList[j].dId+'</i>加工说明：</td><td>'
+											if(myOrder[i].cState < 1){
+												orderBody +=
+												'<span class="changeJG" onclick="showChange(this)">修改</span>'
+											}
+											orderBody +=
+											'<span class="jgSure" onclick="changeJG(this)">确定</span></td><td class="myJG" colspan="2"><div>' + myOrder1.detailList[j].dProcessrequirement +'</div></td></tr>';
+											if(myOrder[i].cState == 0){
+												orderBody +=
+												'<tr><td colspan="4" class="delThiz">数量：' + myOrder1.detailList[j].dProductnum +'&nbsp;&nbsp;<img src="img/user/payfor.png" onclick="numThiz(\'' +myOrder1.detailList[j].dId+ '\',\'' +myOrder1.detailList[j].dProductnum+ '\')">&nbsp;&nbsp;<span onclick="delThiz(\'' +myOrder1.detailList[j].dId+ '\')">删除商品</span></td></tr>'
+											}
+									}
+									// console.log(orderBody)
+									orderBody +=
+										'<tr><td>优惠券:</td><td>' + myOrder[i].cCouponComment + '&nbsp;' + myOrder[i].cCouponPrice +'元</td><td colspan="2">白条: ' + myOrder[i].cWhiteNotePrice +'元</td></tr>'+
+										'<tr><td>平台优惠:</td><td>' + myOrder[i].cPlatformPrice +'元</td><td colspan="2">钢豆: ' + myOrder[i].cNum + '<i style="font-size: 12px; color: #cccccc;">( 抵用' +myOrder[i].cGold + '元)<i></td></tr>'+
+										// '<tr><td>物流费：</td><td style="text-align:left;">' + (myOrder[i].cTransportPrice == null ? "0" : myOrder[i].cTransportPrice) +'元</td></tr>'
+										'<tr><td colspan="4">提货方式：' + myOrder[i].detailList[0].dExtract +'</td></tr>'
+				
+									orderBody+= '<tr><td colspan="3" style="color: #ff0000;font-weight:blod;font-size:16px;">总费用：' + myOrder[i].cPrice +'元</td>'+
+									'<td><a href="news-page.html?id='+ myOrder[i].cId +'"><img class="myKf" src="img/footer/mage.png">联系客服</a></td></tr></table>';
+									$('.index-none').append(orderBody);
+								}
+								if (myOrder[i].cCategory == 2){
+									var orderBody =
+										'<table style="width:100%;"><tr><td  colspan="2" style="text-align: center;background: #f5f5f5;padding:5px;">' +
+										myOrder[i].cOrderNo + '</td><td style="text-align: center;background: #f5f5f5;padding:5px;" colspan="2">' + myOrder[i].cCreateTime +'</td></tr>';
+				
+									if (myOrder[i].cState == 0) {
+										orderBody += '<td colspan="2" style="color: #ff0000;">待提交</td><td colspan="2" style="color: #0055ff;cursor: pointer;"><button  class="tjdd" onclick="postDd()">提交订单</button></td></tr>'
+									} else if (myOrder[i].cState == 1) {
+										orderBody += '<td colspan="4" style="color: #0055ff;">待审核</td></tr>'
+									} else if (myOrder[i].cState == 2) {
+										orderBody += '<td colspan="4" style="color: #ff00ff;">初审</td></tr>'
+									} else if (myOrder[i].cState == 3) {
+										orderBody += '<td colspan="2" style="color: #ff5500;">审核通过</td><td colspan="2" style="color: #ff5500;"><button class="ckht" onclick="getHt(\''+myOrder[i].cId+'\')">查看合同</button></td></tr>'
+									} else if (myOrder[i].cState == 4) {
+										orderBody += '<td colspan="2" style="color: #00aa00;">订单完结</td><td colspan="2"><button class="ckht" onclick="getHt(\''+myOrder[i].cId+'\')">查看合同</button></td></tr>'
+									};
+									// console.log(orderBody)
+									for (var j in myOrder[i].detailList) {
+										var myOrder1 = myOrder[i]
+										orderBody +=
+										'<tr><td colspan="2">单价/吨：' + myOrder1.detailList[j].dPrnPrice +'</td><td colspan="2">订单单价：' + myOrder1.detailList[j].dPrice +'</td></tr>'+
+											'<tr><td>' + myOrder1.detailList[j].dShopcolumntype +'</td><td>' + myOrder1.detailList[j].dProducttexture +'</td><td>' + myOrder1.detailList[j].dProductspec +'</td><td>' + (myOrder1.detailList[j].dProductnum*myOrder1.detailList[j].dTonnum).toFixed(4) +'吨</td></tr>'
+									}
+									// console.log(orderBody)
+									orderBody +=
+										// var orderFoot =
+										'<tr><td>优惠券:</td><td>' + myOrder[i].cCouponComment + '&nbsp;' + myOrder[i].cCouponPrice +'元</td><td colspan="2">白条: ' + myOrder[i].cWhiteNotePrice +'元</td></tr>'+
+										'<tr><td>平台优惠:</td><td>' + myOrder[i].cPlatformPrice +'元</td><td colspan="2">钢豆: ' + myOrder[i].cNum + '<i style="font-size: 12px; color: #cccccc;">( 抵用' +myOrder[i].cGold + '元)<i></td></tr>'+
+										// '<tr><td>物流费：</td><td style="text-align:left;">' + (myOrder[i].cTransportPrice == null ? "0" : myOrder[i].cTransportPrice) +'</td></tr>'
+										'<tr><td colspan="4">提货方式：' + myOrder[i].detailList[0].dExtract +'</td></tr>'
+									orderBody+= '<tr><td colspan="3" style="color: #ff0000;font-weight:blod;font-size:16px;">总费用：' + myOrder[i].cPrice +'元</td>'+
+									'<td><a href="news-page.html?id='+ myOrder[i].cId +'"><img class="myKf" src="img/footer/mage.png">联系客服</a></td></tr></table>';
+									$('.index-none').append(orderBody);
+								}
+							}
+							var j = $('.showTime').length;
+							for(var i = 0;i<=j;i++){
+								var timeId = 'live' + i;
+								myTimer(timeId);
+							};
+						} else {
+							myProcessErr(result.msg)
+						}
+					}
+				})
+			}
+			// 修改数量
+			function jdmoney(money){  
+			    var t=/^\d+(\.\d+)?$/;  
+			    return t.test(money)  
+			}
+			function numThiz(thiz,num) {
+				var nnn = window.prompt("请输入新的数量：",num);
+				if(!jdmoney(nnn) || nnn<1){
+					myProcessErr("请填写有效数量数字！");
+				}
+				var json = JSON.stringify({
+					odId: thiz,
+					pNum:nnn
+				})
+				var tkn = getCookie(tk);
+				$.ajax({
+					url: path + '/linA/upODProductNum',
+					type: 'POST',
+					data: json,
+					contentType: 'application/json;',
+					dataType: 'json', //后台返回的数据类型是json文本
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					success: function(result) {
+						// console.log(result)
+						if (result != "" && result.code == 1) {
+							window.location.href = window.location.href;
+						} else {
+							myProcessErr(result.msg)
+						}
+					}
+				})
+			}
+			// 删除单个商品
+			function delThiz(thiz) {
+				// console.log(thiz)
+				var tkn = getCookie(tk);
+				console.log(thiz)
+				$.ajax({
+					url: path + '/linA/delddsp',
+					type: 'POST',
+					data: {
+						id: thiz
+					},
+					// contentType: 'application/json;',
+					dataType: 'json', //后台返回的数据类型是json文本
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					success: function(result) {
+						// console.log(result)
+						if (result != "" && result.code == 1) {
+							window.location.href = window.location.href;
+						} else {
+							myProcessErr(result.msg)
+						}
+					}
+				})
+			}
+			function quxiao(myId) {
+				var tkn = getCookie(tk);
+				var json = JSON.stringify({
+					cId: myId
+				})
+				$.ajax({
+					url: path + '/linA/upddqx',
+					type: 'POST',
+					data: json,
+					contentType: 'application/json;',
+					dataType: 'json', //后台返回的数据类型是json文本
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					success: function(result) {
+						// console.log(result)
+						if (result != "" && result.code == 1) {
+							window.location.href = window.location.href;
+						} else {
+							myProcessErr(result.msg)
+						}
+					}
+				})
+			}
+			// 提交订单
+			function postDd(myId){
+				var tkn = getCookie(tk);
+				var  json= JSON.stringify({
+					cId:myId
+				})
+				$.ajax({
+					url: path + '/linA/upddtj',
+					type: 'POST',
+					data: json,
+					contentType: 'application/json;',
+					dataType: 'json', //后台返回的数据类型是json文本
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					success: function(result) {
+						// console.log(result)
+						if(result != "" && result.code == 1){
+							myProcessOk("提交成功");
+							window.location.href = window.location.href;
+						}else{
+							myProcessErr(result.msg)
+						}
+					}
+				})
+			};
+			function changeJG(thiz){
+				var tkn = getCookie(tk);
+				var  json= JSON.stringify({
+					dId:$(thiz).parents('tr').find('.myDid').html(),
+					dProcessrequirement:$(thiz).parents('tr').find('.myJG div').html()
+				})
+				$.ajax({
+					url: path + '/linA/upddjg',
+					type: 'POST',
+					data: json,
+					contentType: 'application/json;',
+					dataType: 'json', //后台返回的数据类型是json文本
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					success: function(result) {
+						console.log(result)
+						if(result != "" && result.code == 1){
+							$(thiz).parents('tr').find('.myJG div').removeAttr('contentEditable');
+							$(thiz).hide();
+							$(thiz).parents('tr').find('.changeJG').show();
+							myProcessOk("修改成功")
+						}else{
+							myProcessErr(result.msg)
+						}
+					}
+				})
+			}
+			function showChange(thiz){
+				$(thiz).hide();
+				$(thiz).parents('tr').find('.myJG').attr('contentEditable','true');
+				$(thiz).parents('tr').find('.myJG').focus();
+				$(thiz).parents('tr').find('.jgSure').show();
+			}
+		</script>
+		
+		<script type="text/javascript">
+		$.extend({
+		    myTime:{
+		        CurTime: function(){
+		            return Date.parse(new Date())/1000;
+		        },
+		        DateToUnix: function(string) {
+		            var f = string.split(' ', 2);
+		            var d = (f[0] ? f[0] : '').split('-', 3);
+		            var t = (f[1] ? f[1] : '').split(':', 3);
+		            return (new Date(
+		                parseInt(d[0], 10) || null,
+		                (parseInt(d[1], 10) || 1) - 1,
+		                parseInt(d[2], 10) || null,
+		                parseInt(t[0], 10) || null,
+		                parseInt(t[1], 10) || null,
+		                parseInt(t[2], 10) || null
+		                )).getTime() / 1000;
+		        },
+		        UnixToDate: function(unixTime, isFull, timeZone) {
+		            if (typeof (timeZone) == 'number'){
+		                unixTime = parseInt(unixTime) + parseInt(timeZone) * 60 * 60;
+		            }
+		            var time = new Date(unixTime * 1000);
+		            var ymdhis = "";
+		            ymdhis += time.getUTCFullYear() + "-";
+		            ymdhis += (time.getUTCMonth()+1) + "-";
+		            ymdhis += time.getUTCDate();
+		            if (isFull === true){
+		                ymdhis += "" + time.getUTCHours() + ":";
+		                ymdhis += time.getUTCMinutes() + ":";
+		                ymdhis += time.getUTCSeconds();
+		            }
+		            return ymdhis;
+		        }
+		    }
+		});
+		//将时间转化为时间戳
+		// var noHis = "2017-06-22";
+		// var haveHis = "2017-06-22 00:00:01";
+		// var oNoHis = $.myTime.DateToUnix(noHis); // 1498060800
+		// var ohaveHis = $.myTime.DateToUnix(haveHis); // 1498123193
+		// console.log(oNoHis);
+		// console.log(ohaveHis);
+		// //将时间戳转化为时间对象
+		// var HisBack = "1498060800";
+		// var HaveHisBack = "1498123193";
+		// var oHisBack = $.myTime.UnixToDate(HisBack);
+		// var oHaveHisBack = $.myTime.UnixToDate(HaveHisBack);
+		// console.log(oHisBack);
+		// console.log(oHaveHisBack);
+		</script>
+	</body>
+</html>

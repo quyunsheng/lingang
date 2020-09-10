@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/idangerous.swiper.css" />
+		<link rel="stylesheet" type="text/css" href="css/day.css" />
+		<link rel="stylesheet" type="text/css" href="css/APlayer.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/head.css" />
+		<link rel="stylesheet" type="text/css" href="css/footer.css" />
+		<link rel="stylesheet" type="text/css" href="css/newsmage.css" />
+		<link rel="stylesheet" type="text/css" href="layui/css/layui.css">
+		<script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/ajaxfileupload.js"></script>
+		<style type="text/css">
+			.kf-box a{
+				text-align: right;
+				font-size: 12px;
+				color: #CCC9CD;
+			}
+		</style>
+	</head>
+	<body style="background: #aedbf5;">
+		<!--头部-->
+		<!-- 顶部导航 -->
+		<div class="headerpage"></div>
+		<div class="mage_top">
+			<img src="img/footer/mage.png">在线客服
+		</div>
+		<div class="mage_box clearfix">
+			<div class="mage_l fl">
+				<span>公司简介</span>
+				<p>临钢网 · 中国</p>
+				<p>总部地址: 临沂市经济开发区</p>
+				<p style="text-indent: 64px;">沂蒙云谷B座6层</p>
+				<p>服务热线：0539-6387606</p>
+				<p>传真：0539-6387608</p>
+				<p style="margin-top: 40px;font-size: 12px;">客服在线时间：9：30--17：30</p>
+				<span class="ddKey"></span>
+			</div>
+			<div class="pcW fl">
+				<p class="adminName">临钢网-一站式钢材服务平台<span><i class="useNum"></i></span></p>
+				<button class="seeMore" onclick="seeMoreFun()">查看更多消息</button>
+				<span class="ddKey"></span>
+				<div class="center" id="div1">
+					<ul class="talk work-list" id="talk">
+						<li>
+							<ul class="wd"></ul>
+						</li>
+					</ul>
+					<div id="last"></div>
+				</div>
+				<div class="m-width sendBox">
+					<div class="flex-box send m-width">
+						<textarea id="mTalk" cols="1" rows="1" class="m-width" placeholder="请输入文字" contenteditable="true"></textarea>
+						<div class="moreBox" id="tags">
+							<a href="javascript:void(0);" class="upload_img" data-id="1">
+								<img src="img/footer/img.png" data-id="1" style="display: block;" />
+							</a>
+							<form id="uploadForm" enctype="multipart/form-data" style="display: none;">
+								<input id="file" onchange="upload2()" type="file" name="file" />
+							</form>
+						</div>
+						<div id="typeFS" onclick="typeFSClick()">发送</div>
+					</div>
+				</div>
+			</div>
+			<!-- 客服列表 -->
+			<div class="kf-box">
+				<p>客服列表</p>
+				<ul>
+					<!-- <li onclick="changeNum()" class="active"><img src="phone/img/ask.png" >客服列表<a>[在线]</a></li> -->
+				</ul>
+			</div>
+			
+		</div>
+		<!-- 底部 -->
+		<div class="footerpage"></div>
+		<div class="foot-about1">
+			<div class="about-box">
+				<p class="footLink">
+					<a rel="nofollow" href="http://www.12377.cn" target="_blank"><img src="img/footer/foot-wfjb.png" width="124" height="46"></a>
+					<!-- <a rel="nofollow" href="https://ss.knet.cn/verifyseal.dll?sn=e20051937130081635xsxj000000&userid=8IeOInNbj43dec5E&time=1589881923113&stoken=ca1dc82d5bbb71d300d921ba6ec71ce0&pa=92311" target="_blank"><img src="img/footer/foot-kexin.jpg" width="124" height="46"></a> -->
+					<!-- <script type='text/javascript' src='https://kxlogo.knet.cn/seallogo.dll?sn=e20051937130081635xsxj000000&ct=df&h=46'></script> -->
+					<a rel="nofollow" href="#" target="_blank"><img src="img/footer/foot-rz.jpg" width="124" height="46"></a>
+					<a href="index.html"><img height="46" src="img/footer/footer-aq.png" ></a>
+					<a href="index.html"><img height="46" src="img/footer/footer-hw.png" ></a>
+					<a href="index.html"><img height="46" src="img/footer/footer-cx.jpg" ></a>
+					<a rel="nofollow" href="img/footer/lingang.png" target="_blank"><img src="img/footer/dzyyzz.png" width="46" height="46"></a>
+				</p>
+			</div>
+		</div>
+		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/right.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/all.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="layui/layui.all.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				/*公共部分
+				 * 导航栏
+				 * footer CopyRight
+				 */
+				$(".headerpage").load("header.html");
+				$(".footerpage").load("footer.html");
+			});
+			//Demo
+			layui.use('form', function () {
+			    var form = layui.form;
+			});
+			/* nav点击 */
+			getUrlParam = function(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+				var r = window.location.search.substr(1).match(reg);
+				if (r != null) return unescape(r[2]);
+				return null;
+			}
+			var key=getUrlParam("id");
+			if(key !=null && key !=undefined && key.length>0){
+				$('.ddKey').html('订单号：'+key)
+			}
+			$("textarea").keydown(function(){
+				if(event.keyCode ==13){
+					event.cancelBubble=true;
+					event.preventDefault();
+					event.stopPropagation();
+					typeFSClick();
+				}
+			})
+			//图片上传事件
+			$('.upload_img').bind('click', function(ev) {
+				var index = ev.currentTarget.dataset.id;
+				if (index == 1) {
+					$('#file').click();
+					$('#file').unbind().change(function(e) {
+						var index = e.currentTarget.dataset.id;
+						if ($('#file').val() == '') {
+							return false;
+						}
+						var filePath = $(this).val();
+						changeImg(e, filePath, index);
+					})
+				}
+			});
+			
+			var xhrOnProgress = function(fun) {
+				xhrOnProgress.onprogress = fun; //绑定监听
+				//使用闭包实现监听绑
+				return function() {
+					//通过$.ajaxSettings.xhr();获得XMLHttpRequest对象
+					var xhr = $.ajaxSettings.xhr();
+					//判断监听函数是否为函数
+					if (typeof xhrOnProgress.onprogress !== 'function')
+						return xhr;
+					//如果有监听函数并且xhr对象支持绑定时就把监听函数绑定上去
+					if (xhrOnProgress.onprogress && xhr.upload) {
+						xhr.upload.onprogress = xhrOnProgress.onprogress;
+					}
+					return xhr;
+				}
+			};
+			
+			// 图片上传
+			function upload2() {
+				var filePath = $("#file").val();
+					var fileName = filePath.substring(filePath.lastIndexOf(".") + 1,
+							filePath.length);
+					fileName = fileName.toLowerCase();
+				
+					if (fileName != "bmp" && fileName != "jpg" && fileName != "gif"
+							&& fileName != "png" && fileName != "jpeg") {
+						myProcessErr("", "只能上传bmp,jpg,gif,png,jpeg格式的图片！");
+						return false;
+					}
+				document.domain="lingangsteel.com";
+				var tkn = getCookie(tk);
+				$.ajaxFileUpload({
+					url: path + '/linA/uploadlt.html',
+					contentType: 'application/json',
+					type: 'POST',
+					secureuri: false, //一般设置为false
+					fileElementId: 'file', // 上传文件的id、name属性名
+					// xhr: xhrOnProgress(function(e) {
+					// 	var percent = e.loaded / e.total; //计算百分比
+					// }),
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					success: function(data) {
+						var tmp = $(data).text().substring($(data).text().indexOf("{"), $(data).text().length);
+						var res = eval('(' + tmp + ')');
+						console.log(res)
+						if (res.code == '1') {
+							talkListFuns(res.msg);
+						} else {
+							myProcessOk(res.msg);
+						}
+					},
+					error: function(data, status, e) {
+						layer.msg(e, function() {});
+					}
+				});
+			}
+			
+			function changeImg(e, filePath, index) {
+				var fileFormat = filePath.substring(filePath.lastIndexOf('.')).toLowerCase();
+				//检查后缀名
+				if (!fileFormat.match(/.png|.jpg|.gif|.jpeg|.mp4|.wmv|.asf|.asx|.rm|.rmvb|.3gp|.mov|.m4v|.avi|.dat|.mkv|.flv|vob/)) {
+					layer.msg('文件格式不正确', function() {});
+				}
+			}
+			$(function(){
+				var tkn = getCookie(tk);
+				$.ajax({
+					url: path + '/linA/listkflb',
+					type: 'GET',
+					data: {},
+					dataType: 'json', //后台返回的数据类型是json文本
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					success: function(result) {
+						// console.log(result)
+						if(result != "" && result.code == 1){
+							var kfList = result.data;
+							for(i in kfList){
+								var kfBox = 
+								'<li onclick="changeNum(this,'+ kfList[i].adminno +')"><img src="'+ photoPath + kfList[i].adminpic +'" ><i>'+ kfList[i].adminname +'</i>'
+								if(kfList[i].cHide == 's'){
+									kfBox += 
+									'<a style="color:#2cbf24;">[在线]</a></li>'
+								}else{
+									kfBox +=
+									'<a>[离线]</a></li>'
+								}
+								$('.kf-box ul').append(kfBox)
+							}
+							// $('.kf-box ul li:first-child').addClass('active')
+							// $('.useNum').attr('useId',kfList[0].adminno)
+							// $('.adminName i').html(kfList[0].adminname)
+						}else{
+							myProcessErr(result.msg)
+						}
+					}
+				})
+			});
+			function changeNum(thiz,adminno){
+				pageNo = 0;
+				$('.seeMore').html('查看更多消息');
+				$('#talk').html('');
+				$('.seeMore').removeAttr('disabled');
+				$(thiz).addClass('active').siblings().removeClass('active');
+				$('.useNum').attr('useId',adminno)
+				var thizName = $(thiz).find('i').html()
+				$('.useNum').html(thizName)
+			}
+		</script>
+	</body>
+</html>

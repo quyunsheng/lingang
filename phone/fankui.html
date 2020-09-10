@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>临钢网</title>
+		<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+		<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/all.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/detail.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/fankui.css?vid=0326"/>
+		<script src="js/jquery.min.js?vid=0326" type="text/javascript"></script>
+		<script src="js/ajaxfileupload.js?vid=0326" type="text/javascript"></script>
+		<script src="js/phone.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.fk-box{
+				padding: 0.2rem;
+			}
+			.fk-box li{
+				padding: 0.2rem;
+				border: 1px solid #CCCCCC;
+				border-radius: 5px;
+				margin-bottom: 0.2rem;
+			}
+			.fk-list2{
+				font-weight: bold;
+				font-size: 0.28rem;
+			}
+			.fk-list3{
+				margin-top: 0.1rem;
+				font-size: 0.24rem;
+				text-indent: 0.48rem;
+				line-height: 0.36rem;
+			}
+			.fk-list4{
+				text-align: right;
+				color: #CCCCCC;
+			}
+			.myFk{
+				background: rgba(0,0,0,0.2);
+				position: fixed;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				z-index: 99;
+				display: none;
+			}
+		</style>
+	</head>
+	<body style="padding-top: 50px;padding-bottom: 50px;background: #FFFFFF;">
+		<div id="cart-head" class="show">
+		    <div class="cart-head">
+		        <a class="return" href="javascript:history.back(-1);">
+		            <span class="arrow-left"></span>
+		        </a>
+		        <div class="head-title">问题反馈</div>
+		        <a class="head-right" href="fankuiAdd.html">+发起反馈</a>
+		    </div>
+		</div>
+		<div id='vkDivMaskPrc'>
+			<div id='vkDivMaskContPrc'>
+				<div id='vkDivMaskContPrcLogo'></div>
+				<div id='vkDivMaskContPrcText'></div>
+			</div>
+		</div>
+		<div class="headerpage"></div>
+		<ul class="fk-box">
+			
+		</ul>
+		
+		<!--底部导航-->
+		<div class="footerpage"></div>
+		<script src="js/all.js?vid=0604" type="text/javascript" charset="utf-8"></script>
+		<script src="js/tools.js?vid=0604" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(function() {
+				/*公共部分
+				 * 导航栏
+				 * footer CopyRight
+				 */
+				$('.footerpage').load('footer.html');
+			});
+		</script>
+		<script type="text/javascript">
+			$(function(){
+				var tkn = getCookie(tk);
+				$.ajax({
+					url: path + '/linA/listfb',
+					type:'GET',
+					data:{},
+					dataType:'json', //后台返回的数据类型是json文本
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					success:function(result){
+						if(result != "" && result.code == 1){
+							var fkList = result.data;
+							for(var i in fkList){
+								var ptBox = 
+									'<li><p class="fk-list1">'+fkList[i].cCreatetime+'</p>'+
+									'<p class="fk-list2">'+fkList[i].cContent+'</p>'
+									if (fkList[i].cReplymsg == '' || fkList[i].cReplymsg == null){
+										ptBox +=
+										'<p class="fk-list3"></p>'
+									}else{
+										ptBox +=
+										'<p class="fk-list3">'+fkList[i].cReplymsg+'</p>'
+									}
+									ptBox +=
+									'<p class="fk-list4">'+(fkList[i].cLastupdatetime == null? "未回复": fkList[i].cLastupdatetime)+'</p></li>';
+								$('.fk-box').append(ptBox);
+							}
+						}
+					}
+				})
+			})
+		
+		
+		
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>临钢优选</title>
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css?vid=0130" />
+		<link rel="stylesheet" type="text/css" href="css/idangerous.swiper.css?vid=0130" />
+		<link rel="stylesheet" type="text/css" href="css/APlayer.min.css?vid=0130" />
+		<link rel="stylesheet" type="text/css" href="css/day.css?vid=0130" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css?vid=0130" />
+		<link rel="stylesheet" type="text/css" href="css/news.css?vid=0130" />
+		<link rel="stylesheet" type="text/css" href="css/head.css?vid=0130" />
+		<link rel="stylesheet" type="text/css" href="css/footer.css?vid=0130" />
+		<link rel="stylesheet" type="text/css" href="css/shop.css?vid=0130" />
+		<style type="text/css">
+			.shop-table tbody:nth-of-type(odd) tr:first-child{
+				background: #f5f3f2;
+			}
+		</style>
+	</head>
+	<body style="background: #e5e5e5;">
+		<!-- 顶部导航 -->
+		<div class="headerpage"></div>
+		<div class="shop-type-box">
+
+			<div class="shop-mage">
+
+				<div class="shop-mage-top">
+					<form action="" method="post">
+						<div class="shop-type">
+							<ul class="clearfix">
+								<li><a class="searchAll" href="javascript:;">分类</a></li>
+
+							</ul>
+						</div>
+						<div class="search-top clearfix">
+							<div class="searchTop-list secDq fl clearfix">
+								<span class="search-tit">地区</span>
+								<select onchange="searchBtn()">
+									<option value="">全部</option>
+								</select>
+							</div>
+							<div class="searchTop-list secGc fl">
+								<span class="search-tit">钢厂</span>
+								<select onchange="searchBtn()">
+									<option value="">全部</option>
+								</select>
+							</div>
+							<div class="searchTop-list secPm fl">
+								<span class="search-tit">品名</span>
+								<select onchange="searchBtn()">
+									<option value="">全部</option>
+								</select>
+							</div>
+							<div class="searchTop-list secCk fl">
+								<span class="search-tit">仓库</span>
+								<select onchange="searchBtn()">
+									<option value="">全部</option>
+								</select>
+							</div>
+						</div>
+						<div class="searchMore secCz clearfix">
+							<span class="searchMore-tit">材质</span>
+							<span class="searchMore-tip searchMore-cz" onclick="showMore(this)"><i class="fa fa-plus" aria-hidden="true"></i><b>更多</b></span>
+							<ul class="searchMore-mage searchMore-open clearfix">
+							</ul>
+						</div>
+						<div class="searchMore secGg clearfix">
+							<span class="searchMore-tit">规格</span>
+							<span class="search-tit">厚度</span>
+							<div class="searchB-two fl clearfix">
+								<input type="text" name="" id="houMix" value="0" /><i>mm</i>
+								<span class="fl">~</span>
+								<input type="text" name="" id="houMax" value="0" /><i>mm</i>
+							</div>
+
+							<span class="search-tit">宽度</span>
+							<div class="searchB-two fl clearfix">
+								<input type="text" name="" id="kuanMix" value="0" /><i>mm</i>
+								<span class="fl">~</span>
+								<input type="text" name="" id="kuanMax" value="0" /><i>mm</i>
+							</div>
+						</div>
+						<span class="searchTop-find" onclick="searchBtn()">搜索</span>
+						<span class="searchTop-clear">清空</span>
+					</form>
+				</div>
+
+				<div class="shop-table-box">
+					<table class="shop-table">
+						<thead>
+							<tr>
+								<th width="15%">钢厂</th>
+								<th width="9%">品名</th>
+								<th width="10%">材质</th>
+								<th width="16%">规格</th>
+								<th width="5%">仓库</th>
+								<th width="5%">数量</th>
+								<th>吨数</th>
+								<th width="8%">单价</th>
+								<th width="8%">备注</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<img class="td-align td-img" src="img/logo/ag.PNG" >
+									铵钢
+								</td>
+								<td>品名</td>
+								<td>材质</td>
+								<td>规格</td>
+								<td>仓库</td>
+								<td>数量</td>
+								<td>吨数</td>
+								<td>单价</td>
+								<td>备注</td>
+								<td>
+									<span class="good-more" onclick="goodMore(this)">查看</span>
+								</td>
+							</tr>
+							<tr class="good-list">
+								<td>
+									<img class="td-align td-img" src="img/logo/ag.PNG" >
+									铵钢
+								</td>
+								<td>品名</td>
+								<td>材质</td>
+								<td>规格</td>
+								<td>仓库</td>
+								<td>数量</td>
+								<td>吨数</td>
+								<td>单价</td>
+								<td>备注</td>
+								<td class="clearfix">
+									<span class="shop-plan" onclick="goShopCart(this)"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i> 加入购物车</span>
+									<span class="shop-pin" onclick="showPin()"><i class="fa fa-paper-plane-o" aria-hidden="true"></i>拼购<span>
+								</td>
+							</tr>
+						</tbody>
+<tbody>
+							<tr>
+								<td>
+									<img class="td-align td-img" src="img/logo/ag.PNG" >
+									铵钢
+								</td>
+								<td>品名</td>
+								<td>材质</td>
+								<td>规格</td>
+								<td>仓库</td>
+								<td>数量</td>
+								<td>吨数</td>
+								<td>单价</td>
+								<td>备注</td>
+								<td>
+									<span class="good-more" onclick="goodMore(this)">查看</span>
+								</td>
+							</tr>
+							<tr class="good-list">
+								<td>
+									<img class="td-align td-img" src="img/logo/ag.PNG" >
+									铵钢
+								</td>
+								<td>品名</td>
+								<td>材质</td>
+								<td>规格</td>
+								<td>仓库</td>
+								<td>数量</td>
+								<td>吨数</td>
+								<td>单价</td>
+								<td>备注</td>
+								<td class="clearfix">
+									<span class="shop-plan" onclick="goShopCart(this)"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i> 加入购物车</span>
+									<span class="shop-pin" onclick="showPin()"><i class="fa fa-paper-plane-o" aria-hidden="true"></i>拼购<span>
+								</td>
+							</tr>
+						</tbody>
+
+					</table>
+				</div>
+			</div>
+			<ul class="shop-step clearfix">
+				<li class="stepList">
+					<span>
+						<img src="img/footer/login.png">
+					</span>
+					<p>注册登录</p>
+				</li>
+				<img class="stepImg" src="img/footer/right.png">
+				<li class="stepList">
+					<span>
+						<img src="img/footer/down.png">
+					</span>
+					<p>锁货下单</p>
+				</li>
+				<img class="stepImg" src="img/footer/right.png">
+				<li class="stepList">
+					<span>
+						<img src="img/footer/sure.png">
+					</span>
+					<p>确认合同</p>
+				</li>
+				<img class="stepImg" src="img/footer/right.png">
+				<li class="stepList">
+					<span>
+						<img src="img/footer/set.png">
+					</span>
+					<p>定制剪切</p>
+				</li>
+				<img class="stepImg" src="img/footer/right.png">
+				<li class="stepList">
+					<span>
+						<img src="img/footer/send.png">
+					</span>
+					<p>物流配送</p>
+				</li>
+				<img class="stepImg" src="img/footer/right.png">
+				<li class="stepList">
+					<span>
+						<img src="img/footer/sign.png">
+					</span>
+					<p>确认签收</p>
+				</li>
+				<img class="stepImg" src="img/footer/right.png">
+				<li class="stepList">
+					<span>
+						<img src="img/footer/over.png">
+					</span>
+					<p>一票结算</p>
+				</li>
+			</ul>
+		</div>
+		<div class="planTime">
+			<h3>发布拼单</h3>
+			<div class="group-time">
+				日期：<select class="need-weight" id="startTime"></select>
+				<!-- <input class="start-plan" id="startTime" type="text" name="" value="" placeholder="请选择结束时间" /> -->
+			</div>
+			<div class="group-time">
+				吨数：<input class="need-weight" id="needWeight" type="text" name="" value="" placeholder="请填写吨数" />
+			</div>
+			<div class="planBtn">
+				<i class="pinId hidden"></i>
+				<span onclick="addPin()" class="planSub">提交</span>
+				<span class="planClo" onclick="planClo(this)">取消</span>
+			</div>
+		</div>
+		<!-- 底部 -->
+		<div class="footerpage"></div>
+
+		<script src="js/jquery.min.js?vid=0130" type="text/javascript" charset="utf-8"></script>
+		<script src="js/tools.js?vid=0130" type="text/javascript" charset="utf-8"></script>
+		<script src="js/right.js?vid=0130" type="text/javascript" charset="utf-8"></script>
+		<script src="js/day.js?vid=0130" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$('.start-plan').datePicker({
+				okFunc: function(date) {},
+			});
+
+			function planClo(cal) {
+				$('.planTime').hide();
+			}
+			function goodMore(thiz){
+				$(thiz).toggleClass('good-open');
+				$(thiz).parents('tbody').find('.good-list').toggle();
+				$(thiz).parents('tbody').find('td').toggleClass('td-bg');
+			}
+			// 其他页面跳转商品页
+			$(window).load(function() {
+				$('.shop-type #102899580468591').addClass('active').parent().siblings().find('a').removeClass('active');
+				var upPm = $('.shop-type #102899580468591').find('i').html();
+				$(".secPm select").val("冷轧");
+				sort(102899580468591);
+
+				var cId = window.location.search.substring(1).split('=');
+				let id = cId[1];
+				if (id === '104075735601256') {
+					// 酸洗
+					$('.shop-type #104075735601256').addClass('active').parent().siblings().find('a').removeClass('active');
+					var upPm = $('.shop-type #104075735601256').find('i').html();
+					$(".secPm select").val("酸洗");
+					sort(104075735601256);
+				} else if (id === '102899580468591') {
+					// 冷轧
+					$('.shop-type #102899580468591').addClass('active').parent().siblings().find('a').removeClass('active');
+					var upPm = $('.shop-type #102899580468591').find('i').html();
+					$(".secPm select").val("冷轧");
+					sort(102899580468591);
+				} else if (id === '15897038511562900') {
+					// 热轧
+					$('.shop-type #15897038511562900').addClass('active').parent().siblings().find('a').removeClass('active');
+					var upPm = $('.shop-type #15897038511562900').find('i').html();
+					$(".secPm select").val("热轧");
+					sort(15897038511562900);
+				} else if (id === '17882896346107200') {
+					// 镀锌
+					$('.shop-type #17882896346107200').addClass('active').parent().siblings().find('a').removeClass('active');
+					var upPm = $('.shop-type #17882896346107200').find('i').html();
+					$(".secPm select").val("镀锌");
+					sort(17882896346107200);
+				}else if (id === '2440117101297900') {
+					$('.shop-type #2440117101297900').addClass('active').parent().siblings().find('a').removeClass('active');
+					var upPm = $('.shop-type #2440117101297900').find('i').html();
+					$(".secPm select").val("钢管")
+					sort(2440117101297900);
+				} else if (id === '2440139196700000') {
+					$('.shop-type #2440139196700000').addClass('active').parent().siblings().find('a').removeClass('active');
+					var upPm = $('.shop-type #2440139196700000').find('i').html();
+					$(".secPm select").val("线材")
+					sort(2440139196700000);
+				}
+				$('.secPm').val(id);
+				var tkn = getCookie(tk);
+				$.ajax({
+					url: path + '/linA/listsp',
+					type: 'GET',
+					// beforeSend: function (XMLHttpRequest) {
+					// 	XMLHttpRequest.setRequestHeader("token", tkn);
+					// },
+					data: {
+						sCTId: id
+					},
+					// contentType: 'application/json;charset=utf-8',
+					dataType: 'json', //后台返回的数据类型是json文本
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					success: function(result) {
+						if ( result.code == 1) {
+							$('.shop-table tbody').html('');
+							var spList = result.data;
+							for (var i in spList) {
+								var spBox =
+									'<tr><td>' +
+									'<img src="' + photoPath + spList[i].cLogo + '"class="td-align td-img">' + spList[i].cShopName + '</td>' +
+									'<td>' + spList[i].cName + '<span class="hidden">' + spList[i].cId + '</span></td>' +
+									'<td>' + spList[i].cXsnum + '</td>' +
+									'<td>' + spList[i].cTop + '</td>' +
+									'<td>' + spList[i].cZkbl + '</td>' +
+									'<td>' + spList[i].cStockNum + '</td>' +
+									'<td>' + spList[i].cSexPrice + ' 吨</td>' ;
+									
+									if(isEmpty(tkn)) {
+										spBox+=	'<td>价格登录可见</td>'
+									}else{
+										spBox+=	'<td>' + spList[i].cNowPrice + ' ￥</td>'
+									}
+									spBox+=	
+									'<td></td><td class="clearfix">';
+									if(parseInt(spList[i].cStockNum)>0){
+										spBox+='<span class="shop-plan" onclick="goShopCart(this,\'' + spList[i].cId +'\')"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i> 加入购物车</span>' ;
+										spBox+='<span class="shop-pin" onclick="showPin(\'' + spList[i].cId +'\')"><i class="fa fa-paper-plane-o" aria-hidden="true"></i>拼购<span></td></tr>';
+									}else{
+										spBox+='<span class="shop-plan" onclick="myProcessErr(\'库存不足，请稍后下单！\')"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i> 加入购物车</span>' ;
+										spBox+='<span class="shop-pin" onclick="myProcessErr(\'库存不足，请稍后下单！\')"><i class="fa fa-paper-plane-o" aria-hidden="true"></i>拼购<span></td></tr>';
+									}
+									
+								$('.shop-table tbody').append(spBox);
+							}
+						}
+					}
+				})
+			})
+		</script>
+		<script type="text/javascript">
+			$('.secPm').change(function() {
+				// $('.shop-type').find('.active').removeClass('active');
+				//$('.shop-table tbody').html('');
+				var options = $(".secPm select").val();
+				if (options === '镀锌') {
+					$('.shop-type #17882896346107200').addClass('active').parent().siblings().find('a').removeClass('active');
+					var upPm = $('.shop-type #17882896346107200').find('i').html();
+					sort(17882896346107200);
+				} else if (options === '热轧') {
+					$('.shop-type #17882896346107200').addClass('active').parent().siblings().find('a').removeClass('active');
+					var upPm = $('.shop-type #17882896346107200').find('i').html();
+					$(".secPm select").val("热轧");
+				} else if (options === '冷轧') {
+					$('.shop-type #102899580468591').addClass('active').parent().siblings().find('a').removeClass('active');
+					var upPm = $('.shop-type #102899580468591').find('i').html();
+					$(".secPm select").val("冷轧");
+				} else if (options === '酸洗') {
+					$('.shop-type #104075735601256').addClass('active').parent().siblings().find('a').removeClass('active');
+					var upPm = $('.shop-type #104075735601256').find('i').html();
+					sort(104075735601256);
+				} else if (options === '钢管') {
+					$('.shop-type #2440117101297900').addClass('active').parent().siblings().find('a').removeClass('active');
+					var upPm = $('.shop-type #2440117101297900').find('i').html();
+					sort(2440117101297900);
+				} else if (options === '线材') {
+					$('.shop-type #2440139196700000').addClass('active').parent().siblings().find('a').removeClass('active');
+					var upPm = $('.shop-type #2440139196700000').find('i').html();
+					sort(2440139196700000);
+				}
+			});
+			// 清空
+			$('.searchTop-clear').click(function() {
+				$(this).parents('.shop-mage-top').find('.active').removeClass('active')
+				$(this).parents('.shop-mage-top').find('input').val("");
+				$(this).parents('.shop-mage-top').find('select').val("");
+				$('.searchB-two input').val('0');
+			});
+
+			function showMore(thiz) {
+				if ($(thiz).find('i').is('.fa-plus')) {
+					$(thiz).parent('.searchMore').find('.searchMore-mage').css({
+						'height': 'auto',
+						'max-height': '114px',
+						'overflow': 'auto'
+					});
+					$(thiz).find('i').removeClass('fa-plus').addClass('fa-chevron-up');
+					$(thiz).find('b').html('收起');
+				} else {
+					$(thiz).parent('.searchMore').find('.searchMore-mage').css({
+						'height': '28px',
+						'overflow': 'hidden'
+					});
+					$(thiz).find('i').removeClass('fa-chevron-up').addClass('fa-plus');
+					$(thiz).find('b').html('更多');
+				}
+			};
+
+			function checkList(thiz) {
+				$(thiz).toggleClass('active');
+			}
+		</script>
+		<script>
+			$(function() {
+				/*公共部分
+				 * 导航栏
+				 * footer CopyRight
+				 */
+				$(".headerpage").load("header.html");
+				$(".footerpage").load("footer.html");
+			});
+			$("#startTime").empty();
+			for(var oi=1;oi<4;oi++){
+				$("#startTime").append("<option value='"+getDay(oi)+"'>"+getDay(oi)+"</option>");
+			 }
+			function getDay(day){
+			    var today = new Date();
+			    var targetday_milliseconds=today.getTime() + 1000*60*60*24*day;
+			    today.setTime(targetday_milliseconds); //注意，这行是关键代码
+			    var tYear = today.getFullYear();
+			    var tMonth = today.getMonth();
+			    var tDate = today.getDate();
+			    tMonth = doHandleMonth(tMonth + 1);
+			    tDate = doHandleMonth(tDate);
+			    return tYear+"-"+tMonth+"-"+tDate;
+			}
+			function doHandleMonth(month){
+			    var m = month;
+			    if(month.toString().length == 1){
+			     m = "0" + month;
+			    }
+			    return m;
+			}
+
+		</script>
+		
+	</body>
+</html>

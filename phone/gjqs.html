@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>临钢网</title>
+	<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+	<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+    <link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="./css/all.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="./css/reset.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="./css/index.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="./css/quote.css?vid=0326" />
+	<style type="text/css">
+		.cont-left{
+			margin-bottom: 70px;
+		}
+		.chart-box{
+			padding: 0 0.2rem;
+			margin-top: 0.3rem;
+		}
+		.show-box{
+			display: none;
+		}
+		.price-swiper{
+			text-align: center;
+		}
+	</style>
+</head>
+<body style="padding-top: 50px;">
+<div class="head-back2">
+    <div class="head-up">
+        <a href="phone.html"><span class="head-logo"></span></a>
+        <a href="phone.html"><span class="head-gif"></span></a>
+		<a  href="#" onclick="uOnLine('news-page.html')"><span class="head-kf"><i class="messNum"></i></span></a>
+        <a href="fankui.html"><span class="head-fk"></span></a>
+        <a href="user-check-in.html"><span class="head-qd"></span></a>
+        <a href="calcu.html"><span class="head-jsq-white"></span></a>
+    </div>
+    <div class="zf-banner shadow"><img src="../phone/img/index/banner-lg.jpg" width="100%" height="auto" alt=""></div>
+<!--列表-->
+    <div class="box-list" style="margin-top: 25px">
+        <div class="cont-left">
+			<div class="chart-box show-box show">
+				<div class="chart-trend" id="chart-trend">
+					
+				</div>
+		   </div>
+		   <center style="background-color:#f5f5f5"><br>^<br></center>
+		   <div class="chart-box show-box show">
+		   				<div class="chart-trend" id="chart-trend-2">
+		   					
+		   				</div>
+		   </div>
+		   <center style="background-color:#f5f5f5"><br>^<br></center>
+		   <div class="chart-box show-box show">
+		   				<div class="chart-trend" id="chart-trend-3">
+		   					
+		   				</div>
+		   </div>
+		   
+		   <div class="show-box">
+				<div class="today-city">
+					<ul style="display: block;">
+					</ul>
+				</div>
+			
+		   </div>
+		   <br><br><Br></Br>
+        </div>
+    </div>
+</div>
+
+<div class="index-none">
+	<p>我已经到达底线了哦\(^o^)/~</p>
+</div>
+<!--底部-->
+<div class="footerpage"></div>
+
+
+<script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+<script src="js/swiper.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8" src="js/echarts.min.js"></script>
+<script src="js/phone.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+<script src="js/all.js?vid=0611" type="text/javascript" charset="utf-8"></script>
+<script src="js/tools.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8" src="js/chart.js"></script>
+
+<script type="text/javascript">
+$('.main-tab li').click(function () {
+  $(this).addClass('on').siblings().removeClass('on');
+  $('.cont-left .show-box').eq($(this).index()).addClass('show').siblings().removeClass('show');
+})
+</script>
+<script>
+$(function(){
+  /*公共部分
+   * 导航栏
+   * footer CopyRight
+   */
+  $(".footerpage").load("footer.html");
+});
+
+</script>
+
+</body>
+</html>

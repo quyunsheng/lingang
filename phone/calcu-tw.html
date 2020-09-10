@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>临钢网</title>
+		<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+		<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/all.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/detail.css?vid=0326" />
+		<script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/phone.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body style="padding-top: 50px;">
+		<div id="cart-head" class="show">
+			<div class="cart-head">
+				<a class="return" href="javascript:history.back(-1);">
+					<span class="arrow-left"></span>
+				</a>
+				<div class="head-title">分条卷重量计算</div>
+			</div>
+		</div>
+		<div class="calcu-list">
+			<ul>
+				<li>
+					<span class="calcu-left">原卷重量：</span>
+					<span class="calcu-input"><input type="text" name="yweight" id="yweight" value="" placeholder="请输入原卷重量..."></span>
+				</li>
+				<li>
+					<span class="calcu-left">重量单位：</span>
+					<span class="calcu-select">
+						<select name="types">
+							<option value="">吨（t）</option>
+						</select>
+					</span>
+				</li>
+				<li>
+					<span class="calcu-left">原卷宽度：</span>
+					<span class="calcu-input"><input type="text" value="" name="ywidth" id="ywidth" placeholder="请输入原卷宽度(mm)..."></span>
+				</li>
+			</ul>
+		</div>
+		<div class="calcu-list">
+			<ul>
+				<li>
+					<span class="calcu-left">分条宽度：</span>
+					<span class="calcu-input"><input type="text" name="fwidth" id="fwidth" value="" placeholder="请输入分条宽度(mm)..."></span>
+				</li>
+				<li>
+					<span class="calcu-left">分条重量：</span>
+					<span class="calcu-input"><input type="text" value="" name="fcount" id="fcount" placeholder="请输入分条条数..."></span>
+				</li>
+				<li>
+					<span class="calcu-left">单位：</span>
+					<span class="calcu-select">
+						<select name="types" id="types">
+							<option value="t">吨（t）</option>
+							<option value="kg">千克（kg）</option>
+						</select>
+					</span>
+				</li>
+			</ul>
+		</div>
+		<div class="calcu-list">
+			<ul>
+				<li class="clearfix">
+					<span class="calcu-left fl">重量：</span>
+					<span class="calcu-content fr" id="ycont">0.000</span>
+				</li>
+			</ul>
+		</div>
+		<div class="calcu-submit">
+			<ul class="clearfix">
+		        <li><a href="#" class="calcu-btn grey" id="dreset">重置</a></li>
+		        <li><a href="#" class="calcu-btn" id="btn3">计算</a></li>
+		    </ul>
+		</div>
+	</body>
+</html>
+
+
+<script type="text/javascript" src="js/return.js?"></script>
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "https://hm.baidu.com/hm.js?4d1ea0acd259ddc34ff83702b6aae89b";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+<script type="text/javascript">
+	$(function(){
+		$("#btn3").click(function(){
+			var yweight=$("#yweight").val();
+			var ywidth=$("#ywidth").val();
+			var fwidth=$("#fwidth").val();
+			var fcount=$("#fcount").val();
+			var types=$("#types").val();
+			if(yweight==""){
+				alert("原卷重量不能为空");
+			}else if(ywidth==""){
+				alert("原卷宽度不能为空");
+			}else if(fwidth==""){
+				alert("分条宽度不能为空");
+			}else if(fcount==""){
+				alert("分条条数不能为空");
+			}else if(types=="t"){
+				$("#ycont").text((fwidth*fcount/ywidth*yweight).toFixed(4));
+			}else if(types=="kg"){
+				$("#ycont").text((fwidth*fcount/ywidth*yweight*1000).toFixed(4));
+			}
+
+		})
+		$("#dreset").click(function(){
+			$("#yweight").val('');
+			$("#ywidth").val('');
+			$("#fwidth").val('');
+			$("#fcount").val('');
+			$("#ycont").text('0.000');
+		})
+
+
+
+	})
+</script>
+
+
+

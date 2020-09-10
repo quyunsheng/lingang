@@ -1,0 +1,312 @@
+.check-img {
+    background: url("../img/check.jpg") no-repeat;
+    background-size: cover;
+    /*width: 100%;*/
+    height: 350px;
+}
+
+.top {
+    width: 100%;
+    height: 12rem;
+    overflow: hidden;
+    padding-top: 20px;
+}
+
+.top .return {
+    display: block;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    padding: 13px;
+    left: 0;
+    top: 0;
+}
+
+.top .out-1 {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    background: rgba(255, 255, 255, 0.4);
+    margin: 1rem auto 0 auto;
+    position: relative;
+	cursor: pointer;
+}
+
+.top .out-1 .out-2 {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    background: #ffffff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -3.5rem;
+    margin-left: -3.5rem;
+}
+
+.top .out-1 .out-2 .signBtn {
+    width: 6.2rem;
+    height: 6.2rem;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    border: 1px #7ebdff solid;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -3.1rem;
+    margin-left: -3.1rem;
+}
+
+.top .out-1 .out-2 .signBtn strong,
+.top .out-1 .out-2 .signBtn span {
+    display: block;
+    width: 85%;
+    margin: 0 auto;
+    text-align: center;
+    /*color: #007aff;*/
+}
+
+.top .out-1 .out-2 .signBtn strong {
+    height: 3.5rem;
+    line-height: 4.5rem;
+    font-weight: 600;
+    border-bottom: 1px #eee solid;
+}
+
+.top .out-1 .out-2 .signBtn span {
+    height: 2.5rem;
+    /*line-height: 2.5rem;*/
+    font-size: .9rem;
+    line-height: 2rem !important;
+}
+.top .out-1 .out-2 .signBtn span em{
+	margin-right: 3px;
+}
+.top .out-1:active {
+    animation: sign .25s forwards;
+    -webkit-animation: sign .25s forwards;
+}
+
+.tips {
+    position: absolute;
+    top: 14rem;
+    z-index: 999;
+    width: 100%;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    padding-bottom: .5rem;
+}
+.tips b{
+	font-size: 30px;
+	margin: 0 5px;
+	color: #eab85b;
+	text-shadow: 3px 3px 2px #000000;
+}
+
+.Calendar {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.siginBtn1 {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: #4888e8;
+    border-radius: 4vw;
+    box-shadow: 0 0 30px;
+    color: #fff;
+    font-size: 16px;
+	font-weight: bold;
+	position: relative;
+}
+
+.siginBtn2{
+    position: relative;
+    top: -4px;
+    font-size: 35px;
+    width: 25px;
+    height: 6px;
+    padding: 0;
+	background: #0c57c7;
+    box-shadow: none;
+	z-index: 9;
+	display: inline-block;
+}
+.dayChose{
+	background: #d4b008 !important;
+}
+.Calendar-list .siginGift{
+	display: inline-block;
+	width: 100px;
+	position: relative;
+	top: -8px;
+	left: -2px;
+}
+.siginNum{
+	font-size: 14px;
+	width: 50px;
+	color: #eab85b;
+	font-weight: bold;
+	position: absolute;
+	top: -48px;
+	left: 3px;
+	text-shadow: 2px 2px 2px #000000;
+}
+.coin {
+    background: url("../img/clin.jpg") no-repeat;
+    background-size: 52px 52px;
+    background-position: -1px 0;
+}
+.exchange {
+    padding: 1rem 0;
+}
+
+.exchange ul {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1200px;
+    margin: auto;
+}
+
+.exchange ul li {
+    width: 566px;
+    border: 1px solid #ccc;
+    position: relative;
+    display: flex;
+    margin: 10px 15px 10px 10px;
+    box-shadow: 0 0 5px;
+    background: url('../img/GztHvVFuMp_small.jpg');
+}
+
+.exchange ul li img {
+    width: 250px;
+    height: 250px;
+    border: 1px solid #ccc;
+    margin: 8px;
+}
+
+.check-text {
+    margin: 50px 20px 0 10px;
+    font-size: 16px;
+}
+
+.exchange ul li > div {
+    position: relative;
+    width: 298px;
+	display: inline-block;
+}
+
+.exchange ul li > div p {
+    margin-bottom: 1vw;
+}
+
+.exchange ul li button {
+    background-color: #eab85b;
+    height: 2rem;
+    padding: 0 1vw;
+    border-radius: 1rem;
+    position: absolute;
+    right: 13%;
+    bottom: 15px;
+	outline: none;
+}
+/* 大转盘样式 */
+.banner {
+    display: block;
+    width: 95%;
+    margin: auto;
+    position: relative;
+    height: 450px;
+}
+
+.banner .turnplate {
+    display: block;
+    background: url(../img/turnplate-bg.png) no-repeat;
+    position: absolute;
+    left: 50%;
+    margin-left: -211px;
+    margin-top: 20px;
+}
+
+.banner .turnplate canvas.item {
+    /*width: 100%;*/
+}
+
+.banner .turnplate img.pointer {
+    position: absolute;
+    left: 34.6%;
+    top: 23%;
+}
+.lucky{
+	width: 800px;
+	margin: 70px auto 0;
+	padding: 50px 0;
+	border-top: 3px dashed #ccc;
+}
+.lucky h3{
+	margin-bottom: 30px;
+}
+.lucky p{
+	line-height: 30px;
+	padding-left: 10px;
+}
+/* 随机兑换 */
+.goods-box{
+	width: 800px;
+	margin: 30px auto 0;
+	height: auto;
+}
+.goods-box h1{
+	margin-bottom: 30px;
+}
+.goods-img {
+	width: 260px;
+	height: 260px;
+	padding: 10px;
+	border: 1px solid #636363;
+	border-radius: 5px;
+	margin-left: 20px;
+}
+.goods-img img{
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+}
+.goods-mage{
+	margin-left: 34px;
+}
+.goods-mage h3{
+	margin: 10px 0;
+}
+.goods-mage p{
+	color: #636363;
+	line-height: 24px;
+}
+.goods-mage button{
+	background-color: #eab85b;
+	height: 35px;
+	padding: 0 15px;
+	border-radius: 1rem;
+	outline: none;
+	margin-top: 50px;
+}
+.goods-rules{
+	margin-top: 30px;
+	padding-top: 20px;
+	border-top: 1px dashed #ccc;
+}
+.goods-rules p{
+	line-height: 30px;
+}
+.goods-rules h4{
+	margin: 10px 0;
+}
+.goodsNum span{
+	margin: 20px 30px 0 0;
+}

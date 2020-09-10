@@ -1,0 +1,329 @@
+.type-back{
+	margin-left: 15px;
+}
+.header {
+    display: flex;
+    width: 100%;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    font-size: 0.4rem;
+    color: #fff;
+    background: linear-gradient(235deg, rgba(64, 158, 255, 1) 0%, rgba(36, 120, 252, 1) 100%);
+    z-index: 100;
+}
+.point {
+    width: 1px;
+    height: 1px;
+    border-radius: 50%;
+    border: 2px solid red;
+    position: absolute;
+    top: 0;
+    left: 44px;
+}
+.news-center {
+    width: 100%;
+}
+
+.seeMore {
+    width: 90%;
+    margin-left: 5%;
+    background-color: #bbe2f3;
+    height: 35px;
+    line-height: 35px;
+    color: #1890FF;
+    border-radius: 100px;
+    margin-top: 10px;
+}
+
+.news-center ul li {
+    padding: .2rem 0;
+    margin: .02rem 15px;
+    background-color: #fff;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.news {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 80%;
+}
+
+.xx-name {
+    font-size: 14px;
+}
+
+.sendBox {
+    position: fixed;
+    bottom: 0;
+}
+.flex-box {
+    display: flex;
+    justify-content: space-between;
+}
+.send {
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.send input {
+	border: 1px solid #000;
+	border-radius: 6px;
+	height: 32px;
+	padding: 0 5px;
+	box-sizing: border-box;
+	display: inline-block;
+}
+
+.send div {
+	display: inline-block;
+	padding: 0 5px;
+	flex-shrink: 0;
+	line-height: 32px;
+	background-color: #d5d2d2;
+	margin-left: 5px;
+	border-radius: 5px;
+	border: 1px solid #d5d2d2;
+}
+
+.noMore {
+    text-align: center;
+    display: none;
+}
+
+.loading {
+    text-align: center;
+}
+.center p {
+    position: absolute;
+    top: 1px;
+    color: #bdbdbd;
+    font-size: 12px;
+}
+#talk .userPic {
+    width: 25px !important;
+    height: 25px !important;
+    background-size: cover;
+    flex-shrink: 0;
+	position: relative;
+	top: -16px;
+}
+#talk li{
+	position: relative;
+	padding-top:20px;
+}
+#talk .newImg {
+    width: 200px;
+}
+
+.moreBtn {
+	width: auto;
+    height: .5rem;
+    margin-top: .1rem;
+    margin-left: 5px;
+}
+
+.moreBox {
+    display: none;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.moreBox > a {
+    display: inline-block;
+    text-align: center;
+}
+
+.moreBox > a > span {
+    margin-top: 5px;
+    display: inline-block;
+}
+
+.moreBox img {
+    width: 20px;
+    height: 20px;
+    background-color: #bbe2f3;
+    border-radius: 6px;
+    padding: 5px;
+}
+
+#common {
+    flex-shrink: 0;
+    border-radius: 6px;
+    margin: 0 5px 0 0;
+    background-color: #3994ff;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+.fa-smile-o {
+    font-size: 30px;
+    color: #ff8100;
+    margin-left: 5px;
+}
+
+.interesasBox {
+    position: relative;
+    /*top: 0;*/
+    display: none;
+    width: 90%;
+    margin: 10px auto 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.interesasTitle {
+    border-bottom: 2px solid #3db8c0;
+}
+
+.interesasCenter {
+    /*display: flex;*/
+    margin-top: 10px;
+    position: relative;
+}
+
+.interesasCenter:nth-child(even) {
+    border-bottom: 1px solid #ccc;
+}
+
+.interesas {
+    border-radius: 6px;
+    border: 1px solid #1890FF;
+    color: #1890FF;
+    display: inline-block;
+    padding: 5px;
+    text-align: right;
+    position: absolute;
+    right: 0;
+    top: -4px;
+}
+
+.interesasText {
+    width: 70%;
+}
+.header {
+    display: flex;
+    width: 100%;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    font-size: 15px;
+    background-color: #fff;
+    /*background: linear-gradient(235deg, rgba(64, 158, 255, 1) 0%, rgba(36, 120, 252, 1) 100%);*/
+    z-index: 100;
+}
+
+.header .head-txt {
+    width: 200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.header :nth-child(3) {
+    position: absolute;
+    right: 0;
+    width: 1rem;
+    font-size: 15px;
+}
+
+.center {
+    width: 100%;
+    margin: 1rem auto;
+    border-radius: 6px;
+    background-color: #fff;
+    box-sizing: border-box;
+	padding: 0 10px;
+}
+
+.center input {
+    background-color: #f5f5f5;
+}
+.seeDd{
+	text-align: center;
+	color: #9b9b9b;
+	margin-top: 10px;
+}
+.m-width {
+    width: 100%;
+}
+.update-img {
+    float: left;
+    width: 100%;
+    height: 200px;
+    border: 1px dashed #ccc;
+    text-align: center;
+    line-height: 170px;
+    margin-top: 10px;
+    margin-right: 10px;
+    position: relative;
+}
+
+.update-img img {
+    position: absolute;
+    left: 20%;
+    top: 34%;
+}
+
+.update-img .up-choose {
+    width: 280px;
+    height: 170px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    z-index: 11;
+}
+.head-txt img{
+	width: 16px;
+	height: 14px;
+	margin-left: 5px;
+	position: relative;
+	top: -1px;
+}
+.mb{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0,0,0,0.3);
+	display: none;
+	z-index: 999;
+}
+.kfBox{
+	position: fixed;
+	top: 45px;
+	left: 0;
+	bottom: 0;
+	width: 50%;
+	overflow-y: scroll;
+	background: #ffffff;
+	padding: 0 15px;
+	z-index: 999;
+	display: none;
+}
+.kfBox li{
+	padding: 15px 0;
+	cursor: pointer;
+	border-bottom: 1px dashed #dddddd;
+}
+.kfBox li img{
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	margin-right: 10px;
+}
+.kfBox .active{
+	color: #45aae4;
+}

@@ -1,0 +1,132 @@
+<!-- 顶部导航 -->
+		<div class="nav-top-box">
+			<div class="nav-top clearfix">
+				<ul class="fl">
+					<li class="nohover"><a href="index.html">首页</a></li>
+					<span class="nav-line">|</span>
+					<li>
+						<a href="#">手机首页</a>
+						<span class="hover-box clearfix" style="width: 260px;padding: 10px 10px 0 10px;">
+							<span class="fl">
+								<p><img src="img/apk.png" width="100"></p>
+								<p>临钢网微信公众号</p>
+							</span>
+							<span class="fl ym-six" style="width: 143px;margin-left: 10px;padding-left: 5px; ">
+								<p style="font-weight: bold;text-align: left;margin-left:0px;line-height:30px;font-size: 14px;">手机请搜索</p>
+								<p><a style="width: 70px;" href="http://www.临钢网.中国">临钢网.中国</a><a style="width: 70px;" href="http://www.临钢.中国">临钢.中国</a></p>
+								<p><a style="width: 70px;" href="http://www.临钢网.com">临钢网.com</a><a style="width: 70px;" href="http://www.临钢.com">临钢.com</a></p>
+								<a href="https://www.lingangsteel.com">www.lingangsteel.com</a>
+							</span>
+						</span>
+					</li>
+					<span class="nav-line">|</span>
+					<li class="nohover noLogin ">请&nbsp;
+						<a href="login.html">登录</a>
+						&nbsp;或&nbsp;
+						<a href="login.html">免费注册</a>
+					</li>
+					<li class="nohover rLogin hidden">
+						<i style="margin-right: 5px;" class="fa fa-user-o" aria-hidden="true"></i>欢迎！
+						<span></span>
+						<a href="javascript:logout();">退出</a>
+					</li>
+				</ul>
+				<ul class="fr">
+					<!-- <li class="nohover">
+						<a href="">
+							<i class="fa fa-bell-o" aria-hidden="true" style="font-weight: bold;"></i>
+							消息(<span style="color: #FFFFFF;">0</span>)
+						</a>
+					</li>
+					<span class="nav-line">|</span> -->
+					<li>
+						<a href="javascript:;">我的账户<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+						<span class="hover-box">
+							<dl>
+								<a href="javascript:;" onclick="uOnLine('user-infor.html')">账户信息</a>
+							</dl>
+							<dl>
+								<a href="javascript:;" onclick="uOnLine('user-order.html')">我的订单</a>
+							</dl>
+							<dl>
+								<a href="javascript:;" onclick="uOnLine('user-payfor.html')">付款记录</a>
+							</dl>
+						</span>
+					</li>
+					<span class="nav-line">|</span>
+					<li>
+						<a href="">客户服务<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+						<span class="hover-box">
+							<dl>
+								<a href="help.html">常见问题</a>
+							</dl>
+							<dl>
+								<a href="help.html?type=1&list=1">新手帮助</a>
+							</dl>
+							<dl>
+								<a href="javascript:;" onclick="uOnLine('user-fankui.html')">问题反馈</a>
+							</dl>
+						</span>
+					</li>
+					
+				</ul>
+			</div>
+		</div>
+
+		<div class="head-mid-box">
+			<div class="head-mid">
+				<a href="index.html"><img class="head-logo" src="img/logo.png"></a>
+				<img class="head-gif" src="img/yourAnswer.gif">
+				<div class="head-mid-right clearfix">
+					<div class="head-search fr">
+						<input class="Hsearch-txt" type="text" name="" id="" value="" />
+						<input class="Hsearch-btn" onclick="searchType()" type="button" name="" id="" value="搜索" />
+						<ul class="Hsearch-type">
+							
+<li><a href="shop.html?cId=15896115486855900">热轧</a></li>&nbsp;
+<li><a href="shop.html?cId=102899580468591">螺纹</a></li>&nbsp;
+<li><a href="shop.html?cId=104075735601256">角铁</a></li>&nbsp;
+<li><a href="shop.html?cId=2440117101297900">圆钢</a></li>&nbsp;
+<li><a href="shop.html?cId=982872915764300">槽钢</a></li>&nbsp;
+<li><a href="shop.html?cId=830901998124000">黑管</a></li>&nbsp;
+
+							
+						</ul>
+					</div>
+				</div>
+				<div class="head-btm-nav">
+					<ul class="clearfix">
+						<li><a class="hbn-link" href="index.html">首页</a></li>
+						<li><a class="hbn-link" href="shop.html">临钢优选</a></li>
+						<li><a class="hbn-link" href="video.html">临钢智享</a></li>
+						<li><a class="hbn-link" href="information.html">钢板资讯</a></li>
+						<li><a class="hbn-link" href="help.html?type=1&list=1">会员中心</a></li>
+						<li><a class="hbn-link" href="guanjia.html">专属服务</a></li>
+						<li class="about-show">
+							<a class="about-lg" href="team-index.html">走进临钢</a>
+							<div class="about-team">
+								<a href="team-dynamic.html">临钢动态</a>
+								<a href="team-join.html">招贤纳士</a>
+								<a href="team-find.html">联系我们</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+		
+<!-- 跳转改变导航样式js必须写在header.html里面，如在index.html等其他页面写或引入，则无效 -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".head-btm-nav li a").each(function() {
+            if($(this)[0].href == String(window.location)) {
+				$(this).parents("li").addClass("active").siblings().removeClass('active');
+            }
+        });
+    });
+	function searchType(){
+		var toUrl = $('.Hsearch-txt').val();
+		window.location.href = 'shop.html?type='+escape(toUrl);
+	}
+</script>

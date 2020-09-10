@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no">
+		<title>签到</title>
+		<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+		<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+		<link rel="stylesheet" type="text/css" href="./css/public.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/signin.css?vid=0225" />
+		<link rel="stylesheet" type="text/css" href="css/all.css?vid=0326" />
+		<script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.Calendar-list{
+				display: inline-block;
+			}
+			.gary{
+				 filter:Gray; 
+				 -webkit-filter: grayscale(100%);
+			}
+		</style>
+	</head>
+
+	<body style="padding-top: 50px;padding-bottom: 70px;">
+		<div id="cart-head" class="show">
+			<div class="cart-head">
+				<a class="return" href="javascript:history.back(-1);">
+					<span class="arrow-left"></span>
+				</a>
+				<div class="head-title">签到</div>
+				
+			</div>
+		</div>
+		<div class="top flex flex-align-end flex-pack-center flex-warp">
+			<div class="out-1 flex flex-align-center flex-pack-center" id="signIn">
+				<div class="out-2 flex flex-align-center flex-pack-center">
+					<div class="signBtn">
+						<strong id="sign-txt" onclick="msqd()">马上签到</strong>
+						<span>连续<em id="sign-count">0</em>天</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="tips">我有<b></b>个钢豆</div>
+		<div class="Calendar clearfix">
+			<div class="Calendar-list Calendar1">
+				<span class="siginBtn1">+2</span>
+				<span class="siginBtn2"></span>
+			</div>
+		    <div class="Calendar-list Calendar2">
+		    	<span class="siginBtn1">+2</span>
+		    	<span class="siginBtn2"></span>
+		    </div>
+			<div class="Calendar-list Calendar3">
+				<span class="siginBtn1">+4</span>
+				<span class="siginBtn2"></span>
+			</div>
+			<div class="Calendar-list Calendar4">
+				<span class="siginBtn1">+4</span>
+				<span class="siginBtn2"></span>
+			</div>
+			<div class="Calendar-list Calendar5">
+				<span class="siginBtn1">+8</span>
+				<span class="siginBtn2"></span>
+			</div>
+			<div class="Calendar-list Calendar6">
+				<span class="siginBtn1">+8</span>
+				<span class="siginBtn2"></span>
+			</div>
+			<div class="Calendar-list Calendar7 gary">
+				<div class="siginBtn1">
+					<img class="siginGift" src="img/gift.png" >
+					<i class="hidden coin">+16</i>
+					<span class="siginNum">翻倍x2</span>
+				</div>
+			</div>
+		   
+		</div>
+		<div class="exchange">
+			<h1 style="text-align: center;line-height: 60px;font-weight: bold;">钢豆兑换</h1>
+			<ul>
+
+				<li>
+					<img src="./img/goods/mt.jpg" alt="">
+					<div>
+						<div>
+							<p>兑换茅台</p>
+							<p>50钢豆/次</p>
+						</div>
+						<button><a href="goods-mt.html">立即兑换</a></button>
+					</div>
+				</li>
+				<li>
+					<img src="./img/goods/wly.jpg" alt="">
+					<div>
+						<div>
+							<p>兑换五粮液</p>
+							<p>50钢豆/次</p>
+						</div>
+						<button><a href="goods-wly.html">立即兑换</a></button>
+					</div>
+				</li>
+				<li>
+					<img src="./img/index/jizan.jpg" alt="">
+					<div>
+						<div>
+							<p>集赞抢货款</p>
+							<p></p>
+						</div>
+						<button><a href="list-jizan.html">查看详情</a></button>
+					</div>
+				</li>
+				<li>
+					<img src="./img/findgift.jpg" alt="">
+					<div>
+						<div>
+							<p>抽奖领好礼</p>
+							<!--<p>1000钢豆</p>-->
+						</div>
+						<button><a href="#">敬请期待</a></button>
+					</div>
+				</li>
+			</ul>
+			<br>
+			<div class="index-none">
+				<p>我已经到达底线了哦\(^o^)/~</p>
+			</div>
+		</div>
+
+		<!--底部-->
+		<div class="footerpage"></div>
+		<script src="js/tools.js?vid=0601" type="text/javascript" charset="utf-8"></script>
+		<script src="js/all.js?vid=0601" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(function() {
+				/*公共部分
+				 * 导航栏
+				 * footer CopyRight
+				 */
+				$('.footerpage').load('footer.html');
+				var tkn = getCookie(tk);
+				if (isEmpty(tkn)) {
+					myProcessErr('请先登录！')
+					window.location.href='./login.html';
+					return;
+				};
+			});
+		</script>
+		<script type="text/javascript">
+			var tkn = getCookie(tk);
+			$(function() {
+				$.ajax({
+					url: path + '/linA/getgd',
+					type: 'GET',
+					data: {},
+					dataType: 'json', //后台返回的数据类型是json文本
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					success: function(result) {
+						console.log(result)
+						if(result != "" && result.code == 1){
+							if(result.data.sign_state == 0){
+								$('#sign-txt').html('已签到');
+							}
+							var mysteelD = result.data.details;
+							$('.tips b').html(result.data.cGoldGz);
+							var qdDay =  result.data.douDay;
+							$('#sign-count').html(result.data.cntDays)
+							if(qdDay==1){
+								$(".Calendar .Calendar-list:lt(1)").find('.siginBtn1').addClass('coin');
+								$(".Calendar .Calendar-list:lt(1)").find('.siginBtn2').addClass('dayChose');
+							}
+							if(qdDay==2){
+								$(".Calendar .Calendar-list:lt(2)").find('.siginBtn1').addClass('coin');
+								$(".Calendar .Calendar-list:lt(2)").find('.siginBtn2').addClass('dayChose');
+							}
+							if(qdDay==3){
+								$(".Calendar .Calendar-list:lt(3)").find('.siginBtn1').addClass('coin');
+								$(".Calendar .Calendar-list:lt(3)").find('.siginBtn2').addClass('dayChose');
+							}
+							if(qdDay==4){
+								$(".Calendar .Calendar-list:lt(4)").find('.siginBtn1').addClass('coin');
+								$(".Calendar .Calendar-list:lt(4)").find('.siginBtn2').addClass('dayChose');
+							}
+							if(qdDay==5){
+								$(".Calendar .Calendar-list:lt(5)").find('.siginBtn1').addClass('coin');
+								$(".Calendar .Calendar-list:lt(5)").find('.siginBtn2').addClass('dayChose');
+							}
+							if(qdDay==6){
+								$(".Calendar .Calendar-list:lt(6)").find('.siginBtn1').addClass('coin');
+								$(".Calendar .Calendar-list:lt(6)").find('.siginBtn2').addClass('dayChose');
+							}
+							if(qdDay==7){
+								$(".Calendar .Calendar-list:lt(6)").find('.siginBtn1').addClass('coin');
+								$(".Calendar .Calendar-list:lt(6)").find('.siginBtn2').addClass('dayChose');
+								$('.Calendar7').removeClass('gary');
+							}
+						}else{
+							myProcessErr(result.msg)
+						}
+						
+		
+					}
+				});
+			})
+			function msqd(){
+				var tkn = getCookie(tk);
+				if(isEmpty(tkn)){
+					window.location.href = 'login.html';
+					return;
+				}
+				$.ajax({
+					url: path + '/linA/sign',
+					type: 'POST',
+					data: {},
+					dataType: 'json', //后台返回的数据类型是json文本
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					success: function(result) {
+						// console.log(result)
+						if(result != "" && result.code == 1){
+							var signList = result.data.sign;
+							if(result.data.sign_state == 0){
+								$('#sign-txt').attr("disabled", "disabled");
+								$('#sign-txt').html('已签到');
+							}
+							window.location.href = 'user-check-in.html';
+						}else{
+							myProcessErr(result.msg)
+						}
+				
+				
+					}
+				})
+			}
+			function isEmpty(obj) {
+				if (obj == '' || obj == 'null' || obj == 'undefined' || obj == undefined)
+					return true;
+				else
+					return false;
+			}
+		</script>
+	</body>
+</html>

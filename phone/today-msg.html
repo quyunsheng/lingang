@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>临钢网</title>
+	<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+	<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+    <link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="./css/all.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="./css/reset.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="./css/index.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="./css/quote.css?vid=0326" />
+	<style type="text/css">
+		.kx-list{
+			border-radius: 10px;
+			box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+			margin-bottom: 10px;
+			margin-top: 0.3rem;
+			padding: 0.1rem 0.2rem 0.2rem 0.2rem;
+			box-sizing: border-box;
+		}
+		.kx-list span{
+			display: block;
+			line-height: 0.6rem;
+		}
+		.cont-left{
+			margin-bottom: 70px;
+		}
+	</style>
+</head>
+<body style="padding-top: 50px;">
+
+<div class="head-back2">
+    <div class="head-up">
+        <a href="phone.html"><span class="head-logo"></span></a>
+        <a href="phone.html"><span class="head-gif"></span></a>
+		<a  href="#" onclick="uOnLine('news-page.html')"><span class="head-kf"><i class="messNum"></i></span></a>
+        <a href="fankui.html"><span class="head-fk"></span></a>
+        <a href="user-check-in.html"><span class="head-qd"></span></a>
+        <a href="calcu.html"><span class="head-jsq-white"></span></a>
+    </div>
+    <div class="zf-banner shadow"><img src="../phone/img/index/banner-zx.jpg" width="100%" height="auto" alt=""></div>
+<!--列表-->
+    <div class="box-list" style="margin-top: 25px">
+        <div class="cont-title">
+            <ul class="main-tab">
+                <li><a href="information.html">行业资讯</a></li>
+                <li  class="on"><a href="today-msg.html">今日快讯</a></li>
+            </ul>
+        </div>
+        <div class="cont-left">
+            <ul class="message-kx hyzx show">
+
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="index-none">
+	<p>我已经到达底线了哦\(^o^)/~</p>
+</div>
+<!--底部-->
+<div class="footerpage"></div>
+
+
+<script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+<script src="js/swiper.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+<script src="js/phone.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+<script src="js/tools.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+<script src="js/all.js?vid=0611" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript">
+$('.main-tab li').click(function () {
+  $(this).addClass('on').siblings().removeClass('on');
+  $('.cont-left ul').eq($(this).index()).addClass('show').siblings().removeClass('show');
+})
+</script>
+<script>
+$(function(){
+  /*公共部分
+   * 导航栏
+   * footer CopyRight
+   */
+  $(".footerpage").load("footer.html");
+});
+</script>
+<script type="text/javascript">
+			// 获取新闻
+			$(function() {
+				$.ajax({
+					url: path + '/linA/listkx',
+					type: 'GET',
+					data: {},
+					dataType: 'json', //后台返回的数据类型是json文本
+					// beforeSend: function(XMLHttpRequest) {
+					// 	XMLHttpRequest.setRequestHeader("token", tkn);
+					// },
+					success: function(result) {
+						if(result != "" && result.code == 1){
+							var listkx = result.data;
+							for (var i in listkx) {
+								var newBox =
+									'<li><h3>' + listkx[i].date + '</h3>'
+								for (var j in listkx[i].list) {
+									newBox +=
+										'<div class="kx-list"><span>'+listkx[i].list[j].cCreateTime.split(" ")[1]+'</span>'+
+										'<p>'+ listkx[i].list[j].cSummary +'</p></div>'
+								}
+									newBox +=
+									'</li>';
+								$('.message-kx').append(newBox);
+							
+							};
+						}else{
+							myProcessErr(result.msg)
+						}
+					}
+				});
+			})
+		</script>
+</body>
+</html>

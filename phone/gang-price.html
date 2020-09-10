@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>临钢网</title>
+	<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+	<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+    <link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="./css/all.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="./css/reset.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="./css/index.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="./css/quote.css?vid=0326" />
+	<style type="text/css">
+		.cont-left{
+			margin-bottom: 70px;
+		}
+		.chart-box{
+			padding: 0 0.2rem;
+			margin-top: 0.3rem;
+		}
+		.show-box{
+			display: none;
+		}
+		.price-swiper{
+			text-align: center;
+		}
+	</style>
+</head>
+<body style="padding-top: 50px;">
+<div class="head-back2">
+    <div class="head-up">
+        <a href="phone.html"><span class="head-logo"></span></a>
+        <a href="phone.html"><span class="head-gif"></span></a>
+		<a  href="#" onclick="uOnLine('news-page.html')"><span class="head-kf"><i class="messNum"></i></span></a>
+        <a href="fankui.html"><span class="head-fk"></span></a>
+        <a href="user-check-in.html"><span class="head-qd"></span></a>
+        <a href="calcu.html"><span class="head-jsq-white"></span></a>
+    </div>
+    <div class="zf-banner shadow"><img src="../phone/img/index/banner-zx.jpg" width="100%" height="auto" alt=""></div>
+<!--列表-->
+    <div class="box-list" style="margin-top: 25px">
+        <div class="cont-title">
+            <ul class="main-tab">
+                <li class="on"><a href="javascript:void(0)">钢价趋势</a></li>
+				<li><a href="javascript:void(0)">今日卷价</a></li>
+            </ul>
+        </div>
+        <div class="cont-left">
+			<div class="chart-box show-box show">
+				<div class="chart-trend" id="chart-trend">
+					
+				</div>
+		   </div>
+		   <div class="show-box">
+				<div class="today-city">
+					<ul style="display: block;">
+					</ul>
+				</div>
+			
+				<div class="swiper-container price-swiper">
+				    <div class="swiper-wrapper">
+						
+						
+					</div>
+				</div>
+		   </div>
+        </div>
+    </div>
+</div>
+<div class="index-none">
+	<p>我已经到达底线了哦\(^o^)/~</p>
+</div>
+<!--底部-->
+<div class="footerpage"></div>
+
+
+<script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+<script src="js/swiper.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8" src="js/echarts.min.js"></script>
+<script src="js/phone.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+<script src="js/all.js?vid=0611" type="text/javascript" charset="utf-8"></script>
+<script src="js/tools.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8" src="js/charts.js"></script>
+
+<script type="text/javascript">
+$('.main-tab li').click(function () {
+  $(this).addClass('on').siblings().removeClass('on');
+  $('.cont-left .show-box').eq($(this).index()).addClass('show').siblings().removeClass('show');
+})
+</script>
+<script>
+$(function(){
+  /*公共部分
+   * 导航栏
+   * footer CopyRight
+   */
+  $(".footerpage").load("footer.html");
+});
+// 获取页面 A 访问的 url
+	var ur = location.href;
+	// 获取页面 A 访问的 url 的 = 后面的 数字 （对应着这个页面的 id）
+	console.log(ur)
+	var type=1;
+	if(ur.indexOf('?')<1){
+		type=1;
+	}else{
+		type= ur.split('?')[1].split('=')[1];
+	}
+	$('.main-tab li').eq(type - 1).addClass('on').siblings().removeClass('on');
+	$('.show-box').eq(type - 1).addClass('show').siblings().removeClass('show');
+</script>
+<script type="text/javascript">
+	// var tkn = getCookie(tk);
+	$.ajax({
+		url: path + '/linA/listjjsf',
+		type: 'GET',
+		// beforeSend: function (XMLHttpRequest) {
+		// 	XMLHttpRequest.setRequestHeader("token", tkn);
+		// },
+		data: {},
+		// contentType: 'application/json;charset=utf-8',
+		dataType: 'json', //后台返回的数据类型是json文本
+		success: function(result) {
+			if (result != "" && result.code == 1) {
+				var cityName = result.data;
+				// console.log(result)
+				// changeCity(cityName[0].cName);
+				for (var i in cityName) {
+					var cityList =
+						"<li "+ (i==0 ? "class='on'": "") + " onclick='changeCity(this,\"" + cityName[i].cName + "\")'>" + cityName[i].cName + "</li>";
+					$('.today-city ul').append(cityList);
+				}
+				$('.today-city ul li').eq(0).click();
+			}
+		}
+	});
+		// 选择城市卷价切换
+		function changeCity(thiz,pName) {
+			$.ajax({
+				url: path + '/linA/listjj',
+				type: 'GET',
+				data: {
+					pName: pName
+				},
+				dataType: 'json', //后台返回的数据类型是json文本
+				success: function(result) {
+					// console.log(result)
+					if (result != "" && result.code == 1) {
+						$(thiz).addClass('on').siblings().removeClass('on');
+						$('.price-swiper .swiper-wrapper').html('');
+						var jj = result.data;
+						for (var i in jj) {
+							var Cbli = (jj[i].cYesterdayprice / jj[i].cTodayprice / 100).toFixed(2);
+							var jjList =
+								'<div class="slide-list swiper-slide">' +
+								'<h2 class="span-list1">' + jj[i].cShopColumnType + '</h2>';
+						// <img src="' + photoPath + jj[i].cBlockId + '" >
+							// 相较昨日变化趋势0=减少 1= 增加 2=持平 "
+							if (jj[i].cStatechange == 0) {
+								jjList +=
+									'<div class="green span-list2">' + jj[i].cTodayprice +
+									'<i class="fa fa-arrow-down green" aria-hidden="true"></i></div>' +
+									'<div class="green span-list3">-' + jj[i].cYesterdayprice + '&nbsp;&nbsp;&nbsp;&nbsp;-' + Cbli[i] +
+									'%</div>';
+							} else if (jj[i].cStatechange == 1) {
+								jjList +=
+									'<div class="red span-list2">' + jj[i].cTodayprice +
+									'<i class="fa fa-arrow-up red" aria-hidden="true"></i></div>' +
+									'<div class="red span-list3">+' + jj[i].cYesterdayprice + '&nbsp;&nbsp;&nbsp;&nbsp;+' + Cbli[i] +
+									'%</div>';
+							} else if (jj[i].cStatechange == 2) {
+								jjList +=
+									'<div class="blue span-list2">' + jj[i].cTodayprice +
+									'<i class="fa fa-arrow-down blue" aria-hidden="true"></i></div>' +
+									'<div class="blue span-list3">0&nbsp;&nbsp;&nbsp;&nbsp;0%</div>';
+							}
+							jjList +=
+								'<div class="span-list4 clearfix"><span>' + jj[i].cProvince + '</span></div></div>';
+							$('.price-swiper .swiper-wrapper').append(jjList);
+						};
+						var tabsSwiper = new Swiper('.price-swiper', {
+							slidesPerView: 2,
+							slidesPerGroup: 1,
+							loop: true,
+							autoplay: {
+								delay: 3000,
+							},
+							observer:true,//修改swiper自己或子元素时，自动初始化swiper
+							observeParents:true,//修改swiper的父元素时，自动初始化swiper
+						});
+					}
+				}
+			})
+		};
+	// });	
+</script>
+</body>
+</html>

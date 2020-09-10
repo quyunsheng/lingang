@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>临钢网</title>
+	<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+	<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+    <link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="css/reset.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="css/all.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="css/user.css?vid=0326" />
+    <script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+    <script src="js/phone.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+</head>
+<body style="padding-top: 50px;">
+<div id="cart-head" class="show">
+    <div class="cart-head">
+        <a class="return" href="javascript:history.back(-1);">
+            <span class="arrow-left"></span>
+        </a>
+        <div class="head-title">账户信息</div>
+        <a class="head-shop" href="tel:0539-6387606">
+            <i class="fa fa-phone fa-lg"></i> &nbsp;0539-6387606
+        </a>
+    </div>
+</div>
+<div class="account">
+    <p class="userRight-tit"><img src="img/user/person.png" >个人资料</p>
+    <div class="user-person">
+        <form method="post">
+            <ul>
+                <li class="userPhoto">
+                    <img id="userPhoto" style="display: none" class="user-photo" src=""  title="点击更换头像">
+                    <input class="up-photo" type="file" value="上传文件" onchange="upload2()"
+                    	   name="file" id="file" alt="点击更换头像"
+                    	   accept="image/png, image/jpeg, image/gif, image/jpg" multiple/>
+					<input type="hidden" id="imageUrl" />
+					<p style="margin-left: 110px;">点击更换头像</p>
+                </li>
+                <li class="user-list clearfix">
+                    <span class="user-lable">电话</span>
+                    <span class="user-mz" id="userPhone"></span>
+                </li>
+                <li class="user-list clearfix">
+                    <img class="user-judge" src="img/user/right.png" >
+                    <span class="user-lable">姓名</span>
+                    <span class="user-mz" id="userName"></span>
+                </li>
+                <li class="user-list clearfix">
+                    <img class="user-judge" src="img/user/right.png" >
+                    <span class="user-lable">昵称</span>
+                    <span class="user-mz" id="nickName"></span>
+                </li>
+                <li class="user-list clearfix">
+                    <img class="user-judge" src="img/user/right.png" >
+                    <span class="user-lable">性别</span>
+                    <span class="user-mz" id="userSex"></span>
+                </li>
+                <li class="user-list clearfix">
+                    <img class="user-judge" src="img/user/no.png" >
+                    <span class="user-lable">微信</span>
+                    <span class="user-mz">未绑定</span>
+                    <a class="user-chenge fr">绑定</a>
+                </li>
+            </ul>
+        </form>
+
+    </div>
+</div>
+
+<!--底部-->
+<div class="footerpage"></div>
+<script src="js/ajaxfileupload.js?vid=0326" type="text/javascript"></script>
+<script src="js/tools.js?vid=0601" type="text/javascript" charset="utf-8"></script>
+<script src="js/all.js?vid=0601" type="text/javascript" charset="utf-8"></script>
+<script>
+$(function(){
+  /*公共部分
+   * 导航栏
+   * footer CopyRight
+   */
+  $(".footerpage").load("footer.html");
+});
+</script>
+<script type="text/javascript">
+			$(function(){
+				var tkn = getCookie(tk);
+				// console.log(tkn)
+				$.ajax({
+					url: path + '/linA/getyh',
+					type:'GET',
+					beforeSend: function (XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					data:{},
+					dataType:'json', //后台返回的数据类型是json文本
+					success:function(result) {
+						console.log(result)
+						var userData = result.user;
+						// $('#userPhone').html(e.)
+						// console.log(result.user)
+						// console.log(result.user.cPhone)
+						if(userData.cPhone == '' || userData.cPhone == null){
+							$('#userPhone').siblings('img').attr('src','img/user/no.png')
+						}else{
+							$('#userPhone').html(userData.cPhone);
+						};
+						if(userData.cUsername == '' || userData.cUsername == null){
+							$('#nickName').siblings('img').attr('src','img/user/no.png')
+						}else{
+							$('#nickName').html(userData.cUsername);
+						};
+						if(userData.cUsername == ''|| userData.cUsername == null){
+							$('#userName').siblings('img').attr('src','img/user/no.png')
+						}else{
+							$('#userName').html(userData.cRealname);
+						};
+						if(userData.cSex == '' || userData.cSex == null){
+							$('#userSex').siblings('img').attr('src','img/user/no.png')
+						}else{
+							$('#userSex').html(userData.cSex);
+						};
+						if(userData.cLogo == '' || userData.cLogo == null){
+							$("#userPhoto").show();
+						}else{
+							$('#userPhoto').attr('src',userData.cLogo);
+							$("#userPhoto").show();
+						};
+					}
+				})
+			})
+			
+			function upload2() {
+				var filePath = $("#file").val();
+				var fileName = filePath.substring(filePath.lastIndexOf(".") + 1,
+						filePath.length);
+				fileName = fileName.toLowerCase();
+			
+				if (fileName != "bmp" && fileName != "jpg" && fileName != "gif"
+						&& fileName != "png" && fileName != "jpeg") {
+					myProcessErr("", "只能上传bmp,jpg,gif,png,jpeg格式的图片！");
+					return false;
+				}
+			document.domain="lingangsteel.com";
+			var url = path + '/linA/uploadhead.html';
+			var tkn = getCookie(tk);
+			$.ajaxFileUpload({
+				url : url,
+				type : 'POST',
+				contentType: 'application/json',
+				secureuri : false, //一般设置为false
+				fileElementId : 'file', // 上传文件的id、name属性名
+				beforeSend: function(XMLHttpRequest) {
+					XMLHttpRequest.setRequestHeader("token", tkn);
+				},
+				success : function(data) {
+					var tmp = $(data).text().substring($(data).text().indexOf("{"), $(data).text().length);
+					var res = eval('(' + tmp + ')');
+					if(res.code == "1") {
+						$("#imageUrl").val(res.msg);
+						savePic();
+					} else {
+						myProcessErr(res.msg);
+					}
+			
+				},
+				error : function(data, status, e) {
+					myProcessErr(e);
+				}
+			});
+			}
+			
+			
+			function savePic() {
+				var tkn = getCookie(tk);
+				var json = JSON.stringify({
+					/*cShopName: $('#shopName').val(),
+					cFactId: $('#gongZhangName').val(),
+					cProvince: $('#myProvince').val(),
+					cCity: $('#myCity').val(),
+					cDistrict: $('#myArea').val(),
+					cAddressId: $('#myAddress').val(),
+					cVer: $('#shopPhone').val(),
+					cNowCityId: $('#nowCityId').val(),
+					cNowCityName: $('#nowCityName').val(),
+					cVipCardno: $('#bankNum').val(),*/
+					cLogo : "https://www.lingangsteel.com/" + $("#imageUrl").val()
+				});
+				$.ajax({
+					url: path + '/linA/upyh',
+					type:'POST',
+					beforeSend: function (XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					data:json,
+					contentType: 'application/json;charset=utf-8',
+					dataType:'json', //后台返回的数据类型是json文本
+					success:function(result) {
+						// $('#userPhone').html(e.)
+						if(result != "" && result.code == 1){
+							window.location.reload();
+						}else{
+							myProcessErr(result.msg)
+						}
+					}
+				})
+			}
+		</script>
+</body>
+</html>

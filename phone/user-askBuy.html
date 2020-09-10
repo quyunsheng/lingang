@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>临钢网</title>
+		<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+		<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/all.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/shop.css?vid=0417" />
+		<script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/phone.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.index-none{
+				padding: 0.2rem;
+			}
+			.index-none table{
+				padding: 0.1rem;
+				margin-bottom: 0.3rem;
+				background: #FFFFFF;
+				/* border-collapse: collapse; */
+				border-bottom: 2px solid #079ce5;
+			}
+			.index-none table td{
+				padding: 5px;
+			}
+			.delThiz{
+				float: right;
+				padding: 5px 10px;
+				border: 1px solid #FF0000;
+				color: #FF0000;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body style="padding-top: 60px;padding-bottom: 50px;">
+		<div id="cart-head" class="show">
+			<div class="cart-head">
+				<a class="return" href="user.html">
+					<span class="arrow-left"></span>
+				</a>
+				<div class="head-title">求购列表</div>
+				<a class="head-right" href="askAdd.html">新增</a>
+			</div>
+		</div>
+		<div class="order-box">
+			<div class="index-none">
+				
+			</div>
+		</div>
+		<!--底部-->
+		<div class="footerpage"></div>
+		<script src="js/tools.js?vid=0601" type="text/javascript" charset="utf-8"></script>
+		<script src="js/all.js?vid=0601" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(function() {
+				/*公共部分
+				 * 导航栏
+				 * footer CopyRight
+				 */
+				$('.footerpage').load('footer.html');
+				var tkn = getCookie(tk);
+				if (isEmpty(tkn)) {
+					myProcessErr('请先登录！')
+					window.location.href='./login.html';
+					return;
+				};
+			});
+
+		</script>
+		<script type="text/javascript">
+				var tkn = getCookie(tk);
+				$.ajax({
+					url: path + '/linA/listmyqgxx',
+					type: 'GET',
+					data: {},
+					dataType: 'json', //后台返回的数据类型是json文本
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					success: function(result) {
+						console.log(result)
+						if (result != "" && result.code == 1) {
+							var spName = result.data;
+							for (var i in spName) {
+								var spList = 
+								'<div class="planList"><table class="planTab">' +
+									'<tr><td>姓名</td><td class="tabSize">' + spName[i].cRealname + '</td>' +
+									'<td>电话</td><td class="tabSize">' + spName[i].cPhone + '</td></tr>' +
+									'<tr><td>品名</td><td class="tabSize">' + spName[i].cShopColumnName +
+									'</td><td>材质</td><td class="tabSize">' + spName[i].cTexttrue + '</td></tr>' +
+									'<tr><td>规格</td><td class="tabSize">' + spName[i].cSpec + '</td><td>数量</td><td class="tabSize">' + spName[
+										i].cNum + spName[i].cUnit + '</td></tr>' +
+									'<tr><td>备注</td><td colspan="3" class="tabSize">' + spName[i].cExplain + '</td></tr>' +
+									'<tr><td>操作</td><td colspan="3" class="tabSize"><a onclick="delBuy(\''+spName[i].cId+'\')" href="javascript:;" class="delThiz">删除</a></td></tr>'
+								'</table></div>'
+								$('.index-none').append(spList);
+							}
+						} else {
+							myProcessErr(result.msg)
+						}
+					}
+				})
+				function delBuy(cid){
+					var tkn = getCookie(tk);
+					$.ajax({
+						url: path + '/linA/deljhcg',
+						type: 'POST',
+						data: {
+							id:cid,
+						},
+						dataType: 'json', //后台返回的数据类型是json文本
+						// contentType: 'application/json;charset=utf-8',
+						beforeSend: function(XMLHttpRequest) {
+							XMLHttpRequest.setRequestHeader("token", tkn);
+						},
+						success: function(result) {
+							// console.log(result)
+							if(result != "" && result.code == 1){
+								window.location.href = './user-askBuy.html';
+							}else{
+								alert(result.msg)
+								$("#vkDivMaskPrc").hide();
+							}
+						}
+					});
+				}
+
+		</script>
+
+	</body>
+</html>

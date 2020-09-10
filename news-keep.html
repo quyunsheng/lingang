@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="css/idangerous.swiper.css?vid=0326" />
+	<link rel="stylesheet" type="text/css" href="css/APlayer.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/reset.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="css/head.css?vid=0326" />
+	<link rel="stylesheet" type="text/css" href="css/news.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="css/ulList.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="css/reset.css?vid=0326" />
+	<link rel="stylesheet" type="text/css" href="css/footer.css?vid=0326" />
+    <script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+    <script src="js/phone.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<style>
+		.talk li div{background-color: #f1f0e6 !important;}
+	</style>
+
+<div style="position: absolute;height: 100%;width: 100%;">
+    <img src="./img/user-title.jpg" alt="" style="width: 100%;height: 100%;">
+</div>
+<div style="position: absolute;height: 100%;width: 100%;background-color: #bdb9b9d6;"></div>
+<!-- 顶部导航 -->
+<div class="nav-top-box" style="position: relative;">
+    <div class="nav-top clearfix">
+        <ul class="fl">
+            <li class="nohover"><a href="index.html">首页</a></li>
+            <li>
+                <a href="#">手机首页</a>
+                <span class="hover-box clearfix" style="width: 240px;padding: 10px 10px 0 10px;">
+							<span class="fl">
+								<p><img src="./img/apk.png" width="100"></p>
+								<p>手机版临钢网</p>
+							</span>
+						</span>
+            </li>
+            <li class="nohover">请&nbsp;
+                <a href="">登录</a>
+                &nbsp;或&nbsp;
+                <a href="">免费注册</a>
+            </li>
+        </ul>
+        <ul class="fr">
+            <li class="nohover">
+                <a href="">
+                    <i class="fa fa-bell-o" aria-hidden="true" style="font-weight: bold;"></i>
+                    消息(<span style="color: #FFFFFF;">3</span>)
+                </a>
+            </li>
+            <li>
+                <a href="">我的账户<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                <span class="hover-box">
+							<dl>
+								<a href="">账户信息</a>
+							</dl>
+							<dl>
+								<a href="">订单管理</a>
+							</dl>
+							<dl>
+								<a href="">付款记录</a>
+							</dl>
+						</span>
+            </li>
+            <li>
+                <a href="">客户服务<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                <span class="hover-box">
+					<dl>
+						<a href="">常见问题</a>
+					</dl>
+					<dl>
+						<a href="">新手帮助</a>
+					</dl>
+					<dl>
+						<a href="">在线帮助</a>
+					</dl>
+				</span>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--聊天框-->
+<div class="dialog-box">
+    <div id="cart-head" class="show">
+        <div class="head-contact">
+            <ul class="clearfix">
+                <li>
+                    <a target="_blank" href="">
+                        <span class="qq"></span>
+                        QQ联系
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <span class="mobile"></span>
+                        电话联系
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="news-box">
+        <ul>
+            <li class="notice-list">
+                <a href="/sign/index.php">
+                    <span class="notice-time">11-15 11:19</span>
+                    <div class="notice-main">
+							<span class="notic-head">
+								<img src="img/head.jpg">
+							</span>
+                        <div class="notic-content">
+                            <div class="keep-info">
+                                您好，很高兴为您服务，请问有什么能帮到您的？
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    <!-- 底部输入栏 -->
+    <div id="message_foot">
+        <form id="form">
+            <div class="message_foot">
+                <div class="message_foot_default" id="send_voice">
+                    <a href="javascript:send_voice_btn();" class="message_foot_left" id="send_voice_btn"
+                       style="display: block;"><i class="icon-voice"></i></a>
+                    <a href="javascript:send_text_btn();" class="message_foot_left" id="send_text_btn"
+                       style="display: none;"><i class="icon-keyboard"></i></a>
+                    <div class="textarea" id="send_voice_btn_2" style="display: block;">
+						<span><textarea class="content" id="content" name="content" placeholder="请输入内容..."></textarea></span>
+                    </div>
+                    <a href="javascript:send_text_submit();" class="message_foot_right" id="send_submit_btn"
+                       style="display:none"><span class="message_foot_send">发送</span></a>
+                    <a href="javascript:send_form();" class="message_foot_right" id="send_form_btn"><i
+                            class="icon-more"></i></a>
+                </div>
+                <div class="message_foot_more" id="send_form" style="display: none;">
+                    <ul>
+                        <li>
+                            <a href="/form/steelplate.php">
+                                <span class="img"><img src="img/form.png" width="20" height="20"></span>
+                                <p>订购钢板</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/form/shear.php">
+                                <span class="img"><img src="img/form.png" width="20" height="20"></span>
+                                <p>剪切加工</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/form/logistics.php">
+                                <span class="img"><img src="img/form.png" width="20" height="20"></span>
+                                <p>物流配送</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="upload_img" data-id="1">
+                                <span class="img"><img src="img/img.png" width="20" height="20"></span>
+                                <p>图片</p>
+                            </a>
+                            <div class="custom_img" style="display: none;">
+                                <input type="file" name="image[]" data-id="1" title="请选择图片" id="file1" accept="image/*">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="js/ask.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

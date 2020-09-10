@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>临钢网</title>
+		<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+		<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/all.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/index.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="../css/new0403.css?vid=0417" />
+		<style type="text/css">
+			.gdBg {
+				background: #FDFCEC url("img/index/call.png") no-repeat;
+				background-size: 25px;
+				background-position: 10px center;
+				border: 1px solid #F86E21;
+			}
+
+			.success-list {
+				line-height: 1rem;
+				float: left;
+			}
+
+			.qeL {
+				position: absolute;
+				width: 40px;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				background: #FDFCEC;
+			}
+
+			.index-qe {
+				overflow: hidden;
+				width: 100%;
+				position: relative;
+				background: none;
+				width: calc(100% - 40px);
+				padding-left: 0;
+				border: 0;
+				margin-left: 40px;
+			}
+
+			.index-qe li {
+				padding: 0;
+				margin-right: 10px;
+			}
+
+			#ls {
+				width: 100%;
+				position: relative;
+			}
+
+			.swiper-lb {
+				height: 3.5rem;
+			}
+
+			.swiper-lb img {
+				height: 3.5rem;
+				width: 100%;
+			}
+
+			.pmList img {
+				float: left;
+			}
+
+			.button-wrap {
+				position: absolute;
+			}
+
+			.price-list a {
+				overflow: hidden;
+			}
+
+			.price-list a img {
+				height: auto !important;
+			}
+		</style>
+	</head>
+	
+	<body>
+
+		<div class="head-back2">
+			<a href="phone.html"><span class="head-logo"></span></a>
+			<a href="phone.html"><span class="head-gif"></span></a>
+			<a  href="#" onclick="uOnLine('news-page.html')"><span class="head-kf"><i class="messNum"></i></span></a>
+			<a href="fankui.html"><span class="head-fk"></span></a>
+			<a href="user-check-in.html"><span class="head-qd"></span></a>
+			<a href="calcu.html"><span class="head-jsq-white"></span></a>
+		</div>
+		<!--轮播图-->
+		<div class="banner-box" style="margin-top: 70px;">
+			<div class="swiper-container swiper-lb shadow" style="border-radius: 5px">
+				<div class="swiper-wrapper">
+					<!-- <div class="swiper-slide">
+						<a href="list-jizan.html">
+							<img src="img/index/banner1.jpg">
+						</a>
+					</div> -->
+				</div>
+			</div>
+		</div>
+		<!--内容-->
+		<div class="new-box gdBg" style="margin: 10px auto; ">
+			<div class="index-qe">
+				<ul id="ls" class="clearfix">
+
+				</ul>
+			</div>
+		</div>
+
+		<div class="new-box">
+			<div class="box-list today-price" style="padding: 0;">
+				<!-- <p class="list-tit">今日卷价</p> -->
+				<ul class="price-list clearfix">
+					<div class="pmList"></div>
+				</ul>
+			</div>
+			<!--    最新成交-->
+			<!-- <div class="box-list">
+        <p class="list-tit"><i class="fa fa-gg fa-lg"></i>&nbsp;最新成交</p>
+
+    </div> -->
+			<div class="box-list">
+				<p class="list-tit">钢价查询</p>
+				<div class="getSearch">
+					<select class="sec-Fl" onchange="changChange()">
+						<option value="">商品分类</option>
+					</select>
+					<select class="sec-Gg">
+						<option value="">商品规格</option>
+					</select>
+					<select class="sec-Cz">
+						<option value="">商品材质</option>
+					</select>
+					<span class="getPrice">查询</span>
+				</div>
+			</div>
+			<div class="getBox">
+				<table border="" cellspacing="" cellpadding="">
+					<!-- <thead>
+				<tr><td>品名</td><td>规格</td><td>材质</td><td>单价</td></tr>
+			</thead> -->
+					<tbody>
+					</tbody>
+				</table>
+				<input class="getPhone" type="text" name="" id="" value="" placeholder="请输入电话号码" />
+				<div class="getBtn-box">
+					<span class="gotoShop">进入商城</span>
+					<span class="getPost">提交</span>
+					<span class="getClose">关闭</span>
+
+				</div>
+			</div>
+			<!--	求购信息-->
+			<div class="box-list">
+				<p class="list-tit">求购信息</p>
+				<div class="planBox swiper-container">
+					<div class="swiper-wrapper">
+						<!-- <table class="planTab">
+						<tr><td>时间</td><td colspan="3"></td></tr>
+						<tr><td>姓名</td><td>Data</td><td>电话</td><td>Data</td></tr>
+						<tr><td>品名</td><td>Data</td><td>材质</td><td>Data</td></tr>
+						<tr><td>规格</td><td>Data</td><td>数量</td><td>Data</td></tr>
+					</table> -->
+					</div>
+				</div>
+				<div class="look-more">
+					<a href="askList.html">
+						查看更多求购信息
+					</a>
+				</div>
+			</div>
+			<!--	行情变动-->
+			<div class="box-list">
+				<p class="list-tit">行情变动</p>
+				<div class="chart-box">
+					<div class="chart-trend" id="chart-trend">
+
+					</div>
+				</div>
+			</div>
+			<!--    行情预测-->
+			<div class="box-list" style="display: none;">
+				<p class="list-tit">
+					<i class="fa fa-gg fa-lg"></i>&nbsp;行情预测
+				</p>
+				<div class="list-chart">
+					<p>参与总人数：<span>385</span>，大家对下周行情的预测：</p>
+					<div id="chart-pic"></div>
+				</div>
+			</div>
+
+			<!-- 供应链 -->
+			<div>
+				<p class="list-tit">供应链</p>
+				<ul class="gyl">
+					<li>
+						<a href="javascript:;">
+							<div>开平</div>
+							<span>详情 ></span>
+							<img class="fy-img img-ys2 img-kp" src="img/index/img-ys1.png">
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<div>分条</div>
+							<span>详情 ></span>
+							<img class="fy-img img-ys2 img-ft" src="img/index/img-ys2.png">
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<div>运费表</div>
+							<span>详情 ></span>
+							<img class="fy-img img-ys2 img-yf" style="margin-top: -263px;" src="img/index/img-jg.png">
+						</a>
+					</li>
+				</ul>
+			</div>
+
+
+
+			<!--    行情预测-->
+			<!--    <div class="box-list" style="display: none;">
+        <p class="list-tit">行情预测</p>
+        <div class="list-chart">
+            <p>参与总人数：<span>385</span>，大家对下周行情的预测：</p>
+            <div id="chart-pic"></div>
+        </div>
+    </div>-->
+			<!--	行业资讯-->
+			<div class="box-list">
+				<p class="list-tit">行业资讯</p>
+				<ul class="message">
+					<div class="mess-add"></div>
+				</ul>
+				<div class="look-more">
+					<a href="information.html">
+						查看更多资讯
+					</a>
+				</div>
+			</div>
+
+			<p class="list-tit">视频展示</p>
+			<div class="box-list" style="padding: 0;background: url(img/videobg.jpg);margin-bottom: 2px;margin-top: 0;">
+				<video controls="">
+					<source src="video/index/摆剪一体线.mp4" type="video/mp4">
+				</video>
+			</div>
+			<p style="text-align: center;color: #FFFFFF; padding: 0.1rem 0;background: rgba(0,0,0,0.5);">摆剪一体线</p>
+
+
+			<div class="fy-mb"></div>
+		</div>
+		<div class="index-none">
+			<p>我已经到达底线了哦\(^o^)/~</p>
+		</div>
+		<!--    加工视频-->
+		<!-- <p class="list-tit">加工视频</p> -->
+
+		<div class="footerpage"></div>
+
+		<!-- 红包 -->
+		<div class="getHb" style="display: none;">
+			<img class="djHb" onclick="ckHb()" src="img/index/jumpHb.png">
+			<img class="hbClose" src="img/index/hbClose.png">
+		</div>
+		<div class="showHb">
+			<h1>恭喜获得<i class="hbId hidden"></i></h1>
+			<p class="hbNum">优惠券 <i></i>￥</p>
+			<img src="img/index/showHb.png">
+			<span onclick="poseHb()">收下</span>
+		</div>
+		<!-- 红包结束 -->
+		<style type="text/css">
+			.typeLz{
+				position: fixed;
+				z-index: 999;
+				background: rgba(0,0,0,0.6);
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				display: none;
+			}
+			.typeLz-txt{
+				position: absolute;
+				top: 0px;
+				right: 0px;
+				bottom: 0px;
+				left: 0px;
+				height: 4.4rem;
+				width: 6.8rem;
+				margin: auto;
+				z-index: 999;
+				box-sizing: border-box;
+				background: #FFFFFF;
+				border: 3px solid #8eb9f5;
+				border-radius: 5px;
+			}
+			.typeLz-txt img{
+				cursor: pointer;
+				width: 0.48rem;
+			}
+			.typeLz-txt>p{
+				padding: 0.2rem 0.4rem;
+				font-weight: bold;
+				font-size: 15px;
+				line-height: 24px;
+				background: #8eb9f5;
+				color: #FFFFFF;
+			}
+			.typeLz-txt>div{
+				margin-top: 0.6rem;
+				padding: 0 0.4rem;
+			}
+			.typeLz-txt a{
+				font-size: 0.3rem;
+			}
+			.typeLz-txt span{
+				display: block;
+				width: 1.6rem;
+				height: 0.6rem;
+				color: #FFFFFF;
+				background: #8eb9f5;
+				text-align: center;
+				line-height: 0.6rem;
+				margin: 0.6rem auto 0;
+				border-radius: 3px;
+				box-shadow: 0 1px 1px #03439c;
+				cursor: pointer;
+			}
+		</style>
+		<div class="typeLz">
+			<div class="typeLz-txt">
+				<p class="clearfix">平台提示：<img class="fr" src="../img/close.png" ></p>
+				<div>
+					<a>冷轧/镀锌</a>
+					<br>
+					请电联：0539-3110002&nbsp;/&nbsp;3110003
+					<span>确定</span>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/phone.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/swiper.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/echarts.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/tools.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/all.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/charts.js"></script>
+		<script>
+			function lengzha(){
+				$('.typeLz').show()
+			}
+			$('.typeLz img').click(function(){
+				$('.typeLz').hide()
+			})
+			$('.typeLz span').click(function(){
+				$('.typeLz').hide()
+			})
+			//$('.getHb').show();
+			// 分类
+			$('.price-list li').click(function() {
+				if ($(this).is('.active')) {
+					$(this).removeClass('active');
+				} else {
+					$(this).addClass('active').siblings().removeClass('active');
+				}
+			})
+
+			function hidePhone(s) {
+				// s = s.substring(0, 3) + "****" + s.substring(7);
+				s = s.substring(0, 3) + "***";
+				return s;
+			}
+			// 显示地点
+			$('#price-select').click(function(event) {
+				event.stopPropagation();
+				$('.hide-city').toggle();
+				return false;
+			});
+			//点击空白处隐藏地点选项
+			$(document).click(function(event) {
+				var _con = $('.hide-city'); // 设置目标区域
+				if (!_con.is(event.target) && _con.has(event.target).length === 0) { // Mark 1
+					$('.hide-city').hide(); //消失
+				}
+			});
+			// 查看费用
+			$('.gyl li').click(function() {
+				$('.fy-mb').show();
+				$(this).find('img').show();
+			});
+			$('.fy-mb').click(function() {
+				$('.fy-mb').hide();
+				$('.fy-img').hide();
+			})
+
+			
+
+			// 今日卷价
+			var tabsSwiper = new Swiper('.price-swiper', {
+				slidesPerView: 2,
+				slidesPerGroup: 1,
+				loop: true,
+				autoplay: {
+					delay: 3000,
+				}
+			});
+			// 供应链
+		</script>
+		<script>
+			$(function() {
+				/*公共部分
+				 * 导航栏
+				 * footer CopyRight
+				 */
+				$(".footerpage").load("footer.html");
+			});
+			$(".apart").click(function() {
+				$('.hb').addClass("shake");
+				setTimeout(function() {
+					$(".hb").removeClass("shake");
+					$('.hb-mage').fadeIn()
+				}, 2000);
+			});
+			$('.hb-close').click(function() {
+				$('.hb').hide();
+				$('.hb-mb').hide();
+			});
+			$('.hbClose').click(function() {
+				$('.getHb').hide();
+			});
+			// banner
+			$.ajax({
+				url: path + '/linA/listbanner',
+				type: 'GET',
+				data: {},
+				dataType: 'json', //后台返回的数据类型是json文本
+				success: function(result) {
+					if (result != "" && result.code == 1) {
+						// console.log(result);
+						var btnType = result.data;
+						for (var i in result.data) {
+							var btnList =
+							'<div class="swiper-slide">'+
+								'<a href="' + btnType[i].cUrl + '">'+
+									'<img src="'+ photoPath + btnType[i].cLogo + '">'+
+								'</a></div>'
+							$('.swiper-lb .swiper-wrapper').append(btnList);
+						}
+						// 轮播
+						var myswiper = new Swiper('.swiper-lb', {
+							loop: true,
+							autoplay: {
+								delay: 2000,
+							}
+						});
+					}
+				}
+			})
+			// 拆红包
+			function ckHb() {
+				var tkn = getCookie(tk);
+				if (isEmpty(tkn)) {
+					myProcessErr('请先登录！')
+					window.location.href = './login.html';
+					return;
+				};
+				$.ajax({
+					url: path + '/linA/gethb',
+					type: 'GET',
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					data: {
+						id: 1110254610135800
+					},
+					// contentType: 'application/json;charset=utf-8',
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != "" && result.code == 1) {
+							// console.log(result)
+							$('.hbNum i').html(result.data.cPrice);
+							$('.hbId').html(result.data.cId)
+							$('.showHb').addClass('hbIn');
+							setTimeout(function() {
+								$('.showHb').removeClass('hbIn');
+								$('.getHb').remove();
+							}, 1000);
+							$('.showHb').css({
+								"bottom": "52%",
+								"opacity": "1"
+							});
+						} else {
+							alert(result.msg)
+						}
+					}
+				});
+			};
+			// 红包提交
+			function poseHb() {
+				var tkn = getCookie(tk);
+				var json = JSON.stringify({
+					id: 1110254610135800,
+					cId: $('.hbId').html(),
+					cPrice: $('.hbNum i').html()
+				})
+				$.ajax({
+					url: path + '/linA/addyhq',
+					type: 'POST',
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					data: json,
+					contentType: 'application/json;charset=utf-8',
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						$('.showHb').remove();
+						$('.getHb').remove();
+						if (result != "" && result.code == 1) {
+							// console.log(result)
+							// $('.showHb').addClass('hidden');
+
+						} else {
+							alert(result.msg)
+						}
+					}
+				});
+			};
+			// 用户登录显示
+			$(function() {
+				var tkn = getCookie(tk);
+				$.ajax({
+					url: path + '/linA/gethb',
+					type: 'GET',
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					data: {
+						id: 1110254610135800
+					},
+					// contentType: 'application/json;charset=utf-8',
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != "" && result.code == 1) {
+							$('.getHb').show();
+							$('.showHb').addClass('show');
+						} else {
+							$('.getHb').hide();
+							$('.showHb').hide();
+						}
+					}
+				});
+				if (!tkn == '') {
+					$.ajax({
+						url: path + '/linA/getyh',
+						type: 'GET',
+						beforeSend: function(XMLHttpRequest) {
+							XMLHttpRequest.setRequestHeader("token", tkn);
+						},
+						data: {},
+						dataType: 'json', //后台返回的数据类型是json文本
+						success: function(result) {
+							if (result != "" && result.code == 1) {
+								var btnType = result.user;
+								$('.getPhone').val(btnType.cPhone);
+								if (btnType.cScore == 1) {
+									console.log("1110254610135800");
+									$.ajax({
+										url: path + '/linA/gethb',
+										type: 'GET',
+										beforeSend: function(XMLHttpRequest) {
+											XMLHttpRequest.setRequestHeader("token", tkn);
+										},
+										data: {
+											id: 1110254610135800
+										},
+										// contentType: 'application/json;charset=utf-8',
+										dataType: 'json', //后台返回的数据类型是json文本
+										success: function(result) {
+											if (result != "" && result.code == 1) {
+												$('.getHb').show();
+												$('.showHb').addClass('show');
+											} else {
+												$('.getHb').hide();
+												$('.showHb').hide();
+											}
+										}
+									});
+									/* $('.getHb').show();
+									$('.showHb').addClass('show'); */
+								} else {
+									$.ajax({
+										url: path + '/linA/gethb',
+										type: 'GET',
+										beforeSend: function(XMLHttpRequest) {
+											XMLHttpRequest.setRequestHeader("token", tkn);
+										},
+										data: {
+											id: 1110254610135800
+										},
+										// contentType: 'application/json;charset=utf-8',
+										dataType: 'json', //后台返回的数据类型是json文本
+										success: function(result) {
+											if (result != "" && result.code == 1) {
+												$('.getHb').show();
+												$('.showHb').addClass('show');
+											} else {
+												$('.getHb').hide();
+												$('.showHb').hide();
+											}
+										}
+									});
+								}
+							}
+						}
+					})
+				}
+
+			});
+		</script>
+		<script type="text/javascript">
+			$('.supply-btn').click(function() {
+				$('.fy-mb').show();
+				$(this).next('.fy-img').show();
+			});
+			$('.fy-mb').click(function() {
+				$('.fy-mb').hide();
+				$('.fy-img').hide();
+			})
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				// var tkn = getCookie(tk);
+				$.ajax({
+					url: path + '/linA/listjjsf',
+					type: 'GET',
+					// beforeSend: function (XMLHttpRequest) {
+					// 	XMLHttpRequest.setRequestHeader("token", tkn);
+					// },
+					data: {},
+					// contentType: 'application/json;charset=utf-8',
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != "" && result.code == 1) {
+							var cityName = result.data;
+							changeCity(cityName[0].cName);
+							$('.city').html(cityName[0].cName);
+							for (var i in cityName) {
+								var cityList =
+									"<span onclick='changeCity(\"" + cityName[i].cName + "\")'>" + cityName[i].cName + "</span>";
+								$('.hide-inner').append(cityList);
+							}
+						}
+					}
+				})
+			});
+
+			function changeCity(pName) {
+				$('#price-select .city').html(pName)
+				$('.hide-city').hide();
+				$.ajax({
+					url: path + '/linA/listjj',
+					type: 'GET',
+					data: {
+						pName: pName
+					},
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != "" && result.code == 1) {
+							$('.price-swiper .swiper-wrapper').html('');
+							var jj = result.data;
+							for (var i in jj) {
+								var Cbli = (jj[i].cYesterdayprice / jj[i].cTodayprice / 100).toFixed(2);
+								var jjList =
+									'<div class="slide-list swiper-slide">' +
+									'<h2 class="span-list1"><img src="' + photoPath + jj[i].cBlockId + '" >' + jj[i].cShopColumnType + '</h2>';
+								// 相较昨日变化趋势0=减少 1= 增加 2=持平 "
+								if (jj[i].cStatechange == 0) {
+									jjList +=
+										'<div class="green span-list2">' + jj[i].cTodayprice +
+										'<i class="fa fa-arrow-down" aria-hidden="true"></i></div>' +
+										'<div class="green span-list3">-' + jj[i].cYesterdayprice + '&nbsp;&nbsp;&nbsp;&nbsp;-' + Cbli[i] +
+										'%</div>';
+								} else if (jj[i].cStatechange == 1) {
+									jjList +=
+										'<div class="red span-list2">' + jj[i].cTodayprice +
+										'<i class="fa fa-arrow-down" aria-hidden="true"></i></div>' +
+										'<div class="red span-list3">+' + jj[i].cYesterdayprice + '&nbsp;&nbsp;&nbsp;&nbsp;+' + Cbli[i] +
+										'%</div>';
+								} else if (jj[i].cStatechange == 2) {
+									jjList +=
+										'<div class="blue span-list2">' + jj[i].cTodayprice +
+										'<i class="fa fa-arrow-down" aria-hidden="true"></i></div>' +
+										'<div class="blue span-list3">0&nbsp;&nbsp;&nbsp;&nbsp;0%</div>';
+								}
+								jjList +=
+									'<div class="span-list4 clearfix"><span>' + jj[i].cProvince + '</span></div></div>';
+								$('.price-swiper .swiper-wrapper').append(jjList);
+							};
+							var tabsSwiper = new Swiper('.price-swiper', {
+								noSwiping: true,
+								speed: 500,
+								slidesPerView: 4,
+								slidesPerGroup: 1,
+							});
+							if ($('.price-swiper .slide-list').length > 4) {
+								$('.price-swiper .arrow-list').show()
+							}
+							$('.price-left').on('click', function(e) {
+								e.preventDefault()
+								tabsSwiper.swipePrev()
+							});
+							$('.price-right').on('click', function(e) {
+								e.preventDefault()
+								tabsSwiper.swipeNext()
+							});
+						}
+					}
+				})
+			};
+			// 选择品名
+			$(function() {
+				$.ajax({
+					url: path + '/linA/listpm',
+					type: 'GET',
+					data: {
+						id: 15897038511562900
+					},
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != "" && result.code == 1) {
+							var spList = result.data;
+							// console.log(result,'12121212121212121');
+							for (var i in spList) {
+								var chPm = '<li><a  href="shop.html?cId=' + spList[i].cId + '"><span class="button-wrap">' + spList[i].cName +
+									'</span><img src="https://www.lingangsteel.com/lingang/upload/images/' + spList[i].cLogo + '"></a></li>';
+								$('.pmList').append(chPm);
+							}
+							var addBtnType = '<li><a onclick="lengzha()"><span class="button-wrap">冷轧'+
+									'</span><img src="../img/lengzha.png"></a></li>'
+							$('.pmList').append(addBtnType);
+						}
+					}
+				})
+			});
+			// 成交提示
+			$(function() {
+				$.ajax({
+					url: path + '/linA/listcjdt',
+					type: 'GET',
+					data: {},
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != "" && result.code == 1) {
+							var tsName = result.data;
+							for (var i in tsName) {
+								var tsList =
+									'<li class="success-list text">' +
+									'恭喜' + tsName[i].orRealname + '(' + hidePhone(tsName[i].orPhone) + '), 提货' + tsName[i].orUsername + '' +
+									tsName[i].orVolume + tsName[i].orUnit + '</li>';
+								$('.index-qe #ls').append(tsList);
+							};
+							var li = document.getElementsByClassName('text'); //获取需要滚动的li
+							var time = 20; //滚动速度
+							var w = 0;
+							var l = 0;
+							for (var i = 0; i < li.length; i++) {
+								w += li[i].offsetWidth;
+							}
+							$('#ls').css('width', 2 * w)
+							$('#ls').append($('#ls li').clone());
+							setInterval(function() {
+								if (l < -w) {
+									l = 0;
+								} else {
+									$('#ls').css('left', l -= 1);
+								}
+							}, time);
+						}
+					}
+				})
+			});
+		</script>
+		<script type="text/javascript">
+			// 获取新闻
+			$(function() {
+				$.ajax({
+					url: path + '/linA/listnews',
+					type: 'GET',
+					data: {},
+					dataType: 'json', //后台返回的数据类型是json文本
+					// beforeSend: function(XMLHttpRequest) {
+					// 	XMLHttpRequest.setRequestHeader("token", tkn);
+					// },
+					success: function(result) {
+						if (result != "" && result.code == 1) {
+							var listNew = result.data;
+							for (var i in listNew) {
+								if (i < 3) {
+									var newBox =
+										'<li class="phone-news"><a href="details.html?id=' + listNew[i].cId +
+										'"><span class="message-pic"><img src="' + photoPath + listNew[i].cLogo + '"></span>' +
+										'<span class="message-tit">' + listNew[i].cTitle + '</span><div class="message-txt">' + listNew[i].cSummary +
+										'</div><span class="more">查看更多</span></a></li>';
+
+									$('.mess-add').append(newBox);
+								}
+							}
+
+						} else {
+							myProcessErr(result.msg)
+						}
+					}
+				});
+			})
+		</script>
+		<script type="text/javascript">
+			// 选择品名
+			$(function() {
+				$.ajax({
+					url: path + '/linA/listpm',
+					type: 'GET',
+					data: {
+						id: 15897038511562900
+					},
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != "" && result.code == 1) {
+							var spList = result.data;
+							for (var i in spList) {
+								var spPm = '<option value="' + spList[i].cName + '"id="' +
+									spList[i].cId + '">' + spList[i].cName + '</option>';
+								$('.sec-Fl').append(spPm);
+							}
+						}
+					}
+				})
+			});
+
+			function changChange() {
+				var upPm = $('.sec-Fl option:selected').attr("id")
+				if (typeof(upPm) != "undefined") {
+					spGg(upPm);
+					spCz(upPm);
+				}
+			}
+
+			// 通过分类改变规格和材质
+			function spGg(chl) {
+				$.ajax({
+					url: path + '/linA/getgg',
+					type: 'GET',
+					data: {
+						chl: chl
+					},
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != "" && result.code == 1) {
+							// 规格
+							$('.sec-Gg').empty();
+							if (result.data !== null) {
+								var spList = result.data;
+								var spPm =
+									'<option value ="">商品规格</option>'
+								for (var i in spList) {
+									spPm += '<option value="' + spList[i] + '">' + ggyc(spList[i]) + '</option>';
+								}
+								$('.sec-Gg').append(spPm);
+							} else {
+								myProcessErr("暂无数据！")
+								// alert(result.msg)
+							}
+						}
+					}
+				});
+			}
+
+			function spCz(chl) {
+				$.ajax({
+					url: path + '/linA/getcz',
+					type: 'GET',
+					data: {
+						chl: chl
+					},
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != "" && result.code == 1) {
+							$('.sec-Cz').empty();
+							var spPm = '<option value ="">商品材质</option>'
+							$('.sec-Cz').append(spPm);
+							if (result.data.cCommentl) {
+								// 材质
+								var spList = result.data.cComment;
+								var ind = spList.split("，");
+								for (var i in ind) {
+									spPm += '<option value="' + ind[i] + '">' + ggyc(ind[i]) + '</option>';
+								}
+								$('.sec-Cz').append(spPm);
+							}else {
+								myProcessErr("暂无数据！")
+								// alert(result.msg)
+							}
+						}
+					}
+				});
+			}
+			$('.getPrice').click(function() {
+				// var tkn = getCookie(tk);
+				var upPm = $('.sec-Fl').attr("id");
+				var setGg = $('.sec-Gg').val();
+				var setCz = $('.sec-Cz').val();
+				if ($('.getPhone').val().length < 8) {
+					myProcessErr("请先登录!");
+					window.location.href = './login.html';
+					return false;
+				}
+				if (upPm === undefined && (setGg === '' && setCz === '')) {
+					myProcessErr("请选择品类，并选择规格或材质！");
+					return false;
+				}
+				$.ajax({
+					url: path + '/linA/listsp',
+					type: 'GET',
+					data: {
+						sCTId: upPm,
+						gg: setGg,
+						cz: setCz
+					},
+					// contentType: 'application/json;charset=utf-8',
+					dataType: 'json', //后台返回的数据类型是json文本
+					// beforeSend: function(XMLHttpRequest) {
+					// 	XMLHttpRequest.setRequestHeader("token", tkn);
+					// },
+					success: function(result) {
+						if (result.code == 1) {
+							$('.getBox').show();
+							$('.getBox table tbody').html('');
+							var spList = result.data;
+							var spBox =
+								'<tr><td>' + spList[0].cName + '</td><td>' + ggyc(spList[0].cTop) + '</td><td>' + spList[0].cXsnum +
+								'</td><td>' + (result.marketType == 0 ? "闭市中" : spList[0].cNowPrice + "￥") + '</td></tr>'
+							$('.getBox table tbody').append(spBox);
+							$('.getPost').attr('id', spList[0].prnList[0].cId);
+							$('.getPost').click();
+						}
+					}
+				})
+			})
+			$('.getClose').click(function() {
+				$('.getBox').hide()
+			})
+			$('.gotoShop').click(function() {
+				var upPm = $('.sec-Fl option:selected').attr("id")
+				var setGg = $('.sec-Gg').val();
+				var setCz = $('.sec-Cz').val();
+				window.location.href = "shop.html?cId=" + upPm;
+			})
+			$('.getPost').click(function() {
+				var mylog = /^[1][3,4,5,7,8][0-9]{9}$/;
+				var postId = $(this).attr('id');
+				var postPhone = $('.getPhone').val();
+				var json = JSON.stringify({
+					opPhone: postPhone,
+					opPrnId: postId
+				});
+				if (!mylog.test(postPhone)) {
+					//myProcessErr('请输入正确的手机号')
+				} else {
+					var tkn = getCookie(tk);
+					$.ajax({
+						url: path + '/linA/addygdd',
+						type: 'POST',
+						beforeSend: function(XMLHttpRequest) {
+							XMLHttpRequest.setRequestHeader("token", tkn);
+						},
+						data: json,
+						contentType: 'application/json;charset=utf-8',
+						dataType: 'json', //后台返回的数据类型是json文本
+						success: function(result) {
+							if (result != "" && result.code == 1) {
+								//myProcessOk(result.msg)
+							} else {
+								//myProcessErr(result.msg)
+							}
+						}
+					})
+				}
+
+			})
+			//加载求购信息
+			$(function() {
+				var tkn = getCookie(tk);
+				$.ajax({
+					url: path + '/linA/listqgxx',
+					type: 'GET',
+					data: {},
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != "" && result.code == 1) {
+							var spName = result.data;
+							for (var i in spName) {
+								if (i < 10) {
+									var spList =
+										'<div class="swiper-slide"><table class="planTab">' +
+										// '<tr><td>时间</td><td colspan="3" class="tabSize">' + spName[i].cBlockId + '</td></tr>'+
+										'<tr><td>品名</td><td class="tabSize">' + spName[i].cShopColumnName +
+										'</td><td>材质</td><td class="tabSize">' + spName[i].cTexttrue + '</td></tr>' +
+										'<tr><td>规格</td><td class="tabSize">' + spName[i].cSpec + '</td><td>数量</td><td class="tabSize">' +
+										spName[i].cNum + spName[i].cUnit + '</td></tr>' +
+										'<tr><td>姓名</td><td class="tabSize" colspan="3">' + spName[i].cRealname + '</td></tr>' +
+										'<tr><td>电话</td><td class="tabSize" colspan="3">' + hidePhone(spName[i].cPhone) + '</td></tr>' +
+										'</table></div>'
+									$('.planBox .swiper-wrapper').append(spList);
+								}
+							};
+							var PlanSwiper = new Swiper('.planBox', {
+								direction: 'vertical',
+								loop: true,
+								autoplay: {
+									delay: 2000,
+								},
+								speed: 500,
+								slidesPerView: 1,
+								slidesPerGroup: 1,
+							});
+						}
+					}
+				})
+			});
+			// 运费
+			$(function() {
+				$.ajax({
+					url: path + '/linA/listbanner12',
+					type: 'GET',
+					data: {},
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != "" && result.code == 1) {
+							if(result.data.length>0){
+								var imgBanner = result.data[0].cLogo;
+								$('img-yf').attr('src',photoPath + imgBanner)
+							}
+						}
+					}
+				})
+			});
+			// 开平
+			$(function() {
+				$.ajax({
+					url: path + '/linA/listbanner13',
+					type: 'GET',
+					data: {},
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != "" && result.code == 1) {
+							if(result.data.length>0){
+								var imgBanner = result.data[0].cLogo;
+								$('.img-kp').attr('src',photoPath + imgBanner)
+							}
+						}
+					}
+				})
+			});
+			// 分条
+			$(function() {
+				$.ajax({
+					url: path + '/linA/listbanner14',
+					type: 'GET',
+					data: {},
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != "" && result.code == 1) {
+							if(result.data.length>0){
+								var imgBanner = result.data[0].cLogo;
+								$('img-ft').attr('src',photoPath + imgBanner)
+							}
+						}
+					}
+				})
+			});
+			function ggyc(s) {
+				//隐藏规格
+				if (s == "0*0*0" || s == "0.0*0*0") {
+					return "------";
+				} else {
+					return s;
+				}
+			}
+		</script>
+	</body>
+</html>

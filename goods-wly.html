@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>兑换</title>
+	<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+	<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+    <link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="css/idangerous.swiper.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="css/reset.css?vid=0326" />
+	<link rel="stylesheet" type="text/css" href="css/APlayer.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/head.css?vid=0326" />
+	<link rel="stylesheet" type="text/css" href="css/news.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="css/footer.css?vid=0326" />
+	<link rel="stylesheet" type="text/css" href="css/user.css"/>
+    <link rel="stylesheet" type="text/css" href="css/check-in.css?vid=0326" />
+</head>
+<body>
+<!-- 顶部导航 -->
+<div class="headerpage"></div>
+<!-- 页面主体 -->
+	<div class="goods-box">
+		<a style="text-align: right;color: #FF0000;" href="check-in.html">&lt;&lt;返回</a>
+		<h1>五粮液</h1>
+		<div class="goods-top clearfix">
+			<div class="fl goods-img">
+				<img src="img/goods/wly.jpg" >
+			</div>
+			<div class="fl goods-mage">
+				<h3>奖品介绍</h3>
+				<p>品牌名称：五粮液</p>
+				<p>度数: 52%Vol</p>
+				<p>净含量: <span class="needNum">500</span>ml</p>
+				<p>产地：宜宾五粮液</p>
+				<button type="button" onclick="goodsClick()">点击抽奖（50豆/次）</button>
+				<div class="goodsNum clearfix">
+					<span class="fl">我的钢豆数量：<b class="gdNum">0</b></span>
+					<span class="fr">当前已兑酒量：<b class="barNum">0</b>毫升(ml)</span>
+				</div>
+			</div>
+		</div>
+		<div class="goods-rules">
+			<h3>活动规则</h3>
+			<h4>一．如何兑换？</h4>
+			<p>1.会员用户每 50个钢豆可兑换 1 次，获得随机数量的奖品，集满 1 瓶可兑换实物（具体以奖品介绍为准）。兑换所消耗的钢豆不予退还（包括但不限于活动截止未集满奖品等情况）。</p>
+			<p>2. 钢豆可通过“签到”等方式获得，具体可在钢豆详情页进行查看。</p>
+			<h4>二．如何提货？</h4>
+			<p>1.集满 1 瓶后可提货。点击“我的奖品”→“提货”，支付相应手续费并填写收货信息即可完成提货。</p>
+			<p>2.一般将在2周内发货并顺丰邮寄至您的收货地址处，节假日顺延。</p>
+			<h4>注：</h4>
+			<p>1.用户获得但未使用的钢豆，将在下一个自然年年底过期。</p>
+			<p>2.如发现刷单、作弊等恶意行为，将取消该用户活动资格，兑换同样无效。</p>
+			<p>3.本活动及奖品均与奖品公司无关，活动规则以实际页面最新描述为准，最终解释权归临钢网所有。</p>
+		</div>
+	</div>
+	<div class="userAdd-box">
+		<div class="userAdd-point">
+			<p class="approve-tit clearfix">收货地址 <a class="userAdd-close"></a></p>
+			<ul class="approve-box clearfix">
+				<li class="approve-list">
+					<span>联系人<i>*</i></span>
+					<input type="text" name="" id="" value="" placeholder="姓名" />
+				</li>
+				<li class="approve-list">
+					<span>联系方式<i>*</i></span>
+					<input type="text" name="" id="" value="" placeholder="手机号" />
+				</li>
+				<li class="approve-list" id="city_china_val">
+					<span>收货地址<i>*</i></span>
+					<select class="province" id="myProvince" data-first-title="选择省" disabled="disabled"></select>
+					<select class="city" id="myCity" data-first-title="选择市" disabled="disabled"></select>
+					<select class="area" id="myArea" data-first-title="选择地区" disabled="disabled"></select>
+					<br>
+					<input class="morePoint" type="text" name="" id="" value="" placeholder="详细地址" />
+				</li>
+				<li class="approve-list" style="text-align: center;">
+					<input type="button" name="" id="" onclick="postBar()" value="提交" />
+				</li>
+			</ul>
+		</div>
+	</div>
+<!-- 主体结束 -->
+<div class="footerpage"></div>
+<div class="foot-about1">
+	<div class="about-box">
+		<p class="footLink">
+			<a rel="nofollow" href="http://www.12377.cn" target="_blank"><img src="img/footer/foot-wfjb.png" width="124"
+				 height="46"></a>
+			<!-- <a rel="nofollow" href="https://ss.knet.cn/verifyseal.dll?sn=e20051937130081635xsxj000000&userid=8IeOInNbj43dec5E&time=1589881923113&stoken=ca1dc82d5bbb71d300d921ba6ec71ce0&pa=92311" target="_blank"><img src="img/footer/foot-kexin.jpg" width="124" height="46"></a> -->
+			<script type='text/javascript' src='https://kxlogo.knet.cn/seallogo.dll?sn=e20051937130081635xsxj000000&ct=df&h=46'></script>
+			<a rel="nofollow" href="#" target="_blank"><img src="img/footer/foot-rz.jpg" width="124" height="46"></a>
+			<a href="index.html"><img height="46" src="img/footer/footer-aq.png" ></a>
+			<a href="index.html"><img height="46" src="img/footer/footer-hw.png" ></a>
+			<a href="index.html"><img height="46" src="img/footer/footer-cx.jpg" ></a>
+			<a rel="nofollow" href="img/footer/lingang.png" target="_blank"><img src="img/footer/dzyyzz.png" width="46" height="46"></a>
+		</p>
+	</div>
+</div>
+<script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+<script src="js/jquery.cxselect.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+<script src="js/tools.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+<script src="js/right.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+<script>
+	$(function(){
+		/*公共部分
+		 * 导航栏
+		 * footer CopyRight
+		 */
+		$(".headerpage").load("header.html");
+		$(".footerpage").load("footer.html");
+		$.cxSelect.defaults.url = 'js/cityData.min.json';
+		$('#city_china_val').cxSelect({
+			selects: ['province', 'city', 'area'],
+			emptyStyle: 'none'
+		});
+	});
+	// 页面加载显示数量
+	$(function(){
+		var tkn = getCookie(tk);
+		$.ajax({
+			url: path + '/linA/getgd',
+			type: 'GET',
+			data: {},
+			dataType: 'json', //后台返回的数据类型是json文本
+			beforeSend: function(XMLHttpRequest) {
+				XMLHttpRequest.setRequestHeader("token", tkn);
+			},
+			success: function(result) {
+				// console.log(result)
+				if(result != "" && result.code == 1){
+					var mysteelD = result.data.details;
+					var needNum = $('.needNum').html();
+					$('.gdNum').html(result.data.cGoldGz);
+					$('.barNum').html(result.data.cGold/1000);
+					if(needNum<=result.data.cGold/1000){
+						$('.goods-mage button').html('兑换奖品');
+					}
+				}else{
+					myProcessErr(result.msg)
+				}
+
+
+			}
+		})
+	});
+
+	function goodsClick(){
+		var tkn = getCookie(tk);
+		var myNum = Number($('.gdNum').html());
+		var needNum = $('.needNum').html();
+		var barNum = Number($('.barNum').html());
+		
+		if(needNum>barNum){		// 抽奖要干的事
+			if(myNum<50){
+				myProcessErr('您的钢豆数量不足！')
+			}else{
+				// var max = 800;
+				// var min = 400;
+				// var num = parseInt((Math.random() * (max - min + 1) + min));
+				// var getNum = num/1000;
+				var json = JSON.stringify({
+					iChangeintegral: 50,
+					iChangetype: 0,
+					iNowintegral:myNum - 50,
+					iReason:'五粮液抽奖',
+					mlNum:1,
+					nowMlNum:1,
+					iIntegraltype:3
+				});
+				// var barNum2 = Number($('.barNum').html());
+				$.ajax({
+					url: path + '/linA/addjf',
+					type: 'POST',
+					data:json,
+					contentType: 'application/json;charset=utf-8',
+					dataType: 'json', //后台返回的数据类型是json文本
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					success: function(result) {
+						// console.log(result)
+						if(result != "" && result.code == 1){
+							alert('恭喜你获得' + result.num + '微升');
+							$('.gdNum').html(myNum - 50);
+							$('.barNum').html((barNum + result.num/1000).toFixed(3));
+							if((barNum + result.num/1000)>needNum){
+								$('.goods-mage button').html('兑换奖品');
+							}
+
+						}else{
+							myProcessErr(result.msg)
+						}
+
+
+					}
+				});
+
+			}
+
+		}
+		if (needNum<barNum) {		// 兑换要干的事
+			$('.userAdd-box').show();
+		}
+
+	};
+	$('.userAdd-close').click(function(){
+		$('.userAdd-box').hide();
+	});
+	function postBar(){
+		var json = JSON.stringify({
+			cCategory:2, 
+			cPhone: $('#userPhone').val(), 
+			cRealname: $('#userName').val(), 
+			cProvinceId: $('#myProvince').val(),
+			cCityId: $('#myCity').val(), 
+			cDistrictId: $('#myArea').val(), 
+			cAddressid: $('.morePoint').val()
+		});
+		$.ajax({
+			url: path + '/linA/addbar',
+			type: 'POST',
+			data:json,
+			contentType: 'application/json;charset=utf-8',
+			dataType: 'json', //后台返回的数据类型是json文本
+			beforeSend: function(XMLHttpRequest) {
+				XMLHttpRequest.setRequestHeader("token", tkn);
+			},
+			success: function(result) {
+				// console.log(result)
+				if(result != "" && result.code == 1){
+					myProcessOk(result.msg)
+					window.location.href = 'goods-mt.html';
+				}else{
+					alert(result.msg)
+				}
+			}
+		});
+	}
+</script>
+
+</body>
+</html>

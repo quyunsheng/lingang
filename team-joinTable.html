@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>人才招聘</title>
+		<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+		<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/idangerous.swiper.css"/>
+		<link rel="stylesheet" type="text/css" href="css/APlayer.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/news.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/head.css"/>
+		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+		<link rel="stylesheet" type="text/css" href="css/team.css"/>
+		<style type="text/css">
+			.up-table{
+				display: block;
+				width: 100px;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+				border: #6aaff7 1px solid;
+				color: #6aaff7;
+				margin: 30px auto 0;
+				cursor: pointer;
+			}
+			.up-photo{
+				width: 100%;
+				height: 200px;
+				opacity: 0;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			.upMYp{
+				 background: #e4e1e1;
+				 text-align: center; 
+				 width: 130px;
+				 height: 30px;
+				 line-height: 30px;
+				 display: block;
+				 position: absolute;
+				 left: -1px;
+				 bottom: -30px; 
+				 border: 1px solid #e4e1e1;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 顶部导航 -->
+		<div class="headerpage"></div>
+		<!-- banner -->
+		<div class="join-banner">
+		</div>
+		<!-- 主体 -->
+		<!-- 表单 -->
+		<div class="myForm">
+			<h1>个人信息表</h1>
+			<h3>个人信息<i>*</i></h3>
+			<div class="myMage clearfix">
+				<div class="fl myMage-l clearfix myInput">
+					<div class="myMage-list">
+						<label>姓名：</label>
+						<input type="text" name="姓名" id="cRealName" value="" />
+					</div>
+					<div class="myMage-list">
+						<label>姓别：</label>
+						<input type="text" name="姓别" id="cSex" value="" />
+					</div>
+					<div class="myMage-list">
+						<label>籍贯：</label>
+						<input type="text" name="籍贯" id="cJiguan" value="" />
+					</div>
+					<div class="myMage-list">
+						<label>出生日期：</label>
+						<input type="text" name="出生日期" id="cBirthday" value="" />
+					</div>
+					<div class="myMage-list">
+						<label>婚姻状况：</label>
+						<input type="text" name="婚姻状况" id="cMarry" value="" />
+					</div>
+
+					<div class="myMage-list">
+						<label>年龄：</label>
+						<input type="text" name="年龄" id="cAge" value="" />
+					</div>
+					<div class="myMage-list">
+						<label>毕业院校：</label>
+						<input type="text" name="毕业院校" id="cSchool" value="" />
+					</div>
+					<div class="myMage-list">
+						<label>专业：</label>
+						<input type="text" name="专业" id="cSubject" value="" />
+					</div>
+					<div class="myMage-list">
+						<label>学历：</label>
+						<input type="text" name="学历" id="cEducation" value="" />
+					</div>
+					<div class="myMage-list">
+						<label>手机号：</label>
+						<input type="text" name="手机号" id="cTelephone" value="" />
+					</div>
+				</div>
+				<div class="myMage-r fl">
+					<img id="userPhoto" class="user-photo" src="img/uplode.jpg"  title="点击更换头像">
+					<input class="up-photo" type="file" value="上传文件" onchange="upload2()"
+						   name="file" id="file" alt="点击更换头像"
+						   accept="image/png, image/jpeg, image/gif, image/jpg" multiple/>
+					<input type="hidden" id="imageUrl" />
+					<span class="upMYp">上传照片</span>
+				</div>
+			</div>
+			<div class="myAddress myInput">
+				<label>现居住地址：</label>
+				<input class="cAddress" name="现居住地址" type="text" id="cAddress" value="" />
+			</div>
+			<div class="myJob myInput" id="cJob">
+				<label>工作情况：</label>
+				<input type="radio" name="工作情况" id="" value="在职" checked="checked"  />
+				<span>在职</span>
+				<input type="radio" name="工作情况" id="" value="离职" />
+				<span>离职</span>
+				<input type="radio" name="工作情况" id="" value="无业" />
+				<span>无业</span>
+				<input type="radio" name="工作情况" id="" value="学生" />
+				<span>学生</span>
+				<input type="radio" name="工作情况" id="" value="其他" />
+				<span>其他</span>
+			</div>
+			<div class="myAddress myInput">
+				<label>求职意向：</label>
+				<input type="text" name="求职意向" id="cFindjob" value="" />
+			</div>
+			<div class="clearfix myHope myInput">
+				<label>应聘职位：</label>
+				<input type="text" name="应聘职位" id="cPosition" value="" />
+				<label>期望月薪：</label>
+				<input type="text" name="期望月薪" id="cMoney" value="" />
+			</div>
+			<div class="myOldJob clearfix myInput">
+				<label>原工作描述：</label>
+				<textarea style="max-width: 590px;min-width: 590px;" name="原工作描述" id="cSummary" rows="" cols=""></textarea>
+			</div>
+			<div class="myOldJob clearfix myInput">
+				<label>未来工作期望：</label>
+				<textarea style="max-width: 590px;min-width: 590px;" name="未来工作期望" id="cMsg" rows="" cols=""></textarea>
+			</div>
+			<h3>家庭关系<i>*</i></h3>
+			<table class="myTable myInput">
+				<tr>
+					<th>关系</th>
+					<th>姓名</th>
+					<th>通讯地址</th>
+					<th>电话</th>
+				</tr>
+				<tr class="gx-list1">
+					<td><input type="text" name="关系" id="" value="" /></td>
+					<td><input type="text" name="姓名" id="" value="" /></td>
+					<td><input type="text" name="通讯地址" id="" value="" /></td>
+					<td><input type="text" name="电话" id="" value="" /></td>
+				</tr>
+				<tr class="gx-list2">
+					<td><input type="text" name="关系2" id="" value="" /></td>
+					<td><input type="text" name="姓名2" id="" value="" /></td>
+					<td><input type="text" name="通讯地址2" id="" value="" /></td>
+					<td><input type="text" name="电话2" id="" value="" /></td>
+				</tr>
+			</table>
+			<!-- <textarea id="cFamily" rows="" cols="" style="width: 696px;height: 60px;"> -->
+
+			</textarea>
+			<div class="myLove myInput">
+				<label>兴趣爱好：</label>
+				<input type="text" name="兴趣爱好" id="cLike" value="" />
+			</div>
+			<div class="myLove myInput">
+				<span>是否适应出差：</span>
+				<span id="cEvection">
+					<input type="radio" checked="checked" name="business" id="" value="是" /><span>是</span>
+					<input type="radio" name="business" id="" value="否" /><span>否</span>
+				</span>
+			</div>
+			<h3>通知岗位培训相关<i>*</i></h3>
+
+			<div class="clearfix myHope myInput">
+				<label>去电时间：</label>
+				<input type="text" name="去电时间" id="cTophonetime" value="" />
+				<label>通知日期：</label>
+				<input type="text" name="通知日期" id="cInformtime" value="" />
+			</div>
+			<div class="myAddress">
+				<label>其他：</label>
+				<input type="text" name="其他" id="cOther" value="" />
+			</div>
+		</div>
+		<span class="up-table" onclick="clickUP()">提交</span>
+		<!-- 主体结束 -->
+		<div class="footerpage"></div>
+		<div class="foot-about1">
+			<div class="about-box">
+				<p class="footLink">
+					<a rel="nofollow" href="http://www.12377.cn" target="_blank"><img src="img/footer/foot-wfjb.png" width="124"
+						 height="46"></a>
+					<!-- <a rel="nofollow" href="https://ss.knet.cn/verifyseal.dll?sn=e20051937130081635xsxj000000&userid=8IeOInNbj43dec5E&time=1589881923113&stoken=ca1dc82d5bbb71d300d921ba6ec71ce0&pa=92311" target="_blank"><img src="img/footer/foot-kexin.jpg" width="124" height="46"></a> -->
+					<script type='text/javascript' src='https://kxlogo.knet.cn/seallogo.dll?sn=e20051937130081635xsxj000000&ct=df&h=46'></script>
+					<a rel="nofollow" href="#" target="_blank"><img src="img/footer/foot-rz.jpg" width="124" height="46"></a>
+					<a href="index.html"><img height="46" src="img/footer/footer-aq.png" ></a>
+					<a href="index.html"><img height="46" src="img/footer/footer-hw.png" ></a>
+					<a href="index.html"><img height="46" src="img/footer/footer-cx.jpg" ></a>
+					<a rel="nofollow" href="img/footer/lingang.png" target="_blank"><img src="img/footer/dzyyzz.png" width="46" height="46"></a>
+				</p>
+			</div>
+		</div>
+		<script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/ajaxfileupload.js?vid=0326" type="text/javascript"></script>
+		<script src="js/tools.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/right.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script>
+		    $(function(){
+		        /*公共部分
+		         * 导航栏
+		         * footer CopyRight
+		         */
+		        $(".headerpage").load("header.html");
+		        $(".footerpage").load("footer.html");
+		    });
+			$('.join-left li').click(function(){
+				$('.join-left').find('.on').removeClass('on');
+				$(this).addClass('on');
+				$('.join-right .joinRight').eq($(this).index()).addClass('show').siblings().removeClass('show');
+
+			});
+		</script>
+		<script type="text/javascript">
+			function clickUP(){
+				$(".myInput input[type='text']").each(function () {
+					if ($(this).val() == "") {
+						myProcessErr("不能为空！");
+						return false
+					}
+				})
+				upJl()
+			}
+			
+			function upJl(){
+				var myPhoto = $('#imageUrl').val()
+				if(myPhoto == ''||myPhoto == null ||myPhoto == undefined ||myPhoto == 'undefined'||myPhoto == 'null'){
+					myProcessErr('请上传头像！')
+					return false
+				}
+				var data = '';
+				$('.gx-list1 input').each(function (item) {
+					data += $(this).val()+',';
+				});
+					data.slice(0,data.length-1);
+					data=+';';
+				$('.gx-list2 input').each(function (item) {
+					data += $(this).val()+',';
+				});
+					data.slice(0,data.length-1);
+					data=+';';
+				var json = JSON.stringify({
+					cAddress:$('#cAddress').val(),
+					cAge:$('#cAge').val(),
+					cBirthday:$('#cBirthday').val(),
+					cEducation:$('#cEducation').val(),
+					cEvection:$('#cEvection input[type="radio"]:checked').val(),
+					cFindjob:$('#cFindjob').val(),
+					cInformtime:$('#cInformtime').val(),
+					cJiguan:$('#cJiguan').val(),
+					cJob:$('#cJob input[type="radio"]:checked').val(),
+					cLike:$('#cLike').val(),
+					cMarry:$('#cMarry').val(),
+					cMoney:$('#cMoney').val(),
+					cMsg:$('#cMsg').val(),
+					cOther:$('#cOther').val(),
+					cPosition:$('#cPosition').val(),
+					cRealName:$('#cRealName').val(),
+					cSchool:$('#cSchool').val(),
+					cSex:$('#cSex').val(),
+					cSubject:$('#cSubject').val(),
+					cSummary:$('#cSummary').val(),
+					cTelephone:$('#cTelephone').val(),
+					cTophonetime:$('#cTophonetime').val(),
+					cFamily:data
+				})
+				// console.log(json)
+				$.ajax({
+				    url: path + '/linA/subgrjl',
+				    type: 'POST',
+				    data: json,
+				    contentType: 'application/json;charset=utf-8',
+				    dataType: 'json', //后台返回的数据类型是json文本
+				    success: function (result) {
+				        if (result != "" && result.code == 1) {
+							myProcessOk(result.msg)
+				        } else {
+				            myProcessErr(result.msg)
+				        }
+				    }
+				})
+			}
+			function upload2() {
+				var filePath = $("#file").val();
+				var fileName = filePath.substring(filePath.lastIndexOf(".") + 1,
+						filePath.length);
+				fileName = fileName.toLowerCase();
+				var maxSize = 5*1024*1024 //5M限制
+				var fileSize = $('#file').get(0).files[0].size
+				if (fileSize > maxSize) {
+					myProcessErr("请上传大小不超过5M的图片！");
+					return false;
+				}
+				if (fileName != "bmp" && fileName != "jpg" && fileName != "gif"
+						&& fileName != "png" && fileName != "jpeg") {
+					myProcessErr("", "只能上传bmp,jpg,gif,png,jpeg格式的图片！");
+					return false;
+				}
+				console.log(filePath);
+			document.domain="lingangsteel.com";
+			var url = path + '/linA/uploadhead.html';
+			var tkn = getCookie(tk);
+			$.ajaxFileUpload({
+				url : url,
+				type : 'POST',
+				contentType: 'application/json',
+				secureuri : false, //一般设置为false
+				fileElementId : 'file', // 上传文件的id、name属性名
+				beforeSend: function(XMLHttpRequest) {
+					XMLHttpRequest.setRequestHeader("token", tkn);
+				},
+				success : function(data) {
+					console.log(data);
+					var tmp = $(data).text().substring($(data).text().indexOf("{"), $(data).text().length);
+					console.log(tmp);
+					var res = eval('(' + tmp + ')');
+					if(res.code == "1") {
+						// "https://www.lingangsteel.com/" + $("#imageUrl").val()
+						$("#imageUrl").val(res.msg);
+						$('#userPhoto').attr('src','https://www.lingangsteel.com/lingang/' + res.msg)
+					} else {
+						myProcessErr(res.msg);
+					}
+			
+				},
+				error : function(data, status, e) {
+					myProcessErr(e);
+				}
+			});
+			}
+		</script>
+	</body>
+</html>

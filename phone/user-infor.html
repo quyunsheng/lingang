@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>临钢网</title>
+		<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+		<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/all.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/user.css?vid=0326" />
+		<script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/phone.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body style="padding-top: 50px;">
+		<div id="cart-head" class="show">
+			<div class="cart-head">
+				<a class="return" href="javascript:history.back(-1);">
+					<span class="arrow-left"></span>
+				</a>
+				<div class="head-title">企业信息</div>
+				<a class="head-shop" href="tel:0539-6387606">
+					<i class="fa fa-phone fa-lg"></i> &nbsp;0539-6387606
+				</a>
+			</div>
+		</div>
+
+		<div class="account">
+			<p class="userRight-tit"><img src="img/user/infor.png">企业信息</p>
+			<p class="approve-tip">企业信息审核通过后如需变更企业信息请联系临钢网客服。</p>
+			<p class="approve-tit">个人资料</p>
+			<ul class="approve-box clearfix">
+
+				<li class="approve-list">
+					<span>姓名</span>
+					<span class="userInfor" id="userName"></span>
+				</li>
+				<li class="approve-list">
+					<span>手机号码</span>
+					<span class="userInfor" id="userPhone"></span>
+				</li>
+				<li class="approve-list">
+					<span>身份证号</span>
+					<span class="userInfor" id="userCard"></span>
+				</li>
+			</ul>
+			<p class="approve-tit">企业资料</p>
+			<ul class="approve-box clearfix">
+				<li class="approve-list">
+					<span>企业名称</span>
+					<span class="userInfor" id="shopName"></span>
+				</li>
+				<li class="approve-list">
+					<span>营业执照号</span>
+					<span class="userInfor" id="gongZhangName"></span>
+				</li>
+				<li class="approve-list" style="width: 100%">
+					<span>公司地址</span>
+					<br>
+					<br>
+					<span class="userInfor" id="myProvince" style="width: 90px;margin-right: 10px;"></span>
+					<span class="userInfor" id="myCity" style="width: 90px;margin-right: 10px;"></span>
+					<span class="userInfor" id="myArea" style="width: 90px;margin-right: 10px;"></span>
+					<br>
+					<br>
+					<span class="userInfor" id="myAddress" style="width: auto;">详细地址</span>
+				</li>
+			</ul>
+			<p class="approve-tit">开票资料</p>
+			<ul class="approve-box clearfix">
+				<li class="approve-list">
+					<span>联系电话</span>
+					<span class="userInfor" id="shopPhone"></span>
+				</li>
+				<li class="approve-list">
+					<span>税号</span>
+					<span class="userInfor" id="nowCityId"></span>
+				</li>
+				<li class="approve-list">
+					<span>开户银行</span>
+					<span class="userInfor" id="nowCityName"></span>
+				</li>
+				<li class="approve-list">
+					<span>银行账号</span>
+					<span class="userInfor" id="bankNum"></span>
+				</li>
+			</ul>
+			<p class="approve-tit">附件资料</p>
+			<ul class="approve-box clearfix">
+				<li class="update-img">
+					<img id="factName" src="img/user/updataImg1.png">
+					<p>营业执照</p>
+				</li>
+			</ul>
+			<!-- 是否审核成为企业 0= 未审核 1=审核中 2=审核成功 3=审核失败" -->
+			<p id="ifShop" style="padding: 0 14px;"></p>
+		</div>
+
+		<!--底部-->
+		<div class="footerpage"></div>
+		<script src="js/tools.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/all.js?vid=0611" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(function() {
+				/*公共部分
+				 * 导航栏
+				 * footer CopyRight
+				 */
+				$('.footerpage').load('footer.html');
+			});
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				var tkn = getCookie(tk);
+				$.ajax({
+					url: path + '/linA/getyh',
+					type: 'GET',
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					data: {},
+					// contentType: 'application/json;charset=utf-8',
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						// console.log(result)
+						// $('#userPhone').html(e.)
+						if (result != "" && result.code == 1) {
+							var userData = result.user;
+							console.log(userData)
+							$('#userPhone').html(userData.cPhone);
+							$('#userName').html(userData.cRealname);
+							$('#userCard').html(userData.cIdCardNo);
+							$('#shopName').html(userData.cShopName);
+							$('#gongZhangName').html(userData.cFactId);
+							$('#myProvince').html(userData.cProvince);
+							$('#myCity').html(userData.cCity);
+							if (userData.cDistrict == '' ||userData.cDistrict == null) {
+								$('#myArea').hide();
+								$('#myProvince').css('margin-left','80px');
+								$('#myAddress').css('margin-left','80px');
+							} else {
+								$('#myArea').html(userData.cDistrict);
+							}
+							$('#myAddress').html(userData.cAddressId);
+							$('#shopPhone').html(userData.cVer);
+							$('#nowCityId').html(userData.cNowCityId);
+							$('#nowCityName').html(userData.cNowCityName);
+							$('#bankNum').html(userData.cVipCardno);
+							$('#factName').attr('src',userData.cFactName);
+							if (userData.cIfShop == 0) {
+								$('#ifShop').html('未审核');
+								$('#ifShop').css('color', '#f62d3d')
+							} else if (userData.cIfShop == 1) {
+								$('#ifShop').html('审核中');
+								$('#ifShop').css('color', '#0055ff')
+							} else if (userData.cIfShop == 2) {
+								$('#ifShop').html('审核成功');
+								$('#ifShop').css('color', '#00ff00')
+							} else if (userData.cIfShop == 3) {
+								$('#ifShop').html('审核失败');
+								$('#ifShop').css('color', '#ffff00')
+							}
+						}
+					}
+				})
+			})
+		</script>
+
+	</body>
+</html>

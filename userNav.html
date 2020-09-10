@@ -1,0 +1,48 @@
+<div class="user-btm">
+	<div class="user-menu">
+		<span>个人账户</span>
+		<ul>
+			<li><a href="user-person.html">个人资料</a></li>
+			<li><a href="user-approve.html">会员认证</a></li>
+			<li><a href="user-set.html">安全设置</a></li>
+			<li><a href="user-fankui.html">问题反馈</a></li>
+		</ul>
+	</div>
+	<div class="user-menu">
+		<span>企业账号</span>
+		<ul>
+			<li><a href="user-infor.html">企业信息</a></li>
+			<li><a href="user-address.html">收货地址</a></li>
+		</ul>
+	</div>
+	<div class="user-menu">
+		<span>订单管理</span>
+		<ul>
+			<li><a href="user-order.html">我的订单</a></li>
+			<li><a href="group-pin.html?chl=my">我的拼单</a></li>
+			<li><a href="plan.html">计划采购</a></li>
+			<li><a href="user-askBuy.html">求购信息</a></li>
+			<li><a href="user-payfor.html">成交记录</a></li>
+		</ul>
+	</div>
+	<div class="user-menu">
+		<span>钢豆中心</span>
+		<ul>
+			<li><a href="user-integral.html">我的钢豆</a></li>
+			<li><a href="user-integralOrder.html">钢豆订单</a></li>
+			<!-- <li><a href="user-goods.html">我的奖品</a></li> -->
+			<li><a href="check-in.html">兑换奖品</a></li>
+		</ul>
+	</div>
+</div>
+<!-- 跳转改变导航样式js必须写在header.html里面，如在index.html等其他页面写或引入，则无效 -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".user-btm li a").each(function() {
+            if($(this)[0].href == String(window.location)) {
+				$('.user-btm').find('.on').removeClass('on');
+				$(this).parents("li").addClass("on");
+            }
+        });
+    })
+</script>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>临钢网</title>
+		<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+		<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/calendar.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/all.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/detail.css?vid=0326" />
+		<script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/phone.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body style="padding-top: 50px;padding-bottom: 50px;">
+		<div id="cart-head" class="show">
+			<div class="cart-head">
+				<a class="return" href="javascript:history.back(-1);">
+					<span class="arrow-left"></span>
+				</a>
+				<div class="head-title">采购计划</div>
+			</div>
+		</div>
+		<div class="plan-box">
+			
+		</div>
+		<!--底部导航-->
+		<div class="footerpage"></div>
+		<script src="js/tools.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/all.js?vid=0611" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(function() {
+				/*公共部分
+				 * 导航栏
+				 * footer CopyRight
+				 */
+				$('.footerpage').load('footer.html');
+			});
+		</script>
+		<script type="text/javascript">
+			//加载计划购买
+			$(function() {
+				var tkn = getCookie(tk);
+				$.ajax({
+					url: path + '/linA/listalljhcg',
+					type: 'GET',
+					data: {},
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != "" && result.code == 1) {
+							var spName = result.data;
+							for (var i in spName) {
+									var spList =
+									'<div class="planList"><table class="planTab">'+
+										'<tr><td>时间</td><td colspan="3" class="tabSize">' + spName[i].cBlockId + '</td></tr>'+
+										'<tr><td>姓名</td><td class="tabSize">' + spName[i].cRealname +'</td>'
+										if(tkn == null || tkn == 'null' || tkn == undefined|| tkn == 'undefined'){
+											spList +=
+											'<td>电话</td><td class="tabSize">' + hidePhone(spName[i].cPhone)  + '</td></tr>'
+										}else{
+											spList +=
+											'<td>电话</td><td class="tabSize">' + spName[i].cPhone + '</td></tr>'
+										}
+										spList +=
+										'<tr><td>品名</td><td class="tabSize">' + spName[i].cShopColumnName + '</td><td>材质</td><td class="tabSize">' + spName[i].cTexttrue + '</td></tr>'+
+										'<tr><td>规格</td><td class="tabSize">' + spName[i].cSpec + '</td><td>数量</td><td class="tabSize">' + spName[i].cNum + spName[i].cUnit + '</td></tr>'+
+										'<tr><td>备注</td><td colspan="3" class="tabSize">' + spName[i].cExplain + '</td></tr>'+
+									'</table></div>'
+									$('.plan-box').append(spList);
+							};
+						}
+					}
+				})
+			});
+			function hidePhone(s) {
+				// s = s.substring(0, 3) + "****" + s.substring(7);
+				s = s.substring(0, 3) + "***";
+				return s;
+			}
+		</script>
+	
+	</body>
+</html>

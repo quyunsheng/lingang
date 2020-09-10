@@ -1,0 +1,228 @@
+#cart-head{
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+}
+.news-box{
+	padding: 0.2rem 0.2rem 0;
+}
+.news-list{
+	background: #fff;
+	border-radius: 6px;
+}
+.news-list li{
+	height: 1.6rem;
+	padding: 0.3rem 0.2rem 0.3rem 1.6rem;
+	border-bottom: #efefef 1px solid;
+	position: relative;
+	box-sizing: border-box;
+}
+.news-box span{
+	display: block;
+}
+.news-img{
+	width: 1rem;
+	height: 1rem;
+	position: absolute;
+	left: 0.3rem;
+	top: 0.3rem;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.news-num{
+	position: absolute;
+	top: 0.2rem;
+	left: 1.04rem;
+	font-size: 0.24rem;
+	width: 0.4rem;
+	height: 0.4rem;
+	line-height: 0.36rem;
+	color: #FFF;
+	background: rgb(81, 142, 57);
+	text-align: center;
+	border: #fff 1px solid;
+	border-radius: 50%;
+}
+.news-title{
+	height: 0.48rem;
+	font-size: 0.32rem;
+	line-height: 0.48rem;
+}
+.news-info{
+	height: 0.42rem;
+	overflow: hidden;
+	color: #999;
+}
+.news-time{
+	position: absolute;
+	right: 0.2rem;
+	top: 0.3rem;
+	color: #999;
+}
+/* 通知消息 */
+.notice-time{
+	height: 0.8rem;
+	line-height: 0.8rem;
+	font-size: 0.24rem;
+	color: #999;
+	text-align: center;
+}
+.notice-main{
+	position: relative;
+	padding: 0 1rem;
+}
+.notic-head{
+	width: 0.8rem;
+	height: 0.8rem;
+	border-radius: 50%;
+	border: rgba(255,255,255,.5) 2px solid;
+	overflow: hidden;
+	box-sizing: border-box;
+	position: absolute;
+	left: 0.1rem;
+	top: 0;
+}
+.notic-head img{
+	height: 100%;
+}
+.notic-content{
+	background: #fff;
+	font-size: 0.3rem;
+	line-height: 0.48rem;
+	padding: 0.12rem 0.2rem;
+	border-radius: 3px;
+	width: auto;
+}
+.notice-title{
+	font-size: 0.32rem;
+	line-height: 0.48rem;
+}
+.notice-txt{
+	font-size: 0.26rem;
+	color: #999;
+}
+.notice-link{
+	font-size: 0.28rem;
+	border-top: #efefef 1px solid;
+	margin-top: 0.2rem;
+	padding-top: 0.2rem;
+}
+/* 民慧小管家 */
+.head-contact{
+	width: 100%;
+	height: 50px;
+	background: #fff;
+	border-bottom: #efefef 1px solid;
+}
+.head-contact li{
+	float: left;
+	width: 50%;
+	position: relative;
+}
+.head-contact a{
+	display: block;
+	padding-left: 30px;
+	line-height: 50px;
+	color: #666;
+	text-align: center;
+	font-size: 16px;
+}
+.head-contact a:nth-child(1){
+	border-right: #efefef 1px solid;
+}
+.head-contact span{
+	position: absolute;
+	display: block;
+	height: 30px;
+	width: 30px;
+	top: 10px;
+}
+.head-contact .qq{
+	left: 50%;
+	margin-left: -50px;
+	background: url(../img/head_qq.png) center center no-repeat;
+	background-size: 30px;
+}
+.head-contact .mobile{
+	left: 50%;
+	margin-left: -50px;
+	background: url(../img/head_mobile.png) center center no-repeat;
+	background-size: 30px;
+}
+.voice_cues{
+	width: 2rem;
+	padding: 0.6rem;
+	position: fixed;
+	top: 40%;
+	left: 50%;
+	margin-left: -1rem;
+	background: rgba(0,0,0,.5);
+	border-radius: 6px;
+	box-sizing: border-box;
+}
+
+/* 底部输入栏 */
+#message_foot{ height:auto; width:100%; background:#fff; position:fixed; bottom:0; left:0; z-index:999; border-top:#efefef 1px solid;}
+.message_foot .message_foot_default{ height:50px; padding:0 100px 0 10px; position:relative; overflow:hidden; }
+.message_foot .message_foot_default a{ display:block;}
+.message_foot .message_foot_default .message_foot_left,
+.message_foot .message_foot_default .message_foot_right{ position:absolute; top:0; padding:5px 0;}
+.message_foot .message_foot_default .message_foot_left{ left:5px;}
+.message_foot .message_foot_default .message_foot_right{ right:5px;}
+.message_foot .message_foot_default .message_foot_left .icon-voice{ display:block; width:40px; height:40px; background:url(../img/voice.png) center center no-repeat; background-size:40px;}
+.message_foot .message_foot_default .message_foot_left .icon-keyboard{ display:block; width:40px; height:40px; background:url(../img/keyboard.png) center center no-repeat; background-size:40px;}
+.message_foot .message_foot_default .message_foot_left .icon-more,
+.message_foot .message_foot_default .message_foot_right .icon-more{ display:block; width:40px; height:40px; background:url(../img/more.png) center center no-repeat; background-size:40px;}
+.message_foot .message_foot_default .message_foot_right .message_foot_send{ display:block; width:40px; height:38px; line-height:40px; text-align:center; background:#f60; color:#fff; border-radius:3px;}
+.message_foot .message_foot_default .textarea,
+.message_foot .message_foot_default .repress{ width:100%; height:40px; margin-top:5px;}
+
+.message_foot .message_foot_default .textarea span,
+.message_foot .message_foot_default .repress span{ display:block; border:#999 1px solid; height:38px; border-radius:3px; line-height:38px; text-align:center; font-size:16px; color:#999;}
+
+.message_foot .message_foot_default .textarea .content{border: 0; width:98%; height:36px; display:block; line-height:36px; margin:0 auto;padding:0;}
+.message_foot .message_foot_default .textarea textarea:focus{ border:#fff 1px solid;}
+
+.message_foot .message_foot_info{ border-top:#efefef 1px solid;}
+.message_foot .message_foot_info .operation{ height:40px; padding:0 10px;}
+.message_foot .message_foot_info .operation a{ width:60px; height:40px; display:block; font-size:16px; line-height:40px; text-align:center; color:#999;}
+.message_foot .message_foot_info .textbox{ padding:0 10px 10px;}
+.message_foot .message_foot_info .textbox .content{ width:100%; min-height:30px; border:#efefef 1px solid; padding:5px 0; color:#666;}
+
+.message_foot .message_foot_more{ border-top:#efefef 1px solid;}
+.message_foot .message_foot_moret ul{ overflow:hidden;}
+.message_foot .message_foot_more ul li{ float:left; width:25%; padding:15px 0; position:relative;}
+.message_foot .message_foot_more ul li a{ display:block;}
+.message_foot .message_foot_more ul li span{ display:block; border:#999 1px solid; border-radius:3px; width:42px; height:42px; padding:10px; margin:0 auto;}
+.message_foot .message_foot_more ul li p{ text-align:center; color:#999; font-size:12px; padding-top:5px;}
+
+
+
+/*聊天*/
+/* .seeMore {
+	position: relative;
+	left: 50%;
+	margin-left: -52px;
+	background-color: #ccc;
+	padding: 3px 10px;
+	border-radius: 6px;
+	width: 104px;
+} */
+
+/* #typeFS {
+	border: 1px solid #000;
+	border-radius: 6px;
+	width: .7rem;
+	position: absolute;
+	top: 10px;
+	padding: 5px 0;
+	right: 50px;
+	text-align: center;
+} */
+.work-list img {
+	width: .5rem;
+	height: .5rem;
+	border-radius: 50%;
+	border: 1px solid #ccc;
+}

@@ -1,0 +1,16 @@
+.set-center {
+    margin-top: 0.2rem;
+    background: #fff;
+    border-radius: 6px;
+    padding: 0 0.2rem;
+}
+
+.set-center .car-goods {
+    height: 1rem;
+    line-height: 1rem;
+    font-size: 0.32rem;
+}
+
+.set-center .car-goods:nth-child(even) {
+    border-top: #efefef 1px solid;
+}

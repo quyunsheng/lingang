@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>我的钢豆</title>
+		<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+		<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/idangerous.swiper.css"/>
+		<link rel="stylesheet" type="text/css" href="css/APlayer.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/head.css"/>
+		<link rel="stylesheet" type="text/css" href="css/news.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+		<link rel="stylesheet" type="text/css" href="css/user.css"/>
+	</head>
+	<body>
+		<!-- 顶部导航 -->
+		<div class="headerpage"></div>
+		<!-- 页面主体 -->
+		<div class="main-user">
+			<div class="top-user"><img src="img/user-vip.png" >我的钢豆</div>
+			<div class="user-box clearfix">
+				<div class="user-left fl">
+					<div class="userNav"></div>
+				</div>
+				<div class="user-right fr">
+					<p class="userRight-tit clearfix">
+						<img src="img/user/integral.png" >
+						我的钢豆
+						<a class="integral-tip" href="help.html?type=5&list=4" title="钢豆说明"></a>
+					</p>
+					<h2 class="integral-tit" style="margin-top: 30px;">我的钢豆</h2>
+					<span class="integral-num"></span><!-- 钢豆数 -->
+					<!-- 酒数 -->
+					<p style="margin-left: 50px;font-size: 16px;margin-bottom: 10px;"><b>当前已兑酒数：</b></p>
+					<div style="display: inline-block;margin-left: 70px;">茅台：<span class="bar-num bar-mt" style="font-size: 20px;color: #6AAFF7;">0</span>&nbsp;mL</div>
+					<div style="display: inline-block;margin-left: 20px;">五粮液：<span class="bar-num bar-wly" style="font-size: 20px;color: #6AAFF7;">0</span>&nbsp;mL</div>
+					<div class="userGoods-box">
+						<h2>钢豆明细</h2>
+						<div class="userGoods">
+							<table class="integral-table">
+								<thead>
+									<tr>
+										<th>收支</th>
+										<th>明细</th>
+										<th>时间</th>
+									</tr>
+								</thead>
+								<tbody class="mysteelD">
+
+								</tbody>
+							</table>
+							<!-- <ul class="integral-page">
+								<li class="disabled">
+									<a href="#" rel="prev">上一页</a>
+								</li>
+								<li class="active">
+									<a href="#">1</a>
+								</li>
+								<li>
+									<a href="#" rel="next">2</a>
+								</li>
+								<li>
+									<a href="#">3</a>
+								</li>
+								<li>
+									<a href="#" rel="next">下一页</a>
+								</li>
+							</ul> -->
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- 主体结束 -->
+		<div class="footerpage"></div>
+		<div class="foot-about1">
+			<div class="about-box">
+				<p class="footLink">
+					<a rel="nofollow" href="http://www.12377.cn" target="_blank"><img src="img/footer/foot-wfjb.png" width="124" height="46"></a>
+					<!-- <a rel="nofollow" href="https://ss.knet.cn/verifyseal.dll?sn=e20051937130081635xsxj000000&userid=8IeOInNbj43dec5E&time=1589881923113&stoken=ca1dc82d5bbb71d300d921ba6ec71ce0&pa=92311" target="_blank"><img src="img/footer/foot-kexin.jpg" width="124" height="46"></a> -->
+					<script type='text/javascript' src='https://kxlogo.knet.cn/seallogo.dll?sn=e20051937130081635xsxj000000&ct=df&h=46'></script>
+					<a rel="nofollow" href="#" target="_blank"><img src="img/footer/foot-rz.jpg" width="124" height="46"></a>
+					<a href="index.html"><img height="46" src="img/footer/footer-aq.png" ></a>
+					<a href="index.html"><img height="46" src="img/footer/footer-hw.png" ></a>
+					<a href="index.html"><img height="46" src="img/footer/footer-cx.jpg" ></a>
+					<a rel="nofollow" href="img/footer/lingang.png" target="_blank"><img src="img/footer/dzyyzz.png" width="46" height="46"></a>
+				</p>
+			</div>
+		</div>
+		<script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/tools.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/right.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(function(){
+				/*公共部分
+				 * 导航栏
+				 * footer CopyRight
+				 */
+				$(".headerpage").load("header.html");
+				$(".footerpage").load("footer.html");
+				$(".userNav").load("userNav.html");
+			});
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				var tkn = getCookie(tk);
+				$.ajax({
+					url: path + '/linA/getgd',
+					type: 'GET',
+					data: {},
+					dataType: 'json', //后台返回的数据类型是json文本
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					success: function(result) {
+						if(result != "" && result.code == 1){
+							var mysteelD = result.data.details;
+							$('.integral-num').html(result.data.cGoldGz);
+							$('.bar-wly').html(result.data.cGold/1000);
+							$('.bar-mt').html(result.data.cUb/1000);
+							for (var i in mysteelD) {
+								if(mysteelD[i].iChangetype<1){
+									var gdChange =
+									'<tr><td>-' + mysteelD[i].iChangeintegral +
+									'</td><td>' + mysteelD[i].iReason +
+									'</td><td>' + mysteelD[i].iCreatetime +
+									'</td></tr>';
+									$('.mysteelD').append(gdChange);
+								}else{
+									var gdChange =
+									'<tr><td>+' + mysteelD[i].iChangeintegral +
+									'</td><td>' + mysteelD[i].iReason +
+									'</td><td>' + mysteelD[i].iCreatetime +
+									'</td></tr>';
+									$('.mysteelD').append(gdChange);
+								}
+
+							}
+						}else{
+							alert(result.msg)
+						}
+
+
+					}
+				})
+			})
+		</script>
+	</body>
+</html>

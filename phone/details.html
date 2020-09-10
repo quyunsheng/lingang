@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>临钢网</title>
+		<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+		<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="./css/all.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="./css/reset.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="./css/index.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="./css/quote.css?vid=0326" />
+	</head>
+	<body style="padding-top: 50px;background: #FFFFFF;">
+		<div id="cart-head" class="show">
+			<div class="cart-head">
+				<a class="return" href="javascript:history.back(-1);">
+					<span class="arrow-left"></span>
+				</a>
+				<div class="head-title">资讯详情</div>
+				<a class="head-shop" href="tel:0539-6387606">
+					<i class="fa fa-phone fa-lg"></i> &nbsp;0539-6387606
+				</a>
+			</div>
+		</div>
+		<!--列表-->
+		<div class="box-list" style="box-sizing: border-box;">
+			<h1 style="text-align: center; width:100%;background-color: #b8e0f7; font-size: 16px;line-height: 1.5;"></h1>
+			<div class="detail-mage" style="padding: 0.2rem;line-height: 0.6rem;word-wrap:break-word">
+
+			</div>
+		</div>
+		<p class="tags"></p>
+		<div class="index-none">
+<!--			<p>我已经到达底线了哦\(^o^)/~</p>-->
+		</div>
+		<!--底部-->
+		<div class="footerpage"></div>
+
+
+		<script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/phone.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/all.js?vid=0611" type="text/javascript" charset="utf-8"></script>
+		<script src="js/tools.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/javascript">
+			$('.main-tab li').click(function() {
+				$(this).addClass('on').siblings().removeClass('on');
+				$('.cont-left ul').eq($(this).index()).addClass('show').siblings().removeClass('show');
+			})
+		</script>
+		<script>
+			$(function() {
+				/*公共部分
+				 * 导航栏
+				 * footer CopyRight
+				 */
+				$(".footerpage").load("footer.html");
+			});
+		</script>
+		<script type="text/javascript">
+			(function($) {
+				$.getUrlParam = function(name) {
+					var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+					var r = window.location.search.substr(1).match(reg);
+					if (r != null) return unescape(r[2]);
+					return null;
+				}
+			})(jQuery);
+			$(function() {
+				$.ajax({
+					type: 'GET',
+					url: path + '/linA/getnews',
+					data: {
+						id: $.getUrlParam('id')
+					},
+					dataType: "json",
+					success: function(result) {
+						console.log(result)
+						if (result != "" && result.code == 1) {
+							var listNew = result.data;
+							$('.box-list h1').html(listNew.cTitle);
+							$('.box-list .detail-mage').html(listNew.cContent);
+							$('.tags').html("&nbsp;&nbsp;来源："+listNew.cTags);
+						} else {
+							myProcessErr(result.msg)
+						}
+					}
+				})
+			})
+		</script>
+	</body>
+</html>

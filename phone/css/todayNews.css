@@ -1,0 +1,11 @@
+body {
+    background-color: #efcfa8;
+}
+.infor {
+    margin-top: 50px;
+    padding: 5px;
+}
+.inforDay-list ul li{
+    background-color: #ffffd1;
+    border-bottom: 1px #035aa0 dashed;
+}

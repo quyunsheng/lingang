@@ -1,0 +1,139 @@
+.index-tit {
+    width: 100%;
+    border-bottom: #000 1px solid;
+    box-sizing: border-box;
+}
+
+.index-tit span {
+    display: inline-block;
+}
+
+.indexTit-bg {
+    border-left: 4px solid #6aaff7;
+    height: 20px;
+    position: relative;
+    top: 2px;
+}
+
+.indexTit-txt {
+    font-weight: bold;
+    color: #6aaff7;
+    font-size: 22px;
+    margin: .1rem;
+}
+
+.index-price {
+    position: relative;
+    margin: 60px 0 30px;
+    padding: .2rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.moneyList {
+    display: none;
+}
+
+.price-list {
+    width: 100%;
+    text-align: center;
+    background: #FFFFFF;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+}
+
+.price-list li {
+    width: 1rem;
+    height: 44px;
+    line-height: 44px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.price-list .active {
+    color: #FFFFFF;
+    background: #6aaff7;
+}
+
+.price-swiper {
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.price-swiper .slide-list {
+    float: left;
+    width: 50%;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.span-list1 {
+    text-align: center;
+	line-height: 0.8rem;
+	margin-top: 0.4rem;
+}
+
+.span-list1 img {
+    height: .8rem;
+    width: 1rem;
+    margin-right: 15px;
+}
+
+.span-list2 {
+    font-size: 30px;
+    line-height: 40px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.span-list2 i {
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.span-list3 {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.span-list4 {
+    margin-top: 20px;
+    color: #736f6f;
+}
+
+.span-list4 span {
+    float: left;
+}
+
+.span-list4 .span-time {
+    float: right;
+}
+
+/* 卷价趋势 */
+.index-chart {
+    width: 100%;
+    margin: 0 auto 20px;
+    padding: 0 .2rem;
+    box-sizing: border-box;
+}
+
+.chart-box {
+    height: 220px;
+    position: relative;
+    border-right: #ddd 1px solid;
+    border-bottom: #ddd 1px solid;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.chart-trend {
+    height: 240px;
+    padding: 20px 10px 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}

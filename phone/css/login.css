@@ -1,0 +1,108 @@
+.login-ipt{
+	width: 100%;
+	padding: 0 0.24rem;
+	line-height: 35px;
+	height: 35px;
+	border-bottom: 1px solid #ccc;
+	box-sizing: border-box;
+	margin-bottom: 0.6rem;
+	border: 1px solid #ccc;
+	background: #fff;
+	border-radius: 0.6rem;
+}
+.login-btn{
+	width: 100%;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	border: none;
+	color: #FFFFFF;
+	background: #39c5fd;
+	border-radius: 0.8rem;
+	box-shadow: 1px 1px 2px #fff;
+	outline: none;
+}
+.login-ipt:focus{
+	border-bottom: 1px solid #169BD5;
+}
+.login-check{
+	margin-top: 0.3rem;
+}
+
+.code-box{
+	position: relative;
+}
+.code-box input{
+	padding-right: 2rem;
+}
+.code-num{
+	display: block;
+	color: #fff;
+	border: none;
+	background: #39c5fd;
+	height: 35px;
+	position: absolute;
+	right: 0px;
+	top: 0;
+	border-radius: 0 35px 35px 0;
+	padding: 0 20px;
+	line-height: 35px;
+}
+.loginType-more{
+	text-align: center;
+}
+.loginType-more span{
+	padding: 0 10px;
+	text-align: center;
+	display: inline-block;
+}
+.loginType-more a{
+	background-image: url(../img/third_login.png);
+	background-repeat: no-repeat;
+	width: 42px;
+	height: 42px;
+	padding: 0;
+	display: inline-block;
+	margin: 0;
+	float: none;
+}
+.loginType-wx{
+	background-position: -12px -9px;
+}
+.loginType-wx:hover{
+	background-position: -12px -55px;
+}
+.type-pass input{
+	background: #fff !important;
+}
+.pass-box{
+	position: relative;
+}
+.pass-box input{
+	padding-right: 0.6rem;
+}
+.pass-box i{
+	position: absolute;
+	right: 0.2rem;
+	top: 0.16rem;
+}
+.fa-question-circle{
+	margin-left: 0.05rem;
+}
+.login-again input {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    top: 3px;
+    cursor: pointer;
+}
+.login-again a {
+    display: inline-block;
+}
+.goReg{
+	text-align: center;
+	margin-top: 0.4rem;
+}
+.goReg span{
+	color: #169BD5;
+}

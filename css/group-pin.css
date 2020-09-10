@@ -1,0 +1,83 @@
+.gp-list{
+	/* border: 1px solid #c3c3c3; */
+	margin-bottom: 30px;
+}
+.groupPin-tab{
+	width: 100%;
+	text-align: center;
+	border-collapse: collapse;
+}
+.groupPin-tab th{
+	line-height: 38px;
+	background: #3282b5;
+	color: #FFFFFF;
+	border: 1px solid #E4E4E4;
+}
+.groupPin-tab td{
+	padding: 10px 5px;
+	border: 1px solid #E4E4E4;
+}
+.planNum{
+	display: inline-block;
+	width: 60px;
+	height: 30px;
+	line-height: 30px;
+	margin-right: 5px;
+	padding: 3px;
+	box-sizing: border-box;
+	text-align: right;
+}
+.subPlan{
+	cursor: pointer;
+	color: #FFFFFF;
+	margin-left: 10px;
+	border:1px solid #FF0000;
+	padding:4px;background-color: #ff0000;
+}
+.groupPin-tab td i{
+	font-size: 14px;
+}
+.gp-table{
+	padding: 0 14px;
+	box-sizing: border-box;
+	/* border: none !important; */
+	margin-bottom: 10px !important;
+}
+.gp-table li{
+	padding: 5px 0 5px 46px;
+	border-bottom: 1px dashed #CCCCCC;
+}
+.gp-first{
+	padding-left: 0 !important;
+	position: relative;
+}
+.gp-table li span{
+	margin-left: 10px;
+	line-height: 30px;
+}
+.delPin{
+	width: 80px;
+	height: 30px;
+	border: 1px solid #FF0000;
+	display: block;
+	position: absolute;
+	right: 0px;
+	top: 2px;
+	color: #FF0000;
+	text-align: center;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.changePin{
+	width: 60px;
+	height: 30px;
+	border: 1px solid #5555ff;
+	display: block;
+	position: absolute;
+	right: 80px;
+	top: 2px;
+	color: #5555ff;
+	text-align: center;
+	border-radius: 5px;
+	cursor: pointer;
+}

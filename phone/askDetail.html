@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>临钢网</title>
+		<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+		<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/calendar.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/all.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/detail.css?vid=0326" />
+		<script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/phone.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.robOrder{
+				width: 48px;
+				height: 24px;
+				line-height: 24px;
+				font-size: 13px;
+				display: block;
+				background: #FF0000;
+				border-radius: 5px;
+				color: #FFFFFF;
+				text-align: center;
+				float: right;
+			}
+			.phoneLy{
+				padding: 0 0.2rem;
+			}
+			.ordTxt{
+				overflow: hidden;
+				padding: 0.2rem;
+				width: 100%;
+				height: 100px;
+				border-radius: 4px;
+				border: #ccc 1px solid;
+				margin-top: 0.2rem;
+			}
+			.ordBtn{
+				display: block;
+				margin: 10px auto 0;
+				width: 90px;
+				height: 40px;
+				border: 0;
+				outline: 0;
+				cursor: pointer;
+				background: #6aaff7;
+				border-radius: 5px;
+				color: #FFFFFF;
+			}
+		</style>
+	</head>
+	<body style="padding-top: 50px;padding-bottom: 50px;">
+		<div id="cart-head" class="show">
+			<div class="cart-head">
+				<a class="return" href="javascript:history.back(-1);">
+					<span class="arrow-left"></span>
+				</a>
+				<div class="head-title">求购信息</div>
+			</div>
+		</div>
+		<div class="plan-box">
+			
+		</div>
+		<div class="phoneLy">
+			<p>留言板：</p>
+			<textarea class="ordTxt" ></textarea>
+			<button class="ordBtn fr" type="button">提交留言</button>
+		</div>
+		<!--底部导航-->
+		<div class="footerpage"></div>
+		<script src="js/all.js?vid=0611" type="text/javascript" charset="utf-8"></script>
+		<script src="js/tools.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(function() {
+				/*公共部分
+				 * 导航栏
+				 * footer CopyRight
+				 */
+				$('.footerpage').load('footer.html');
+			});
+			(function($) {
+			   $.getUrlParam = function(name) {
+			      var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+			      var r = window.location.search.substr(1).match(reg);
+			      if (r != null) return unescape(r[2]);
+			      return null;
+			   }
+			})(jQuery);
+		</script>
+		<script type="text/javascript">
+			//加载计划购买
+			$(function() {
+				var tkn = getCookie(tk);
+				$.ajax({
+					url: path + '/linA/getjhcg',
+					type: 'GET',
+					data: {
+						id:$.getUrlParam('id')
+					},
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != "" && result.code == 1) {
+							var spName = result.data;
+							var spList =
+							'<div class="planList"><table class="planTab">'+
+								'<tr><td>姓名</td><td class="tabSize">' + spName.cRealname +'</td>'+
+								'<td>电话</td><td class="tabSize">' + spName.cPhone + '</td></tr>'+
+								'<tr><td>品名</td><td class="tabSize">' + spName.cShopColumnName + '</td><td>材质</td><td class="tabSize">' + spName.cTexttrue + '</td></tr>'+
+								'<tr><td>规格</td><td class="tabSize">' + spName.cSpec + '</td><td>数量</td><td class="tabSize">' + spName.cNum + spName.cUnit + '</td></tr>'+
+								'<tr><td>备注</td><td colspan="3" class="tabSize">' + spName.cExplain + '</td></tr>'+
+							'</table></div>'
+							$('.plan-box').append(spList);
+							$('.ordBtn').attr('psrId',spName.cId)
+						}
+					}
+				})
+			});
+			$('.ordBtn').click(function(){
+				var tkn = getCookie(tk);
+				var json = JSON.stringify({
+					psId:$('.ordBtn').attr('psrId'),
+					psrComment:$('.ordTxt').val()
+				})
+				$.ajax({
+					url: path + '/linA/addPSR',
+					type: 'POST',
+					data: json,
+					dataType: 'json', //后台返回的数据类型是json文本
+					contentType: 'application/json;charset=utf-8',
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					success: function(result) {
+						if (result != "" && result.code == 1) {
+							myProcessOk(result.msg)
+							$('.ordTxt').val('')
+						}
+					}
+				})
+			})
+			function hidePhone(s) {
+				// s = s.substring(0, 3) + "****" + s.substring(7);
+				s = s.substring(0, 3) + "***";
+				return s;
+			}
+		</script>
+	
+	</body>
+</html>

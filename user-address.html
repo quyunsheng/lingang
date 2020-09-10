@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>收货地址</title>
+		<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+		<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/idangerous.swiper.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/APlayer.min.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/head.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/news.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/footer.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/user.css?vid=0326" />
+		<style type="text/css">
+			#invoice,
+			#Cinvoice {
+				width: 200px;
+				height: 50px;
+				padding: 5px;
+				box-sizing: border-box;
+				background: #f5f5f5;
+				border: 1px solid #ddd;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 顶部导航 -->
+		<div class="headerpage"></div>
+		<!-- 页面主体 -->
+		<div class="main-user">
+			<div class="top-user"><img src="img/user-vip.png">用户中心</div>
+			<div class="user-box clearfix">
+				<div class="user-left fl">
+					<div class="userNav"></div>
+				</div>
+				<div class="user-right fr">
+					<p class="userRight-tit clearfix">
+						<img src="img/user/address.png">
+						收货地址
+						<span class="user-append"><i class="fa fa-plus-square-o" aria-hidden="true"></i>新增收货地址</span>
+					</p>
+					<!-- 收货地址 -->
+					<table class="userPoint-table">
+						<colgroup>
+							<col style="width: 100px;">
+							<col style="width: 150px;">
+							<col style="width: 220px;">
+							<col style="width: 200px;">
+							<col style="width: 126px;">
+							<col style="width: 110px;">
+						</colgroup>
+						<thead>
+							<tr>
+								<th>联系人</th>
+								<th>联系方式</th>
+								<th>所在地区</th>
+								<th>详细地址</th>
+								<th>发票邮寄</th>
+								<th width="150px">操作</th>
+								<th width="110px">地址设置</th>
+							</tr>
+						</thead>
+						<tbody class="mainTbody">
+
+						</tbody>
+					</table>
+					<!-- 新增收货地址 -->
+					<div class="userAdd-box">
+						<div class="userAdd-point">
+							<p class="approve-tit clearfix">添加收货地址 <a class="userAdd-close"></a></p>
+							<ul class="approve-box clearfix">
+								<li class="approve-list">
+									<span>联系人<i>*</i></span>
+									<input type="text" name="" id="userName" value="" placeholder="姓名" />
+								</li>
+								<li class="approve-list">
+									<span>联系方式<i>*</i></span>
+									<input type="text" name="" id="userPhone" value="" placeholder="手机号" />
+								</li>
+								<li class="approve-list city_china_val" id="">
+									<span>收货地址<i>*</i></span>
+									<select class="province" id="myProvince" data-first-title="选择省" disabled="disabled"></select>
+									<select class="city" id="myCity" data-first-title="选择市" disabled="disabled"></select>
+									<select class="area" id="myArea" data-first-title="选择地区" disabled="disabled"></select>
+									<br>
+									<input class="morePoint" type="text" name="" id="myAddress" value="" placeholder="详细地址" />
+								</li>
+								<li class="approve-list">
+									<span>发票地址<i>*</i></span>
+									<textarea id="invoice" placeholder="发票地址"></textarea>
+								</li>
+								<li class="approve-list">
+									<input type="checkbox" name="" id="seller" value="" />
+									<label for="seller">设为默认</label>
+								</li>
+								<li class="approve-list">
+									<input type="button" name="" id="addAddress" value="保存" />
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!-- 修改地址 -->
+					<div class="userchange-box">
+						<div class="userAdd-point">
+							<span class="hidden" id="hideId"></span>
+							<p class="approve-tit clearfix">修改收货地址 <a class="userAdd-close"></a></p>
+							<ul class="approve-box clearfix">
+								<li class="approve-list">
+									<span>联系人<i>*</i></span>
+									<input type="text" name="" id="CuserName" value="" placeholder="姓名" />
+								</li>
+								<li class="approve-list">
+									<span>联系方式<i>*</i></span>
+									<input type="text" name="" id="CuserPhone" value="" placeholder="手机号" />
+								</li>
+								<li class="approve-list city_china_val" id="">
+									<span>收货地址<i>*</i></span>
+									<select class="province" id="CmyProvince" data-first-title="选择省" disabled="disabled"></select>
+									<select class="city" id="CmyCity" data-first-title="选择市" disabled="disabled"></select>
+									<select class="area" id="CmyArea" data-first-title="选择地区" disabled="disabled"></select>
+									<br>
+									<input class="morePoint" type="text" name="" id="CmyAddress" value="" placeholder="详细地址" />
+								</li>
+								<li class="approve-list">
+									<span>发票地址<i>*</i></span>
+									<textarea id="Cinvoice" placeholder="发票地址"></textarea>
+								</li>
+								<li class="approve-list">
+									<input type="checkbox" name="" id="Cseller" value="" />
+									<label for="Cseller">设为默认</label>
+								</li>
+								<li class="approve-list">
+									<input type="button" name="" id="CaddAddress" value="保存" />
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 主体结束 -->
+		<div class="footerpage"></div>
+		<div class="foot-about1">
+			<div class="about-box">
+				<p class="footLink">
+					<a rel="nofollow" href="http://www.12377.cn" target="_blank"><img src="img/footer/foot-wfjb.png" width="124"
+						 height="46"></a>
+					<!-- <a rel="nofollow" href="https://ss.knet.cn/verifyseal.dll?sn=e20051937130081635xsxj000000&userid=8IeOInNbj43dec5E&time=1589881923113&stoken=ca1dc82d5bbb71d300d921ba6ec71ce0&pa=92311" target="_blank"><img src="img/footer/foot-kexin.jpg" width="124" height="46"></a> -->
+					<script type='text/javascript' src='https://kxlogo.knet.cn/seallogo.dll?sn=e20051937130081635xsxj000000&ct=df&h=46'></script>
+					<a href="index.html"><img height="46" src="img/footer/footer-aq.png" ></a>
+					<a href="index.html"><img height="46" src="img/footer/footer-hw.png" ></a>
+					<a href="index.html"><img height="46" src="img/footer/footer-cx.jpg" ></a><a rel="nofollow" href="#" target="_blank"><img src="img/footer/foot-rz.jpg" width="124" height="46"></a>
+					<a rel="nofollow" href="img/footer/lingang.png" target="_blank"><img src="img/footer/dzyyzz.png" width="46" height="46"></a>
+				</p>
+			</div>
+		</div>
+		<script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/tools.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/right.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.cxselect.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+
+		<script>
+			$(function() {
+				/*公共部分
+				 * 导航栏
+				 * footer CopyRight
+				 */
+				$(".headerpage").load("header.html");
+				$(".footerpage").load("footer.html");
+				$(".userNav").load("userNav.html");
+			});
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				var tkn = getCookie(tk);
+				$.ajax({
+					url: path + '/linA/listdz',
+					type: 'GET',
+					data: {},
+					dataType: 'json', //后台返回的数据类型是json文本
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					success: function(result) {
+						// console.log(result)
+						var point = result.address;
+						for (var i in point) {
+							if (point[i].cIfDefault == 1) {
+								var mainTbody = "<tr><td>" + point[i].cName + "</td><td>" + point[i].cPhone +
+									"</td><td>" + point[i].cProvince + point[i].cCity + (point[i].cDistrict == '' || point[i].cDistrict ==
+										null ? '' : point[i].cDistrict) +
+									"</td><td>" + point[i].cAddress + "</td><td>" + point[i].cZipcode +
+									"</td><td><a class='userTable-change' onclick='changeClick(this," + point[i].cId +
+									")'>编辑</a><span class='userTable-line'>|</span><a class='userTable-del' onclick='delClick(this," + point[
+										i].cId + ")'>删除</a></td><td><span class='userTable on'>默认地址</span></td></tr>"
+								$('.mainTbody').append(mainTbody);
+							} else {
+								var mainTbody = "<tr><td>" + point[i].cName + "</td><td>" + point[i].cPhone +
+									"</td><td>" + point[i].cProvince + point[i].cCity + (point[i].cDistrict == '' || point[i].cDistrict ==
+										null ? '' : point[i].cDistrict) +
+									"</td><td>" + point[i].cAddress + "</td><td>" + point[i].cZipcode +
+									"</td><td><a class='userTable-change' onclick='changeClick(this," + point[i].cId +
+									")'>编辑</a><span class='userTable-line'>|</span><a class='userTable-del' onclick='delClick(this," + point[
+										i].cId + ")'>删除</a></td><td><span class='userTable' onclick='setClick(this," + point[i].cId +
+									")'>设为默认</span></td></tr>"
+								$('.mainTbody').append(mainTbody);
+
+							}
+						}
+
+					}
+				})
+			});
+			$('#addAddress').click(function() {
+				var tkn = getCookie(tk);
+				var setCheck = 0;
+				if ($("#seller").is(':checked')) {
+					setCheck = 1;
+				}
+				if ($('#userName').val() == '') {
+					myProcessErr('请填写姓名！！！');
+					return false;
+				}
+				if ($('#userPhone').val() == '') {
+					myProcessErr('请填写手机号！！！');
+					return false;
+				}
+				if (!(/^1[3456789]\d{9}$/.test($('#userPhone').val()))) {
+					myProcessErr('手机号码有误！！！');
+					return false;
+				}
+				if ($('#myProvince').val() == '') {
+					myProcessErr('请选择省份！！！');
+					return false;
+				}
+				if ($('#myCity').val() == '') {
+					myProcessErr('请选择城市！！！');
+					return false;
+				}
+				if ($('#myAddress').val() == '') {
+					myProcessErr('请填写详细地址！！！');
+					return false;
+				}
+				if ($('#invoice').val() == '') {
+					myProcessErr('请填写发票！！！');
+					return false;
+				}
+
+				var json = JSON.stringify({
+					cName: $('#userName').val(),
+					cPhone: $('#userPhone').val(),
+					cProvince: $('#myProvince').val(),
+					cCity: $('#myCity').val(),
+					cDistrict: $('#myArea').val(),
+					cAddress: $('#myAddress').val(),
+					cZipcode: $('#invoice').val(),
+					cIfDefault: setCheck
+				});
+				$.ajax({
+					url: path + '/linA/adddz',
+					type: 'post',
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					data: json,
+					contentType: 'application/json;charset=utf-8',
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != "" && result.code == 1) {
+							window.location.href = './user-address.html';
+						} else {
+							myProcessErr(result.msg)
+						}
+					}
+				})
+			});
+		</script>
+		<script type="text/javascript">
+			function delClick(thiz, delId) {
+				var tkn = getCookie(tk);
+				console.log(delId)
+				$.ajax({
+					url: path + '/linA/deldz',
+					type: 'POST',
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					data: {
+						id: delId
+					},
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != "" && result.code == 1) {
+							$(thiz).parents('tr').remove();
+						} else {
+							myProcessErr(result.msg)
+						}
+					}
+				})
+			};
+
+			function setClick(thiz, setId) {
+				var tkn = getCookie(tk);
+				var json = JSON.stringify({
+					cId: setId,
+					cIfDefault: '1'
+				})
+				$.ajax({
+					url: path + '/linA/updz',
+					type: 'POST',
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					data: json,
+					dataType: 'json', //后台返回的数据类型是json文本
+					contentType: 'application/json;charset=utf-8',
+					success: function(result) {
+						if (result != "" && result.code == 1) {
+							alert(result.msg)
+							$(thiz).parents('tbody').find('.on').removeClass('on');
+							$(thiz).addClass('on');
+							$(thiz).html('默认地址');
+							$('.mainTbody').prepend($(thiz).parents('tr'));
+							location.href='user-address.html';
+						} else {
+							myProcessErr(result.msg)
+						}
+					}
+				})
+			};
+
+			var cxSelectApi;
+			$.cxSelect.defaults.url = 'js/cityData.min.json';
+			$('.city_china_val').cxSelect({
+				selects: ['province', 'city', 'area'],
+				jsonName: 'n',
+				// jsonValue: 'id',
+				emptyStyle: 'none'
+			}, function(api) {
+				cxSelectApi = api;
+			});
+
+			// 修改地址
+			function changeClick(thiz, setId) {
+				var tkn = getCookie(tk);
+				$.ajax({
+					url: path + '/linA/getdz',
+					type: 'GET',
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					data: {
+						id: setId
+					},
+					dataType: 'json', //后台返回的数据类型是json文本
+					// contentType: 'application/json;charset=utf-8',
+					success: function(result) {
+						$('#CmyProvince').removeAttr('data-value');
+						$('#CmyCity').removeAttr('data-value');
+						$('#CmyArea').removeAttr('data-value');
+						if (result != "" && result.code == 1) {
+							console.log(result)
+
+							var Cpoint = result.address;
+							$('.userchange-box').show();
+							$('#hideId').html(Cpoint.cId);
+							$('#CuserName').val(Cpoint.cName);
+							$('#CuserPhone').val(Cpoint.cPhone);
+							$('#CmyProvince').attr('data-value', Cpoint.cProvince);
+							$('#CmyCity').attr('data-value', Cpoint.cCity);
+							$('#CmyArea').attr('data-value', Cpoint.cDistrict);
+							$('#CmyAddress').val(Cpoint.cAddress);
+							$('#Cinvoice').val(Cpoint.cZipcode);
+							if(Cpoint.cIfDefault == 1){
+								$('#Cseller').prop("checked",true);
+							}
+							cxSelectApi.attach();  //清除城市选择
+							
+						} else {
+							myProcessErr(result.msg)
+						}
+
+					}
+				})
+			};
+			$('#CaddAddress').click(function(){
+				var tkn = getCookie(tk);
+				var setCheck = 0;
+				if ($("#Cseller").is(':checked')) {
+					setCheck = 1;
+				}
+				var json = JSON.stringify({
+					cId: $('#hideId').html(),
+					cName: $('#CuserName').val(),
+					cPhone: $('#CuserPhone').val(),
+					cProvince: $('#CmyProvince').val(),
+					cCity: $('#CmyCity').val(),
+					cDistrict: $('#CmyArea').val(),
+					cAddress: $('#CmyAddress').val(),
+					cZipcode: $('#Cinvoice').val(),
+					cIfDefault: setCheck
+				});
+				$.ajax({
+					url: path + '/linA/updz',
+					type: 'post',
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					data: json,
+					contentType: 'application/json;charset=utf-8',
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != "" && result.code == 1) {
+							window.location.href = './user-address.html';
+						} else {
+							myProcessErr(result.msg)
+						}
+					}
+				})
+			})
+		</script>
+		<script type="text/javascript">
+			$('.user-append').click(function() {
+				$('.userAdd-box').show();
+			});
+			$('.userAdd-close').click(function() {
+				$('.userAdd-box').hide();
+				$('.userchange-box').hide();
+			});
+			$('.userTable-change').click(function() {
+				$('.userAdd-box').show();
+			});
+		</script>
+	</body>
+</html>

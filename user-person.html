@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>账户信息</title>
+		<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+		<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/idangerous.swiper.css"/>
+		<link rel="stylesheet" type="text/css" href="css/APlayer.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/head.css"/>
+		<link rel="stylesheet" type="text/css" href="css/news.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+		<link rel="stylesheet" type="text/css" href="css/user.css"/>
+	</head>
+	<body>
+		<!-- 顶部导航 -->
+		<div class="headerpage"></div>
+		<!-- 页面主体 -->
+		<div class="main-user">
+			<div class="top-user"><img src="img/user-vip.png" >用户中心</div>
+			<div class="user-box clearfix">
+				<div class="user-left fl">
+					<div class="userNav"></div>
+				</div>
+				<div class="user-right fr">
+					<p class="userRight-tit"><img src="img/user/person.png" >个人资料</p>
+					<div class="user-person">
+						<form method="post">
+							<ul>
+								<li class="userPhoto">
+									<img id="userPhoto" style="display: none" class="user-photo" src=""  title="点击更换头像">
+									<input class="up-photo" type="file" value="上传文件" onchange="upload2()"
+										   name="file" id="file" alt="点击更换头像"
+										   accept="image/png, image/jpeg, image/gif, image/jpg" multiple/>
+									<input type="hidden" id="imageUrl" />
+									<p style="margin-left: 110px;">点击更换头像</p>
+								</li>
+								<li class="user-list clearfix">
+									<!-- <img class="user-judge" src="img/user/right.png" > -->
+									<span class="user-lable">电话</span>
+									<span class="user-mz" id="userPhone"></span>
+									<!-- <a class="user-chenge fr">更改</a> -->
+								</li>
+								<li class="user-list clearfix">
+									<img class="user-judge" src="img/user/right.png" >
+									<span class="user-lable">姓名</span>
+									<span class="user-mz" id="userName"></span>
+									<!-- <a class="user-chenge fr">更改</a> -->
+								</li>
+								<li class="user-list clearfix">
+									<img class="user-judge" src="img/user/right.png" >
+									<span class="user-lable">昵称</span>
+									<span class="user-mz" id="nickName"></span>
+									<!-- <a class="user-chenge fr">更改</a> -->
+								</li>
+								<li class="user-list clearfix">
+									<img class="user-judge" src="img/user/right.png" >
+									<span class="user-lable">性别</span>
+									<span class="user-mz" id="userSex"></span>
+									<!-- <a class="user-chenge fr">更改</a> -->
+								</li>
+								<!-- <li class="user-list clearfix">
+									<img class="user-judge" src="img/user/no.png" >
+									<span class="user-lable">邮箱</span>
+									<span class="user-mz">未绑定</span>
+									<a class="user-chenge fr">绑定</a>
+								</li> -->
+								<li class="user-list user-wx clearfix">
+									<img class="user-judge" src="img/user/right.png" >
+									<span class="user-lable">微信</span>
+									<span class="user-mz">未绑定</span>
+									<a href="login.html" class="user-chenge fr">绑定</a>
+								</li>
+							</ul>
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 主体结束 -->
+		<div class="footerpage"></div>
+		<div class="foot-about1">
+			<div class="about-box">
+				<p class="footLink">
+					<a rel="nofollow" href="http://www.12377.cn" target="_blank"><img src="img/footer/foot-wfjb.png" width="124" height="46"></a>
+					<!-- <a rel="nofollow" href="https://ss.knet.cn/verifyseal.dll?sn=e20051937130081635xsxj000000&userid=8IeOInNbj43dec5E&time=1589881923113&stoken=ca1dc82d5bbb71d300d921ba6ec71ce0&pa=92311" target="_blank"><img src="img/footer/foot-kexin.jpg" width="124" height="46"></a> -->
+					<script type='text/javascript' src='https://kxlogo.knet.cn/seallogo.dll?sn=e20051937130081635xsxj000000&ct=df&h=46'></script>
+					<a rel="nofollow" href="#" target="_blank"><img src="img/footer/foot-rz.jpg" width="124" height="46"></a>
+					<a href="index.html"><img height="46" src="img/footer/footer-aq.png" ></a>
+					<a href="index.html"><img height="46" src="img/footer/footer-hw.png" ></a>
+					<a href="index.html"><img height="46" src="img/footer/footer-cx.jpg" ></a>
+					<a rel="nofollow" href="img/footer/lingang.png" target="_blank"><img src="img/footer/dzyyzz.png" width="46" height="46"></a>
+				</p>
+			</div>
+		</div>
+		<script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/ajaxfileupload.js?vid=0326" type="text/javascript"></script>
+		<script src="js/tools.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/right.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/up-img.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			upImg('userPhoto','file');
+		</script>
+		<script>
+			$(function(){
+				/*公共部分
+				 * 导航栏
+				 * footer CopyRight
+				 */
+				$(".headerpage").load("header.html");
+				$(".footerpage").load("footer.html");
+				$(".userNav").load("userNav.html");
+			});
+		</script>
+		<script type="text/javascript">
+			$(function(){
+				var tkn = getCookie(tk);
+				// console.log(tkn)
+				$.ajax({
+					url: path + '/linA/getyh',
+					type:'GET',
+					beforeSend: function (XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					data:{},
+					dataType:'json', //后台返回的数据类型是json文本
+					success:function(result) {
+						console.log(result)
+						var userData = result.user;
+						if(userData.cPhone == '' || userData.cPhone == null){
+							$('#userPhone').siblings('img').attr('src','img/user/no.png')
+						}else{
+							$('#userPhone').html(userData.cPhone);
+						};
+						if(userData.cUsername == '' || userData.cUsername == null){
+							$('#nickName').siblings('img').attr('src','img/user/no.png')
+						}else{
+							$('#nickName').html(userData.cUsername);
+						};
+						if(userData.cUsername == ''|| userData.cUsername == null){
+							$('#userName').siblings('img').attr('src','img/user/no.png')
+						}else{
+							$('#userName').html(userData.cRealname);
+						};
+						if(userData.cSex == '' || userData.cSex == null){
+							$('#userSex').siblings('img').attr('src','img/user/no.png')
+						}else{
+							$('#userSex').html(userData.cSex);
+						};
+						if(userData.cLogo == '' || userData.cLogo == null){
+							$("#userPhoto").show();
+						}else{
+							$('#userPhoto').attr('src',userData.cLogo);
+							$("#userPhoto").show();
+						};
+						if(userData.cOpenid == '' || userData.cOpenid == null){
+							$('.user-wx img').attr('src','img/user/no.png')
+						}else{
+							$('.user-wx .user-mz').html('已绑定');
+							$('.user-wx .user-chenge').remove();
+						};
+					}
+				})
+			})
+
+			function upload2() {
+				var filePath = $("#file").val();
+				var fileName = filePath.substring(filePath.lastIndexOf(".") + 1,
+						filePath.length);
+				fileName = fileName.toLowerCase();
+				var maxSize = 5*1024*1024 //5M限制
+				var fileSize = $('#file').get(0).files[0].size
+				if (fileSize > maxSize) {
+					myProcessErr("请上传大小不超过5M的图片！");
+					return false;
+				}
+				if (fileName != "bmp" && fileName != "jpg" && fileName != "gif"
+						&& fileName != "png" && fileName != "jpeg") {
+					myProcessErr("", "只能上传bmp,jpg,gif,png,jpeg格式的图片！");
+					return false;
+				}
+				console.log(filePath);
+			document.domain="lingangsteel.com";
+			var url = path + '/linA/uploadhead.html';
+			var tkn = getCookie(tk);
+			$.ajaxFileUpload({
+				url : url,
+				type : 'POST',
+				contentType: 'application/json',
+				secureuri : false, //一般设置为false
+				fileElementId : 'file', // 上传文件的id、name属性名
+				beforeSend: function(XMLHttpRequest) {
+					XMLHttpRequest.setRequestHeader("token", tkn);
+				},
+				success : function(data) {
+					var tmp = $(data).text().substring($(data).text().indexOf("{"), $(data).text().length);
+					var res = eval('(' + tmp + ')');
+					if(res.code == "1") {
+						$("#imageUrl").val(res.msg);
+						savePic();
+					} else {
+						myProcessErr(res.msg);
+					}
+
+				},
+				error : function(data, status, e) {
+					myProcessErr(e);
+				}
+			});
+			}
+
+
+			function savePic() {
+				var tkn = getCookie(tk);
+				var json = JSON.stringify({
+					/*cShopName: $('#shopName').val(),
+					cFactId: $('#gongZhangName').val(),
+					cProvince: $('#myProvince').val(),
+					cCity: $('#myCity').val(),
+					cDistrict: $('#myArea').val(),
+					cAddressId: $('#myAddress').val(),
+					cVer: $('#shopPhone').val(),
+					cNowCityId: $('#nowCityId').val(),
+					cNowCityName: $('#nowCityName').val(),
+					cVipCardno: $('#bankNum').val(),*/
+					cLogo : "https://www.lingangsteel.com/lingang/" + $("#imageUrl").val()
+				});
+				$.ajax({
+					url: path + '/linA/upyh',
+					type:'POST',
+					beforeSend: function (XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					data:json,
+					contentType: 'application/json;charset=utf-8',
+					dataType:'json', //后台返回的数据类型是json文本
+					success:function(result) {
+						// $('#userPhone').html(e.)
+						if(result != "" && result.code == 1){
+							window.location.reload();
+						}else{
+							myProcessErr(result.msg)
+						}
+					}
+				})
+			}
+		</script>
+	</body>
+</html>

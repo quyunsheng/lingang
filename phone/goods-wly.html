@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no">
+		<title>临钢网</title>
+		<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+		<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+		<link rel="stylesheet" type="text/css" href="css/public.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/signin.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/all.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/shop.css?vid=0326" />
+		<style type="text/css">
+			.askPrice-foot{
+				text-align: center;
+			}
+			.askPrice-foot a{
+				width: 3rem;
+				height: 0.6rem;
+				line-height: 0.6rem;
+				display: inline-block;
+				text-align: center; 
+				margin: 0.1rem auto;
+				border-radius: 5px;
+				border: 1px solid #007AFF;
+				color: #007AFF;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="cart-head" class="show">
+			<div class="cart-head">
+				<a class="return" href="javascript:history.back(-1);">
+					<span class="arrow-left"></span>
+				</a>
+				<div class="head-title">钢豆兑换</div>
+				<a class="head-shop" href="tel:0539-6387606">
+					<i class="fa fa-phone fa-lg"></i> &nbsp;0539-6387606
+				</a>
+			</div>
+		</div>
+		<!-- 页面主体 -->
+		<div class="goods-box">
+			<div class="goods-top clearfix">
+				<div class="fl goods-img">
+					<img src="img/goods/wly.jpg">
+				</div>
+				<button type="button" onclick="goodsClick()">点击抽奖（50豆/次）</button>
+				<div class="goodsNum clearfix">
+					<span class="fl">钢豆数量：<b class="gdNum">0</b>&nbsp;豆</span>
+					<span class="fr">毫升数：<b class="barNum">0</b>&nbsp;mL</span>
+				</div>
+				<div class="fl goods-mage">
+					<h1>奖品介绍</h1>
+					<p><b>品牌名称：</b>五粮液</p>
+					<p><b>度数：</b> 52%Vol</p>
+					<p><b>净含量：</b><span class="needNum">500</span>ml</p>
+					<p><b>产地：</b>宜宾五粮液</p>
+				</div>
+			</div>
+			<div class="goods-rules">
+				<h1>活动规则</h1>
+				<h4>一．如何兑换？</h4>
+				<p>1.会员用户每 50个钢豆可兑换 1 次，获得随机数量的奖品，集满 1 瓶可兑换实物（具体以奖品介绍为准）。兑换所消耗的钢豆不予退还（包括但不限于活动截止未集满奖品等情况）。</p>
+				<p>2. 钢豆可通过“签到”等方式获得，具体可在钢豆详情页进行查看。</p>
+				<h4>二．如何提货？</h4>
+				<p>1.集满 1 瓶后可提货。点击“我的奖品”→“提货”，支付相应手续费并填写收货信息即可完成提货。</p>
+				<p>2.一般将在2周内发货并顺丰邮寄至您的收货地址处，节假日顺延。</p>
+				<h4>注：</h4>
+				<p>1.用户获得但未使用的钢豆，将在下一个自然年年底过期。</p>
+				<p>2.如发现刷单、作弊等恶意行为，将取消该用户活动资格，兑换同样无效。</p>
+				<p>3.本活动及奖品均与奖品公司无关，活动规则以实际页面最新描述为准，最终解释权归临钢网所有。</p>
+			</div>
+		</div>
+		<div class="userAdd-box">
+		    <div class="userAdd-point">
+		        <p class="approve-tit clearfix">修改收获地址 <a class="userAdd-close"></a></p>
+		        <div class="submit-info">
+		            <span>姓名：</span>
+		            <input name="" id="CuserName" type="text" placeholder="请输入姓名" value="">
+		        </div>
+		        <div class="submit-info">
+		            <span>手机号：</span>
+		            <input name="" id="CuserPhone" type="text" placeholder="请输入手机号" value="">
+		        </div>
+		       <div class="submit-info city_china_val">
+		       	<span>送货地址：</span>
+		       	<div class="" style="display: inline-block;">
+		       		<select class="province" id="CmyProvince" data-first-title="选择省" disabled="disabled"></select>
+		       		<select class="city" id="CmyCity" data-first-title="选择市" disabled="disabled"></select>
+		       		<select class="area" id="CmyArea" data-first-title="选择地区" disabled="disabled"></select>
+		       	</div>
+		       </div>
+		       <div class="submit-info">
+		       	<input style="margin-top: 0;margin-left: 27%;width: 70%;" class="morePoint fl" type="text" name="" id="CmyAddress" value="" placeholder="详细地址" />
+		       </div>
+		        <div class="askPrice-foot">
+		            <a style="" href="javascript:postBar();" id="CaddAddress">保存</a>
+		        </div>
+		    </div>
+		</div>
+		<!-- 主体结束 -->
+		<div class="footerpage"></div>
+		<script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/phone.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.cxselect.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/all.js?vid=0611" type="text/javascript" charset="utf-8"></script>
+		<script src="js/tools.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(function() {
+				/*公共部分
+				 * 导航栏
+				 * footer CopyRight
+				 */
+				$('.footerpage').load('footer.html');
+			});
+			$.cxSelect.defaults.url = 'js/cityData.min.json';
+			$('.city_china_val').cxSelect({
+				selects: ['province', 'city', 'area'],
+				emptyStyle: 'none'
+			});
+		</script>
+		<script>
+			// 页面加载显示数量
+			$(function() {
+				var tkn = getCookie(tk);
+				$.ajax({
+					url: path + '/linA/getgd',
+					type: 'GET',
+					data: {},
+					dataType: 'json', //后台返回的数据类型是json文本
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					success: function(result) {
+						console.log(result)
+						if (result != "" && result.code == 1) {
+							var mysteelD = result.data.details;
+							var needNum = $('.needNum').html();
+							$('.gdNum').html(result.data.cGoldGz);
+							$('.barNum').html(result.data.cGold/1000);
+							if (needNum <= result.data.cGold/1000) {
+								$('.goods-top button').html('兑换奖品');
+							}
+						} else {
+							myProcessErr(result.msg)
+						}
+
+
+					}
+				})
+			});
+
+			function goodsClick() {
+				var tkn = getCookie(tk);
+				var myNum = Number($('.gdNum').html());
+				var needNum = $('.needNum').html();
+				var barNum = Number($('.barNum').html());
+				if (needNum > barNum) { // 抽奖要干的事
+					if (myNum < 50) {
+						myProcessErr('您的钢豆数量不足！')
+					} else {
+						// var max = 800;
+						// var min = 400;
+						// var num = parseInt((Math.random() * (max - min + 1) + min));
+						// var getNum=num/1000
+						// var json = JSON.stringify({
+						// 	iChangeintegral: 50,
+						// 	iChangetype: 0,
+						// 	iNowintegral: myNum - 50,
+						// 	iReason: '五粮液抽奖',
+						// 	mlNum: getNum,
+						// 	nowMlNum: barNum + getNum,
+						// 	iIntegraltype: 3
+						// });
+                        var json = JSON.stringify({
+                            iChangeintegral: 50,
+                            iChangetype: 0,
+                            iNowintegral:myNum - 50,
+                            iReason:'五粮液抽奖',
+                            mlNum:1,
+                            nowMlNum:1,
+                            iIntegraltype:3
+                        });
+						// var barNum2 = Number($('.barNum').html());
+						$.ajax({
+							url: path + '/linA/addjf',
+							type: 'POST',
+							data: json,
+							contentType: 'application/json;charset=utf-8',
+							dataType: 'json', //后台返回的数据类型是json文本
+							beforeSend: function(XMLHttpRequest) {
+								XMLHttpRequest.setRequestHeader("token", tkn);
+							},
+							success: function(result) {
+								// console.log(result)
+								if (result != "" && result.code == 1) {
+									myProcessOk('恭喜你获得' + result.num + '微升');
+									// $('.gdNum').html(myNum - 50);
+									// $('.barNum').html((barNum + getNum).toFixed(3));
+									// if ((barNum + getNum) > needNum) {
+									// 	$('.goods-top button').html('兑换奖品');
+									// }
+                                    // alert('恭喜你获得' + result.num + '微升');
+                                    $('.gdNum').html(myNum - 50);
+                                    $('.barNum').html((barNum + result.num/1000).toFixed(3));
+                                    if((barNum + result.num/1000)>needNum){
+                                        $('.goods-mage button').html('兑换奖品');
+                                    }
+								} else {
+									myProcessErr(result.msg)
+								}
+
+
+							}
+						});
+
+					}
+
+				}
+				if (needNum < barNum) { // 兑换要干的事
+					$('.userAdd-box').show();
+				}
+			};
+			$('.userAdd-close').click(function() {
+				$('.userAdd-box').hide();
+			});
+			function postBar(){
+				var json = JSON.stringify({
+					cCategory:2, 
+					cPhone: $('#userPhone').val(), 
+					cRealname: $('#userName').val(), 
+					cProvinceId: $('#myProvince').val(), 
+					cCityId: $('#myCity').val(), 
+					cDistrictId: $('#myArea').val(), 
+					cAddressid: $('#CmyAddress').val()
+				});
+				$.ajax({
+					url: path + '/linA/addbar',
+					type: 'POST',
+					data:json,
+					contentType: 'application/json;charset=utf-8',
+					dataType: 'json', //后台返回的数据类型是json文本
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					success: function(result) {
+						// console.log(result)
+						if(result != "" && result.code == 1){
+							myProcessOk(result.msg)
+							window.location.href = 'goods-mt.html';
+						}else{
+							myProcessErr(result.msg)
+						}
+					}
+				});
+			}
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,210 @@
+.top {
+    width: 100%;
+    height: 12rem;
+	background: url(../img/check.jpg) center;
+	background-size: auto 100%;
+    /*margin-bottom: .8rem;*/
+    overflow: hidden;
+}
+
+.top .return {
+    display: block;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    padding: 13px;
+    left: 0;
+    top: 0;
+}
+
+.top .out-1 {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    background: rgba(255, 255, 255, 0.4);
+    margin: 1rem auto 0 auto;
+}
+
+.top .out-1 .out-2 {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    background: #ffffff;
+    margin: 0 auto;
+}
+
+.top .out-1 .out-2 .signBtn {
+    width: 6.2rem;
+    height: 6.2rem;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    border: 1px #7ebdff solid;
+}
+
+.top .out-1 .out-2 .signBtn strong,
+.top .out-1 .out-2 .signBtn span {
+    display: block;
+    width: 85%;
+    margin: 0 auto;
+    text-align: center;
+    color: #007aff;
+}
+
+.top .out-1 .out-2 .signBtn strong {
+    height: 3.5rem;
+    line-height: 4.5rem;
+    font-weight: 600;
+    border-bottom: 1px #eee solid;
+}
+
+.top .out-1 .out-2 .signBtn span {
+    height: 2.5rem;
+    line-height: 2.5rem;
+    font-size: .9rem;
+    line-height: 2rem !important;
+}
+
+.top .out-1:active {
+    animation: sign .25s forwards;
+    -webkit-animation: sign .25s forwards;
+}
+
+.tips {
+    position: absolute;
+    top: 13rem;
+    z-index: 9;
+    width: 100%;
+    color: #fff;
+    font-size: .9rem;
+    text-align: center;
+    padding-bottom: .5rem;
+}
+
+.Calendar {
+    text-align: center;
+    background: #0068a5;
+    padding-bottom: 1.5rem;
+	padding-top: 15px;
+}
+
+.siginBtn1 {
+    display: inline-block;
+    width: 7vw;
+    height: 7vw;
+    line-height: 7vw;
+    text-align: center;
+    background-color: #518e39;
+    border-radius: 4vw;
+    box-shadow: 0 0 10px;
+    color: #fff;
+    font-size: 4vw;
+	position: relative;
+}
+
+.siginBtn2 {
+	display: inline-block;
+    position: relative;
+    top: -5px;
+    font-size: 7vw;
+    width: 4vw;
+    height: .5vw;
+    padding: 0;
+    color: #fff;
+    background-color: #d0b531;
+    box-shadow: 0 0 0;
+}
+
+.exchange {
+    padding: .5rem;
+}
+
+.exchange ul {
+    box-shadow: 0 0 1px;
+}
+
+.exchange ul li {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    padding: 1vw 0;
+    position: relative;
+}
+
+.exchange ul li img {
+    width: 20vw;
+    height: 20vw;
+    margin-left: 2px;
+}
+
+.exchange ul li > div {
+    margin: auto 3vw;
+}
+
+.exchange ul li > div p {
+    margin-bottom: 2vw;
+}
+
+.exchange ul li button {
+    background-color: #eab85b;
+    height: 2rem;
+    padding: 0 4vw;
+    border-radius: 1rem;
+    position: absolute;
+    right: 2vw;
+    top: 9vw;
+}
+.coin {
+    background: url("../img/clin.jpg") no-repeat;
+    background-size: 7vw 7vw;
+}
+.siginBtn .siginGift {
+    width: 2rem;
+	height: auto;
+    position: relative;
+    top: -0.06rem;
+    left: -0.04rem;
+}
+.siginNum {
+    font-size: 14px;
+    width: 50px;
+    color: #eab85b;
+    font-weight: bold;
+    position: absolute;
+    top: -2rem;
+    left: -0.6rem;
+    text-shadow: 2px 2px 2px #000000;
+}
+.goods-box{
+	margin-top: 50px;
+	padding: 0.2rem;
+}
+.goods-top button{
+	width: 7rem;
+	height: 0.8rem;
+	border-radius: 0.8rem;
+	background: linear-gradient(#da7676, #ff0000); 
+	color: #FFFFFF;
+	margin: 0.4rem 0;
+}
+.goods-mage,.goods-rules{
+	width: 100%;
+	padding: 0.2rem;
+	background: #FFFFFF;
+	box-sizing: border-box;
+	margin-top: 0.2rem;
+	border-radius: 5px;
+}
+.goods-mage h1,.goods-rules h1{
+	font-weight: bold;
+	font-size: 0.32rem;
+	padding-bottom: 0.2rem;
+	border-bottom: 1px solid #CCCCCC;
+}
+.goods-mage p{
+	margin-top: 0.1rem;
+}
+.goods-rules h4{
+	font-size: 0.28rem;
+	padding: 0.1rem 0;
+}

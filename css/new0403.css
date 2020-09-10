@@ -1,0 +1,126 @@
+.getSearch{
+	width: 250px;
+	height: 270px;
+	margin-right: 10px;
+	box-shadow: 0px 0px 5px #a7a4a4;
+	background: rgba(255, 255, 255, 0.7);
+	padding: 15px;
+	padding-top:4px;
+	box-sizing: border-box;
+}
+.getSearch select{
+	width: 100%;
+	height: 30px;
+	margin-top: 17px;
+}
+.getPrice{
+	display: block;
+	 margin: 30px auto 0;
+	 color: #ffffff;
+	 width: 213px;
+	 height: 30px;
+	 line-height: 30px;
+	 background-color: #6aaff7;
+	 text-align: center;
+	 border: 1px solid #6aaff7;
+	 border-radius: 5px;
+	 cursor: pointer;
+}
+.getBox{
+	position: fixed;
+	width: 500px;
+	height: 300px;
+	margin-left: -250px;
+	margin-top: -150px;
+	padding: 20px;
+	box-sizing: border-box;
+	background: #FFFFFF;
+	top: 50%;
+	left: 50%;
+	z-index: 99;
+	box-shadow: 0px 0px 5px #a7a4a4;
+	border-radius: 5px;
+	display: none;
+}
+.getBox table{
+	width: 100%;
+	border-collapse: collapse;
+	text-align: center;
+	border: #CCCCCC;
+}
+.getBox table td{
+	padding: 5px;
+}
+.getPhone{
+	width: 200px;
+	height: 30px;
+	line-height: 30px;
+	margin:0 auto;
+	margin-top: 50px;
+	padding: 0 5px;
+	color: #000000;
+	border: 1px solid #CCCCCC;
+	border-radius: 5px;
+	box-sizing: border-box;
+	display: none;
+}
+.getBtn-box{
+	margin-top: 50px;
+	text-align: right;
+}
+.getPost{
+	display: inline-block;
+	padding: 5px 10px;
+	color: #00AA7F;
+	border: 1px solid #00AA7F;
+	border-radius: 5px;
+	cursor: pointer;
+	display: none;
+}
+.getClose{
+	display: inline-block;
+	padding: 5px 10px;
+	color: #ff0000;
+	border: 1px solid #ff0000;
+	border-radius: 5px;
+	cursor: pointer;
+	float:right;
+	margin-right: 10px;;
+}
+.gotoShop{
+	display: inline-block;
+	padding: 5px 10px;
+	color: #ffffff;
+	background-color: #00AA7F;
+	border: 1px solid #00AA7F;
+	border-radius: 5px;
+	cursor: pointer;
+	float:right;
+}
+@media screen and (max-width: 800px){
+	.getSearch{
+		width: 100%;
+		height: auto;
+		margin-left: 0;
+		margin-top: 20px;
+		border-radius: 5px;
+	}
+	.getBox{
+		position: fixed;
+		left: 2.5%;
+		width: 95%;
+		height: 300px;
+		margin-left: 0;
+		margin-top: -150px;
+		padding: 20px;
+		box-sizing: border-box;
+	}
+	.getPhone{
+		width: 100%;
+		margin-top: 34px;
+	}
+	.getBtn-box{
+		margin-top: 30px;
+	}
+}
+	

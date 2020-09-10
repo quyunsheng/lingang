@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css?vid=0426" />
+		<link rel="stylesheet" type="text/css" href="css/index.css?vid=0426" />
+		<link rel="stylesheet" type="text/css" href="css/newsMage.css" />
+		<link rel="stylesheet" type="text/css" href="layui/css/layui.css">
+		<script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/ajaxfileupload.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/phone.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/all.js?vid=0507"></script>
+		<style type="text/css">
+			#talk{
+				margin-bottom: 40px;
+			}
+			.kfBox span{
+				font-size: 12px;
+				color: #CCC9CD;
+			}
+		</style>
+	</head>
+	<body>
+		<!--头部-->
+		<div class="header">
+			<div class="type-back">
+				<a href="user.html">
+					<i class="fa fa-chevron-left" aria-hidden="true" style="color:#fff;"></i>
+				</a>
+			</div>
+			<div class="head-txt">客服&nbsp;<i></i><img src="img/down.png"></div>
+		</div>
+		<!--内容-->
+		<div class="center work-list" style="margin-bottom: 0;">
+			<ul id="list" style="overflow: hidden;"></ul>
+		</div>
+		<button class="seeMore" onclick="seeMoreFun()">查看更多消息</button>
+		<p class="seeDd"></p>
+		<div class="center" style="margin-top: .3rem;background: none;margin-bottom: 60px;">
+			<ul class="talk work-list" id="talk">
+				<li>
+					<ul class="wd"></ul>
+				</li>
+			</ul>
+		</div>
+		<div id="last"></div>
+		<div class="m-width sendBox">
+			<div class="flex-box send m-width">
+				<!-- <div id="common">常用语</div> -->
+				<input class="m-width" class="m-width" type="text" name="" id="mTalk" value="" />
+				<!-- <textarea id="mTalk" cols="1" rows="1" class="m-width" contenteditable="true"></textarea> -->
+				<div id="typeFS" onclick="typeFSClick()">发送</div>
+				<img src="img/more.png" data-id="1" class="moreBtn" />
+			</div>
+			<div class="m-width moreBox" id="tags">
+				<a href="javascript:void(0);" class="upload_img" data-id="1">
+					<img src="img/img.png" data-id="1" style="display: block;" />
+					<span>相册</span>
+				</a>
+				<form id="uploadForm" enctype="multipart/form-data" style="display: none;">
+					<input id="file" onchange="upload()" type="file" name="file" />
+				</form>
+			</div>
+
+		</div>
+		<div id='vkDivMaskPrc'>
+			<div id='vkDivMaskContPrc'>
+				<div id='vkDivMaskContPrcLogo'></div>
+				<div id='vkDivMaskContPrcText'></div>
+			</div>
+		</div>
+		<div class="mb"></div>
+		<ul class="kfBox">
+			<!-- <li onclick="changeNum()" class="active"><img src="phone/img/ask.png" >客服列表</li> -->
+		</ul>
+		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/newMage.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="layui/layui.all.js"></script>
+		<script>
+			//Demo
+			layui.use('form', function() {
+				var form = layui.form;
+			});
+		</script>
+		<script>
+		// 图片放大和关闭
+			function showPic(vhtml) {
+				$('#vkDivMaskPrc').css('display', 'block');
+				// document.getElementById('vkDivMaskContPrcLogo').className = "vkDivMaskContPrcOk";
+				document.getElementById('vkDivMaskContPrcText').innerHTML = vhtml;
+				document.getElementById('vkDivMaskContPrcText').style.width = '100%';
+				$('#vkDivMaskContPrc').css('background-color', '#fff0');
+				$('#vkDivMaskContPrc img').css('width', '100%', );
+				$('#vkDivMaskContPrc img').css('padding', '0');
+				document.getElementById('vkDivMaskPrc').onclick = function() {
+					$('#vkDivMaskPrc').css('display', 'none');
+				};
+			}
+			getUrlParam = function(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+				var r = window.location.search.substr(1).match(reg);
+				if (r != null) return unescape(r[2]);
+				return null;
+			}
+			var key=getUrlParam("id");
+			if(key !=null && key !=undefined && key.length>0){
+				$('.seeDd').html('订单号：'+key)
+			}
+			$('.moreBtn').click(function() {
+				$('#tags').toggle()
+			});
+			$('#mTalk').on('click', function() {
+				let moreBoxClass = JSON.stringify($("#tags")[0].classList);
+				$("#tags")[0].classList = 'm-width moreBox hidden';
+			});
+			window.onload = function() {
+				//聊天页
+				getUser();
+				$('#mTalk').val('');
+			};
+			$(document).keypress(function(e) {
+				if (e.shiftKey && e.which === 100) {
+					talkListFun();
+				}
+			});
+			$(function(){
+				var tkn = getCookie(tk);
+				$.ajax({
+					url: path + '/linA/listkflb',
+					type: 'GET',
+					data: {},
+					dataType: 'json', //后台返回的数据类型是json文本
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					success: function(result) {
+						if(result != "" && result.code == 1){
+							var kfList = result.data;
+							for(i in kfList){
+								var kfBox = 
+								'<li onclick="changeNum(this,'+ kfList[i].adminno +')"><img src="'+ photoPath + kfList[i].adminpic +'" ><i>'+ kfList[i].adminname +'</i>'
+								if(kfList[i].cHide == 's'){
+									kfBox += 
+									'&nbsp;<span style="color:#2cbf24;">[在线]</span></li>'
+								}else{
+									kfBox +=
+									'&nbsp;<span>[离线]</span></li>'
+								}
+								$('.kfBox').append(kfBox)
+							}
+							// $('.kfBox li:first-child').addClass('active')
+							// $('.head-txt').attr('useId',kfList[0].adminno)
+							// $('.head-txt i').html(kfList[0].adminname)
+						}else{
+							myProcessErr(result.msg)
+						}
+					}
+				})
+			});
+			function changeNum(thiz,adminno){
+				pageNo = 0;
+				$('.seeMore').html('查看更多消息');
+				$('#talk').html('');
+				$('.seeMore').removeAttr('disabled');
+				$(thiz).addClass('active').siblings().removeClass('active');
+				var thizName = $(thiz).find('i').html()
+				$('.head-txt').attr('useId',adminno)
+				$('.head-txt i').html(thizName)
+				$('.mb').hide();
+				$('.kfBox').hide();
+			}
+			$('.mb').click(function(){
+				$('.mb').hide();
+				$('.kfBox').hide();
+			})
+			
+			$('.head-txt').click(function(){
+				$('.mb').show();
+				$('.kfBox').show();
+			})
+			//图片上传事件
+			$('.upload_img').bind('click', function(ev) {
+				var index = ev.currentTarget.dataset.id;
+				if (index == 1) {
+					$('#file').click();
+					$('#file').unbind().change(function(e) {
+						var index = e.currentTarget.dataset.id;
+						if ($('#file').val() == '') {
+							return false;
+						}
+						var filePath = $(this).val();
+						changeImg(e, filePath, index);
+					})
+				}
+			});
+			// 图片上传
+			function upload() {
+				console.log('1111')
+				var filePath = $("#file").val();
+					var fileName = filePath.substring(filePath.lastIndexOf(".") + 1,
+							filePath.length);
+					fileName = fileName.toLowerCase();
+				
+					if (fileName != "bmp" && fileName != "jpg" && fileName != "gif"
+							&& fileName != "png" && fileName != "jpeg") {
+						myProcessErr("", "只能上传bmp,jpg,gif,png,jpeg格式的图片！");
+						return false;
+					}
+				document.domain="lingangsteel.com";
+				var tkn = getCookie(tk);
+				$.ajaxFileUpload({
+					url: path + '/linA/uploadlt.html',
+					contentType: 'application/json',
+					type: 'POST',
+					secureuri: false, //一般设置为false
+					fileElementId: 'file', // 上传文件的id、name属性名
+					// xhr: xhrOnProgress(function(e) {
+					// 	var percent = e.loaded / e.total; //计算百分比
+					// }),
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					success: function(data) {
+						var tmp = $(data).text().substring($(data).text().indexOf("{"), $(data).text().length);
+						var res = eval('(' + tmp + ')');
+						console.log(res)
+						if (res.code == '1') {
+							talkListFuns(res.msg);
+						} else {
+							myProcessOk(res.msg);
+						}
+					},
+					error: function(data, status, e) {
+						layer.msg(e, function() {});
+					}
+				});
+			}
+		</script>
+	</body>
+</html>

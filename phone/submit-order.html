@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>临钢网</title>
+	<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+	<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+    <link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/all.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="css/shop.css"/>
+    <link rel="stylesheet" type="text/css" href="css/quote.css"/>
+</head>
+<style>
+    .jiagong{
+        width:100%;
+        height: 30px;
+        border: 1px solid #ccc;
+    }
+    input[type="radio"]{
+        display: inline-block;
+        margin: 10px 0;
+    }
+    .init-box li{ height: auto;}
+	.userAdd-box,.userchange-box{
+		background: rgba(0,0,0,0.2);
+		position: fixed;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		z-index: 99;
+		display: none;
+	}
+	.userAdd-point{
+		width: 90vw;
+		padding: 0 14px;
+		box-sizing: border-box;
+		background: #FFFFFF;
+		border: 3px solid #a7a5a5;
+		border-radius: 4px;
+		position: absolute;
+		top: 30%;
+		left: 5vw;
+		z-index: 100;
+	}
+	.userAdd-point 	.approve-tit{
+		border-bottom: 1px dashed #CCCCCC;
+		margin-bottom: 10px;
+	}
+	.userAdd-point 	.approve-tit .userAdd-close{
+		width: 24px;
+		height: 24px;
+		margin-top: 7px;
+		cursor: pointer;
+		float: right;
+		background: url(../img/user/close.png);
+	}
+	.userAdd-point li{
+		width: 100%;
+	}
+	.userAdd-point .morePoint{
+		width: 100%;
+		margin-left: 100px;
+		margin-top: 20px;
+	}
+	.userPoint-table{
+		border-collapse: collapse;
+		margin-top: 20px;
+		text-align: center;
+	}
+	.userPoint-table th{
+		padding: 12px 5px;
+		background: #ebecf0;
+		color: #333;
+		font-weight: 400;
+		border: 1px solid #dcdee3;
+		box-sizing: border-box;
+	}
+	.userPoint-table td{
+		padding: 12px 5px;
+		color: #333;
+		font-weight: 400;
+		border: 1px solid #dcdee3;
+	}
+	.userTable-change,.userTable-del{
+		display: inline-block;
+		cursor: pointer;
+	}
+	.userTable-change:hover,.userTable-del:hover{
+		color: #ff5000;
+	}
+	.userTable-line{
+		color: #9b9b9b;
+		margin: 0 10px;
+		line-height: 16px;
+	}
+	.userTable{
+		display: inline-block;
+		width: 100%;
+		line-height: 30px;
+		cursor: pointer;
+	}
+	.userPoint-table .on{
+		border: 1px solid #ff5000;
+		border-radius: 3px;
+		background: #ffd6cc;
+		color: #f30;
+	}
+	.approve-tip{
+		margin: 20px 0;
+		border: 1px dashed #F8D1CA;
+		background: #FFF6F7;
+		padding: 5px 10px;
+		color: #DF393B;
+	}
+	.approve-tit{
+		height: 40px;
+		line-height: 40px;
+		font-size: 16px;
+		font-weight: bold;
+	}
+	.approve-box {
+		padding: 0 14px;
+		box-sizing: border-box;
+		margin-bottom: 20px;
+	}
+	.approve-list{
+		width: 50%;
+		float: left;
+		padding: 10px 0;
+	}
+	.approve-list span{
+		float: left;
+		width: 100px;
+		line-height: 30px;
+	}
+	.approve-list .userInfor{
+		width: 200px;
+		height: 30px;
+		line-height: 30px;
+		padding: 0 5px;
+		border: 1px solid #ddd;
+		border-radius: 4px;
+		color: #666;
+		background: #f5f5f5;
+		box-sizing: border-box;
+	}
+	.approve-list input[type=text]{
+		width: 200px;
+		height: 30px;
+		display: inline-block;
+		line-height: 30px;
+		padding: 0 5px;
+		border: 1px solid #ddd;
+		border-radius: 4px;
+		color: #666;
+		background: #f5f5f5;
+		box-sizing: border-box;
+	}
+	.approve-list select{
+		width: 100px;
+		height: 30px;
+		display: inline-block;
+		line-height: 30px;
+		padding: 0 5px;
+		border: 1px solid #ddd;
+		border-radius: 4px;
+		color: #666;
+		background: #f5f5f5;
+		position: relative;
+		top: 2px;
+	}
+	.approve-list i{
+		color: #DF393B;
+		margin-left: 3px;
+	}
+	.approve-list input[type=checkbox]{
+		display: inline-block;
+		position: relative;
+		top: 2px;
+	}
+	.userAdd-point .morePoint{margin-left: 0 !important;}
+	.approve-list input[type=button]{
+		display: inline-block;
+		width: 100px;
+		height: 30px;
+		line-height: 30px;
+		padding: 0 5px;
+		border: 1px solid #38f;
+		background: #38f;
+		color: #fff;
+		border-radius: 3px;
+		margin-right: 20px;
+		cursor: pointer;
+	}
+</style>
+<body style="padding-top: 50px;">
+<div id="cart-head" class="show">
+    <div class="cart-head">
+        <a class="return" href="javascript:history.back(-1);">
+            <span class="arrow-left"></span>
+        </a>
+        <div class="head-title">账货信息</div>
+    </div>
+</div>
+<div>
+    <ul class="addressList">
+
+    </ul>
+<!-- <span class="addAddresss"><i class="fa fa-plus" aria-hidden="true"></i>添加收货地址</span> -->
+    <!--添加地址-->
+<!-- 新增收货地址 -->
+		<div class="userAdd-box">
+			<div class="userAdd-point">
+				<p class="approve-tit clearfix">添加收货地址 <a class="userAdd-close"></a></p>
+				<ul class="approve-box clearfix">
+					<li class="approve-list">
+						<input type="text" name="" id="CuserName" value="" placeholder="姓名" />
+					</li>
+					<li class="approve-list">
+						<input type="text" name="" id="CuserPhone" value="" placeholder="手机号" />
+					</li>
+					<li class="approve-list city_china_val" id="">
+						<select class="province" id="CmyProvince" data-first-title="选择省" disabled="disabled"></select>
+						<select class="city" id="CmyCity" data-first-title="选择市" disabled="disabled"></select>
+						<select class="area" id="CmyArea" data-first-title="选择地区" disabled="disabled"></select>
+						<br>
+						<input class="morePoint" type="text" name="" id="CmyAddress" value="" placeholder="详细地址" />
+					</li>
+					<li class="approve-list">
+						<textarea id="Cinvoice" placeholder="发票地址"></textarea>
+					</li>
+					<li class="approve-list">
+						<input type="button" name="" id="CaddAddress" value="保存" onclick="addPoint()" />
+					</li>
+				</ul>
+			</div>
+		</div>
+    <!-- <div class="init-box">
+           <div class="t-title">收货信息</div>
+            <div class="submit-info">
+                <span>姓名：</span>
+                <input name="init-name" type="text" placeholder="请输入姓名" value="">
+            </div>
+            <div class="submit-info">
+                <span>手机号：</span>
+                <input name="init-phone" type="text" placeholder="请输入手机号" value="">
+            </div>
+            <div class="submit-info">
+                <span>送货地址：</span>
+                <input name="init-address" type="text" placeholder="请输入送货地址" value="">
+            </div>
+        </div>-->
+    <div class="init-box">
+        <div class="init-title">购货信息</div>
+        <div class="car-box">
+            <ul>
+                <!--<li class="car-list">
+                    <div class="car-address" style="padding: 0;width: 100%;">
+                        <span>泰州库</span>
+                    </div>
+                    <div class="car-goods" style="padding: 0.2rem 0;">
+                        <span>日照　酸洗卷　SPHC</span>
+                        <span class="carGood-mage"><b>2.300*1250.0*C</b><t class="goods-weight">8.880</t>吨</span>
+                        <span class="carGood-price"><b class="goods-price">4160</b>元/吨</span>
+                    </div>
+                </li>-->
+            </ul>
+        </div>
+        <div class="submit-pay">
+            总金额：<br/>
+            <span>0</span>&nbsp;元
+        </div>
+
+
+        <div class="process">
+            <ul>
+                <!--<li>
+                    <div class="liLeft">是否加工</div>
+                    <div>
+                        <input id="forMake" type="checkbox" name="" value="" checked="checked" />
+                        <span>加工</span>
+                        <div class="toMake">
+                            <span>备注信息</span>
+                            <br>
+                            <textarea></textarea>
+                        </div>
+                    </div>
+                </li>-->
+				<li>
+					<div class="liLeft">优惠券</div>
+					<div style="display: block;">
+						<input type="radio" checked id="sendType1" name="sendType" value="代运"><label for="sendType1">代运</label>  &nbsp;&nbsp;<input type="radio" id="sendType2" name="sendType" value="自提"> <label for="sendType2">自提</label>
+					</div>
+				</li>
+                <li>
+                    <div class="liLeft">优惠券</div>
+                    <div class="yhType">
+                        <input id="hongbaoPrice" type="hidden" value="0">
+                        <div class="sale-list">
+                            <input type="radio" name="sale" id="saleNo" checked="checked" value="0" onchange="yhChange()" price=""/>
+                            <label for="saleNo"><i class="hidden">0</i>不使用优惠券</label>
+                        </div>
+                       <!-- <div class="sale-list" id="hongBao">
+                            <!--<input type="radio" name="sale" id="saleHb" value="" />
+                            <label ="saleHb">红包：500元</label>
+                        </div> -->
+                    </div>
+                </li>
+                <li>
+                    <div class="liLeft">钢豆支付</div>
+                    <div>
+                        <div class="iousNum">
+                            <div class="iousNum-list1">可用数量：<i></i>&nbsp;</div>
+                        </div>
+                        <div class="iousType">
+                            <span class="iousUse">使用数量：<input style="width:28px;" type="text" id="lastPay"  value="0" onchange="dkjeDo()" />个&nbsp;&nbsp;<span id="dkjeShow"></span></span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="init-pay">确定</div>
+<!-- 弹出层 -->
+<div id='vkDivMaskPrc'><div id='vkDivMaskContPrc'><div id='vkDivMaskContPrcLogo'></div><div id='vkDivMaskContPrcText'></div></div></div>
+<script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+<script src="js/phone.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+<script src="js/tools.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+<script src="js/all.js?vid=0611" type="text/javascript" charset="utf-8"></script>
+<!-- 商品数量 -->
+<script>
+    //
+    // 获取购物车商品、优惠券、白条、收货地址列表
+			
+    function spsl(ps,pid,n){
+        var st='';
+        				if(ps=="1"){
+        					st+='	<input type="text" class="num" onkeyup="setnum(\''+pid+'\')" onchange="setnum(\''+pid+'\')"  id="num_'+pid+'" value="1" style="float:left;margin-left:1vw;border:1px solid #298fca;width:25px; height:20px; padding:1px; text-align:center; font-size:11px;">';
+        				}else{
+        					st+='	<input type="text" class="num" readonly="readonly"   id="num_'+pid+'" value="1" style="float:left;margin-left:1vw;border:0px solid #298fca;width:25px; height:20px; padding:1px; text-align:center; font-size:11px;">';
+        				}
+        				
+        	st+='   &nbsp;&nbsp;购买数量';
+        	return st;
+    }
+    function setnum(pid){
+        //console.log(pid)
+
+        var ku_p=document.getElementById("num_"+pid).value; //添加后的个数
+		if(ku_p.length<1){
+			return false;
+		};
+		 	ku_p=parseInt(ku_p);
+			 	if(ku_p<1){ 
+			 		ku_p=1; 
+			 	}
+			 	var kc_p=0;
+
+        var tkn = getCookie(tk);
+        $.ajax({
+            url: path + '/linA/getspkc',
+            type: 'GET',
+            beforeSend: function(XMLHttpRequest) {
+                XMLHttpRequest.setRequestHeader("token", tkn);
+            },
+            data: {
+                id:pid
+            },
+            dataType: 'json', //后台返回的数据类型是json文本
+            success: function(result) {
+                console.log(result)
+
+                if(result.data<ku_p){
+                    console.log('ku_p')
+                    myProcessErr("超出最大库存，已为您恢复为最大可下单数量："+result.data);
+                    document.getElementById("num_"+pid).value=result.data;
+                }else{
+                    document.getElementById("num_"+pid).value=ku_p;
+                }
+                allPrice();
+            }
+        })
+
+    }
+
+</script>
+
+
+
+<script>
+    var dkje=0;
+    var kysl=0;
+    var dkgd=0;
+    var sysl=0;
+    function dkjeDo(){
+        sysl=$("#lastPay").val();
+      if(sysl>kysl){
+          sysl=kysl;
+      }
+        $("#lastPay").val(sysl);
+      dkje=sysl/10;
+      $("#dkjeShow").html("可抵扣："+dkje+"元");
+        allPrice();
+    }
+    /*---------------*/
+    // var ccc = $('#lastPay').name();
+    function moneyFormat(val){
+        if(val == "" || val == null){
+            return "0.00";
+        }
+        var value=Math.round(parseFloat(val)*100)/100;
+        var xsd=value.toString().split(".");
+        if(xsd.length == 1){
+            value=value.toString()+".00";
+            return value;
+        }
+        if(xsd.length>1){
+            if(xsd[1].length<2){
+                value=value.toString()+"0";
+            }
+            return value;
+        }
+    }
+
+
+    $('.init-pay').click(function(){
+        dkjeDo();
+        var yun = $("input[name='a']").val();
+        var tkn = getCookie(tk);
+        var postId = $('.cartFull-address input[type="checkbox"]:checked').siblings('i');
+        var orderId = '';//订单id
+        var gdNum = $('#lastPay').val(); //钢豆
+
+        var yhName = $(".yhType input[type='radio']:checked").parent().find('i').html();   //不对
+        var yhNum = $(".yhType input[type='radio']:checked").val();//选中的优惠券   //不对
+        var yhId = ''; //优惠券
+        // 判断是否使用优惠券
+        if(yhNum>0){
+            yhId = $(".yhType input[type='radio']:checked").attr('id')  //不对
+        }else{
+            yhId = 0
+        }
+
+        var ids = $.getUrlParam("id").split(",");
+        var daiyun = [];
+        var jiagong = [];
+		var nums=[];
+        $(".car-box ul li").each(function (i) {
+            daiyun.push($(this).find("input[name='a']:checked").val())
+            jiagong.push($(this).find(".jiagong").val());
+			nums.push($(this).find(".num").val());
+        });
+
+        var str = [];
+        for (var i in ids) {
+            var fa = {
+                dId: ids[i],
+                dProcessrequirement:jiagong[i],
+				dProductNum:nums[i],
+                dExtract: $("input[name='sendType']:checked").val()
+            }
+            str.push(fa);
+        }
+        // console.log(str);
+
+
+        // 订单id拼接
+        for (var i = 0; i < postId.length; i++) {
+            orderId += postId.eq(i).html() + ',';
+        };
+
+        var json = JSON.stringify({
+            detailList: str,
+            cTransactionId: orderId,
+            cCategory: 1,
+            cCouponComment: yhName,
+            cCouponId: yhId,
+            cCouponPrice: yhNum,
+            cNum: Number(sysl),
+            cGold: dkje,
+
+            cPhone: $('.dzPhone').html(),
+            cRealname: $('.dzName').html(),
+            cProvinceId: $('.dzProvince').html(),
+            cCityId: $('.dzCity').html(),
+            cDistrictId: $('.dzDist').html(),
+            cAddressid: $('.dzMore').html(),
+            cPlanPayTime: $('.start-plan').val(),
+            cPrice: $('.submit-pay span').html()
+        })
+        console.log(json)
+
+        $.ajax({
+            url: path + '/linA/adddd',
+            type:'POST',
+            beforeSend: function (XMLHttpRequest) {
+                XMLHttpRequest.setRequestHeader("token", tkn);
+            },
+            data:json,
+            contentType: 'application/json;charset=utf-8',
+            success:function(result){
+                // console.log(result);
+                if (result.code == "1") {
+                    window.location.href = "./user-order.html?orderType=1";
+                    //alert("提交成功");
+                } else {
+
+                    myProcessErr(result.msg);
+                }
+            },
+            error:function(){
+                console.log('没成功')
+            }
+        })
+    })
+
+
+
+
+
+
+
+   /*-------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // var makeFor = $('.forMake input');
+    // if(makeFor.is(':checked')){
+    //   $('.toMake').show();
+    // }
+    // $(".forMake input").change(function() {
+    //   if ($(this).prop("checked")) {
+    //     $(this).siblings('.toMake').show();
+    //   } else {
+    //     $(this).siblings('.toMake').hide();
+    //   }
+    // });
+    $('#forMake').change(function () {
+        if ($(this).prop('checked')) {
+            $(this).siblings('.toMake').show();
+        } else {
+            $(this).siblings('.toMake').hide();
+        }
+    });
+    $('.toMake').click(function () {
+        $(this).siblings('textarea').toggle();
+    });
+
+    $('.toMake').click(function () {
+        $(this).siblings('textarea').toggle();
+    });
+</script>
+
+<script>
+    /* 获取 */
+    (function ($) {
+        $.getUrlParam = function (name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        }
+    })(jQuery);
+
+    //console.log($.getUrlParam("id"))
+    var tkn = getCookie(tk);
+    $.ajax({
+        url: path + '/linA/getgwc',
+        type: 'GET',
+        data: {
+            id: $.getUrlParam("id")
+        },
+        beforeSend: function (XMLHttpRequest) {
+            XMLHttpRequest.setRequestHeader("token", tkn);
+        },
+        success: function (result) {
+            // myPrice = 0;
+            //console.log(result);
+
+            for (i in result.data) {
+               // console.log(result.data[i])
+               // console.log(result.data[i].stProductNum)
+
+                // console.log(result.data);
+                //var carGoods = '<span>'+ result.data[i].stShopName +'&nbsp;'+ result.data[i].stProductName +'&nbsp;'+ result.data[i].stProducttexture +'</span><span class="carGood-mage"><b>'+ result.data[i].stProductspec +'</b>　<t class="goods-weight">'+ result.data[i].stTonnum +'</t>吨</span><span class="carGood-price"><b class="goods-price">'+ result.data[i].stPrice +'</b>元/吨</span>'
+                var carGoods = '<li class="car-list"><div class="car-goods" style="padding: 0.2rem 0;"><span>'
+                    + result.data[i].stShopName + '&nbsp;'
+                    + result.data[i].stProductName + '&nbsp;'
+                    + result.data[i].stProducttexture + '</span><span class="carGood-mage"><b>'
+                    + result.data[i].stProductspec + '&nbsp;</b><t class="goods-weight">'
+                    + result.data[i].stTonnum + '</t>吨</span><div>'
+                    + spsl(result.data[i].stProductSex,result.data[i].stId,result.data[i].stProductNum) +'</div><span class="carGood-price"><b class="goods-price">'
+                    + result.data[i].stPrice + '</b>元/件</span></div>' + '<input class="jiagong" placeholder="请输入加工信息" ></li>';
+
+                // myPrice = myPrice + parseInt(result.data[i].stTonnum) * result.data[i].stPrice
+
+                $('.car-box ul').append(carGoods);
+                /* 计算 */
+
+            }
+            // console.log(myPrice)
+            // $(".submit-pay span").html(myPrice);
+
+            var myWeight = 0;
+            $(".cartFull-address input[type='checkbox']:checked").each(function () {
+                var allList = parseFloat($(this).parents('tbody').find('.weightList').text());
+                myWeight += allList;
+            });
+            //$(".weightR").html(myWeight+'吨');
+
+            var myWeight = 0;
+            $('.goods-price').each(function () {
+                var allList = parseFloat($(this).html());
+                myWeight += allList;
+            })
+            // $('.submit-pay span').html(myWeight);
+
+
+        },
+        error: function (e) {
+
+        }
+    })
+    /*---------------------------------------------*/
+    //优惠券获取
+    $.ajax({
+        url: path + '/linA/listgwc',
+        type: 'GET',
+        data: {},
+        beforeSend: function (XMLHttpRequest) {
+            XMLHttpRequest.setRequestHeader("token", tkn);
+        },
+        dataType: 'json', //后台返回的数据类型是json文本
+        success: function (result) {
+            // console.log('优惠券')
+            // console.log(result)
+            var shopEve = result.coupon  //优惠券
+            for (var j in shopEve) {
+                var EveList =
+                    '<div class="sale-list"><input type="radio" onchange="yhChange()" name="sale" id="' + shopEve[j].cId + '" value="' + shopEve[j].cPrice + '" />' +
+                    '<label for="' + shopEve[j].cId + '">&nbsp;' + shopEve[j].cName + '：<i>' + shopEve[j].cPrice + '</i>元</label></div>';
+                $('.yhType').append(EveList);
+            };
+            // $('#lastPay').val(parseInt($('.submit-pay span').html()))
+            $('.iousNum-list1 i').html(result.whiteNote.cGoldGz);
+            kysl=parseInt(result.whiteNote.cGoldGz);
+            //$('.iousNum-list1 i').attr('data-id',$('.iousNum-list1 i').html(result.whiteNote.cGoldGz))
+            // if ($('.yhType input').is(':checked')) {
+            //     // console.log('111')
+            //     var allPrice = parseInt($('.submit-pay span').html())
+            //     var reduce = parseInt($('.yhType input:checked').parent('.sale-list').find('i').html)
+            //     var lastPrice = allPrice - reduce
+            //     // console.log(lastPrice)
+            //     $('#lastPay').val(lastPrice)
+            // }
+
+
+        }
+    })
+</script>
+
+<!------------------------ pc端复制 ---------------------------->
+
+<!-- 添加收货地址 -->
+<script type="text/javascript">
+    $('.addAddresss').click(function () {
+        $('.userAdd-box').show();
+    });
+    $('.userAdd-close').click(function () {
+        $('.userAdd-box').hide();
+    });
+</script>
+<script type="text/javascript">
+    function toMake(thiz) {
+        if ($(thiz).prop("checked")) {
+            $(thiz).siblings('.toMake').show();
+        } else {
+            $(thiz).siblings('.toMake').hide();
+            $(thiz).siblings('textarea').hide();
+        }
+    }
+
+    function writeMake(thiz) {
+        $(thiz).siblings('textarea').toggle();
+    }
+
+    function mrAddress(thiz) {
+        $(thiz).siblings().removeClass('address-bg');
+        $(thiz).addClass('address-bg');
+    }
+
+    $('.toMake').click(function () {
+    });
+    $('.cartPlan').click(function () {
+        $('.planTime').show();
+    })
+
+    function planClo(cal) {
+        $('.planTime').hide();
+    }
+</script>
+<script>
+    $(function () {
+        /*公共部分
+         * 导航栏
+         * footer CopyRight
+         */
+        $(".headerpage").load("header.html");
+        $(".footerpage").load("footer.html");
+        allPrice();
+    });
+</script>
+<script type="text/javascript">
+    // 获取购物车商品、优惠券、白条、收货地址列表
+    function getPoint() {
+        var tkn = getCookie(tk);
+        $.ajax({
+            url: path + '/linA/listgwc',
+            type: 'GET',
+            data: {},
+            beforeSend: function (XMLHttpRequest) {
+                XMLHttpRequest.setRequestHeader("token", tkn);
+            },
+            dataType: 'json', //后台返回的数据类型是json文本
+            success: function (result) {
+                if (result != "" && result.code == 1) {
+                    var shopPoint = result.address //收货地址
+                    // 收货地址
+                    for(var k in shopPoint){
+                        // console.log(result)
+                        if(shopPoint[k].cIfDefault == 1){
+                            var pointList =
+                                '<li class="address-bg" onclick="mrAddress(this)"><p class="dzName">'+ shopPoint[k].cName + '</p><span class="dzPhone">' + shopPoint[k].cPhone +'</span>'+
+                                '<span><i class="dzProvince">'+ shopPoint[k].cProvince + '</i>&nbsp;&nbsp;<i class="dzCity">' + shopPoint[k].cCity + '</i>&nbsp;&nbsp;<i class="dzDist">' + shopPoint[k].cDistrict + '</i>'+
+                                '</span><span class="dzMore">' + shopPoint[k].cAddress + '</span><span class="dzFP">' + shopPoint[k].cZipcode + '</span></li>';
+                            $('.addressList').append(pointList);
+                        }else{
+                            var pointList2 =
+                                '<li onclick="mrAddress(this)"><p class="dzName">'+ shopPoint[k].cName + '</p><span class="dzPhone">' + shopPoint[k].cPhone +'</span>'+
+                                '<span><i class="dzProvince">'+ shopPoint[k].cProvince + '</i>&nbsp;&nbsp;<i class="dzCity">' + shopPoint[k].cCity + '</i>&nbsp;&nbsp;<i class="dzDist">' + shopPoint[k].cDistrict + '</i>'+
+                                '</span><span class="dzMore">' + shopPoint[k].cAddress + '</span><span class="dzFP">' + shopPoint[k].cZipcode + '</span></li>';
+                            $('.addressList').append(pointList2);
+                        }
+                    }
+                }
+            }
+        })
+    }
+
+    // 加载购物车
+    $(function () {
+        var tkn = getCookie(tk);
+        $.ajax({
+            url: path + '/linA/listgwc',
+            type: 'GET',
+            data: {},
+            beforeSend: function (XMLHttpRequest) {
+                XMLHttpRequest.setRequestHeader("token", tkn);
+            },
+            dataType: 'json', //后台返回的数据类型是json文本
+            success: function (result) {
+                if (result != "" && result.code == 1) {
+                    var shopCart = result.data;  //购物车商品
+                    var shopEve = result.coupon  //优惠券
+                    var shopIous = result.whiteNote //白条
+                    var shopPoint = result.address //收货地址
+                    $('.cart-num').html(shopCart.length);
+                    if (shopCart.length == 0) {
+                        $('.cart-empty').removeClass('hidden');
+                    } else {
+                        $('.cartFull-box').removeClass('hidden');
+                        for (var i in shopCart) {
+                            var cartList =
+                                '<tbody><tr><td class="cartFull-address" colspan="8">' +
+                                '<input type="checkbox" name="" id="" value="" />' + '<span class="hidden">' + shopCart[i].stId + '</span>' +
+                                '<span>地点</span>' + '仓库地址：' + shopCart[i].stStoreaddress + '</td>' +
+                                '<td class="cartFull-time">' + shopCart[i].stCreatettime + '</td>' +
+                                '</tr><tr class="cartFull-mage"><td>' + shopCart[i].stShopName + '&nbsp;&nbsp;&nbsp;' + shopCart[i].stProductName + '</td><td>' + shopCart[i].stProducttexture + '</td>' +
+                                '<td>' + shopCart[i].stProducttexture + shopCart[i].stProductspec + '</td><td><span class="weightList">' + shopCart[i].stTonnum + '</span>吨</td>' +
+                                '<td>' + shopCart[i].stPrice + '￥</td><td><span class="priceList">' + shopCart[i].stNowPrice + '</span>￥</td>' +
+                                '<td class="forMake"><input type="checkbox" name="" id="" value="" onchange="toMake(this)" />加工' +
+                                '<span class="toMake" onclick="writeMake(this)">备注信息</span><br><textarea></textarea></td>' +
+                                '<td><a class="toPin" href="group-pin.html">去拼购</a></td>' +
+                                '<td><span class="cartFull-del" onclick="oneDel(this,\'' + shopCart[i].stId + '\')">删除</span></td></tr></tbody>';
+                            $('.cartFull-table').append(cartList);
+                        };
+                        // 优惠券
+                        for (var j in shopEve) {
+                            var EveList =
+                                '<div class="sale-list"><input type="radio" onchange="yhChange()" name="sale" id="' + shopEve[j].cId + '" value="' + shopEve[j].cPrice + '" />' +
+                                '<label for="' + shopEve[j].cId + '">' + shopEve[j].cName + '：' + shopEve[j].cPrice + '元</label></div>';
+                            $('.saleBox').append(EveList);
+
+                        };
+                        allPrice()
+                        // 白条
+                        // $('.iousNum-list1 i').html(result.whiteNote.cGoldGz)
+                        // 收货地址
+                        getPoint();
+                        // allPrice();
+                    }
+
+                }
+            }
+        })
+    });
+
+    // 添加收货地址
+    function addPoint() {
+        var tkn = getCookie(tk);
+        var setCheck = 1;
+        var json = JSON.stringify({
+            cName: $('#CuserName').val(),
+            cPhone: $('#CuserPhone').val(),
+            cProvince: $('#CmyProvince').val(),
+            cCity: $('#CmyCity').val(),
+            cDistrict: $('#CmyArea').val(),
+            cAddress: $('#CmyAddress').val(),
+            cZipcode: $('#Cinvoice').val(),
+            cIfDefault: setCheck
+        });
+        $.ajax({
+            url: path + '/linA/adddz',
+            type: 'post',
+            beforeSend: function (XMLHttpRequest) {
+                XMLHttpRequest.setRequestHeader("token", tkn);
+            },
+            data: json,
+            contentType: 'application/json;charset=utf-8',
+            dataType: 'json', //后台返回的数据类型是json文本
+            success: function (result) {
+                if (result != "" && result.code == 1) {
+                    alert('添加成功！')
+                    $('.addressList').html('');
+                    $('.userAdd-box').hide();
+                    getPoint();
+                } else {
+                    alert(result.msg)
+                }
+            }
+        })
+    }
+
+    // 单个商品删除
+    function oneDel(thiz, oneId) {
+        var tkn = getCookie(tk);
+        $.ajax({
+            url: path + '/linA/delgwc',
+            type: 'POST',
+            beforeSend: function (XMLHttpRequest) {
+                XMLHttpRequest.setRequestHeader("token", tkn);
+            },
+            data: {
+                id: oneId
+            },
+            // contentType: 'application/json;charset=utf-8',
+            dataType: 'json', //后台返回的数据类型是json文本
+            success: function (result) {
+                if (result != "" && result.code == 1) {
+                    alert(result.msg)
+                    var cartNum = parseInt($('.cart-num').html());
+                    $('.cart-num').html(cartNum - 1);
+                    $(thiz).parents('tbody').remove();
+                    allPrice();
+                } else {
+                    alert(result.msg)
+                }
+            }
+        })
+    };
+
+    // 清空购物车
+    function allDel() {
+        var tkn = getCookie(tk);
+        $.ajax({
+            url: path + '/linA/delallgwc',
+            type: 'POST',
+            beforeSend: function (XMLHttpRequest) {
+                XMLHttpRequest.setRequestHeader("token", tkn);
+            },
+            data: {},
+            // contentType: 'application/json;charset=utf-8',
+            dataType: 'json', //后台返回的数据类型是json文本
+            success: function (result) {
+                if (result != "" && result.code == 1) {
+                    alert(result.msg)
+                    $('.cart-num').html('0');
+                    $('.cart-empty').removeClass('hidden');
+                    $('.cartFull-box').addClass('hidden');
+                    allPrice();
+                } else {
+                    alert(result.msg)
+                }
+            }
+        })
+    };
+
+    // 商品重量
+    function allWeight() {
+        /* var myWeight = 0;
+        $(".weightList").each(function () {
+            var allList = $(this).text();
+            myWeight += allList;
+        })
+        $(".submit-pay span").html((myWeight).toFixed(2) + '吨'); */
+		
+		
+		var myWeight = 0;
+		$(".goods-weight").each(function () {
+			var oneWeight =  $(this).text();
+			var oneNum = $(this).parents('.car-goods').find('.num').text();
+			myWeight += oneWeight*oneNum;
+		});
+		
+		$(".submit-pay span").html(myWeight.toFixed(4)+'吨');
+		
+    };
+    // 商品总价（未优惠前价格）
+    function allPrice() {
+        var myPrice = 0;
+        $(".car-box ul li").each(function () {
+            // 商品吨位
+            //var thizWeight = parseInt($(".goods-weight").eq(i).text());
+            var thizWeight =$(this).find(".goods-weight").text(); // 个数
+		var thizNum =$(this).find(".num").val(); // 个数
+            // 商品价格（吨）
+            var thizPrice = $(this).find(".goods-price").text(); // 件数
+            myPrice += parseFloat(thizNum*thizPrice * thizWeight); // 个数 乘 件数
+        });
+        // console.log(myPrice);
+        var hongbao = parseInt($("#hongbaoPrice").val());
+        // console.log(hongbao);
+
+        myPrice -= hongbao + dkje;
+        // console.log(myPrice);
+        $(".submit-pay span").html(myPrice.toFixed(2));
+    };
+    // 钢豆支付
+    // $('.iousUse input').change(function () {
+    //     var regex = /^[0-9]+$/;
+    //     // 钢豆
+    //     var cgoldgz = parseInt($(".iousNum-list1 i").text());
+    //     // console.log(cgoldgz)
+    //     //输入的价格
+    //     var inputPrice = regex.test($(this).val()) ? $(this).val() : 0;
+    //     // console.log(inputdou)
+    //     // 结算价格
+    //     var rePrice = parseInt($(".submit-pay span").html());
+    //
+    //     // 输入的钢豆数大于总钢豆数
+    //     if (inputPrice * 10 > cgoldgz) {
+    //         inputPrice = cgoldgz / 10;
+    //     }
+    //     // 输入的钢豆数大于总金额
+    //     if (inputPrice > rePrice) {
+    //         inputPrice = rePrice;
+    //     }
+    //     // 最终钢豆数
+    //     $(this).val(inputPrice);
+    //     allPrice();
+    // });
+
+    // 优惠券
+    function yhChange() {
+        // 红包价格
+        var yhPrice = $(".sale-list input[type='radio']:checked").val();
+        // console.log(yhPrice);
+         // console.log(1111);
+
+        // 结算价格
+        var rePrice = parseInt($(".submit-pay span").html());
+        $("#hongbaoPrice").val(yhPrice > rePrice ? rePrice : yhPrice);
+        allPrice();
+        // rePrice = (rePrice - yhPrice) < 0 ? 0 : (rePrice - yhPrice);
+        // $(".submit-pay").html(rePrice);
+    };
+
+    yhChange()
+
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

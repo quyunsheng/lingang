@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+
+#vkDivMaskPrc{display:none;z-index:9999999;position:fixed;left:0px;top:0px;width:100%;height:100%; background-image:url(../images/maskbg.png??vid=0826);}
+#vkDivMaskContPrc{width:60vw; background-color:#fff; color:#333; margin:0 auto; margin-top:100px;padding-top:20px;padding-bottom:20px; text-align:center;border-radius: 20px;}
+.vkDivMaskContPrcBegin{margin:0 auto;width:80%;height:120px;background-image:url(../images/tm.gif);background-size:40%; background-repeat:no-repeat;background-position:center center;}
+.vkDivMaskContPrcOk{margin:0 auto;width:80%;height:120px;background-image:url(../images/ok.png??vid=0826);background-size:70%; background-repeat:no-repeat;background-position:center center;}
+.vkDivMaskContPrcErr{margin:0 auto;width:80%;height:120px;background-image:url(../images/err.png??vid=0826);background-size:70%; background-repeat:no-repeat;background-position:center center;}
+#vkDivMaskContPrcText{margin:0 auto;width:80%;margin-top:3vh;font-size:3vh;text-align: center;}
+
+#vkDivMaskPicsShow{display:none;z-index:9999999;position:fixed;left:0px;top:0px;width:100%;height:100%; background-image:url(../images/maskbg.png??vid=0826);}
+

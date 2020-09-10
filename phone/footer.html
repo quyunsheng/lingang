@@ -1,0 +1,78 @@
+<!-- 底部 -->
+<div id='vkDivMaskPrc'><div id='vkDivMaskContPrc'><div id='vkDivMaskContPrcLogo'></div><div id='vkDivMaskContPrcText'></div></div></div>
+
+<div class="footer" style="display: none;">
+
+    <ul class="clearfix">
+		<li>
+		    <a href="phone.html">
+		        <span class="foot-icon foot-home"></span>
+		        <p>首页</p>
+		    </a>
+		</li>
+		<li>
+		    <a href="zhixiang.html">
+		        <span class="foot-icon foot-zhx"></span>
+		        <p>智享</p>
+		    </a>
+		</li>
+		<li>
+
+		</li>
+        <li>
+            <a href="information.html">
+                <span class="foot-icon foot-zixun"></span>
+                <p>咨讯</p>
+            </a>
+        </li>
+        <li>
+            <a href="#" onclick="uOnLine('user.html')">
+                <span class="foot-icon foot-user"></span>
+                <p>会员</p>
+            </a>
+        </li>
+    </ul>
+	<div class="center">
+		<a href="shop.html"></a>
+		<p>商城</p>
+	</div>
+</div>
+<div class="footer2">
+	<p style="margin-top: 10px;">握图临宇 志在钢强</p>
+	<p>Copyright © 2019-<span id="year" style="color: #FFFFFF;"></span>, All Rights Reserved.</p>
+</div>
+<script src="js/tools.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+<script src="js/all.js?vid=0529" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	var myDate = new Date();
+	var year = myDate.getFullYear();
+	$('#year').html(year);
+	//判断是否是微信浏览器的函数
+	function isWeiXin(){
+	  //window.navigator.userAgent属性包含了浏览器类型、版本、操作系统类型、浏览器引擎类型等信息，这个属性可以用来判断浏览器类型
+	  var ua = window.navigator.userAgent.toLowerCase();
+	  //通过正则表达式匹配ua中是否含有MicroMessenger字符串
+	  if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+	  return true;
+	  }else{
+	  return false;
+	  }
+	}
+	
+    $(document).ready(function() {
+        $(".footer li a").each(function() {
+            if($(this)[0].href == String(window.location)) {
+				$(this).parents("li").addClass("active").siblings().removeClass('active');
+            }
+			if($(this)[0].href.indexOf("user.html#")>0) {
+				$(this).parents("li").addClass("active").siblings().removeClass('active');
+			}
+        });
+		if(isWeiXin()){
+			$(".footer2").show();
+		}else{
+			$(".footer2").hide();
+			$(".footer").show();
+		}
+    })
+</script>

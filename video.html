@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>临钢视频</title>
+		<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+		<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/idangerous.swiper.css"/>
+		<link rel="stylesheet" type="text/css" href="css/APlayer.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/head.css"/>
+		<link rel="stylesheet" type="text/css" href="css/news.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="css/ulList.css"/>
+	</head>
+	<body>
+		<!-- 顶部导航 -->
+		<div class="headerpage"></div>
+		<!-- 页面主体 -->
+		<div class="main-banner video-banner"></div>
+		<div class="main-cont">
+			<!-- 页面左侧 -->
+			<div class="">
+				<ul class="video-box show">
+					<!-- <li>
+						<video controls="controls" controlslist="nodownload">
+							<source src="video/lg-video/灭火器生产流水线.mp4" type="video/mp4">
+						</video>
+						<span class="video-tit">灭火器生产流水线</span>
+					</li>
+					<li>
+						<video controls="controls" controlslist="nodownload">
+							<source src="video/lg-video/机器人切割.mp4" type="video/mp4">
+						</video>
+						<span class="video-tit">机器人切割</span>
+					</li>
+					<li>
+						<video controls="controls" controlslist="nodownload">
+							<source src="video/lg-video/激光切割.mp4" type="video/mp4">
+						</video>
+						<span class="video-tit">激光切割</span>
+					</li>
+					<li>
+						<video controls="controls" controlslist="nodownload">
+							<source src="video/lg-video/纵剪分条线.mp4" type="video/mp4">
+						</video>
+						<span class="video-tit">纵剪分条线</span>
+					</li> -->
+				</ul>
+				
+			</div>
+			<!-- 页面右侧 -->
+		</div>
+		<!-- 主体结束 -->
+		<div class="footerpage"></div>
+		<div class="foot-about1">
+			<div class="about-box">
+				<p class="footLink">
+					<a rel="nofollow" href="http://www.12377.cn" target="_blank"><img src="img/footer/foot-wfjb.png" width="124" height="46"></a>
+					<!-- <a rel="nofollow" href="https://ss.knet.cn/verifyseal.dll?sn=e20051937130081635xsxj000000&userid=8IeOInNbj43dec5E&time=1589881923113&stoken=ca1dc82d5bbb71d300d921ba6ec71ce0&pa=92311" target="_blank"><img src="img/footer/foot-kexin.jpg" width="124" height="46"></a> -->
+					<script type='text/javascript' src='https://kxlogo.knet.cn/seallogo.dll?sn=e20051937130081635xsxj000000&ct=df&h=46'></script>
+					<a rel="nofollow" href="#" target="_blank"><img src="img/footer/foot-rz.jpg" width="124" height="46"></a>
+					<a href="index.html"><img height="46" src="img/footer/footer-aq.png" ></a>
+					<a href="index.html"><img height="46" src="img/footer/footer-hw.png" ></a>
+					<a href="index.html"><img height="46" src="img/footer/footer-cx.jpg" ></a>
+					<a rel="nofollow" href="img/footer/lingang.png" target="_blank"><img src="img/footer/dzyyzz.png" width="46" height="46"></a>
+				</p>
+			</div>
+		</div>
+		<script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/tools.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/right.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script>
+		    $(function(){
+		        /*公共部分
+		         * 导航栏
+		         * footer CopyRight
+		         */
+		        $(".headerpage").load("header.html");
+		        $(".footerpage").load("footer.html");
+		    });
+			$(function() {
+				$.ajax({
+					url: path + '/linA/listbanner1',
+					type: 'GET',
+					data: {},
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != "" && result.code == 1) {
+							if(result.data){
+								var imgBanner = result.data[0].cLogo;
+								$('.main-banner').css('background-image','url('+ photoPath + imgBanner +')')
+							}
+						}
+					}
+				});
+				$.ajax({
+					url: path + '/linA/listbanner_video',
+					type: 'GET',
+					data: {},
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != "" && result.code == 1) {
+							var videoList = result.data
+							if(result.data){
+								for(i in videoList){
+									var videoBox = '<li><video controls="controls" controlslist="nodownload">'+
+										'<source src="'+ photoPath + videoList[i].cLogo+'" type="video/mp4">'+
+										'</video><span class="video-tit">'+videoList[i].cTitle+'</span></li>'
+										$('.video-box').append(videoBox)
+								}
+							}
+						}
+					}
+				})
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>临钢网</title>
+		<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+		<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/calendar.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/all.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/shop.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/index.css?vid=0326" />
+
+		<script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/phone.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.good-box .goodMore {
+				display: inline-block;
+				padding: 5px 10px;
+				border: 1px solid #4594e6;
+				position: absolute;
+				right: 0.2rem;
+				top: 1.7rem;
+				color: #4594e6;
+				border-radius: 5px;
+			}
+
+			.good-box .toCar {
+				float: right;
+				display: inline-block;
+				padding: 5px 10px;
+				border: 1px solid #FF0000;
+				color: #FF0000;
+				border-radius: 5px;
+			}
+
+			.good-box .toPin {
+				float: right;
+				display: inline-block;
+				padding: 5px 10px;
+				border: 1px solid #00aa7f;
+				color: #00aa7f;
+				border-radius: 5px;
+			}
+
+			.good-box table {
+				width: 100%;
+				display: none;
+			}
+
+			.good-box tr {
+				height: 0.88rem;
+				border-bottom: 1px solid #CCCCCC;
+			}
+
+			.good-box .good-list1 {
+				line-height: 0.6rem;
+			}
+
+			.good-box .good-list3 {
+				line-height: 0.6rem;
+			}
+
+			.head-reorder .search-most {
+				float: right;
+			}
+
+			.calendar {
+				position: fixed;
+				left: 50%;
+				top: 50%;
+				margin-left: -170px;
+				margin-top: -140px;
+				display: none;
+			}
+
+			.planTime {
+				display: none;
+			}
+
+			.shop-user {
+				height: 1rem;
+				width: 1rem;
+				position: fixed;
+				bottom: 2.4rem;
+				right: 0.2rem;
+				z-index: 999;
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body style="padding-top: 50px;">
+		<div class="head-back2">
+			<div class="head-up">
+				<a href="phone.html"><span class="head-logo"></span></a>
+				<a href="phone.html"><span class="head-gif"></span></a>
+				<a href="#" onclick="uOnLine('news-page.html')"><span class="head-kf"><i class="messNum"></i></span></a>
+				<a href="fankui.html"><span class="head-fk"></span></a>
+				<a href="user-check-in.html"><span class="head-qd"></span></a>
+				<a href="calcu.html"><span class="head-jsq-white"></span></a>
+			</div>
+			<div class="zf-banner shadow"><img src="../phone/img/index/banner-lg.jpg" width="100%" height="auto" alt=""></div>
+		</div>
+		<!--列表-->
+		<form id="search_form" style="margin-top: 130px;">
+			<div class="head-reorder">
+				<ul class="clearfix">
+					<li class="search-most" style="width: 30% !important;">
+						<a class="search-btn" href="javascript:;" style=" background-color: #ffffff !important;">高级搜索</a>
+						<span class="screen"><img src="img/screen.png" width="14"></span>
+					</li>
+					<input type="hidden" name="order_name" id="order_name" value="">
+					<input type="hidden" name="order_type" id="order_type" value="">
+					<li>
+						<select onchange="searchAllBtn()" class="secPm" name="aaaa" id="list_name" style="margin-left:5px;margin-bottom: 10px;height:30px;width:150px;padding: 0 10px;color: #333; border: #efefef 1px solid !important;">
+							<option value="">全部产品</option>
+						</select>
+					</li>
+					<div class="pmList" style="display: none;"></div>
+				</ul>
+			</div>
+			<div class="head-search">
+				<ul>
+					<li>
+						<select onchange="searchBtn()" class="secDq" name="" id="point_name" style="margin-bottom: 0;padding: 0 10px;color: #333; border: #efefef 1px solid !important;">
+							<option value="">全部地区</option>
+						</select>
+					</li>
+					<li>
+						<select onchange="searchBtn()" class="secGc" name="" id="steel_name" style="margin-bottom: 0;padding: 0 10px;color: #333; border: #efefef 1px solid !important;">
+							<option value="">全部钢厂</option>
+						</select>
+					</li>
+					<li>
+						<select onchange="searchBtn()" class="secCk" name="" id="warehouse_name" style="margin-bottom: 0;padding: 0 10px;color: #333; border: #efefef 1px solid !important;">
+							<option value="">全部仓库</option>
+						</select>
+					</li>
+
+					<li>
+						<select onchange="searchBtn()" class="secCz" name="" id="product_name" style="margin-bottom: 0;padding: 0 10px;color: #333; border: #efefef 1px solid !important;">
+							<option value="">全部材质</option>
+						</select>
+					</li>
+					<li class="clearfix">
+						<span class="search-tit">厚度</span>
+						<div class="searchB-two fl clearfix">
+							<input style="margin-left: 0.1rem;" type="text" name="" id="houMix" value="0" /><i>mm</i>
+							<span class="fl">~</span>
+							<input type="text" name="" id="houMax" value="0" /><i>mm</i>
+						</div>
+					</li>
+					<li class="clearfix">
+						<span class="search-tit">宽度</span>
+						<div class="searchB-two fl clearfix">
+							<input style="margin-left: 0.1rem;" type="text" name="" id="kuanMix" value="0" /><i>mm</i>
+							<span class="fl">~</span>
+							<input type="text" name="" id="kuanMax" value="0" /><i>mm</i>
+						</div>
+					</li>
+					<li class="clearfix">
+						<span class="search-tit">长度</span>
+						<select class="search-chang fl" onchange="changChange(this)">
+							<option value="C">整卷</option>
+							<option value="d">自定义</option>
+						</select>
+						<br>
+						<div class="searchB-two clearfix changNum hidden" style="margin-left: 0.54rem;">
+							<input style="margin-left: 0.1rem;" type="text" name="" id="changMix" value="0" /><i>mm</i>
+							<span class="fl">~</span>
+							<input type="text" name="" id="changMax" value="0" /><i>mm</i>
+						</div>
+					</li>
+					<li>
+						<input type="button" value="搜索" onclick="searchBtn()">
+					</li>
+				</ul>
+			</div>
+			<!-- <input type="hidden" name="page" id="page" value="3"> -->
+			<div class="shop-box">
+				<ul></ul>
+			</div>
+		</form>
+		</div>
+
+
+
+		<div class="index-none">
+			<p>我已经到达底线了哦\(^o^)/~</p>
+		</div>
+
+
+		<div class="shop-cart">
+			<a>
+				<div class="fix-cart"><img src="img/cart.png" width="25"></div>
+				<span class="fix-num">0</span>
+			</a>
+		</div>
+		<div class="shop-user">
+			<a>
+				<div class="fix-cart"><img src="img/wx-user.png" width="25"></div>
+			</a>
+		</div>
+		<div class="planTime">
+			<h3>发布拼单</h3>
+			<div class="group-time">
+				<select class="need-weight" id="startTime"></select>
+				<!-- <input class="start-plan" id="startTime" type="text" name="" value="" placeholder="请选择结束时间" /> -->
+			</div>
+			<div class="group-time">
+				<input class="need-weight" id="needWeight" type="text" name="" value="" placeholder="请填写吨数" />
+			</div>
+			<div class="group-time">
+				<select class="need-type" id="needType">
+					<option value="不加工">不加工</option>
+					<option value="开平">开平</option>
+					<option value="分条">分条</option>
+				</select>
+			</div>
+			<div class="group-time">
+				<input class="need-mage" id="needMage" type="text" name="" value="" placeholder="加工说明" />
+			</div>
+			<div class="planBtn">
+				<i class="pinId hidden"></i>
+				<span onclick="addPin()" class="planSub">提交</span>
+				<span class="planClo" onclick="planClo(this)">取消</span>
+			</div>
+		</div>
+		<style type="text/css">
+			.typeLz{
+				position: fixed;
+				z-index: 999;
+				background: rgba(0,0,0,0.6);
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				display: none;
+			}
+			.typeLz-txt{
+				position: absolute;
+				top: 0px;
+				right: 0px;
+				bottom: 0px;
+				left: 0px;
+				height: 4.4rem;
+				width: 6.8rem;
+				margin: auto;
+				z-index: 999;
+				box-sizing: border-box;
+				background: #FFFFFF;
+				border: 3px solid #8eb9f5;
+				border-radius: 5px;
+			}
+			.typeLz-txt img{
+				cursor: pointer;
+				width: 0.48rem;
+			}
+			.typeLz-txt>p{
+				padding: 0.2rem 0.4rem;
+				font-weight: bold;
+				font-size: 15px;
+				line-height: 24px;
+				background: #8eb9f5;
+				color: #FFFFFF;
+			}
+			.typeLz-txt>div{
+				margin-top: 0.6rem;
+				padding: 0 0.4rem;
+			}
+			.typeLz-txt a{
+				font-size: 0.3rem;
+			}
+			.typeLz-txt span{
+				display: block;
+				width: 1.6rem;
+				height: 0.6rem;
+				color: #FFFFFF;
+				background: #8eb9f5;
+				text-align: center;
+				line-height: 0.6rem;
+				margin: 0.6rem auto 0;
+				border-radius: 3px;
+				box-shadow: 0 1px 1px #03439c;
+				cursor: pointer;
+			}
+		</style>
+		<div class="typeLz">
+			<div class="typeLz-txt">
+				<p class="clearfix">平台提示：<img class="fr" src="../img/close.png" ></p>
+				<div>
+					<a>冷轧/镀锌</a>
+					<br>
+					请电联：0539-3110002&nbsp;/&nbsp;3110003
+					<span>确定</span>
+				</div>
+			</div>
+		</div>
+		<!--底部导航-->
+		<div class="footerpage"></div>
+		<script src="js/all.js?vid=0611" type="text/javascript" charset="utf-8"></script>
+		<script src="js/tools.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/calendar.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+
+		<script>
+			$(function() {
+				/*公共部分
+				 * 导航栏
+				 * footer CopyRight
+				 */
+				$('.footerpage').load('footer.html');
+			});
+			$("#startTime").empty();
+			for (var oi = 1; oi < 4; oi++) {
+				$("#startTime").append("<option value='" + getDay(oi) + "'>" + getDay(oi) + "</option>");
+			}
+			var chooseVal = '热轧'
+			$('.typeLz img').click(function(){
+				$('.typeLz').hide()
+				$('.secPm').val(chooseVal)
+			})
+			$('.typeLz span').click(function(){
+				$('.typeLz').hide()
+				$('.secPm').val(chooseVal)
+			})
+
+			function getDay(day) {
+				var today = new Date();
+				var targetday_milliseconds = today.getTime() + 1000 * 60 * 60 * 24 * day;
+				today.setTime(targetday_milliseconds); //注意，这行是关键代码
+				var tYear = today.getFullYear();
+				var tMonth = today.getMonth();
+				var tDate = today.getDate();
+				tMonth = doHandleMonth(tMonth + 1);
+				tDate = doHandleMonth(tDate);
+				return tYear + "-" + tMonth + "-" + tDate;
+			}
+
+			function doHandleMonth(month) {
+				var m = month;
+				if (month.toString().length == 1) {
+					m = "0" + month;
+				}
+				return m;
+			}
+
+			function changChange(thiz) {
+				var changVal = $(thiz).val();
+				if (changVal == 'd') {
+					$('.changNum').removeClass('hidden');
+				} else {
+					$('.changNum').addClass('hidden');
+				}
+			}
+
+			function goodMore(thiz) {
+				$(thiz).parents('li').find('table').toggle();
+			}
+		</script>
+		<script type="text/javascript">
+			$('.search-btn').click(function() {
+				$('.head-search').toggle();
+			});
+			$(function() {
+				$('#calendar').calendar()
+			});
+
+			function planClo(cal) {
+				$('.planTime').hide();
+			};
+
+			function jumpNo() {
+				myProcessErr('闭市中')
+			}
+		</script>
+		<script type="text/javascript">
+			var tkn = getCookie(tk);
+			$('.shop-user').click(function() {
+				window.location.href = './login.html?ref|shop.html';
+			})
+			$('.shop-cart').click(function() {
+				window.location.href = './login.html?ref|shop-cart.html';
+			})
+			function isWeiXin() {
+				//window.navigator.userAgent属性包含了浏览器类型、版本、操作系统类型、浏览器引擎类型等信息，这个属性可以用来判断浏览器类型
+				var ua = window.navigator.userAgent.toLowerCase();
+				//通过正则表达式匹配ua中是否含有MicroMessenger字符串
+				if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+					return true;
+				} else {
+					return false;
+				}
+			}
+			if (isEmpty(tkn)) {
+				if (isWeiXin()) {
+					$('.shop-user').show()
+				}
+			}
+			// 选择地区/仓库
+			$(function() {
+				$.ajax({
+					url: path + '/linA/listsf',
+					type: 'GET',
+					data: {},
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != '' && result.code == 1) {
+							var spList = result.data;
+							// console.log(result)
+							for (var i in spList) {
+								var spDq = '<option value="' + spList[i].cName + '">' + spList[i].cName + '</option>';
+								var spCk = '<option value="' + spList[i].cStoreName + '">' + spList[i].cStoreName + '</option>';
+								$('.secDq').append(spDq);
+								$('.secCk').append(spCk);
+							};
+						}
+					}
+				})
+			});
+			// 选择钢厂
+			$(function() {
+				$.ajax({
+					url: path + '/linA/listgc',
+					type: 'GET',
+					data: {},
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != '' && result.code == 1) {
+							var spList = result.data;
+							// console.log(result)
+							for (var i in spList) {
+								var spGc = '<option value="' + spList[i].cShopName + '">' + spList[i].cShopName + '</option>';
+								$('.secGc').append(spGc);
+							}
+						}
+					}
+				})
+			});
+			// 通过分类改变规格和材质
+			function sort(chl) {
+				$.ajax({
+					url: path + '/linA/getcz',
+					type: 'GET',
+					data: {
+						chl: chl
+					},
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != '' && result.code == 1) {
+							// 材质
+							if (result.data.cComment !== null) {
+								$('.secCz').html('');
+								var listCz = result.data.cComment.split('，');
+								var allCz = '<option value="">全部材质</option>'
+								$('.secCz').append(allCz);
+								// console.log(listCz)
+								for (var i in listCz) {
+									if (listCz[i].length > 0) {
+										var spCz = '<option onclick="checkList(this)">' + listCz[i] + '</option>';
+										$('.secCz').append(spCz);
+									}
+								}
+								if (listCz.length < 9) {
+									$('.searchMore').find('.searchMore-cz').hide();
+								}
+							} else {
+								$('.secCz')[0].innerHTML = '';
+							}
+						}
+					}
+				});
+				$.ajax({
+					url: path + '/linA/getgg',
+					type: 'GET',
+					data: {
+						chl: chl
+					},
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != '' && result.code == 1) {
+							// 材质
+							if (result.data.cComment !== null) {
+								var spList = result.data.cComment;
+								if (spList != null && spList.indexOf("，") > 0) {
+									var listGg = spList.split('，');
+									// console.log(listCz)
+									for (var i in listGg) {
+										var spGg = '<option onclick="checkList(this)">' + listGg[i] + '</option>';
+										$('.secGg').append(spGg);
+									}
+									if (listGg.length < 9) {
+										$('.searchMore').find('.searchMore-gg').hide();
+									}
+								}
+							} else {
+								$('.secGg')[0].innerHTML = '';
+							}
+						}
+					}
+				})
+			}
+
+			let ajaxSpList;
+			// 选择品名
+			$(function() {
+				$.ajax({
+					url: path + '/linA/listpm',
+					type: 'GET',
+					data: {
+						id: 15897038511562900
+					},
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != '' && result.code == 1) {
+							var spList = result.data;
+							ajaxSpList = spList;
+							// console.log(result)
+							for (var i in spList) {
+								var spPm = '<option value="' + spList[i].cName + '"id="' +
+									spList[i].cId + '">' + spList[i].cName + '</option>';
+								$('.secPm').append(spPm);
+
+								var chPm = '<li><a  onclick="shopType(this)" id="ch_' + spList[i].cId + '">&nbsp;<i>' + spList[i].cName +
+									'</i></a></li>';
+								$('.pmList').append(chPm);
+							}
+							var addBtnType = '<option value="冷轧" >冷轧</option>'
+							$('.secPm').append(addBtnType);
+							var cId = 15896115486855900;
+							sort(cId);
+							if (window.location.href.indexOf("cId") > 0) {
+								cId = window.location.href.split("=")[1];
+								var upPm = $('#ch_' + cId + ' i').text();
+								$('.secPm').val(upPm)
+								// $('.secPm  option:selected').attr("id", cId);
+								// $('.secPm ').find("option:selected").val(upPm);
+								$('#ch_' + cId).addClass('on').parent().siblings().find('a').removeClass('on');
+							} else {
+								$('.secPm').val('热轧')
+								// $('.secPm  option:selected').attr("id", cId);
+								// $('.secPm ').find("option:selected").text('热轧');
+								$('#ch_' + cId).addClass('on').parent().siblings().find('a').removeClass('on');
+							}
+							searchBtn();
+						}
+					}
+				})
+			});
+
+			function ggyc(s) {
+				//隐藏规格
+				if (s == "0*0*0" || s == "0.0*0*0") {
+					return "------";
+				} else {
+					return s;
+				}
+			}
+			// 搜索提交
+			function searchBtn() {
+				var upDq = $('.secDq option:selected').val();
+				var upGc = $('.secGC option:selected').val();
+				var upPm = $('.secPm  option:selected').attr("id");
+				if (typeof(upPm) != "undefined") {
+					sort(upPm);
+				}
+
+				var upCk = $('.secCk option:selected').val();
+				var upCz = $('.secCz option:selected').val();
+
+				var houMix = $('#houMix').val()
+				var houMax = $('#houMax').val()
+				var hou = houMix + ',' + houMax
+
+				var kuanMix = $('#kuanMix').val()
+				var kuanMax = $('#kuanMax').val()
+				var kuan = kuanMix + ',' + kuanMax
+				var chang = '';
+				if ($('.search-chang').val() == 'd') {
+					if (changMix == '') {
+						$('#changMix').val('0');
+					}
+					if (changMax == '') {
+						$('#changMax').val('0');
+					}
+					var changMix = $('#changMix').val()
+					var changMax = $('#changMax').val()
+					chang = changMix + ',' + changMax
+				} else {
+					chang = $('.search-chang').val();
+				}
+				$('#ch_' + upPm).addClass('on').parent().siblings().find('a').removeClass('on');
+				// 规格
+				/*for (var i = 0; i < upGg.length; i++) {
+				    setGg += upGg.eq(i).html() + ',';
+				}*/
+				if (houMix == '') {
+					$('#houMix').val('0');
+				}
+				if (houMax == '') {
+					$('#houMax').val('0');
+				}
+				if (kuanMix == '') {
+					$('#kuanMix').val('0');
+				}
+				if (kuanMax == '') {
+					$('#kuanMax').val('0');
+				}
+				$.ajax({
+					url: path + '/linA/listsp',
+					type: 'GET',
+					data: {
+						pId: upDq,
+						shopName: upGc,
+						sCTId: upPm,
+						ck: upCk,
+						cz: upCz,
+						thickness: hou,
+						width: kuan,
+						extent: chang
+					},
+					// contentType: 'application/json;charset=utf-8',
+					dataType: 'json', //后台返回的数据类型是json文本
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					success: function(result) {
+						if (result.code == 1) {
+							$('.shop-box ul').html('');
+							var spList = result.data;
+							for (var i in spList) {
+								var spBox =
+									'<li><div class="good-box">' +
+									'<span class="good-list1">' + spList[i].cShopName + spList[i].cName + '</span>' +
+									'<span class="hidden">' + spList[i].cId + '</span>' +
+									'<span class="good-list1">' + ggyc(spList[i].cTop) + '</span>' +
+									'<span class="good-list2"><b>' + spList[i].cXsnum + '</b></span>' +
+									'<span class="good-list3">' + spList[i].cSexPrice + '吨</span>';
+								if (isEmpty(tkn)) {
+									spBox += '<span style="font-size:0.32rem;color:red;font-weight:bold;" class="good-list4">价格登录可见</span>'
+								} else if (result.marketType == 0) {
+									spBox += '<span style="font-size:0.32rem;color:red;font-weight:bold;" class="good-list4">闭市中</span>'
+								} else {
+									spBox += '<span class="good-list4"><b>' + spList[i].cNowPrice + '</b>元/吨</span>' +
+										'<span class="good-list5"><b>库存:' + spList[i].cStockNum + '</b></span>';
+								}
+								spBox +=
+									'<span class="goodMore" onclick="goodMore(this)">商品详单</span><table><tbody>'
+								for (var j in spList[i].prnList) {
+									spBox +=
+										'<tr><td>库存:' + spList[i].prnList[j].cStockNum + '</td><td>' + spList[i].prnList[j].cSexPrice + ' 吨</td>'
+									if (isEmpty(tkn)) {
+										spBox += '<td>价格登录可见</td>'
+									} else if (result.marketType == 0) {
+										spBox += '<td>闭市中</td>'
+									} else {
+										spBox += '<td>' + spList[i].prnList[j].cNowPrice + ' ￥</td>'
+									}
+									spBox +=
+										'<td>' + spList[i].prnList[j].cSummary + '</td><td class="clearfix">';
+									if (result.marketType == 0) {
+										spBox +=
+											'<span class="toCar" onclick="jumpNo()">购买</span>' +
+											'<span class="toPin" id="' + spList[i].cId + '" onclick="jumpNo()">拼购</span><td></tr>'
+									} else {
+										if (parseInt(spList[i].prnList[j].cStockNum) > 0) {
+											spBox += '<span class="toCar" onclick="goShopCart(this,\'' + spList[i].prnList[j].cId + '\')">购买</span>';
+											if (parseInt(spList[i].prnList[j].cGoodsSex) < 1) {
+												spBox += '<span class="toPin" id="' + spList[i].prnList[j].cId + '" onclick="showPin(this,\'' + spList[i]
+													.prnList[j].cId + '\')">拼购</span>';
+											}
+											spBox += '</td></tr>';
+										} else {
+											spBox +=
+												'<span class="toCar" onclick="myProcessErr(\'库存不足，请稍后下单！\')">购买</span>' +
+												'<span class="toPin" id="' + spList[i].prnList[j].cId +
+												'" onclick="myProcessErr(\'库存不足，请稍后下单！\')">拼购</span><td></tr>'
+										}
+									}
+								}
+								spBox +=
+									'</tbody></table>'
+
+
+								$('.shop-box ul').append(spBox);
+							}
+						}
+					}
+				})
+				$(".head-search").hide();
+			};
+
+
+
+			// 添加购物车
+			function goShopCart(thiz, goodsId) {
+				if (isEmpty(tkn)) {
+					myProcessErr('登录后可执行此操作')
+					setTimeout(function() {
+						window.location.href = './login.html';
+					}, 1000);
+				} else {
+					var json = JSON.stringify({
+						pId: goodsId
+					});
+					$.ajax({
+						url: path + '/linA/addgwc',
+						type: 'POST',
+						beforeSend: function(XMLHttpRequest) {
+							XMLHttpRequest.setRequestHeader('token', tkn);
+						},
+						data: json,
+						contentType: 'application/json;charset=utf-8',
+						dataType: 'json', //后台返回的数据类型是json文本
+						success: function(result) {
+							if (result != '' && result.code == 1) {
+								var cartNum = parseInt($('.fix-num').html());
+								$('.fix-num').html(cartNum + 1)
+								myProcessOk("加入购物车成功！");
+							} else {
+								myProcessErr(result.msg)
+							}
+						}
+					})
+				}
+
+			};
+
+			// 拼购
+			function showPin(thiz, pId) {
+				$('.pinId').html(pId);
+				$('.planTime').show();
+				$('.planSub').attr('data-id', pId);
+			}
+			// 点击发布拼单
+			function addPin() {
+				var myTime = $('#startTime').val();
+				var myWeight = $('#needWeight').val();
+				var detailList = [];
+				var fa = {
+					dProcessway: $("#needType").val(),
+					dProcessrequirement: $("#needMage").val()
+				}
+				detailList.push(fa);
+				if (myTime == '') {
+					myProcessErr("请选择时间!")
+				} else if (myWeight == '' || myWeight == 0) {
+					myProcessErr("请填写重量!")
+				} else if ($('#needType').val() == '') {
+					myProcessErr("请填写加工方式!")
+				} else {
+					var json = JSON.stringify({
+						detailList: detailList,
+						cTransactionId: $('.pinId').html(),
+						cCategory: 2,
+						cGroupNum: '',
+						cGzFl: $('#needWeight').val(),
+						cGroupEndTime: myTime,
+					})
+					// console.log(json)
+					$.ajax({
+						url: path + '/linA/adddd',
+						type: 'POST',
+						beforeSend: function(XMLHttpRequest) {
+							XMLHttpRequest.setRequestHeader("token", tkn);
+						},
+						data: json,
+						contentType: 'application/json;charset=utf-8',
+						dataType: 'json', //后台返回的数据类型是json文本
+						success: function(result) {
+							if (result != "" && result.code == 1) {
+								window.location.href = './pindan.html';
+							} else {
+								myProcessErr(result.msg, "");
+							}
+						}
+					})
+				}
+
+			}
+
+			// 分类点击
+			function shopType(thiz) {
+				$(thiz).addClass('on').parent().siblings().find('a').removeClass('on');
+				var upPm = $(thiz)[0].innerText;
+				$('select[name=\'aaaa\']').val(upPm.trim());
+
+				var chl = $(thiz)[0].id;
+				sort(chl);
+				searchBtn();
+			};
+			function searchAllBtn() {
+				if($('.secPm option:selected').val() == '冷轧'){
+					$('.typeLz').show()
+				}else{
+					chooseVal = $('.secPm option:selected').val()
+					$('.secDq option:selected').val('');
+					$('.secGC option:selected').val('');
+					$('.secCk option:selected').val('');
+					$('.secCz option:selected').val('');
+					$('#houMix').val('0')
+					$('#houMax').val('0')
+					$('#kuanMix').val('0')
+					$('#kuanMax').val('0')
+					searchBtn()
+				}
+			}
+			/* $('.secPm').change(function() {
+				$('.head-reorder li a').removeClass('on');
+				var upPm = $('.secPm').val();
+				var nav = $('.head-reorder li a i');
+				for (var i = 0; i < nav.length; i++) {
+					if ($(nav[i]).text() == upPm) {
+						$(nav[i]).parent().addClass('on')
+					}
+				}
+			}) */
+		</script>
+	</body>
+</html>

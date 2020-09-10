@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>临钢智享</title>
+	<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+	<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+    <link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="./css/all.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="./css/reset.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="./css/index.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="./css/quote.css?vid=0326" />
+</head>
+<body>
+<!--<div id="cart-head" class="show">
+iv class="cart-head">
+     <a class="return" href="javascript:history.back(-1);">
+         <span class="arrow-left"></span>
+     </a>
+     <div class="head-title">临钢智享</div>
+     <a class="head-shop" href="tel:0539-6387606">
+         <i class="fa fa-phone fa-lg"></i> &nbsp;0539-6387606
+     </a>
+ </div>
+
+</div>-->
+<div class="head-back2">
+	<div class="head-up">
+		<a href="phone.html"><span class="head-logo"></span></a>
+		<a href="phone.html"><span class="head-gif"></span></a>
+		<a  href="#" onclick="uOnLine('news-page.html')"><span class="head-kf"><i class="messNum"></i></span></a>
+		<a href="fankui.html"><span class="head-fk"></span></a>
+		<a href="user-check-in.html"><span class="head-qd"></span></a>
+		<a href="calcu.html"><span class="head-jsq-white"></span></a>
+	</div>
+	<div class="sp-banner shadow"><img src="../phone/img/index/banner-sp.jpg" width="100%" height="auto" alt=""></div>
+<!--列表-->
+<div class="video-box">
+   <div class="video-list clearfix">
+		<div class="videoList">
+			<video controls="" >
+			    <source src="video/lg-video/机器人切割.mp4" type="video/mp4">
+			</video>
+			<p>机器人切割</p>
+		</div>
+		<div class="videoList">
+			<video controls="controls">
+				<source src="video/lg-video/灭火器生产流水线.mp4" type="video/mp4">
+			</video>
+			<p>灭火器生产流水线</p>
+		</div>
+		<div class="videoList">
+			<video controls="controls">
+				<source src="video/lg-video/激光切割.mp4" type="video/mp4">
+			</video>
+			<p>激光切割</p>
+		</div>
+		<div class="videoList">
+			<video controls="controls">
+				<source src="video/lg-video/窄带开平线.mp4" type="video/mp4">
+			</video>
+			<p>窄带开平线</p>
+		</div>
+		<div class="videoList">
+			<video controls="controls">
+				<source src="video/lg-video/纵剪分条线.mp4" type="video/mp4">
+			</video>
+			<p>纵剪分条线</p>
+		</div>
+   </div>
+</div>
+</div>
+<div class="index-none">
+	<p>我已经到达底线了哦\(^o^)/~</p>
+</div>
+<!--底部导航-->
+<div class="footerpage"></div>
+<script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+<script src="js/swiper.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+<script src="js/phone.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/all.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript">
+window.onmousewheel = function () {
+  if (window.scrollY > 100) {
+    $('#cart-head').show();
+  } else {
+    $('#cart-head').hide();
+    $('.cart-menu').hide();
+  }
+};
+
+$('.arrow-menu').click(function () {
+  $('.cart-menu').show();
+});
+var myswiper = new Swiper('.swiper-lb', {
+  loop: true,
+  autoplay: {
+    delay: 2000,
+  },
+});
+var qeswiper = new Swiper('.index-qe', {
+  direction: 'vertical',
+  slidesPerView: 3,
+  slidesPerGroup: 1,
+  loop: true,
+  autoplay: {
+    delay: 2000,
+  },
+});
+var videoswiper = new Swiper('.video-swiper', {
+  slidesPerView: 1.5,
+});
+$('.main-tab li').click(function () {
+  $(this).addClass('on').siblings().removeClass('on');
+  $('.cont-left ul').eq($(this).index()).addClass('show').siblings().removeClass('show');
+})
+</script>
+<script>
+	$(function(){
+	  /*公共部分
+	   * 导航栏
+	   * footer CopyRight
+	   */
+	  $(".footerpage").load("footer.html");
+	});
+	$.ajax({
+		url: path + '/linA/listbanner_video',
+		type: 'GET',
+		data: {},
+		dataType: 'json', //后台返回的数据类型是json文本
+		success: function(result) {
+			if (result != "" && result.code == 1) {
+				var videoList = result.data
+				if(result.data){
+					for(i in videoList){
+						var videoBox =
+							'<div class="videoList"><video controls="controls">'+
+							'<source src="'+ photoPath + videoList[i].cLogo+'" type="video/mp4">'+
+							'</video><p>'+videoList[i].cTitle+'</p></div>'
+							$('.video-list').append(videoBox)
+					}
+				}
+			}
+		}
+	})
+</script>
+</body>
+</html>

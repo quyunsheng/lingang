@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>临钢网</title>
+	<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+	<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+    <link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/all.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="css/login.css?vid=0326" />
+    <script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+    <script src="js/phone.js?vid=0117" type="text/javascript" charset="utf-8"></script>
+    <script src="js/all.js?vid=0611" type="text/javascript" charset="utf-8"></script>
+</head>
+<style>
+	.login-back{
+		width: 100%;
+		height: 100vh;
+		background: url("../phone/img/index/head-back.png") no-repeat;
+		background-size:100% auto;
+		display: flex;
+		justify-content:center;
+		align-items:center;
+		overflow-y: hidden;
+	}
+	body{padding:0;}
+	.img{
+		width: 100px;
+		height: 100px;
+		margin: 0 auto 25px;
+	}
+	.img img{
+		width: 100px;
+		height: 100px;
+	}
+	.type-pass,.type-code,.type-reg{
+		width: 80%;
+	}
+	.xieyi{
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		background: rgba(0,0,0,0.8);
+		overflow-y: scroll;
+		padding: 0.4rem;
+		color: #FFFFFF;
+		display: none;
+	}
+	.xyBtn{
+		width: 1.2rem;
+		height: 0.6rem;
+		line-height: 0.6rem;
+		position: fixed;
+		bottom: 0.3rem;
+		left: 50%;
+		margin-left: -0.6rem;
+		background: #0050EF;
+		color: #FFFFFF;
+		text-align: center;
+		border-radius: 5px;
+	}
+</style>
+<body>
+<div class="login-back">
+
+	<div class="type-pass">
+		<div class="img"><img  src="img/index/login-logo.png"  alt=></div>
+	    <input class="login-ipt lgPhone" type="text" name="" value="" placeholder="请输入手机号码" />
+	    <div class="pass-box">
+	        <input class="login-ipt lgPass" type="password" value="" placeholder="输入密码" />
+	        <!-- <i class="fa fa-eye-slash" aria-hidden="true"></i> -->
+	    </div>
+		<div class="login-again clearfix">
+			&nbsp;&nbsp;<input type="checkbox" name="logLogin" id="logLogin" checked="checked" value="" />
+			<a href="javascript:;" >下次自动登陆</a>
+		</div>
+	    <button class="login-btn lgBtn" style="margin-top: 0.4rem;" type="button">登录</button>
+	    <div class="clearfix login-check">
+	        <span class="fl yzmLogo">
+	            验证码登录
+	        </span>
+	        <a class="fr blue" href="forget.html">忘记密码<i class="fa fa-question-circle" aria-hidden="true"></i></a>
+	    </div>
+		<p class="goReg">没有账号？去<span>注册</span></p>
+	</div>
+	<div class="type-code hidden">
+		<div class="img"><img  src="img/index/login-logo.png"  alt=></div>
+		<div style="position: absolute;top: 3.7rem;font-size: 12px;color: #736f6f;"></div>
+		<input class="login-ipt codePhone" type="text" name="" value="" placeholder="请输入手机号码"/>
+		<div class="code-box">
+			<input class="login-ipt" type="text" name="" value="" placeholder="请输入验证码" />
+			<button class="code-num getNote" onclick="yzm(this)">获取验证码</button>
+		</div>
+		<button class="login-btn codeBtn" style="margin-top: 0.8rem;" type="button">登录</button>
+		<div class="clearfix login-check">
+			<span class="fr pdLogo">密码登陆</span>
+		</div>
+	</div>
+	<div class="type-reg hidden">
+		<div class="img"><img  src="img/index/login-logo.png"  alt=></div>
+	    <input class="login-ipt regPhone" type="text" name="" value="" placeholder="请输入手机号码" />
+		<div class="code-box">
+			<input class="login-ipt regNote" type="text" name="" value="" placeholder="请输入验证码" />
+			<button class="code-num" onclick="yzm(this)">获取验证码</button>
+		</div>
+	    <div class="pass-box">
+	        <input class="login-ipt regPass" type="password" value="" placeholder="输入密码" />
+	        <!-- <i class="fa fa-eye-slash" aria-hidden="true"></i> -->
+	    </div>
+		<div class="pass-box">
+		    <input class="login-ipt regPass2" type="password" value="" placeholder="确定密码" />
+		</div>
+		<div class="pass-box">
+		    <input class="login-ipt postJl" type="text" value="" placeholder="责任经理" />
+		</div>
+		<div class="login-again clearfix">
+			<input type="checkbox" name="helpNote" id="helpNote" value="" />
+			<a href="javascript:;" onclick="xieyi()">《临钢网用户服务协议》</a>
+		</div>
+	    <button class="login-btn regBtn" style="margin-top: 0.8rem;" type="button">注册</button>
+		<div class="clearfix login-check">
+			<span class="fr goPass">返回登录</span>
+		</div>
+	</div>
+
+</div>
+<div class="xieyi">
+	<h2 style="text-align: center;margin-bottom: 40px;">“临钢网”用户服务协议</h2>
+	<p style="text-indent: 24px;margin-bottom: 30px;">欢迎您与“临钢网”平台经营者（山东临钢电子商务股份有限公司）共同签署本《“临钢网”用户服务协议》（下称“本协议”）并使用“临钢网”平台服务！在您注册成为临钢网用户的过程中，您需要完成我们的注册流程并通过点击同意的形式在线签署以下协议，请您务必仔细阅读、充分理解协议中的条款内容后再点击同意：</p>
+	
+	<h3>一、接受协议</h3>
+	<br>
+	<p>1.1 本协议包括协议正文及所有“临钢网”已经发布的，或未来可能发布或更新的各类规则。所有规则为本协议不可分割的组成部分，与本协议正文具有同等法律效力。【审慎阅读】您在申请注册流程中点击同意本协议之前，应当认真阅读本协议。请您务必审慎阅读、充分理解各条款内容，特别是免除或者限制责任的条款、法律适用和争议解决条款。如您对本协议有任何疑问，可向“临钢网”平台客服进行咨询。</p>
+	<p>1.2【签约动作】当您按照注册页面提示填写信息、阅读并同意本协议且完成全部注册程序后，即表示您已充分阅读、理解并接受本协议的全部内容，并与“临钢网”经营者达成一致，成为“临钢网”平台“用户”。您签订本协议的行为应当为您已完全理解本协议的各项内容后作出的合法有效的意思表示。阅读本协议的过程中，如果您不同意本协议或其中任何条款约定，您应立即停止注册程序。</p>
+	<br>
+	<h3>二、定义与术语</h3>
+	<br>
+	<p>2.1 临钢网平台：指“临钢网”主办运营的在线信息发布及交易平台，包含“临钢网”平台（域名为 www.lingangsteel.com）网站、客户端及未来开发的其他应用。</p>
+	<p>2.2 临钢网平台服务：指“临钢网”平台基于互联网，以包含”临钢网”平台网站、客户端等在内的各种形态（包括未来技术发展开发出的新的服务形态）向您提供的各项在线信息及交易服务。</p>
+	<p>2.3 临钢网平台规则：指包括在所有“临钢网”平台规则频道内已经发布及后续可能发布的全部规则、解读、公告等内容以及各平台在用户中心、帮助中心内发布的各类规则、实施细则、产品流程说明、公告等。</p>
+	<p>2.4 用户：是指接受本服务协议，自愿申请“临钢网”各项服务，并完成“临钢网”注册页面信息填写，阅读并同意本协议且完成全部注册程序，具有完全民事行为能力、在本平台注册唯一账号、进行实际系统操作的自然人。用户注册成功后即可查看本平台公示的各类信息。</p>
+	<p>2.5 用户账号：是指经用户注册申请、由本平台为用户开设的用于录入用户及会员资料、查看交易信息、输入交易指令并在本平台进行货物交易活动的电子通行证。</p>
+	<p>2.6 会员：是指具有合法经营资质、承认并遵守本平台各项管理规则、在本平台进行货物交易活动的企业法人及其他组织。会员有权指定用户，由用户在本平台进行实际系统操作。</p>
+	<br>
+	<h3>三、协议范围</h3>
+	<br>
+	<p>3.1 签约主体</p>
+	<p>						本协议由您与“临钢网”平台共同缔结，本协议对您与“临钢网”平台具有同等合同效力。</p>
+	<p>3.2 补充协议</p>
+	<p>						由于互联网高速发展，您与“临钢网”签署的本协议列明的条款并不能完整罗列并覆盖您与“临钢网”之间的所有权利与义务，现有的约定也不能保证完全符合未来发展的需求。因此，“临钢网”平台上发布的隐私权政策声明、法律声明、“临钢网”平台规则均为本协议的补充协议，与本协议不可分割且具有同等法律效力。如您使用“临钢网”平台服务，视为您同意接受上述所有补充协议条款。</p>
+	<p>						“临钢网”有权根据需要不时地制订、修改本协议及/或各类“临钢网”平台规则，并以网站公示的方式进行公告，不再单独通知您。修订后的协议或将来可能发布或更新的各类规则将提前7个自然日予以公示，并按照协议中规定的时间予以生效。如您不同意相关修订，应当立即停止使用“临钢网”服务。您继续使用“临钢网”服务，即表示您接受经修订的协议或“临钢网”平台规则。</p>
+	<h3>四、账户注册与使用</h3>
+	<br>
+	<p>4.1 用户资格</p>
+	<p>您确认，在您完成注册程序或以其他“临钢网”平台允许的方式实际使用服务时，您应当具备中华人民共和国法律规定的与您行为相适应的民事行为能力。若您不具备前述与您行为相适应的民事行为能力，则您及您的监护人应依照法律规定承担因此而导致的一切后果，且“临钢网”有权终止向您提供服务并注销您的账户。如您代表一家公司或其他法律主体在“临钢网”平台注册，则您声明和保证，您有权使该公司或该法律主体受本协议的约束。</p>
+	<p>用户必须自行准备如下设备和承担如下开支：</p>
+	<p>（1）上网设备，包括并不限于电脑或者其他上网终端、调制解调器及其他必备的上网装置；</p>
+	<p>（2）上网开支，包括并不限于网络接入费、上网设备租用费、手机流量费等。</p>
+	<br>
+	<h3>4.2 用户的权益和义务</h3>
+	<br>
+	<p>4.2.1 用户有权拥有自己在“临钢网”的用户名和密码，并有权使用自己的用户名和密码随时登录“临钢网”网站的商务信息和服务专区。</p>
+	<p>4.2.2 用户有权享受“临钢网”提供的互联网技术和信息服务，并有权在接受“临钢网”提供的服务时获得“临钢网”的技术支持、咨询等服务，服务内容详见“临钢网”相关产品介绍。</p>
+	<p>4.2.3 用户保证不会利用技术或其他手段破坏及扰乱“临钢网”网站以及“临钢网”其他关联客户的网站。</p>
+	<p>4.2.4 用户应尊重“临钢网”及其他第三方的知识产权和其他合法权利，并保证在发生“临钢网”及其他第三方的知识产权和合法权利受到第三方侵害时尽力保护“临钢网”平台及其经营者、股东、雇员、合作伙伴等免于因该等事件受到影响或损失；“临钢网”保留用户侵犯“临钢网”知识产权时终止向该用户提供服务并不退还任何款项的权利。</p>
+	<p>4.2.5 对由于用户给“临钢网”提供的联络方式有误以及用户用于接受“临钢网”邮件的电子邮箱安全性、稳定性不佳而导致的一切后果，用户应自行承担责任，包括但不限于因用户未能及时收到“临钢网”的相关通知而导致的后果和损失。</p>
+	<p>4.2.6 用户保证其使用“临钢网”服务时将遵从国家、地方法律法规、行业惯例和社会公共道德，不会利用“临钢网”提供的服务进行存储、发布、传播如下信息和内容：</p>
+	<p>（一）违反国家法律法规政策的任何内容（信息）；</p>
+	<p>（二）违反国家规定的政治宣传和/或新闻信息；</p>
+	<p>（三）涉及国家秘密和/或安全的信息；</p>
+	<p>（四）封建迷信和/或淫秽、色情、下流的信息或教唆犯罪的信息；</p>
+	<p>（五）博彩有奖、赌博游戏；</p>
+	<p>（六）违反国家民族和宗教政策的信息；</p>
+	<p>（七）妨碍互联网运行安全的信息；</p>
+	<p>（八）侵害他人合法权益的信息和/或其他有损于社会秩序、社会治安、公共道德的信息或内容；</p>
+	<p>（九）用户同时承诺不得为他人发布上述不符合国家规定和/或本协议约定的信息内容提供任何便利；</p>
+	<p>（十）用户承认“临钢网”有权在用户违反上述约定时有权终止向用户提供服务并不于退还任何款项，因用户上述行为给“临钢网”平台造成损失的，用户应予赔偿。</p>
+	<p>若您未遵守以上规定的，“临钢网”平台有权做出独立判断并采取暂停或注销您的账号、冻结账号内余额、取消相应交易订单、停止发货等措施。</p>
+	<br>
+	<h3>4.3 “临钢网”的权益与义务</h3>
+	<p>用户理解并认同，因网上交易平台的特殊性，“临钢网”没有义务对所有用户使用“临钢网”平台交易服务的过程及行为进行事前及实时审查。但用户在“临钢网”平台上有下列行为的，将授权“临钢网”可以普通、非专业人员的知识水平标准或根据自己掌握的信息进行独立判断，并有权做出相应处理，而无须事先通知用户或取得用户同意。</p>
+	<p>4.3.1 “临钢网”平台有权对用户的注册信息及购买行为进行查阅，如发现注册信息或购买行为中存在任何问题的，有权向用户发出询问及要求改正或者做出冻结或关闭账户、取消订单等处理。“临钢网”平台经营者对于“临钢网”平台交易所形成的相关数据具有所有权，包括但不限于用户数据、交易数据等其他平台数据，“临钢网”平台经营者有权对如上数据进行甄别、分类、整合、加工、分析等处理，并有权将处理结果提供给任意第三方；</p>
+	<p>4.3.2 用户违反本协议或“临钢网”任何规则或有违反法律法规和地方规章的行为的，“临钢网”平台有权删除其信息，禁止用户发言，限制用户订购，注销用户账户并按照相关法律规定向相关国家主管部门进行披露；</p>
+	<p>4.3.3 如用户在“临钢网”网站进行下列行为，“临钢网”有权对用户采取删除其信息、禁止用户发言、限制用户订购、冻结或注销用户账户等限制性措施：包括：</p>
+	<p>（一）发布或以电子邮件或以其他方式传输存在恶意、虚假和侵犯他人人身财产权利内容的信息；</p>
+	<p>（二）干扰或破坏“临钢网”网站和服务或与“临钢网”网站和服务相连的服务器和网络；</p>
+	<p>（三）发布其他违反公共利益或可能严重损害“临钢网”网站和其他用户合法利益的信息。</p>
+	<p>4.3.4 用户理解并同意，当用户涉嫌侵犯他人合法权益，“临钢网”平台有权在初步判断涉嫌侵权行为可能存在的情况下，在必要时可向权利人提供必要的已掌握的涉及用户的相关信息。</p>
+	<p>4.3.5 用户理解并同意，当国家行政、司法机关主动依职权或根据他人的投诉，调查用户在“临钢网”平台上的相关行为时，“临钢网”平台有义务予以配合，并将所掌握的信息提供给上述国家机关。</p>
+	<p>4.3.6 用户在此授予“临钢网”平台无偿、永久的独家使用权，并有权对该使用权进行再授权，以使“临钢网”平台有权在全球范围内全部或部分地使用、复制、修改、改写、发布、翻译和展示用户登记或发布在“临钢网”平台上的各类信息，或制作其派生作品，和/或以现在已知或日后开发的任何形式、媒体或技术，将上述信息纳入“临钢网”平台其他作品内。</p>
+	<p>4.3.7 “临钢网”平台仅限在“按现状”和“按现有”的基础上，向用户提供信息、内容、材料、产品（包括软件）和服务。除非另有明确的书面说明，“临钢网”平台不对其包含在“临钢网”平台上的信息、内容、材料、产品（包括软件）或服务作任何形式的、明示或默示的担保。</p>
+	<p>4.3.8 不论在任何情况下，“临钢网”平台均不对由于互联网设备正常维护，互联网络连接故障，电脑、通讯或其他系统的故障、电力故障，罢工，暴乱，骚乱，灾难性天气（如火灾、洪水、风暴等），爆炸，战争，政府行为，司法行政机关的命令或第三方的不作为而造成的不能履行或延迟履行承担责任。</p>
+	<p>4.3.9 “临钢网”平台不担保网站所包含的，或以其它方式通过网站提供给您的全部信息、内容、材料、产品(包括软件)和服务、其服务器或从“临钢网”平台系统发出的电子邮件、信息没有病毒或其他有害成分。</p>
+	<p>4.4 账户说明</p>
+	<p>4.4.1 您应对您的手机号账号和密码的安全，以及对通过其手机号和密码实施的行为负责。您在“临钢网”平台注册的手机号和密码仅限于您自身内部人员进行使用，不得给予任何第三方使用，否则由此造成的损失由您自行承担，且“临钢网”保留暂停或终止服务。</p>
+	<p>4.4.2 除非有法律规定或司法裁定，且征得“临钢网”平台的同意，否则，手机号和密码不能以任何方式转让、赠与或继承。</p>
+	<p>4.4.3 您遗忘或丢失在“临钢网”平台注册的密码时，可与“临钢网”平台客户服务人员取得联系，在提供相关证明资料并经“临钢网”平台审核确认后，可找回密码。</p>
+	<p>4.5 会员资格管理</p>
+	<p>4.5.1 用户可通过用户账号查询“临钢网”平台公示的各类信息，如需进行货物交易，须申请会员认证。用户完成会员认证或会员关联后与“临钢网”平台发生的一切交易及管理行为全部视为会员行为。</p>
+	<p>4.5.2 用户进行会员认证的，相关申请流程及注意事项详见《临钢网客户服务中心》。</p>
+	<br>
+	<h3>五、用户服务及规范</h3>
+	<br>
+	<p>您有权在“临钢网”平台上享受平台相关功能及服务。“临钢网”平台提供的服务内容众多，具体服务内容您可通过登录“临钢网”平台进行浏览。</p>
+	<br>
+	<h3>六、免责声明</h3>
+	<p>6.1 “临钢网”平台在现有技术水平及条件下维护平台服务的稳定性及安全性；但对于“临钢网”平台不能及时预见、及时发现及防范的法律、技术以及其他风险，包括但不限于因自然灾害、社会事件等不可抗力及黑客攻击、计算机病毒、通信线路故障等因素导致的服务中断、数据丢失以及其他的损失及风险，“临钢网”平台不承担由此引起的法律责任及经济损失。</p>
+	<p>6.2 “临钢网”平台可以在发生本协议6.1条所涉情形时采取对某种商品暂停交易或暂停“临钢网”平台交易的决定，恢复交易时间以本平台公告为准，恢复交易时以暂停交易前最终记录的数据作为有效交易数据。对因上述原因“临钢网”平台采取暂停交易引起的损失，“临钢网”平台不承担任何赔偿责任。</p>
+	<p>6.3 若用户认为“临钢网”平台涉及的作品、表演、录音录像制品，侵犯了用户的信息网络传播权或者删除、改变了用户的权利管理电子信息的，用户有权书面通知“临钢网”平台，要求“临钢网”平台删除该作品、表演、录音录像制品，或者断开与该作品、表演、录音录像制品的链接。书面通知应当包含下列内容：</p>
+	<p>（一）用户的身份信息（包括但不限于用户姓名、身份证、联系方式及地址等）；</p>
+	<p>（二）要求删除或者断开链接的作品、表演、录音录像制品的名称及网络地址；</p>
+	<p>（三）要求删除或断开链接的理由及证明作品、表演、录音录像制品存在侵权的相关材料；</p>
+	<p>（四）关于内容真实性的声明：“本人保证，本通知中所述信息是充分、真实、准确的，若本通知内容不完全属实，本人将承担由此产生的一切法律后果”；</p>
+	<p>（五）签署用户的有效签章。</p>
+	<p>“临钢网”平台收到用户的书面通知后删除该作品、表演、录音录像制品，或者断开与该作品、表演、录音录像制品的链接的，视为“临钢网”平台已经尽到了合理的义务，“临钢网”平台不承担任何其他赔偿责任。</p>
+	<p>6.4 “临钢网”平台重视对用户保密信息的维护，但因本细则6.1条所涉情况或其他非本平台原因引起的用户保密信息泄露，“临钢网”平台不承担任何赔偿责任。</p>
+	<p>6.5 “临钢网”平台不对外提供担保。</p>
+	<br>
+	<h3>七、违约与违规处理</h3>
+	<br>
+	<p>7.1 用户对其账号在“临钢网”平台的一切行为承担全部法律后果。</p>
+	<p>7.2 对违约或违反“临钢网”平台有关规定的用户，“临钢网”平台有权视情节轻重对其进行警告、暂停或关闭用户账号，并在有关网站及媒体上进行公告。违规行为涉嫌犯罪的，“临钢网”平台有权采取移交司法机关并追究刑事责任等措施。通过上述措施不足以弥补“临钢网”平台损失的，“临钢网”平台有权通过法律途径进一步追究用户的责任。</p>
+	<p>7.3 用户对于交易过程中接触到的“临钢网”平台商业秘密承担保密义务，用户不得泄露或非法使用“临钢网”平台商业秘密。用户泄漏或非法使用商业秘密的，应承担由此引起的一切法律后果；涉嫌犯罪的，“临钢网”平台有权采取移交司法机关并追究刑事责任等措施。</p>
+	<br>
+	<h3>八、有效通知</h3>
+	<br>
+	<p>您同意“临钢网”以下合理的方式向您送达各类通知：</p>
+	<p>（一）公示的文案；</p>
+	<p>（二）站内信、弹出消息、客户端推送的消息；</p>
+	<p>（三）根据您预留于“临钢网”平台的联系方式发出的电子邮件、短信、函件等。</p>
+	<p>当“临钢网”依据上述方式之一种或多种方式发出通知后，即视为您已经收到通知并知晓相关内容。</p>
+	<br>
+	<h3>九、附则</h3>
+	<br>
+	<p>9.1 用户点击本协议下方的"同意并继续"按钮即视为用户完全接受本协议，在点击之前请用户再次确认已知悉并完全理解本协议的全部内容。用户点击同意本协议的，即视为用户确认自己具有享受本站服务的行为能力，能够独立承担法律后果。</p>
+	<p>9.2 “临钢网”平台有权根据法律、法规、政策、交易习惯、客观条件等对本细则进行修订，并按修订后的细则进行管理。</p>
+	<p>9.3 其它以“临钢网”平台名义发布的制度、办法、规定等均属本细则不可分割的部分。</p>
+	<p>9.4 本协议自2020年1月1日起颁布实施。</p>
+	<p>9.5 本协议的最终解释权属于山东临钢电子商务股份有限公司。</p>
+	<br>
+	<h3>十、法律适用、管辖与其他</h3>
+	<br>
+	<p>10.1 本协议之订立、生效、解释、修订、补充、终止、执行与争议解决均适用中华人民共和国大陆地区法律；如法律无相关规定的，参照商业惯例及/或行业惯例。</p>
+	<p>10.2 您因使用“临钢网”平台服务所产生的或与“临钢网”平台服务有关的任何争议，应先由“临钢网”平台与您友好协商解决。协商不成时，任何一方均可向“临钢网”平台经营者所在地人民法院提起诉讼。</p>
+	<p>10.3 本协议任一条款被视为废止、无效或不可执行，该条应视为可分割的且并不影响本协议其余条款的有效性及可执行性，本协议以及其余条款依然有效。</p>
+	<div class="xyBtn">
+		返回
+	</div>
+</div>
+	<!-- <script src="js/login.js?vid=0326" type="text/javascript" charset="utf-8"></script> -->
+	<script src="js/tools.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		alert('页面初始化')
+		function xieyi(){
+			$('.xieyi').show();
+		}
+		$('.xyBtn').click(function(){
+			$('.xieyi').hide();
+		});
+		$('.yzmLogo').click(function(){
+			$('.type-code').removeClass('hidden');
+			$('.type-pass').addClass('hidden');
+		});
+		$('.pdLogo').click(function(){
+			$('.type-pass').removeClass('hidden');
+			$('.type-code').addClass('hidden');
+		});
+		$('.goReg span').click(function(){
+			$('.type-reg').removeClass('hidden');
+			$('.type-pass').addClass('hidden');
+		});
+		$('.goPass').click(function(){
+			$('.type-pass').removeClass('hidden');
+			$('.type-reg').addClass('hidden');
+		});
+	</script>
+	<div id='vkDivMaskPrc'><div id='vkDivMaskContPrc'><div id='vkDivMaskContPrcLogo'></div><div id='vkDivMaskContPrcText'></div></div></div>
+	<script type="text/javascript">
+		var path = 'https://www.lingangsteel.com:5555';
+		//默认登陆
+		var lp=getCookie("lp");
+		var ls=getCookie("ls");
+		var tk = getCookie("tk");
+		var rf="";
+		if(window.location.href.indexOf("ref")>0){
+			rf=window.location.href.split("|")[1];
+		}
+		
+		function isEmpty(obj){
+		    if(typeof obj == "undefined" || obj == null || obj == ""){
+		        return true;
+		    }else{
+		        return false;
+		    }
+		}
+		if(lp != "" && ls != "" && tk != ""){
+			var json = JSON.stringify({
+				// username: "",
+				password: ls,
+				// code: "",		//验证码
+				phone: lp
+			})
+			// console.log(json)
+			$.ajax({
+				url: path + '/linU/login',
+				type:'POST',  //提交方法是POST
+				data:json, //以JSON字符串形式把 user 传到后台
+				contentType: 'application/json;charset=utf-8',
+				dataType:'json', //后台返回的数据类型是json文本
+				error:function(){  //请求失败的回调方法
+					// $(".login-tip").css("color","red");
+					delCookie(tk);
+					delCookie("lp");
+					delCookie("ls");
+					window.location.href=window.location.href;
+				},
+				success:function(result){	//请求成功的回调方法
+					if(result != "" && result.code == 1){
+						addCookie("tk", result.token, 24);
+						addCookie("lp", lp, 24*30);
+						addCookie("ls", ls, 24*30);
+							//跳转到个人信息"/user-person.html"
+							if(!isEmpty(rf)){
+								window.location.href=rf;
+							}else{
+								window.location.href='./phone.html';	
+							}
+					}else{
+						myProcessErr(result.msg);
+					}
+				}
+			});
+		}
+		$(".lgBtn").click(function(){
+			alert('按钮点击')
+			var user = new Object();
+			 // $.trim删除字符串开始末尾的空格
+			logPhone = $.trim($(".lgPhone").val());
+			logPass = $.trim($(".lgPass").val());
+			var mylog = /^[1][3,4,5,7,8][0-9]{9}$/;
+			var mypass = /^[a-zA-Z0-9_-]{6,16}$/;
+			//前台的非空验证
+			if(logPhone == "" || logPhone == null){
+				$(".logPhone").focus;
+				myProcessErr("对不起，登录账号不能为空。");
+			}else if(!mylog.test(logPhone)){
+				myProcessErr("对不起，请填写正确的手机号。");
+			}else if(logPass == "" ||logPass == null){
+				$(".logPass").focus;
+				myProcessErr("对不起，登录密码不能为空。");
+			}else if(!mypass.test(logPass)){
+				myProcessErr("请输入6~16位密码");
+			}else{
+				alert('注册账号'+logPhone)
+				//如果账号和密码都不为空，就进行 ajax 异步提交
+				var json = JSON.stringify({
+					// username: "",
+					password: logPass,
+					// code: "",		//验证码
+					phone: logPhone
+				})
+				// console.log(json)
+				$.ajax({
+					url: path + '/linU/login',
+					type:'POST',  //提交方法是POST
+					data:json, //以JSON字符串形式把 user 传到后台
+					contentType: 'application/json;charset=utf-8',
+					dataType:'json', //后台返回的数据类型是json文本
+					error:function(){  //请求失败的回调方法
+						// $(".login-tip").css("color","red");
+						$(".login-tip").html("登录失败！请重试。");
+					},
+					success:function(result){	//请求成功的回调方法
+						if(result != "" && result.code == 1){
+							if($('#logLogin').is(':checked')) {
+								addCookie(tk, result.token, 24*30);
+								addCookie(logPhone, logPhone, 24*30);
+								addCookie(logPass, logPass, 24*30);
+								addCookie("tk", result.token, 24);
+								addCookie("lp", logPhone, 24*30);
+								addCookie("ls", logPass, 24*30);
+							}else{
+								delCookie(tk);
+								delCookie("lp");
+								delCookie("ls");
+								addCookie(tk, result.token, 24);
+							}
+							if(!isEmpty(rf)){
+								window.location.href=rf;
+							}else{
+								window.location.href='./phone.html';	
+							}
+						}else{
+							myProcessErr(result.msg);
+						}
+					}
+				});
+			}
+		});
+		// 找回密码
+		$(".newBtn").click(function(){
+			var user = new Object();
+			 // $.trim删除字符串开始末尾的空格
+			logPhone = $.trim($(".newPhone").val());
+			newPass = $.trim($(".newPass").val());
+			codeNum =  $.trim($(".newCode").val());
+			var mylog = /^[1][3,4,5,7,8][0-9]{9}$/;
+			var mypass = /^[a-zA-Z0-9_-]{6,16}$/;
+			//前台的非空验证
+			
+			if(logPhone == "" || logPhone == null){
+				myProcessErr("对不起，登录账号不能为空。");
+			}else if(!mylog.test(logPhone)){
+				myProcessErr("对不起，请填写正确的手机号。");
+			}else if(codeNum == "" ||codeNum == null){
+				myProcessErr("对不起，请填写验证码。");
+			}else if(!mypass.test(newPass)){
+				myProcessErr("请输入6~16位密码");
+			}else if(newPass == "" || newPass == null){
+				myProcessErr("对不起，请填写新密码。");
+			}else{
+				//如果账号和密码都不为空，就进行 ajax 异步提交
+				var json = JSON.stringify({
+					// username: "",
+					password: newPass,
+					code: codeNum,		//验证码
+					phone: logPhone
+				})
+				// console.log(json)
+				$.ajax({
+					url: path + '/linU/findPassword',
+					type:'POST',  //提交方法是POST
+					data:json, //以JSON字符串形式把 user 传到后台
+					contentType: 'application/json;charset=utf-8',
+					dataType:'json', //后台返回的数据类型是json文本
+					error:function(){  //请求失败的回调方法
+						myProcessErr("设置失败！请重试。");
+					},
+					success:function(result){	//请求成功的回调方法
+						// console.log(result)
+						if(result != "" && result.code == 1){
+								window.location.href='./login.html';	
+						}else{
+							$(".login-tip").show();
+							$(".login-tip").html(result.msg);
+						}
+					}
+				});
+			}
+		});
+		
+		
+		
+		// 获取验证码
+		function yzm(thiz){
+			var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;
+			regPhone = $.trim($(thiz).parent().prev('.login-ipt').val());
+			if(regPhone == "" || regPhone == "undefined" || regPhone == null || regPhone == "null" || !myreg.test(regPhone)){
+				myProcessErr("请填写正确的手机号");
+			}else{
+				$.ajax({
+					type:'POST',
+					url:path + "/linU/sendCode",
+					data:{
+						phone: regPhone
+					}, //以JSON字符串形式把 user 传到后台
+					dataType:'json', //后台返回的数据类型是json文本
+					error:function(){  //请求失败的回调方法
+						// $(".login-tip").css("color","red");
+						myProcessErr("验证码发送失败!");
+					},
+					success:function(result){
+							if(result != "" && result.code == 1){
+								var time = 60;
+								var timer = setInterval(function(){
+								    time--;
+								   $(thiz).html(time+"秒重发");
+									$(thiz).css({'background':'#ccc','pointer-events':'none'});
+									if(time==0){
+								        clearInterval(timer);
+										$(thiz).html("获取验证码");
+										$(thiz).css({'background':'#6aaff7','pointer-events':'auto'});
+									}
+								},1000);				//若登录成功，跳转到"/main.html"
+							}else{
+								myProcessErr(result.msg);
+							}
+					}
+				})
+			}
+			
+		}
+		// 注册
+		$('.regBtn').click(function(){
+			alert('注册点击')
+			var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;
+			var mypass =/^[a-zA-Z0-9_-]{6,16}$/;
+			var user = new Object();
+			regPhone = $.trim($(".regPhone").val());
+			regPass = $.trim($(".regPass").val());
+			regPass2 = $.trim($(".regPass2").val());
+			codeNum =  $.trim($(".regNote").val());
+			postJl =  $.trim($(".postJl").val());
+			//前台的非空验证
+			if(regPhone == "" || regPhone == "undefined" || regPhone == null || regPhone == "null"){
+				$(".regPhone").focus;
+				myProcessErr("对不起，账号不能为空!");
+			}else if(regPass != regPass2){
+				myProcessErr("两次密码输入不一致!");
+			}else if(codeNum == "" ||codeNum == null){
+				myProcessErr("对不起，请填写验证码!");
+			}else if(!myreg.test(regPhone)){
+				myProcessErr("对不起，请填写正确的手机号!");
+			}else if(regPass == "" ||regPass == null){
+				$(".regPass").focus;
+				myProcessErr("对不起，密码不能为空!");
+			}else if(!mypass.test(regPass)){
+				myProcessErr("对不起，密码格式错误!");
+			}else if(!$("#helpNote").prop('checked')){
+				myProcessErr("请勾选服务协议!");
+			}else{
+				var json = JSON.stringify({
+					phone: regPhone,
+					code: codeNum,		//验证码
+					password: regPass,
+					createUser:postJl
+				});
+				$.ajax({
+					type:'POST',
+					url:path + "/linU/register",
+					data:json, //以JSON字符串形式把 user 传到后台
+					contentType: 'application/json;charset=utf-8',
+					dataType:'json', //后台返回的数据类型是json文本
+					error:function(){  //请求失败的回调方法
+						myProcessErr("注册失败请重试!");
+					},
+					success:function(result){
+							if(result != "" && result.code == 1){
+								myProcessOk(result.msg)
+								window.location.href='./login.html';				//若登录成功，跳转到"/main.html"
+							}else{
+								myProcessErr(result.msg);
+							}
+					}
+				})
+			}
+		})
+		
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>临钢网</title>
+		<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+		<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/all.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/detail.css?vid=0326" />
+		<script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/phone.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body style="padding-top: 50px;">
+		<div id="cart-head" class="show">
+			<div class="cart-head">
+				<a class="return" href="javascript:history.back(-1);">
+					<span class="arrow-left"></span>
+				</a>
+				<div class="head-title">开平板张数计算</div>
+			</div>
+		</div>
+		<div class="calcu-list">
+			<ul>
+				<li>
+					<span class="calcu-left">厚度：</span>
+					<span class="calcu-input"><input type="text" name="ld" id="ld" value="" placeholder="请输入厚度(mm)..."></span>
+				</li>
+				<li>
+					<span class="calcu-left">宽度：</span>
+					<span class="calcu-input"><input type="text" value="" name="kd" id="kd" placeholder="请输入宽度(mm)..."></span>
+				</li>
+				<li>
+					<span class="calcu-left">长度：</span>
+					<span class="calcu-input"><input type="text" value="" name="len" id="len" placeholder="请输入长度(mm)..."></span>
+				</li>
+				<li>
+					<span class="calcu-left">重量：</span>
+					<span class="calcu-input"><input type="text" value="" name="weights" id="weights" placeholder="请输入重量..."></span>
+				</li>
+				<li>
+					<span class="calcu-left">单位：</span>
+					<span class="calcu-select">
+						<select name="types" id="types">
+							<option value="t">吨（t）</option>
+							<option value="kg">千克（kg）</option>
+						</select>
+					</span>
+				</li>
+			</ul>
+		</div>
+		<div class="calcu-list">
+			<ul>
+				<li class="clearfix">
+					<span class="calcu-left fl">张数：</span>
+					<span class="calcu-content fr" id="rcont">0</span>
+				</li>
+			</ul>
+		</div>
+		<div class="calcu-submit">
+			<ul class="clearfix">
+		        <li><a href="#" class="calcu-btn grey" id="dreset">重置</a></li>
+		        <li><a href="#" class="calcu-btn" id="btn2">计算</a></li>
+		    </ul>
+		</div>
+	</body>
+</html>
+
+<script type="text/javascript" src="js/return.js"></script>
+
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "https://hm.baidu.com/hm.js?4d1ea0acd259ddc34ff83702b6aae89b";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+<script type="text/javascript">
+
+	$(function(){
+
+		$("#btn2").click(function(){
+			var ld=$("#ld").val();
+			var kd=$("#kd").val();
+			var weights=$("#weights").val();
+			var len=$("#len").val();
+			if(ld==""){
+				alert("厚度不能为空");
+			}else if(kd==""){
+				alert("宽度不能为空");
+			}else if(weights==""){
+				alert("重量不能为空");
+			}else if(len==""){
+				alert("长度不能为空");
+			}else{
+				//$("#rcont").text(len*kd*ld*0.00000785+"张");
+				$("#rcont").text(Math.ceil(weights/(len*kd*ld*0.00000000785))+"张");
+			}
+		})
+
+		$("#breset").click(function(){
+			$("#ld").val('');
+			$("#kd").val('');
+			$("#weights").val('');
+			$("#len").val('');
+			$("#rcont").text('0');
+		})
+
+	})
+</script>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>集赞抢货款</title>
+		<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+		<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/idangerous.swiper.css"/>
+		<link rel="stylesheet" type="text/css" href="css/APlayer.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/head.css"/>
+		<link rel="stylesheet" type="text/css" href="css/news.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+		<link rel="stylesheet" type="text/css" href="css/ulList.css"/>
+	</head>
+	<body>
+		<!-- 顶部导航 -->
+		<div class="headerpage"></div>
+		<!-- 页面主体 -->
+		<div class="main-banner list-banner">
+		</div>
+		<div class="main-cont clearfix" style="background: rgba(255, 255, 255, 0.7);">
+			<!-- 页面左侧 -->
+			<div class="cont-left fl" style="margin-top: 0;">
+				<!-- <div class="left-ul">
+					<span>
+						您现在的位置:
+						<a href="">首页</a>
+						>
+						<a href="">一级</a>
+						>
+						<a href="">二级</a>
+						>
+						&nbsp;详情
+					</span>
+				</div> -->
+				<div class="detail-cont">
+					<h1>集赞抢货款</h1>
+					<!-- <div class="detail-get">
+						<span>编辑:</span>
+						xxx
+						<span>来源:</span>
+						<span>时间:</span>
+						2019-06-14 11:09:00
+						<span>浏览:</span>
+						<span class="detail-num">645</span> 次
+					</div> -->
+					<div class="detail-mage">
+						<br>
+						<br>
+						<br>
+						<h3>1 朋友圈宣传本平台并配下图，有人点赞就有钱！！！</h3>
+						<br>
+						<h3>2 每个赞可抵10元货款，上不封顶</h3>
+						<br>
+						<h3>3 货款不兑现，只用于在本平台结算时抵扣</h3>
+						<br>
+						<h3>4 该货款可累计，可自由选择使用时间</h3>
+						<br>
+						<h3>5 兑换方式：手机截图联系本平台客服进行使用</h3>
+						<br>
+						
+						<img src="img/haibao.jpg" width="500">
+						<br>
+						<h3>6 本活动最终解释权归山东临钢电子商务股份有限公司所有</h3>
+						<p>（注：一经发现活动中有作弊嫌疑，立即取消该账户参与活动资格）</p>
+					</div>
+				</div>
+			</div>
+			<!-- 页面右侧 -->
+			<div class="cont-right fr" style="background: rgba(0, 0, 0, 0.1);padding: 10px;">
+				<div class="right-list">
+					<div class="right-tit">精彩活动</div>
+					<ul class="right-event clearfix" style="padding-right: 10px;box-sizing: border-box;">
+						<li>
+							<a href="list-jizan.html">
+								<span class="event-img" style="height: auto;">
+									<img src="img/index/banner1.jpg" >
+								</span>
+								<span class="event-mage">集赞抢货款</span>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;"  onclick="uOnLine('check-in.html')">
+								<span class="event-img" style="height: auto;">
+									<img src="img/index/banner4.jpg" >
+								</span>
+								<span class="event-mage">任你喝，钢豆直接兑换，不限量</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="right-list">
+					<div class="right-tit">行业动态</div>
+					<ul class="right-link">
+
+					</ul>
+				</div>
+				
+			</div>
+		</div>
+		<div id="particles" style="position:fixed; top:100px; z-index:-1; height: 800px; width: 2000px;" ></div>
+		<!-- 主体结束 -->
+		<!-- 底部 -->
+		<div class="footerpage"></div>
+		<script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/right.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/tools.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+			<script>
+			    $(function(){
+			        /*公共部分
+			         * 导航栏
+			         * footer CopyRight
+			         */
+			        $(".headerpage").load("header.html");
+			        $(".footerpage").load("footer.html");
+			    });
+			</script>
+			
+			<script type="text/javascript">
+				$(function() {
+					$.ajax({
+						url: path + '/linA/listnews',
+						type: 'GET',
+						data: {},
+						dataType: 'json', //后台返回的数据类型是json文本
+						// beforeSend: function(XMLHttpRequest) {
+						// 	XMLHttpRequest.setRequestHeader("token", tkn);
+						// },
+						success: function(result) {
+							// console.log(result)
+							if(result != "" && result.code == 1){
+								var listNew = result.data;
+								for(var i in listNew){
+									if(i<6){
+										var newBox =
+										'<li><a href="list-details.html?id='+ listNew[i].cId +'">'+listNew[i].cTitle+'</a>'+
+										'<span></span></li>'
+										
+										$('.right-link').append(newBox);
+									}
+								
+								}
+			
+							}else{
+								alert(result.msg)
+							}
+						}
+					});
+				})
+			</script>
+		</body>
+</html>

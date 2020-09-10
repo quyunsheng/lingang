@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>临钢网</title>
+		<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+		<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/all.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/user.css?vid=0326" />
+		<script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/phone.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.userRight-set{
+				margin-top: 15px;
+			}
+			.userSet{
+				padding: 30px 15px 5px 15px;
+				margin-bottom: 30px;
+			}
+			.userSet .userSet-ipt{
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body style="padding-top: 50px;">
+		<div id="cart-head" class="show">
+			<div class="cart-head">
+				<a class="return" href="javascript:history.back(-1);">
+					<span class="arrow-left"></span>
+				</a>
+				<div class="head-title">用户中心</div>
+				<a class="head-shop" href="tel:0539-6387606">
+					<i class="fa fa-phone fa-lg"></i> &nbsp;0539-6387606
+				</a>
+			</div>
+		</div>
+
+		<div class="account">
+			<p class="userRight-tit"><img src="img/user/set.png">安全设置</p>
+			<ul class="userRight-set">
+				<li class="on">个人资料</li>
+				<li>登录密码</li>
+			</ul>
+			<div class="userSet">
+				<div class="userSet-type show">
+					<div class="userSet-list">
+						<img id="userPhoto" style="display: none" class="user-photo" src=""  title="点击更换头像">
+						<input class="up-photo" type="file" value="上传文件" onchange="upload2()"
+							   name="file" id="file" alt="点击更换头像"
+							   accept="image/png, image/jpeg, image/gif, image/jpg" multiple/>
+						<input type="hidden" id="imageUrl" />
+					</div>
+					<div class="userSet-list">
+						<label>姓名</label>
+						<input class="userSet-ipt userSet-ipt1" type="text" name="" id="userName" value="" />
+					</div>
+					<div class="userSet-list">
+						<label>昵称</label>
+						<input class="userSet-ipt userSet-ipt1" type="text" name="" id="nickName" value="" />
+					</div>
+					<div class="userSet-list">
+						<label>证件</label>
+						<input class="userSet-ipt userSet-ipt1" type="text" name="" id="userCard" value="" />
+					</div>
+					<div class="userSet-list">
+						<label style="width: 70px;text-align: left;text-indent: 6px;">责任经理</label>
+						<input style="padding-left: 80px;" class="userSet-ipt userSet-ipt1" type="text" name="" id="postJl" value="" />
+					</div>
+					<div class="userSet-list" id="userSex">
+						<label>性别</label>
+						<span class="userSet-sex" style="margin-left: 60px;"><input type="radio" checked="checked" name="sex" id="" value="男" />男</span>
+						<span class="userSet-sex"><input type="radio" name="sex" id="" value="女" />女</span>
+					</div>
+					<input class="userSet-btn" type="button" name="" id="mainBtn" value="保存" />
+				</div>
+				<div class="userSet-type">
+					<div class="userSet-list">
+						<label style="width: 65px;">新密码</label>
+						<input style="padding-left: 80px;" class="userSet-ipt userSet-ipt2" type="password" name="" id="myPass" value=""/>
+					</div>
+					<div class="userSet-list">
+						<label style="width: 65px;">确认密码</label>
+						<input style="padding-left: 80px;" class="userSet-ipt userSet-ipt2" type="password" name="" id="myNewPass" value="" />
+					</div>
+					<input class="userSet-btn" type="button"  name="" id="passBtn" value="保存" />
+				</div>
+			</div>
+		</div>
+
+		<!--底部-->
+		<div class="footerpage"></div>
+		<script src="js/tools.js?vid=0601" type="text/javascript" charset="utf-8"></script>
+		<script src="js/all.js?vid=0601" type="text/javascript" charset="utf-8"></script>
+		<script src="js/ajaxfileupload.js?vid=0326" type="text/javascript"></script>
+		<script>
+			$(function() {
+				/*公共部分
+				 * 导航栏
+				 * footer CopyRight
+				 */
+				$('.footerpage').load('footer.html');
+			});
+		</script>
+		<script type="text/javascript">
+			$('.userRight-set li').click(function() {
+				$(this).addClass('on').siblings().removeClass('on');
+				$('.userSet .userSet-type').eq($(this).index()).addClass('show').siblings().removeClass('show');
+			});
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				var tkn = getCookie(tk);
+				$.ajax({
+					url: path + '/linA/getyh',
+					type: 'GET',
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					data: {},
+					// contentType: 'application/json;charset=utf-8',
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						// $('#userPhone').html(e.)
+						if (result != "" && result.code == 1) {
+							var userData = result.user;
+							$('#nickName').val(userData.cUsername);
+							$('#userName').val(userData.cRealname);
+							$('#userCard').val(userData.cIdCardNo);
+							$('#postJl').val(userData.cCreateUser);
+							$("#userSex input[name='sex'][value='userData.cSex']").prop(':checked')
+							if(userData.cLogo == '' || userData.cLogo == null){
+								$("#userPhoto").show();
+							}else{
+								$('#userPhoto').attr('src',userData.cLogo);
+								$("#userPhoto").show();
+							};
+							if(userData.cCreateUser != null || userData.cCreateUser != undefined || userData.cCreateUser != ''){
+								$('#postJl').attr('readonly','readonly')
+							}
+
+						}else{
+							myProcessErr(result.msg)
+						}
+					}
+				})
+			});
+			$('#mainBtn').click(function() {
+				var tkn = getCookie(tk);
+				var idcardReg =
+					/^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$|^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/;
+				var nameLength = /^\S{1,10}$/;
+				var nickName = $('#nickName').val();
+				var userName = $('#userName').val();
+				var userCard = $('#userCard').val();
+				var postJl = $('#postJl').val();
+				var userSex = $("#userSex input[name='sex']").filter(':checked').val();
+				var json = JSON.stringify({
+					cUsername: nickName,
+					cRealname: userName,
+					cIdCardNo: userCard,
+					cSex: userSex,
+					cCreateUser:postJl
+				})
+				if (!nameLength.test(nickName)) {
+					myProcessErr('长度必须在1到10之间');
+					$('#nickName').val('');
+				} else if (!nameLength.test(userName)) {
+					myProcessErr('长度必须在1到10之间');
+					$('#userName').val('');
+				} else if (!idcardReg.test(userCard)) {
+					myProcessErr('请输入正确的身份证号');
+					$('#userCard').val('');
+				} else {
+					$.ajax({
+						url: path + '/linA/upyh',
+						type: 'POST',
+						beforeSend: function(XMLHttpRequest) {
+							XMLHttpRequest.setRequestHeader("token", tkn);
+						},
+						data: json,
+						contentType: 'application/json;charset=utf-8',
+						dataType: 'json', //后台返回的数据类型是json文本
+						success: function(result) {
+							// $('#userPhone').html(e.)
+							if (result != "" && result.code == 1) {
+								window.location.href="user.html";
+							}else{
+								myProcessErr(result.msg)
+							}
+						}
+					})
+				}
+			});
+			// 密码修改
+			$('#passBtn').click(function() {
+				var tkn = getCookie(tk);
+				var checkPass = /^[a-zA-Z0-9_-]{6,16}$/;
+				var myPass = $('#myPass').val();
+				var myNewPass = $('#myNewPass').val();
+				var json = JSON.stringify({
+					cPassword: myPass,
+					passwordAgain: myNewPass,
+				})
+				if (!checkPass.test(myPass)) {
+					myProcessErr('长度必须在6到16之间');
+					$('#myPass').val('');
+				} else if (!checkPass.test(myNewPass)) {
+					myProcessErr('长度必须在6到16之间');
+					$('#myNewPass').val('');
+				} else {
+					$.ajax({
+						url: path + '/linA/upyh',
+						type: 'POST',
+						beforeSend: function(XMLHttpRequest) {
+							XMLHttpRequest.setRequestHeader("token", tkn);
+						},
+						data: json,
+						contentType: 'application/json;charset=utf-8',
+						dataType: 'json', //后台返回的数据类型是json文本
+						success: function(result) {
+							console.log(result)
+							// $('#userPhone').html(e.)
+							if (result != "" && result.code == 1) {
+								window.location.href="user.html";
+							} else {
+								myProcessErr(result.msg)
+							}
+						}
+					})
+				}
+			})
+			function upload2() {
+				var maxSize = 5*1024*1024 //5M限制
+				var filePath = $("#file").val();
+				var fileName = filePath.substring(filePath.lastIndexOf(".") + 1,
+						filePath.length);
+				fileName = fileName.toLowerCase();
+				var fileSize = $('#file').get(0).files[0].size
+				if (fileSize > maxSize) {
+					myProcessErr("请上传大小不超过5M的图片！");
+					return false;
+				}
+				if (fileName != "bmp" && fileName != "jpg" && fileName != "gif"
+						&& fileName != "png" && fileName != "jpeg") {
+					myProcessErr("", "只能上传bmp,jpg,gif,png,jpeg格式的图片！");
+					return false;
+				}
+				console.log(filePath);
+			document.domain="lingangsteel.com";
+			var url = path + '/linA/uploadhead.html';
+			var tkn = getCookie(tk);
+			$.ajaxFileUpload({
+				url : url,
+				type : 'POST',
+				contentType: 'application/json',
+				secureuri : false, //一般设置为false
+				fileElementId : 'file', // 上传文件的id、name属性名
+				beforeSend: function(XMLHttpRequest) {
+					XMLHttpRequest.setRequestHeader("token", tkn);
+				},
+				success : function(data) {
+					var tmp = $(data).text().substring($(data).text().indexOf("{"), $(data).text().length);
+					var res = eval('(' + tmp + ')');
+					if(res.code == "1") {
+						$("#imageUrl").val(res.msg);
+						savePic();
+					} else {
+						myProcessErr(res.msg);
+					}
+			
+				},
+				error : function(data, status, e) {
+					myProcessErr(e);
+				}
+			});
+			}
+			function savePic() {
+				var tkn = getCookie(tk);
+				var json = JSON.stringify({
+					cLogo : "https://www.lingangsteel.com/lingang/" + $("#imageUrl").val()
+				});
+				$.ajax({
+					url: path + '/linA/upyh',
+					type:'POST',
+					beforeSend: function (XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					data:json,
+					contentType: 'application/json;charset=utf-8',
+					dataType:'json', //后台返回的数据类型是json文本
+					success:function(result) {
+						// $('#userPhone').html(e.)
+						if(result != "" && result.code == 1){
+							window.location.reload();
+						}else{
+							myProcessErr(result.msg)
+						}
+					}
+				})
+			}
+		</script>
+	</body>
+</html>

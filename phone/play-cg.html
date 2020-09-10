@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>临钢网</title>
+		<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+		<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/calendar.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/all.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/shop.css?vid=0326" />
+		<script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/phone.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<style>
+			#startTime{
+				height: 40px;
+				margin-bottom: 0 !important;
+			}
+			.group-ipt{
+				width: 200px;
+			}
+			.init-box {
+            margin: 0.2rem;
+            padding: 0.2rem;
+            border-radius: 6px;
+            background: #FFFFFF;
+        }
+
+        .init-title {
+            height: 0.8rem;
+            position: relative;
+            border-bottom: #efefef 1px solid;
+            line-height: 0.8rem;
+            font-size: 0.32rem;
+        }
+
+        .submit-info {
+            display: flex;
+            justify-content: space-between;
+            margin: 0.2rem 0;
+        }
+
+        .submit-info span {
+            margin: auto;
+        }
+
+        .submit-info input {
+            margin-bottom: 0;
+            padding: 0 10px;
+            color: #333;
+            border: #efefef 1px solid !important;
+            height: 40px;
+            width: 74%;
+            border-radius: 3px;
+        }
+
+        .init-pay {
+            height: 0.8rem;
+            min-height: 0.8rem;
+            line-height: 0.8rem;
+            background: rgb(81, 142, 57);
+            border-radius: 3px;
+            text-align: center;
+            color: #fff;
+            margin: 1rem 0.2rem 0;
+            font-size: 0.32rem;
+        }
+		.calendar{
+			position: fixed;
+			left: 50%;
+			top: 50%;
+			margin-left: -170px;
+			margin-top: -140px;
+			display: none;
+		}
+		.calendar .calendar-bottom{
+			overflow: none !important;
+		}
+		.start-plan{
+			height: 40px;
+			margin-top: 5px;
+		}
+    </style>
+	</head>
+	<body style="padding-top: 50px;">
+		<div id="cart-head" class="show">
+			<div class="cart-head">
+				<a class="return" href="javascript:history.back(-1);">
+					<span class="arrow-left"></span>
+				</a>
+				<div class="head-title">计划采购</div>
+				<a class="head-shop" href="tel:0539-6387606">
+					<i class="fa fa-phone fa-lg"></i> &nbsp;0539-6387606
+				</a>
+			</div>
+		</div>
+
+		<div class="cg-center">
+			<form action="" method="">
+				<div class="group-list group-good" style="margin-bottom: 0;">
+					<h2>计划购买商品</h2>
+					<ul class="group-type" style="height: 300px;padding-bottom: 20px;">
+						<li>
+							<div class="group-time" id="calendar">
+								<span class="tipTime">选择时间</span>
+								<input class="start-plan" id="startTime" type="text" name="" value="" readonly placeholder="请选择结束时间" />
+								<div></div>
+							</div>
+						</li>
+						<li>
+							<select class="select-name secGc" name="">
+								<option value="">请选择钢厂</option>
+							</select>
+						</li>
+						<li>
+							<select class="select-name secPm" name="">
+								<option value="">请选择品名</option>
+							</select>
+						</li>
+						<li>
+							<input class="group-ipt secCz" type="text" name="" value="" placeholder="材质" />
+						</li>
+						<li>
+							<input style="min-width:170px;" class="group-ipt secGg" type="text" name="" value="" placeholder="净料规格（厚度*宽度*长度）" />
+						</li>
+
+						<li>
+							<input style="min-width:170px;" class="group-ipt secSl" type="text" name="" value="" placeholder="数量" />
+						</li>
+						<li>
+							<select class="select-unit" name="">
+								<option value="吨">吨</option>
+								<option value="张">张</option>
+								<option value="卷">卷</option>
+								<option value="件">件</option>
+							</select>
+						</li>
+					</ul>
+				</div>
+				<div class="group-list">
+					<h2 style="margin-top: 10px;">附加说明</h2>
+					<textarea class="plan-sm" name="content" placeholder="你可以填写更多补充说明，如试样、机械性能要求、用途、表面要求等"></textarea>
+				</div>
+				<div class="group-list">
+					<span class="group-sub fr" onclick="upPlan()">添加计划</span>
+				</div>
+			</form>
+		</div>
+
+		<!--底部导航-->
+		<div class="footerpage"></div>
+		<script src="js/tools.js?vid=0604" type="text/javascript" charset="utf-8"></script>
+		<script src="js/all.js?vid=0604" type="text/javascript" charset="utf-8"></script>
+		<script src="js/calendar.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(function() {
+				/*公共部分
+				 * 导航栏
+				 * footer CopyRight
+				 */
+				$(".footerpage").load("footer.html");
+				$('#calendar').calendar();
+			});
+		</script>
+		<script>
+			function getDate(strDate) {
+				var date = eval('new Date(' + strDate.replace(/\d+(?=-[^-]+$)/,
+				 function (a) { return parseInt(a, 10) - 1; }).match(/\d+/g) + ')');
+				return date;
+			}
+					
+		</script>
+		<script type="text/javascript">
+			// 选择钢厂
+			$(function() {
+				$.ajax({
+					url: path + '/linA/listgc',
+					type: 'GET',
+					data: {},
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != "" && result.code == 1) {
+							var spList = result.data;
+							// console.log(result)
+							for (var i in spList) {
+								var spGc = '<option value="' + spList[i].cShopName + '">' + spList[i].cShopName + '</option>';
+								$('.secGc').append(spGc);
+							}
+						}
+					}
+				})
+			});
+			// 选择品名
+			$(function() {
+				$.ajax({
+					url: path + '/linA/listpm',
+					type: 'GET',
+					data: {
+						id: 15897038511562900
+					},
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != "" && result.code == 1) {
+							var spList = result.data;
+							// console.log(result,'12121212121212121');
+							for (var i in spList) {
+								var spPm = '<option id="' + spList[i].cId + '" value="' + spList[i].cName + '">' + spList[i].cName +
+									'</option>';
+								$('.secPm').append(spPm);
+							}
+						}
+					}
+				})
+			});
+
+			function upPlan() {
+				var chooseData = $('.calendar-header p').html();
+				var tempd=new Date()
+				var str=$("#startTime").val();
+				if(getDate(str).getTime()< tempd.getTime()){
+					myProcessErr('计划日期必须不能是今天以前');
+					$("#startTime").val("");
+				}else if ($('#startTime').val() == '') {
+					myProcessErr('请选择时间！')
+				} else if ($('.secGc option:selected').val() == '') {
+					myProcessErr('请选择钢厂！')
+				} else if ($('.secPm option:selected').val() == '') {
+					myProcessErr('请选择品名！')
+				} else if ($('.secCz').val() == '') {
+					myProcessErr('请输入材质！')
+				} else if ($('.secGg').val() == '') {
+					myProcessErr('请输入规格！')
+				} else if ($('.secSl').val() == '') {
+					myProcessErr('请输入数量！')
+				} else if ($('.plan-sm').val() == '') {
+					myProcessErr('请输入说明！')
+				} else {
+					var tkn = getCookie(tk);
+					var json = JSON.stringify({
+						cBlockId: $('#startTime').val(),
+						cExplain: $('.plan-sm').val(),
+						cShopColumnName: $('.secPm option:selected').val(),
+						cShopColumnTypeId: $('.secPm option:selected').attr('id'),
+						cShopname: $('.secGc option:selected').val(),
+						cSpec: $('.secGg').val(),
+						cTexttrue: $('.secCz').val(),
+						cNum: $('.secSl').val(),
+						cUnit: $('.select-unit option:selected').val()
+					})
+					// console.log(json)
+					$.ajax({
+						url: path + '/linA/addjhcg',
+						type: 'POST',
+						data: json,
+						dataType: 'json', //后台返回的数据类型是json文本
+						contentType: 'application/json;charset=utf-8',
+						beforeSend: function(XMLHttpRequest) {
+							XMLHttpRequest.setRequestHeader("token", tkn);
+						},
+						success: function(result) {
+							console.log(result)
+							if (result != "" && result.code == 1) {
+								window.location.href = './plan.html';
+							} else {
+								myProcessErr(result.msg)
+							}
+
+
+						}
+					});
+				}
+
+			}
+		</script>
+
+	</body>
+</html>

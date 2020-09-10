@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>拼单</title>
+		<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+		<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/idangerous.swiper.css"/>
+		<link rel="stylesheet" type="text/css" href="css/APlayer.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/day.css"/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/head.css"/>
+		<link rel="stylesheet" type="text/css" href="css/news.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+		<link rel="stylesheet" type="text/css" href="css/shop.css"/>
+		<link rel="stylesheet" type="text/css" href="css/ulList.css"/>
+		<style type="text/css">
+			.plan-list{
+				position: relative;
+			}
+			.changePlan{
+				display: block;
+				width: 24px;
+				height: 24px;
+				background: url(img/user/payfor.png);
+				background-size: cover;
+				position: absolute;
+				top: 0;
+				right: -30px;
+				cursor: pointer;
+			}
+			.delPlan{
+				display: block;
+				width: 24px;
+				height: 24px;
+				background: url(img/user/del.png);
+				background-size: cover;
+				position: absolute;
+				top: 46px;
+				right: -30px;
+				cursor: pointer;
+			}
+			.group-list{
+				position: relative;
+			}
+			.aui-mask{
+				z-index: 999;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 顶部导航 -->
+		<div class="headerpage"></div>
+		<!-- 页面主体 -->
+		<!-- <div class="main-pin"></div> -->
+		<div class="main-out">
+			<div class="main-cont pin-box clearfix" style="margin-top: 0;min-height: 700px;">
+				<div class="group-tit">
+					<h1>我发布的计划</h1>
+					<a class="group-planAdd" href="plan-add.html"><i class="fa fa-plus" aria-hidden="true"></i>添加采购计划</a>
+				</div>
+				<div class="group-list group-good">
+					<h2>计划列表</h2>
+					<ul class="groupList">
+						
+					</ul>
+					<div class="myPlan">
+						<h3>计划修改</h3>
+						<i class="hidden myPlan-id"></i>
+						<ul class="myPlan-type">
+							<li>
+								<div class="myPlan-time">
+									<input class="select-name" id="startTime" type="text" name="" value="" placeholder="请选择计划时间" />
+								</div>
+							</li>
+							<li>
+								<select class="myPlan-ipt secGc">
+									<option value ="">请选择钢厂</option>
+								</select>
+							</li>
+							<li>
+								<select class="select-name secPm" name="">
+									<option value ="">请选择品名</option>
+								</select>
+							</li>
+							<li>
+								<input class="myPlan-ipt secCz" type="text" name="" id="" value="" placeholder="材质" />
+							</li>
+							<li>
+								<input class="myPlan-ipt secGg" type="text" name="" id="" value="" placeholder="净料规格（厚度*宽度*长度）" />
+							</li>
+						
+							<li>
+								<input class="myPlan-ipt secSl" type="text" name="" id="" value="" placeholder="数量" />
+							</li>
+							<li>
+								<select class="select-unit" name="">
+									<option value ="吨">吨</option>
+									<option value ="张">张</option>
+									<option value ="卷">卷</option>
+									<option value ="件">件</option>
+								</select>
+							</li>
+							<li style="width: 100%;">
+								<textarea class="cExplain" rows="" cols="" placeholder="附加说明">
+									
+								</textarea>
+							</li>
+						</ul>
+						<button type="button" onclick="postNewPlan()">确认修改</button>
+						<button type="button" onclick="hidePlan()">取消</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 主体结束 -->
+		<!-- 底部 -->
+		<div class="footerpage"></div>
+		<div class="foot-about1">
+			<div class="about-box">
+				<p class="footLink">
+					<a rel="nofollow" href="http://www.12377.cn" target="_blank"><img src="img/footer/foot-wfjb.png" width="124"
+						 height="46"></a>
+					<!-- <a rel="nofollow" href="https://ss.knet.cn/verifyseal.dll?sn=e20051937130081635xsxj000000&userid=8IeOInNbj43dec5E&time=1589881923113&stoken=ca1dc82d5bbb71d300d921ba6ec71ce0&pa=92311" target="_blank"><img src="img/footer/foot-kexin.jpg" width="124" height="46"></a> -->
+					<script type='text/javascript' src='https://kxlogo.knet.cn/seallogo.dll?sn=e20051937130081635xsxj000000&ct=df&h=46'></script>
+					<a rel="nofollow" href="#" target="_blank"><img src="img/footer/foot-rz.jpg" width="124" height="46"></a>
+					<a href="index.html"><img height="46" src="img/footer/footer-aq.png" ></a>
+					<a href="index.html"><img height="46" src="img/footer/footer-hw.png" ></a>
+					<a href="index.html"><img height="46" src="img/footer/footer-cx.jpg" ></a>
+					<a rel="nofollow" href="img/footer/lingang.png" target="_blank"><img src="img/footer/dzyyzz.png" width="46" height="46"></a>
+				</p>
+			</div>
+		</div>
+		<script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/tools.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/right.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/day.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script>
+		    $(function(){
+		        /*公共部分
+		         * 导航栏
+		         * footer CopyRight
+		         */
+		        $(".headerpage").load("header.html");
+		        $(".footerpage").load("footer.html");
+		    });
+			
+			function hidePlan(){
+				$('.myPlan').hide();
+				$('.myPlan').find('input').val('');
+				$('.myPlan').find('textarea').val('');
+				$('.myPlan').find('select').val('');
+			}
+		</script>
+		<script>
+			function getDate(strDate) {
+			            var date = eval('new Date(' + strDate.replace(/\d+(?=-[^-]+$)/,
+			             function (a) { return parseInt(a, 10) - 1; }).match(/\d+/g) + ')');
+			            return date;
+			        }
+					
+			$('#startTime').datePicker({
+				okFunc: function (date) {
+					var tempd=new Date()
+					var str=$("#startTime").val();
+					if(getDate(str).getTime()< tempd.getTime()){
+					    myProcessErr('计划日期必须不能是今天以前');
+						$("#startTime").val("");
+					} 
+				}
+			});
+		</script>
+		<script type="text/javascript">
+			$(function(){
+				var tkn = getCookie(tk);
+				if(isEmpty(tkn)){
+					alert('请先登录！')
+					return;
+					window.location.href = './login.html';
+				};
+				$.ajax({
+					url: path + '/linA/listjhcg',
+					type:'GET',
+					beforeSend: function (XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					data:{},
+					// contentType: 'application/json;charset=utf-8',
+					dataType:'json', //后台返回的数据类型是json文本
+					success:function(result) {
+						if(result != "" && result.code == 1){
+							// console.log(result)
+							var planList = result.data;
+							for(var i in planList){
+								var planBox =
+								'<li class="plan-list"><i class="planId hidden">'+planList[i].cId+'</i><div class="plan-time clearfix"><span class="fr cBlockId">'+planList[i].cBlockId+'</span><span class="cShopname">'+planList[i].cShopname +'</div>'+
+								'<div class="plan-cont"><b class="ColumnName">'+planList[i].cShopColumnName+'</b>'+
+								'<span><i class="cTexttrue">'+planList[i].cTexttrue +'</i><i class="cSpec" style="margin-left:10px;">'+planList[i].cSpec +'</i></span><span class="plan-weight"><b class="cNum">'+planList[i].cNum+'</b><i class="cUnit">'+planList[i].cUnit+'</i></span></div>'+
+								'<div class="cExplain">'+planList[i].cExplain+'</div>'+
+								'<span class="changePlan" onclick="changePlan(this)"></span><span class="delPlan" onclick=\'delPlan(\"'+planList[i].cId+'\")\'></span></li>';
+								$('.groupList').append(planBox);
+							}
+						}else{
+							alert(result.msg)
+						}
+					}
+				});
+			})
+		</script>
+		<script type="text/javascript">
+				// 选择钢厂
+				$(function () {
+				    $.ajax({
+				        url: path + '/linA/listgc',
+				        type: 'GET',
+				        data: {},
+				        dataType: 'json', //后台返回的数据类型是json文本
+				        success: function (result) {
+				            if (result != "" && result.code == 1) {
+				                var spList = result.data;
+				                // console.log(result)
+				                for (var i in spList) {
+				                    var spGc = '<option value="' + spList[i].cShopName + '">' + spList[i].cShopName + '</option>';
+				                    $('.secGc').append(spGc);
+				                }
+				            }
+				        }
+				    })
+				});
+				// 选择品名
+				$(function () {
+				    $.ajax({
+				        url: path + '/linA/listpm',
+				        type: 'GET',
+				        data: {
+				            id: 15897038511562900
+				        },
+				        dataType: 'json', //后台返回的数据类型是json文本
+				        success: function (result) {
+				            if (result != "" && result.code == 1) {
+				                var spList = result.data;
+				                // console.log(result,'12121212121212121');
+				                for (var i in spList) {
+				                    var spPm = '<option id="' + spList[i].cId +'" value="' + spList[i].cName +'">' + spList[i].cName + '</option>';
+				                    $('.secPm').append(spPm);
+				                }
+				            }
+				        }
+				    })
+				});
+			  function postNewPlan(){
+				  if($('#startTime').val() == ''){
+					  alert('请选择时间！')
+				  }else if($('.secGc option:selected').val()==''){
+					  alert('请选择钢厂！')
+				  }else if($('.secPm option:selected').val()==''){
+					  alert('请选择品名！')
+				  }else if($('.secCz').val()==''){
+					  alert('请输入材质！')
+				  }else if($('.secGg').val()==''){
+					  alert('请输入规格！')
+				  }else if($('.secSl').val()==''){
+					  alert('请输入数量！')
+				  }else if($('.cExplain').val()==''){
+					  alert('请输入说明！')
+				  } else{
+					  var myYear = $('.aui-calendar .active').attr('data-year');
+					  var myMonth = $('.aui-calendar .active').attr('data-month');
+					  var myDay = $('.aui-calendar .active').attr('data-date');
+					  if (myMonth.length < 2) {
+					      myMonth = '0' + myMonth
+					  }
+					  if (myDay.length < 2) {
+					      myDay = '0' + myDay
+					  }
+					  $('#startTime').val(myYear + '-' + myMonth + '-' + myDay);
+					  var tkn = getCookie(tk);
+					  var json = JSON.stringify({
+							cId:$('.myPlan-id').html(),
+							cBlockId: $('#startTime').val(),
+							cExplain:$('.myPlan .cExplain').val(),
+							cShopColumnName:$('.secPm option:selected').val(),
+							cShopColumnTypeId:$('.secPm option:selected').attr('id'),
+							cShopname:$('.secGc option:selected').val(),
+							cSpec:$('.secGg').val(),
+							cTexttrue:$('.secCz').val(),
+							cNum:$('.secSl').val(),
+							cUnit:$('.select-unit option:selected').val()
+					  })
+					  // console.log(json)
+					  $.ajax({
+					  	url: path + '/linA/upjhcg',
+					  	type: 'POST',
+					  	data: json,
+					  	dataType: 'json', //后台返回的数据类型是json文本
+					  				contentType: 'application/json;charset=utf-8',
+					  	beforeSend: function(XMLHttpRequest) {
+					  		XMLHttpRequest.setRequestHeader("token", tkn);
+					  	},
+					  	success: function(result) {
+					  		// console.log(result)
+					  		if(result != "" && result.code == 1){
+									window.location.href = './plan.html';
+					  		}else{
+					  			alert(result.msg)
+					  		}
+					  	}
+					  });
+				  }
+		
+			  }
+			</script>
+			<script type="text/javascript">
+				function changePlan(thiz){
+					$('.myPlan').show();
+					var useId = $(thiz).parents('.plan-list').find('.planId').html();
+					var planTime = $(thiz).parents('.plan-list').find('.cBlockId').html();
+					var cCk = $(thiz).parents('.plan-list').find('.cShopname').html();
+					var cPm = $(thiz).parents('.plan-list').find('.ColumnName').html();
+					var cCz = $(thiz).parents('.plan-list').find('.cTexttrue').html();
+					var cGg = $(thiz).parents('.plan-list').find('.cSpec').html();
+					var cSl = $(thiz).parents('.plan-list').find('.cNum').html();
+					var cDw = $(thiz).parents('.plan-list').find('.cUnit').html();
+					var cSm = $(thiz).parents('.plan-list').find('.cExplain').html();
+					$('.myPlan').find('.myPlan-id').html(useId);
+					$('#startTime').val(planTime);
+					$('.secGc').val(cCk);
+					$('.secPm').val(cPm);
+					$('.secCz').val(cCz);
+					$('.secGg').val(cGg);
+					$('.secSl').val(cSl);
+					$('.select-unit').val(cDw);
+					$('.cExplain').val(cSm);
+				}
+				
+				
+				function delPlan(cid){
+					jQuery("#vkDivMaskPrc").css("display","block");
+					document.getElementById("vkDivMaskContPrcLogo").className="vkDivMaskContPrcErr";
+					document.getElementById("vkDivMaskContPrcText").innerHTML="<p>确定要删除么？</p><br><br><span class=\"quxiao\"  onclick='hideDel()'>取消</span>"+
+					"<span class=\"queren\" onclick='setIfdel(\""+cid+"\");'>删除</span>";
+				}
+				function hideDel(){
+					$("#vkDivMaskPrc").hide();
+				}
+				function setIfdel(cid){
+					var tkn = getCookie(tk);
+					$.ajax({
+						url: path + '/linA/deljhcg',
+						type: 'POST',
+						data: {
+							id:cid,
+						},
+						dataType: 'json', //后台返回的数据类型是json文本
+						// contentType: 'application/json;charset=utf-8',
+						beforeSend: function(XMLHttpRequest) {
+							XMLHttpRequest.setRequestHeader("token", tkn);
+						},
+						success: function(result) {
+							// console.log(result)
+							if(result != "" && result.code == 1){
+								window.location.href = './plan.html';
+							}else{
+								alert(result.msg)
+								$("#vkDivMaskPrc").hide();
+							}
+						}
+					});
+				}
+			</script>
+	</body>
+</html>

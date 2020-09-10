@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>拼单</title>
+		<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+		<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/idangerous.swiper.css"/>
+		<link rel="stylesheet" type="text/css" href="css/APlayer.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/head.css"/>
+		<link rel="stylesheet" type="text/css" href="css/news.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+		<link rel="stylesheet" type="text/css" href="css/shop.css"/>
+		<link rel="stylesheet" type="text/css" href="css/ulList.css?vid=0216"/>
+		<link rel="stylesheet" type="text/css" href="css/group-pin.css?vid=0216"/>
+		<style type="text/css">
+			.groupPin-box ul{
+				border: 1px solid #E4E4E4;
+				border-top: 0;
+				padding: 5px;
+			}
+			.need-type,.need-mage{
+				display: inline-block;
+				height: 30px;
+				line-height: 30px;
+				padding: 0 5px;
+				border: 1px solid #CCCCCC;
+				box-sizing: border-box;
+				margin-left: 10px;
+			}
+			.myMb{
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: rgba(0,0,0,0.5);
+				z-index: 99;
+				display: none;
+			}
+			.myAddress{
+				width: 800px;
+				max-height: 400px;
+				background: #FFFFFF;
+				padding: 10px;
+				overflow-y: scroll;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				margin-left: -400px;
+				margin-top: -200px;
+				box-shadow: 0px 0px 10px #000000;
+				display: none;
+				z-index: 100;
+			}
+			.myAddress table{
+				border-collapse: collapse;
+				text-align: center;
+				width: 100%;
+			}
+			.myAddress th {
+			    padding: 12px 5px;
+			    background: #ebecf0;
+			    color: #333;
+			    font-weight: 400;
+			    border: 1px solid #dcdee3;
+			    box-sizing: border-box;
+			}
+			.myAddress td{
+				padding: 12px 5px;
+				color: #333;
+				font-weight: 400;
+				border: 1px solid #dcdee3;
+			}
+			.myAddress p{
+				font-size: 16px;
+				margin-bottom: 10px;
+				font-weight: bold;
+			}
+			.userTable{
+				padding: 5px 10px;
+				border: 1px solid #ff5000;
+				border-radius: 3px;
+				background: #ffd6cc;
+				color: #f30;
+				cursor: pointer;
+			}
+			.showAddress{
+				text-align: left;
+			}
+			.showAddress i{
+				line-height: 30px;
+				float: right;
+			}
+			.showAddress span{
+				float: right;
+				cursor: pointer;
+				color: #FF0000;
+				margin-left: 20px;
+				border: 1px solid #FF0000;
+				padding: 4px;
+				border-radius: 4px;
+			}
+			.myMage {
+				padding-top: 6px;
+			}
+			.qxPin{
+				cursor: pointer;
+				color: #545151;
+				margin-left: 10px;
+				border: 1px solid #545151;
+				padding: 4px;
+			}
+			.showPin{
+				cursor: pointer;
+				color: #FF0000;
+				margin-left: 20px;
+				border: 1px solid #FF0000;
+				padding: 4px;
+				border-radius: 4px;
+			}
+			.lookht{
+				border:0px solid #00a55d;
+				background-color: #00a55d;
+				color:#ffffff;
+				margin-left: 10px;
+			}
+			.ckht{
+				border:0px solid #007AFF;
+				background-color: #0068A5;
+				color:#ffffff;
+			}	
+			.myBtn{
+				text-align: center;
+				margin-top: 30px;
+			}
+			.myBtn a{
+				display: inline-block;
+				padding: 5px 10px;
+				color: #6bc1fa;
+				border: 1px solid #6bc1fa;
+				border-radius: 4px;
+			}
+			.myBtn span{
+				display: inline-block;
+				padding: 5px 10px;
+				color: #7b7878;
+				border: 1px solid #7b7878;
+				border-radius: 4px;
+				margin-left: 30px;
+				cursor: pointer;
+			}	
+		</style>
+	</head>
+	<body>
+		<!-- 顶部导航 -->
+		<div class="headerpage"></div>
+		<!-- 页面主体 -->
+		<div class="main-pin"></div>
+		<div class="main-out">
+			<div class="main-cont pin-box clearfix">
+				<ul class="pin-tit">
+					<li>
+						<a href="javascript:void(0)">正在拼单</a>
+					</li>
+					<li class="on">
+						<a href="javascript:void(0)">我的拼单</a>
+					</li>
+				</ul>
+				<a class="groupPin-initiate" href="shop.html">发起拼单<i class="fa fa-mouse-pointer" aria-hidden="true"></i></a>
+				<div class="groupPin">
+					<div class="groupPin-box groupPin-left">
+						<span class="groupPin-top">任你拼</span>
+						<div class="pd-box">
+						</div>
+
+					</div>
+					<div class="groupPin-box groupPin-right show">
+						<span class="groupPin-top">我的拼单</span>
+						<div class="pd-box"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="myMb"></div>
+		<div class="myAddress">
+			<p>选择收货地址：</p>
+			<table>
+				<thead>
+					<tr>
+						<th>联系人</th>
+						<th>联系方式</th>
+						<th>所在地区</th>
+						<th>详细地址</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody class="getTbody">
+					
+				</tbody>
+			</table>
+			<div class="myBtn">
+				<a href="user-address.html">添加新地址</a>
+				<span>关闭</span>
+			</div>
+		</div>
+		<div class="planTime">
+			<h3>修改拼单</h3>
+			<div class="group-time">
+				<input class="need-weight" id="needWeight" type="text" name="" value="" placeholder="请填写吨数" />
+			</div>
+			<div class="planBtn">
+				<i class="cPinId hidden"></i>
+				<span onclick="postPin()" class="planSub">提交</span>
+				<span class="planClo" onclick="planClo(this)">取消</span>
+			</div>
+		</div>
+		<!-- 主体结束 -->
+		<div class="footerpage"></div>
+		<script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/tools.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/all.js?vid=0611" type="text/javascript" charset="utf-8"></script>
+		<script src="js/time.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/pdfobject.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			// 倒计时
+			var j = $('.gp-list').length;
+			for(var i = 0;i<=j;i++){
+				var timeId = 'live' + i;
+				updateEndTime(timeId);
+			};
+		</script>
+		<script type="text/javascript">
+			$('.pin-tit li').click(function(){
+				$(this).addClass('on').siblings().removeClass('on');
+				$('.groupPin .groupPin-box').eq($(this).index()).addClass('show').siblings().removeClass('show');
+			});
+			var chl = window.location.search.substring(1).split('=')[1];
+			if(chl=="my"){
+				$('.pin-tit li').eq(1).addClass('on').siblings().removeClass('on');
+				$('.groupPin .groupPin-box').eq(1).addClass('show').siblings().removeClass('show');
+			}
+		</script>
+		<script>
+		    $(function(){
+		        /*公共部分
+		         * 导航栏
+		         * footer CopyRight
+		         */
+		        $(".headerpage").load("header.html");
+		        $(".footerpage").load("footer.html");
+		    });
+			function planClo (cal) {
+			  $('.planTime').hide();
+			};
+		</script>
+		<script type="text/javascript">
+			function getHt(cId){
+				window.open(path+"/linA/exportPdf?orderId="+cId);
+			}
+			function lookHt(cId){
+				var myPDF = path+"/linA/exportPdf?orderId="+cId;
+				window.open("pdfH5/pdf.html?f="+myPDF,"临钢网合同预览");
+			}
+			function hidePhone(s){
+				// s=s.substring(0,3)+"****"+s.substring(7);
+				s=s.substring(0,3)+"********";
+				return s;
+			}
+			
+			$(function(){
+				$.ajax({
+					url: path + '/linA/listpt',
+					type:'GET',
+					data:{},
+					dataType:'json', //后台返回的数据类型是json文本
+					success:function(result) {
+						if(result != "" && result.code == 1){
+							// console.log(result)
+							var ptList = result.data;
+							for(var i in ptList){
+								var ptBox =
+								'<div class="gp-list"><h3 class="hidden">拼团号：<i class="pinNum">'+ ptList[i].cGroupNum+'</i><i class="pinId hidden">' + ptList[i].detailList[0].dProductid + '</i></h3>'+
+								'<table class="groupPin-tab"><tr><th>仓库</th><th>钢厂</th><th>品名</th><th>材质</th><th>规格</th><th>单价(元)</th>'+
+								'<th>数量(吨)</th><th>剩余</th><th>结束时间</th><th>拼单吨数</th><th>状态</th></tr>'+
+								'<tr><td>'+ ptList[i].detailList[0].dStorename +'</td><td>'+ptList[i].detailList[0].dShopname+'</td><td>'+ ptList[i].detailList[0].dShopcolumntype +'</td>'+
+								'<td>'+ ptList[i].detailList[0].dProducttexture + '</td><td>'+ ptList[i].detailList[0].dProductspec + '</td><td>'+ ptList[i].detailList[0].dPrice +'</td><td>'+ ptList[i].detailList[0].dTonnum +'</td>'+
+								'<td>'+ ptList[i].orderList[0].cZjrFl +'</td><td class="settime live3" endTime="'+ ptList[i].cGroupEndTime +'"></td>'+
+								'<td><input class="planNum" type="text" name="" readonly="readonly"  id="" value="'+ptList[i].orderList[0].cZjrFl+'"  />'+
+								'<i>/吨</i></td>'
+								if(ptList[i].cState == 0){
+									ptBox += '<td>待拼单</td></tr>'
+								}else if(ptList[i].cState == 1){
+									ptBox += '<td>待审核</td></tr>'
+								}else if(ptList[i].cState == 2){
+									ptBox += '<td>初审</td></tr>'
+								}else if(ptList[i].cState == 3){
+									ptBox += '<td>已审核</td></tr>'
+								}else if(ptList[i].cState == 4){
+									ptBox += '<td>订单完结</td></tr>'
+								}else if(ptList[i].cState == 5){
+									ptBox += '<td>库存不足</td></tr>'
+								}
+								ptBox +=
+								'</tr><tr><td class="clearfix" colspan="11" align="right">'+
+								'</tr><tr><td class="clearfix" colspan="6" align="left">'+
+								'主单加工说明：'+ptList[i].detailList[0].dProcessway+'，'+ptList[i].detailList[0].dProcessrequirement+
+								'</td><td class="clearfix" colspan="5" align="right"><span class="subPlan fr" onclick="addPin(this)">确认拼单</span><input class="need-mage fr" id="" type="text" name="" value="" placeholder="加工要求" />'+
+									'<select class="need-type fr"><option value ="不加工">不加工</option><option value ="开平">开平</option><option value ="分条">分条</option></select><span style="padding-top:6px;" class="fr">我的加工要求：</span></td></tr></table><ul class="gp-table">';
+								/* for(var j in ptList[i].orderList){
+									// console.log(ptList[i].orderList[j].cRealname)
+									if (j == 0) {
+										ptBox +=
+										'<li class="gp-first"><b>发起人</b>'+
+										'<span>'+ptList[i].orderList[j].cRealname+'</span><span>'+hidePhone(ptList[i].orderList[j].cPhone)+'</span>'+
+										'<span>'+ptList[i].orderList[j].cGzFl+'吨</span></li>';
+									} else{
+										ptBox +=
+										'<li><span>'+ptList[i].orderList[j].cRealname+'</span><span>'+hidePhone(ptList[i].orderList[j].cPhone)+'</span>'+
+										'<span>'+ptList[i].orderList[j].cGzFl+'吨</span></li>';
+									}
+								} */
+								ptBox+='</ul></div>'
+								$('.groupPin-left .pd-box').append(ptBox);
+							}
+						}
+					}
+				});
+				var tkn = getCookie(tk);
+				$.ajax({
+					url: path + '/linA/listmypt',
+					type:'GET',
+					data:{},
+					beforeSend: function (XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					dataType:'json', //后台返回的数据类型是json文本
+					success:function(result) {
+						if(result != "" && result.code == 1){
+							// console.log(result)
+							var ptList = result.data;
+							var uList = result.data.orderList;
+							for(var i in ptList){
+								var ptBox =
+								'<div class="gp-list"><h3 class="hidden">拼团号：<i class="pinNum">'+ ptList[i].cGroupNum+'</i></h3>'+
+								'<table class="groupPin-tab"><tr><th>仓库</th><th>钢厂</th><th>品名</th><th>材质</th><th>规格</th><th>单价(元)</th>'+
+								'<th>数量(吨)</th><th>剩余</th><th>结束时间</th><th>状态</th></tr>'+
+								'<tr><td>'+ ptList[i].detailList[0].dStorename +'</td><td>'+ptList[i].detailList[0].dShopname+'</td><td>'+ ptList[i].detailList[0].dShopcolumntype +'</td>'+
+								'<td>'+ ptList[i].detailList[0].dProducttexture + '</td><td>'+ ptList[i].detailList[0].dProductspec + '</td><td>'+ ptList[i].detailList[0].dPrice +'</td><td>'+ ptList[i].detailList[0].dTonnum +'</td>'+
+								'<td>'+ ptList[i].orderList[0].cZjrFl +'</td><td class="settime live3" endTime="'+ ptList[i].cGroupEndTime +'"></td>'
+								if(ptList[i].cState == 0){
+									ptBox += '<td>待拼单</td></tr>'
+								}else if(ptList[i].cState == 1){
+									ptBox += '<td>待审核</td></tr>'
+								}else if(ptList[i].cState == 2){
+									ptBox += '<td>初审</td></tr>'
+								}else if(ptList[i].cState == 3){
+									ptBox += '<td>已审核</td></tr>'
+								}else if(ptList[i].cState == 4){
+									ptBox += '<td>订单完结</td></tr>'
+								}else if(ptList[i].cState == 5){
+									ptBox += '<td>库存不足</td></tr>'
+								}
+								// console.log(ptList[i].cBlockId)
+								if(ptList[i].cBlockId == ''){
+									ptBox +=
+									'<tr><td class="showAddress" colspan="6"><span onclick="showAddress(\''+ptList[i].cId+'\')">添加收货地址</span></td>'
+								}else{
+									ptBox +=
+									'<tr><td class="showAddress clearfix" colspan="6"><span class="fr"  onclick="showAddress(\''+ptList[i].cId+'\')">修改收货地址</span><i>'+ptList[i].cProvinceId+'&nbsp;&nbsp;'+ptList[i].cCityId+'&nbsp;&nbsp;'+(ptList[i].cDistrictId == '' || ptList[i].cDistrictId ==
+									null ? '' : ptList[i].cDistrictId)+'&nbsp;&nbsp;'+ptList[i].cAddressid+'</i></td>'
+								}
+								if(ptList[i].cState < 2){
+									if(ptList[i].detailList[0].dProcessway == '不加工'){
+										ptBox +=
+										'<td class="clearfix" colspan="4" align="right"><span class="subPlan changeMage hidden fr" onclick="setPin(this,\''+ptList[i].detailList[0].dId+'\')">提交</span><span onclick="hideSet(this)" class="qxPin changeMage hidden fr">取消</span><span onclick="showSet(this)" class="showPin fr">修改加工要求</span>'+
+										'<div class="myMage fr">'+ptList[i].detailList[0].dProcessway+'，'+ptList[i].detailList[0].dProcessrequirement+'</div>'+
+										'<input class="need-mage changeMage hidden fr " id="" type="text" name="" value="'+ptList[i].detailList[0].dProcessrequirement+'" placeholder="加工要求" />'+
+											'<select class="need-type changeMage hidden fr"><option value ="不加工">不加工</option><option value ="开平">开平</option><option value ="分条">分条</option></select><span style="padding-top:6px;" class="fr">我的加工要求：</span></td></tr>'
+									}else if(ptList[i].detailList[0].dProcessway == '开平'){
+										ptBox +=
+										'<td class="clearfix" colspan="4" align="right"><span class="subPlan changeMage hidden fr" onclick="setPin(this,\''+ptList[i].detailList[0].dId+'\')">提交</span><span onclick="hideSet(this)" class="qxPin changeMage hidden fr">取消</span><span onclick="showSet(this)" class="showPin fr">修改加工要求</span>'+
+										'<div class="myMage fr">'+ptList[i].detailList[0].dProcessway+'，'+ptList[i].detailList[0].dProcessrequirement+'</div>'+
+										'<input class="need-mage changeMage hidden fr " id="" type="text" name="" value="'+ptList[i].detailList[0].dProcessrequirement+'" placeholder="加工要求" />'+
+										'<select class="need-type changeMage hidden fr"><option value ="开平">开平</option><option value ="分条">分条</option><option value ="不加工">不加工</option></select><span style="padding-top:6px;" class="fr">我的加工要求：</span></td></tr>'
+									}else if(ptList[i].detailList[0].dProcessway == '分条'){
+										ptBox +=
+										'<td class="clearfix" colspan="4" align="right"><span class="subPlan changeMage hidden fr" onclick="setPin(this,\''+ptList[i].detailList[0].dId+'\')">提交</span><span onclick="hideSet(this)" class="qxPin changeMage hidden fr">取消</span><span onclick="showSet(this)" class="showPin fr">修改加工要求</span>'+
+										'<div class="myMage fr">'+ptList[i].detailList[0].dProcessway+'，'+ptList[i].detailList[0].dProcessrequirement+'</div>'+
+										'<input class="need-mage changeMage hidden fr " id="" type="text" name="" value="'+ptList[i].detailList[0].dProcessrequirement+'" placeholder="加工要求" />'+
+										'<select class="need-type changeMage hidden fr"><option value ="分条">分条</option><option value ="开平">开平</option><option value ="不加工">不加工</option></select><span style="padding-top:6px;" class="fr">我的加工要求：</span></td></tr>'
+									}
+								}else{
+									ptBox +=
+									'<td class="clearfix" colspan="10" align="right">我的加工要求：'+ptList[i].detailList[0].dProcessway+'，'+ptList[i].detailList[0].dProcessrequirement+
+									'</td></tr>'
+								}
+								ptBox +=
+								'</table><ul class="gp-table">';
+								for(var j in ptList[i].orderList){
+									// console.log(ptList[i].orderList[j].cRealname)
+									if (j == 0) {
+										ptBox +=
+										'<li class="gp-first clearfix"><b>发起人</b>'+
+										'<span>'+ptList[i].orderList[j].cRealname+'</span><span>'+hidePhone(ptList[i].orderList[j].cPhone)+'</span>'+
+										'<span>'+ptList[i].orderList[j].cGzFl+'吨</span>'
+										if(ptList[i].cState == 0){
+											 ptBox +='<span class="delPin" onclick="delPin(\''+ptList[i].cId+'\')">取消订单</span>'
+										 }
+										 if(ptList[i].cState == 3){
+										 	 ptBox +='<button class="lookht fr" onclick="lookHt(\''+ptList[i].cId+'\')">合同预览</button><button class="ckht fr" onclick="getHt(\''+ptList[i].cId+'\')">合同下载</button>'
+										  }
+										 
+										ptBox +='</li>';
+										
+										//<span class="changePin" onclick="changePin(\''+ptList[i].cId+'\')">修改</span>
+									} else{
+										ptBox +=
+										'<li><span>'+ptList[i].orderList[j].cRealname+'</span><span>'+hidePhone(ptList[i].orderList[j].cPhone)+'</span>'+
+										'<span>'+ptList[i].orderList[j].cGzFl+'吨</span></li>';
+									}
+								}
+								ptBox+='</ul></div>'
+								$('.groupPin-right .pd-box').append(ptBox);
+							}
+						}
+					}
+				});
+
+			});
+			// 点击参与拼单
+			function addPin(thiz){
+				var tkn = getCookie(tk);
+				var myId = $(thiz).parents('.gp-list').find('.pinId').html();
+				var myNum = $(thiz).parents('.gp-list').find('.pinNum').html();
+				var myWeight = $(thiz).parents('.gp-list').find(".planNum").val();
+				var detailList = [];
+				var fa = {
+					dProcessway:$(thiz).parents('.gp-list').find(".need-type").val(),
+					dProcessrequirement:$(thiz).parents('.gp-list').find(".need-mage").val()
+				}
+				detailList.push(fa);
+				var json = JSON.stringify({
+					detailList:detailList,
+					cTransactionId: myId,
+					cCategory:2,
+					cGzFl:myWeight,
+					cGroupNum:myNum
+				})
+				// console.log(json)
+				$.ajax({
+					url: path + '/linA/adddd',
+					type:'POST',
+					beforeSend: function (XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					data:json,
+					contentType: 'application/json;charset=utf-8',
+					dataType:'json', //后台返回的数据类型是json文本
+					success:function(result){
+						if(result != "" && result.code == 1){
+							myProcessOk('参与成功！')
+							setTimeout(function() {
+								window.location.href='./group-pin.html?chl=my';
+							}, 2000);
+						}else{
+							myProcessErr(result.msg)
+						}
+					}
+				})
+
+			};
+			function showSet(thiz){
+				$(thiz).hide();
+				$(thiz).parents('.gp-list').find(".myMage").hide();
+				$(thiz).parents('.gp-list').find(".changeMage").removeClass('hidden')
+			}
+			function hideSet(thiz){
+				$(thiz).parents('.gp-list').find(".myMage").show();
+				$(thiz).parents('.gp-list').find(".showPin").show();
+				$(thiz).parents('.gp-list').find(".changeMage").addClass('hidden')
+			}
+				
+				
+			// 修改拼单
+			function setPin(thiz,setId){
+				var tkn = getCookie(tk);
+				var json = {
+					dId:setId,
+					dProcessway:$(thiz).parents('.gp-list').find(".need-type").val(),
+					dProcessrequirement:$(thiz).parents('.gp-list').find(".need-mage").val()
+				}
+				// detailList.push(fa);
+				// var json = JSON.stringify({
+				// 	detailList:detailList,
+				// })
+				// console.log(json)
+				$.ajax({
+					url: path + '/linA/upddjg',
+					type:'POST',
+					beforeSend: function (XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					data:JSON.stringify(json),
+					contentType: 'application/json;charset=utf-8',
+					dataType:'json', //后台返回的数据类型是json文本
+					success:function(result){
+						if(result != "" && result.code == 1){
+							myProcessOk('修改成功！')
+							setTimeout(function() {
+								window.location.href='./group-pin.html?chl=my';
+							}, 2000);
+						}else{
+							myProcessErr(result.msg)
+						}
+					}
+				})
+			
+			};
+			// 修改拼单数量
+			function changePin(useId){
+				$('.planTime').show();
+				$('.planTime .cPinId').html(useId)
+			};
+			function postPin(){
+				var tkn = getCookie(tk);
+				var myId = $('.planTime .cPinId').html();
+				var newWeight = $('.need-weight').val();
+				var json = JSON.stringify({
+					cCategory:2,
+					cId:myId,
+					cGzFl:newWeight
+				})
+				console.log(json)
+				if(newWeight <= 0){
+					myProcessErr('请输入大于0的数字！')
+				}else{
+					$.ajax({
+						url: path + '/linA/uppdxg',
+						type:'POST',
+						beforeSend: function (XMLHttpRequest) {
+							XMLHttpRequest.setRequestHeader("token", tkn);
+						},
+						data:json,
+						contentType: 'application/json;charset=utf-8',
+						dataType:'json', //后台返回的数据类型是json文本
+						success:function(result){
+							if(result != "" && result.code == 1){
+								myProcessOk('修改成功！')
+								setTimeout(function() {
+									window.location.href='./group-pin.html?chl=my';
+								}, 2000);
+							}else{
+								myProcessErr(result.msg)
+							}
+						}
+					})
+				}
+			};
+			// 删除拼单
+			function delPin(useId){
+				var tkn = getCookie(tk);
+				var json = JSON.stringify({
+					cId:useId
+				})
+				$.ajax({
+					url: path + '/linA/upddqx',
+					type:'POST',
+					beforeSend: function (XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					data:json,
+					contentType: 'application/json;charset=utf-8',
+					dataType:'json', //后台返回的数据类型是json文本
+					success:function(result){
+						if(result != "" && result.code == 1){
+							myProcessOk('删除成功！')
+							setTimeout(function() {
+								window.location.href='./group-pin.html?chl=my';
+							}, 2000);
+						}else{
+							myProcessErr(result.msg)
+						}
+					}
+				})
+			};
+			// 加载地址
+			$(function() {
+				var tkn = getCookie(tk);
+				$.ajax({
+					url: path + '/linA/listdz',
+					type: 'GET',
+					data: {},
+					dataType: 'json', //后台返回的数据类型是json文本
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					success: function(result) {
+						// console.log(result)
+						var point = result.address;
+						for (var i in point) {
+							
+							var mainTbody = "<tr><td>" + point[i].cName + "</td><td>" + point[i].cPhone +
+								"</td><td>" + point[i].cProvince + point[i].cCity + (point[i].cDistrict == '' || point[i].cDistrict ==
+									null ? '' : point[i].cDistrict) +
+								"</td><td>" + point[i].cAddress + "</td>" +
+								"<td><span class='userTable' onclick='chooseAdd(this,\"" + point[i].cId +"\")'>选择地址</span></td></tr>"
+							$('.getTbody').append(mainTbody);
+			
+						}
+			
+					}
+				})
+			});
+			$('.myBtn span').click(function(){
+				$('.myMb').hide();
+				$('.myAddress').hide();
+			})
+			// 显示收货地址
+			function showAddress(thiz){
+				$('.myAddress').show()
+				$('.myMb').show()
+				$('.userTable').attr('good-id',thiz)
+			}
+			// 选择收货地址
+			function chooseAdd(thiz,thizId){
+				var tkn = getCookie(tk);
+				var json = JSON.stringify({
+					cBlockId:thizId,
+					cId:$(thiz).attr('good-id')
+				});
+				console.log(json)
+				
+				$.ajax({
+					url: path + '/linA/upddshdz',
+					type: 'post',
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					data: json,
+					contentType: 'application/json;charset=utf-8',
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != "" && result.code == 1) {
+							window.location.href = './group-pin.html';
+						} else {
+							myProcessErr(result.msg)
+						}
+					}
+				})
+			}
+		</script>
+	</body>
+</html>

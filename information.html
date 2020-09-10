@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>钢板资讯</title>
+		<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+		<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/idangerous.swiper.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/APlayer.min.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/head.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/news.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/footer.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/ulList.css?vid=0326" />
+	</head>
+	<body style="background: #eee;">
+		<!-- 顶部导航 -->
+		<div class="headerpage"></div>
+		<!-- 页面主体 -->
+		<div class="main-banner news-banner"></div>
+		<div class="infor">
+			<div class="infor-main clearfix">
+				<ul class="infor-tab clearfix">
+					<li class="on"><a href="javascript:void(0)">今日快讯</a></li>
+					<li><a href="javascript:void(0)">行业资讯</a></li>
+				</ul>
+			</div>
+			<div class="infor-cont infor-box show">
+				<div class="infor-line"></div>
+				<div class="infor-name">
+					<img src="img/clock.png">
+					<span>今日快讯</span>
+				</div>
+
+			</div>
+			<div class="infor-cont infor-news">
+				<ul class="inforNews">
+
+				</ul>
+			</div>
+		</div>
+		<!-- 主体结束 -->
+		<!-- 底部 -->
+		<div class="footerpage"></div>
+		<div class="foot-about1">
+			<div class="about-box">
+				<p class="footLink">
+					<a rel="nofollow" href="http://www.12377.cn" target="_blank"><img src="img/footer/foot-wfjb.png" width="124"
+						 height="46"></a>
+					<!-- <a rel="nofollow" href="https://ss.knet.cn/verifyseal.dll?sn=e20051937130081635xsxj000000&userid=8IeOInNbj43dec5E&time=1589881923113&stoken=ca1dc82d5bbb71d300d921ba6ec71ce0&pa=92311" target="_blank"><img src="img/footer/foot-kexin.jpg" width="124" height="46"></a> -->
+					<script type='text/javascript' src='https://kxlogo.knet.cn/seallogo.dll?sn=e20051937130081635xsxj000000&ct=df&h=46'></script>
+					<a rel="nofollow" href="#" target="_blank"><img src="img/footer/foot-rz.jpg" width="124" height="46"></a>
+					<a href="index.html"><img height="46" src="img/footer/footer-aq.png" ></a>
+					<a href="index.html"><img height="46" src="img/footer/footer-hw.png" ></a>
+					<a href="index.html"><img height="46" src="img/footer/footer-cx.jpg" ></a>
+					<a rel="nofollow" href="img/footer/lingang.png" target="_blank"><img src="img/footer/dzyyzz.png" width="46" height="46"></a>
+				</p>
+			</div>
+		</div>
+		<script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/tools.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/right.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$('.infor-tab li').click(function() {
+				$(this).addClass('on').siblings().removeClass('on');
+				$('.infor .infor-cont').eq($(this).index()).addClass('show').siblings().removeClass('show');
+			});
+			function clickThit(thiz){
+				$(thiz).toggleClass('close');
+				if ($(thiz).is('.close')) {
+					$(thiz).siblings('.inforDay-list').hide(500);
+				} else {
+					$(thiz).siblings('.inforDay-list').show(500);
+				}
+			}
+		</script>
+		<script>
+			$(function() {
+				/*公共部分
+				 * 导航栏
+				 * footer CopyRight
+				 */
+				$(".headerpage").load("header.html");
+				$(".footerpage").load("footer.html");
+			});
+			// 获取页面 A 访问的 url
+			var ur = location.href;
+			// 获取页面 A 访问的 url 的 = 后面的 数字 （对应着这个页面的 id）
+			console.log(ur)
+			var type=1;
+			if(ur.indexOf('?')<1){
+				type=1;
+			}else{
+				type= ur.split('?')[1].split('=')[1];
+			}
+			$('.infor-tab li').eq(type - 1).addClass('on').siblings().removeClass('on');
+			$('.infor-cont').eq(type - 1).addClass('show').siblings().removeClass('show');
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				$.ajax({
+					url: path + '/linA/listnews',
+					type: 'GET',
+					data: {},
+					dataType: 'json', //后台返回的数据类型是json文本
+					// beforeSend: function(XMLHttpRequest) {
+					// 	XMLHttpRequest.setRequestHeader("token", tkn);
+					// },
+					success: function(result) {
+						// console.log(result)
+						if (result != "" && result.code == 1) {
+							var listNew = result.data;
+							for (var i in listNew) {
+								var newBox =
+									'<li class="inforNews-list"><a href="list-details.html?id=' + listNew[i].cId + '"><img src="' + photoPath +
+									listNew[i].cLogo + '" >' +
+									'<p class="inforNews-tit">' + listNew[i].cTitle + '</p>' +
+									'<p class="inforNews-txt">' + listNew[i].cSummary + '</p></a></li>';
+								$('.inforNews').append(newBox);
+							}
+
+						} else {
+							alert(result.msg)
+						}
+					}
+				});
+				$.ajax({
+						url: path + '/linA/listkx',
+						type: 'GET',
+						data: {},
+						dataType: 'json', //后台返回的数据类型是json文本
+						success: function(result) {
+							if (result != "" && result.code == 1) {
+								var listkx = result.data;
+								for (var i in listkx) {
+									var newBox =
+										'<div class="infor-day"><div class="inforDay" onclick="clickThit(this)"><h2>' + listkx[i].date + '</h2><i></i>' +
+										'</div><div class="inforDay-list"><ul>';
+									for (var j in listkx[i].list) {
+										newBox +=
+										// console.log(listkx[i].cCreateTime)
+											'<li class="clearfix"><span class="inforDay-time">'+listkx[i].list[j].cCreateTime.split(" ")[1]+'</span>' +
+											'<div class="inforDay-mage"><div class="inforDay-txt">' + listkx[i].list[j].cSummary +
+											'</div></div></li>';
+									}
+										newBox +=
+									'</ul></div></div></li>';
+								$('.infor-box').append(newBox);
+
+								};
+								
+							}
+						}
+				});
+				$.ajax({
+					url: path + '/linA/listbanner2',
+					type: 'GET',
+					data: {},
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != "" && result.code == 1) {
+							if(result.data){
+								var imgBanner = result.data[0].cLogo;
+								$('.main-banner').css('background-image','url('+ photoPath + imgBanner +')')
+							}
+						}
+					}
+				})
+			});
+		</script>
+	</body>
+</html>

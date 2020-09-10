@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>临钢网</title>
+	<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+	<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+    <link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="./css/all.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="./css/reset.css?vid=0326" />
+    <link rel="stylesheet" type="text/css" href="css/shop.css?vid=0326" />
+
+    <style>
+        .init-box {
+            margin: 0.2rem;
+            padding: 0.2rem;
+            border-radius: 6px;
+            background: #FFFFFF;
+        }
+
+        .init-title {
+            height: 0.8rem;
+            position: relative;
+            border-bottom: #efefef 1px solid;
+            line-height: 0.8rem;
+            font-size: 0.32rem;
+        }
+
+        .submit-info {
+            display: flex;
+            justify-content: space-between;
+            margin: 0.2rem 0;
+        }
+
+        .submit-info span {
+            margin: auto;
+        }
+
+        .submit-info input {
+            margin-bottom: 0;
+            padding: 0 10px;
+            color: #333;
+            border: #efefef 1px solid !important;
+            height: 40px;
+            width: 74%;
+            border-radius: 3px;
+        }
+
+        .init-pay {
+            height: 0.8rem;
+            min-height: 0.8rem;
+            line-height: 0.8rem;
+            background: rgb(81, 142, 57);
+            border-radius: 3px;
+            text-align: center;
+            color: #fff;
+            margin: 1rem 0.2rem 0;
+            font-size: 0.32rem;
+        }
+    </style>
+</head>
+<body style="padding-top: 50px;">
+<div id="cart-head" class="show">
+    <div class="cart-head">
+        <a class="return" href="javascript:history.back(-1);">
+            <span class="arrow-left"></span>
+        </a>
+        <div class="head-title">计划采购</div>
+        <a class="head-shop" href="tel:0539-6387606">
+        	<i class="fa fa-phone fa-lg"></i> &nbsp;0539-6387606
+        </a>
+    </div>
+</div>
+
+<div class="cg-center">
+    <form action="" method="">
+        <div class="group-list group-good" style="margin-bottom: 0;">
+            <h2>拼团订单</h2>
+            <ul class="group-type" style="height: 300px;padding-bottom: 20px;">
+                <li>
+                    <select class="select-name">
+                        <option value="">请选择月份</option>
+                        <option value="">2019-11</option>
+                        <option value="">2019-12</option>
+                    </select>
+                </li>
+                <li>
+                    <select class="select-name" name="" >
+                        <option value="">请选择钢厂</option>
+                        <option value="1">邯钢</option>
+                        <option value="2">沙钢</option>
+                        <option value="3">日照</option>
+                        <option value="4">泰钢</option>
+                        <option value="5">马钢</option>
+                        <option value="6">莱钢</option>
+                        <option value="7">包钢</option>
+                        <option value="8">邯宝</option>
+                        <option value="9">唐钢</option>
+                        <option value="10">鄂钢</option>
+                        <option value="11">首钢</option>
+                    </select>
+                </li>
+                <li>
+                    <select class="select-name" name="">
+                        <option value="">请选择品名</option>
+                        <option value="冷轧">冷轧</option>
+                        <option value="冷成型">冷成型</option>
+                        <option value="酸洗">酸洗</option>
+                        <option value="热轧">热轧</option>
+                        <option value="有花镀锌">有花镀锌</option>
+                        <option value="无花镀锌">无花镀锌</option>
+                        <option value="冷硬">冷硬</option>
+                        <option value="其他">其他</option>
+                    </select>
+                </li>
+                <li>
+                    <input class="group-ipt" type="text" name="" value="" placeholder="材质" />
+                </li>
+                <li>
+                    <input style="min-width:170px;" class="group-ipt" type="text" name="" value=""
+                           placeholder="净料规格（厚度*宽度*长度）" />
+                </li>
+
+                <li>
+                    <input style="min-width:170px;" class="group-ipt" type="text" name="" value="" placeholder="数量" />
+                </li>
+                <li>
+                    <select class="select-unit" name="">
+                        <option value="吨">吨</option>
+                        <option value="张">张</option>
+                        <option value="卷">卷</option>
+                        <option value="件">件</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+      <!--  <div class="group-list">
+            <ul class="group-btn clearfix">
+                <li class="group-add fl" onclick="add()">增加一行</li>
+                <li class="group-del fl" onclick="del()">删除一行</li>
+            </ul>
+        </div> -->
+        <div class="group-list">
+            <h2>附加说明</h2>
+            <textarea name="content" placeholder="你可以填写更多补充说明，如试样、机械性能要求、用途、表面要求等"></textarea>
+        </div>
+        <div class="group-list">
+            <p style="color: orange;">温馨提示：询价信息越完整，报价更精准！</p>
+            <input class="group-sub" type="submit" value="发布订单">
+        </div>
+    </form>
+</div>
+
+<!--底部导航-->
+<div class="footerpage"></div>
+
+<script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+<script src="js/phone.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+<script>
+$(function(){
+  /*公共部分
+   * 导航栏
+   * footer CopyRight
+   */
+  $(".footerpage").load("footer.html");
+});
+</script>
+<script type="text/javascript">
+function add () {
+  var $group = $('.group-good .group-type').first().clone();       //增加一行,克隆第一个对象
+  $('.group-good').append($group);
+}
+
+function del () {
+  $('.group-good .group-type:not(:first)').last().remove();      //移除最后一行,并且保留前两行
+}
+</script>
+</body>
+</html>

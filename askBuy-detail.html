@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>采购计划</title>
+		<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+		<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/idangerous.swiper.css"/>
+		<link rel="stylesheet" type="text/css" href="css/APlayer.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/day.css"/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/head.css"/>
+		<link rel="stylesheet" type="text/css" href="css/news.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+		<link rel="stylesheet" type="text/css" href="css/shop.css"/>
+		<link rel="stylesheet" type="text/css" href="css/ulList.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<style type="text/css">
+			.main-plan{
+				width: 1200px;
+				margin: 0 auto;
+				box-shadow: none;
+				padding-bottom: 50px;
+			}
+			.plan-swiper{
+				height: auto;
+			}
+			.plan-swiper li{
+				height: auto;
+			}
+			.planList{
+				border-bottom: 1px dashed #676767;
+			}
+			.plan-swiper li p{
+				padding: 10px 40px;
+				line-height: 24px;
+				border-top: 1px dashed #CCCCCC;
+			}
+			.ordTxt{
+				overflow: hidden;
+				padding: 10px;
+				width: 1100px;
+				height: 100px;
+				border-radius: 4px;
+				border: #ccc 1px solid;
+				font-size: 14px;
+			}
+			.ordBtn{
+				display: block;
+				margin: 10px auto 0;
+				width: 90px;
+				height: 40px;
+				border: 0;
+				outline: 0;
+				cursor: pointer;
+				background: #6aaff7;
+				border-radius: 5px;
+				color: #FFFFFF;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 顶部导航 -->
+		<div class="headerpage"></div>
+		<!-- 页面主体 -->
+		<!-- <div class="main-pin"></div> -->
+		<div class="main-out">
+			<div class="main-plan">
+				<div class="index-tit clearfix">
+					<span class="indexTit-bg"></span>
+					<span class="indexTit-txt">求购信息</span>
+				</div>
+				<ul class="plan-swiper">
+					<li class="planName clearfix">
+						<span>品名</span>
+						<span>材质</span>
+						<span>规格</span>
+						<span>数量</span>
+						<span>发起人</span>
+						<span>联系电话</span>
+					</li>
+					<ul class="plan-swiper2">
+					</ul>
+				</ul>
+				<div class="index-tit clearfix" style="border: 0;">
+					<span class="indexTit-bg"></span>
+					<span class="indexTit-txt">留言板：</span>
+				</div>
+				<!-- <p style="margin-top: 30px; font-weight: bold; color: #6aaff7; font-size: 24px;">留言板：</p> -->
+				<textarea class="ordTxt" ></textarea>
+				<button class="ordBtn" type="button">提交留言</button>
+			</div>
+		</div>
+		<!-- 主体结束 -->
+		<!-- 底部 -->
+		<div class="footerpage"></div>
+		<div class="foot-about1">
+			<div class="about-box">
+				<p class="footLink">
+					<a rel="nofollow" href="http://www.12377.cn" target="_blank"><img src="img/footer/foot-wfjb.png" width="124" height="46"></a>
+					<!-- <a rel="nofollow" href="https://ss.knet.cn/verifyseal.dll?sn=e20051937130081635xsxj000000&userid=8IeOInNbj43dec5E&time=1589881923113&stoken=ca1dc82d5bbb71d300d921ba6ec71ce0&pa=92311" target="_blank"><img src="img/footer/foot-kexin.jpg" width="124" height="46"></a> -->
+					<script type='text/javascript' src='https://kxlogo.knet.cn/seallogo.dll?sn=e20051937130081635xsxj000000&ct=df&h=46'></script>
+					<a rel="nofollow" href="#" target="_blank"><img src="img/footer/foot-rz.jpg" width="124" height="46"></a>
+					<a href="index.html"><img height="46" src="img/footer/footer-aq.png" ></a>
+					<a href="index.html"><img height="46" src="img/footer/footer-hw.png" ></a>
+					<a href="index.html"><img height="46" src="img/footer/footer-cx.jpg" ></a>
+					<a rel="nofollow" href="img/footer/lingang.png" target="_blank"><img src="img/footer/dzyyzz.png" width="46" height="46"></a>
+				</p>
+			</div>
+		</div>
+		<script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/tools.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/right.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+			    /*公共部分
+			     * 导航栏
+			     * footer CopyRight
+			     */
+			    $(".headerpage").load("header.html");
+			    $(".footerpage").load("footer.html");
+			});
+			(function($) {
+			   $.getUrlParam = function(name) {
+			      var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+			      var r = window.location.search.substr(1).match(reg);
+			      if (r != null) return unescape(r[2]);
+			      return null;
+			   }
+			})(jQuery);
+			
+			//加载求购信息
+			$(function() {
+				var tkn = getCookie(tk);
+				$.ajax({
+					url: path + '/linA/getjhcg',
+					type: 'GET',
+					data: {
+						id:$.getUrlParam('id')
+					},
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != "" && result.code == 1) {
+							var spName = result.data;
+							console.log(result)
+							var spList =
+								'<li class="clearfix planList">' +
+								'<span>' + spName.cShopColumnName + '</span>' +
+								'<span>' + spName.cTexttrue + '</span>' +
+								'<span>' + spName.cSpec + '</span>' +
+								'<span>' + spName.cNum + spName.cUnit + '</span>' +
+								'<span>' + spName.cRealname + '</span>' +
+								'<span>' + spName.cPhone + '</span>'+
+								'</br><p>备注：' + spName.cExplain + '</p></li>'
+							$('.plan-swiper2').append(spList);
+							$('.ordBtn').attr('psrId',spName.cId)
+						}
+					}
+				})
+			});
+			$('.ordBtn').click(function(){
+				var tkn = getCookie(tk);
+				var json = JSON.stringify({
+					psId:$('.ordBtn').attr('psrId'),
+					psrComment:$('.ordTxt').val()
+				})
+				$.ajax({
+					url: path + '/linA/addPSR',
+					type: 'POST',
+					data: json,
+					dataType: 'json', //后台返回的数据类型是json文本
+					contentType: 'application/json;charset=utf-8',
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					success: function(result) {
+						if (result != "" && result.code == 1) {
+							myProcessOk(result.msg)
+							$('.ordTxt').val('')
+						}
+					}
+				})
+			})
+		</script>
+	</body>
+</html>

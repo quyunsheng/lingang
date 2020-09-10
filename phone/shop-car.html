@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>临钢网</title>
+		<meta name="description" content="临钢网全称山东临钢电子商务股份有限公司，是钢材交易的线上平台，位于山东省临沂市，临靠临沂钢材物流城，资源丰富，地理位置优越。联系电话：0539-6387606/13869993555  胡经理" />
+		<meta name="keywords" content="临钢网,临钢,山东临钢,临沂临钢,钢材交易" />
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/all.css?vid=0326" />
+		<link rel="stylesheet" type="text/css" href="css/shop.css?vid=0326" />
+		<script src="js/jquery.min.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/phone.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.checkAll{
+				width: 20px;
+				height: 20px;
+				background: #FFFFFF;
+				float: left;
+				position: relative;
+				top: 20px;
+			}
+			.checkMage{
+				line-height: 60px !important;
+				color: #FFFFFF;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body style="padding-top: 50px;">
+		<div id="cart-head" class="show">
+			<div class="cart-head">
+				<a class="return" href="javascript:history.back(-1);">
+					<span class="arrow-left"></span>
+				</a>
+				<div class="head-title">购物车</div>
+				<a class="carhead-right" href="javascript:allDel();">清空</a>
+			</div>
+		</div>
+		<form action="" method="">
+			<div class="car-box">
+				<ul>
+
+				</ul>
+			</div>
+		</form>
+		<div class="footer car-set">
+			<button class="carSet-all fr hidden" type="button">
+				<a href="play-cg.html" style="color: #fff;padding: 5px 10px;background-color: #6fb1ca;font-size:16px;font-weightbold;border:1px solid #f3fdbc;">计划采购</a>
+			</button>
+			<input class="checkAll" onclick="checkAll()" type="checkbox" name="" id="checkAll" value="" /><label class="checkMage" for="checkAll">全选</label>
+			<button class="carSet-all fr" type="button" id="shopButHref"><a href="javascript:;" id="shopBut" style="background-color: red;font-size:16px;font-weightbold;border:1px solid #f3fdbc;color: #fff;padding: 5px 10px;">提交订单</a></button>
+			<!-- <button class="carSet-empty fr" type="button">清空购物车</button>
+			<button class="carSet-del fr" type="button">删除</button> -->
+		</div>
+		<div id='vkDivMaskPrc'><div id='vkDivMaskContPrc'><div id='vkDivMaskContPrcLogo'></div><div id='vkDivMaskContPrcText'></div></div></div>
+		<script src="js/user-lottery.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/tools.js?vid=0326" type="text/javascript" charset="utf-8"></script>
+		<script src="js/all.js?vid=0611" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$('.check-goods').bind('click', total_calc);
+
+			total_calc();
+
+			var operation_tag = 0; //0：提交购物车操作，1：删除购物车操作
+			//提交与操作切换
+			function operation() {
+				if (operation_tag == 0) {
+					$('.carhead-right').text('完成');
+					$('.carSet-all').hide();
+					$('.allset').hide();
+					$('.carSet-empty').show();
+					$('.carSet-del').show();
+					operation_tag = 1;
+				} else {
+					$('.carhead-right').text('管理');
+					$('.carSet-all').show();
+					$('.allset').show();
+					$('.carSet-empty').hide();
+					$('.carSet-del').hide();
+					operation_tag = 0;
+				}
+			};
+
+			//选中
+			function is_chose() {
+				var ids = '';
+				$('.check-goods:checked').each(function() {
+					ids += $(this).val() + ',';
+				});
+
+			}
+
+			//总计计算
+			function total_calc() {
+				var all_price = 0;
+				var all_weight = 0;
+				var price = 0;
+				var weight = 0;
+				$('.check-goods:checked').each(function() {
+					price = parseFloat($(this).parent('.car-goods').find('.goods-price').text());
+					weight = parseFloat($(this).parent('.car-goods').find('.goods-weight').text());
+					all_weight += weight;
+					all_price += price * weight;
+				});
+				$('#carShop-price').text(all_price.toFixed(2));
+				$('#carShop-weight').text('（' + all_weight.toFixed(3) + '吨）');
+			}
+			// 全选
+			function checkAll(){
+				var myChecked = $('.check-goods[type="checkbox"]:checked').length;
+				var allChecked = $('.check-goods[type="checkbox"]').length;
+				if(myChecked < allChecked){
+				    //把所有复选框选中
+					$(".check-goods:checkbox").prop("checked", true);
+				}else{
+					$(".check-goods:checkbox").prop("checked", false);
+				}
+				getStId()
+			}
+		</script>
+		<script type="text/javascript">
+			// 获取购物车商品、优惠券、白条、收货地址列表
+			function spsl(ps,pid,n){
+			 	var st='';
+				if(ps=="1"){
+					st+='	<input type="text" class="num" onkeyup="setnum(\''+pid+'\')" onchange="setnum(\''+pid+'\')"  id="num_'+pid+'" value="1" style="float:left;margin-left:11vw;border:1px solid #298fca;width:25px; height:20px; padding:1px; text-align:center; font-size:11px;">';
+				}else{
+					st+='	<input type="text" class="num" readonly="readonly"   id="num_'+pid+'" value="1" style="float:left;margin-left:11vw;border:0px solid #298fca;width:25px; height:20px; padding:1px; text-align:center; font-size:11px;">';
+				}
+				
+			 	st+='   &nbsp;&nbsp;购买数量';
+			 	return st;
+			 }
+			 function setnum(pid){
+			 	var ku_p=document.getElementById("num_"+pid).value;
+				if(ku_p.length<1){
+					return false;
+				};
+			 	ku_p=parseInt(ku_p);
+			 	if(ku_p<1){ 
+			 		ku_p=1; 
+			 	}
+			 	var kc_p=0;
+			 	var tkn = getCookie(tk);
+			 	$.ajax({
+			 		url: path + '/linA/getspkc',
+			 		type: 'GET',
+			 		beforeSend: function(XMLHttpRequest) {
+			 			XMLHttpRequest.setRequestHeader("token", tkn);
+			 		},
+			 		data: {
+			 			id:pid
+			 		},
+			 		dataType: 'json', //后台返回的数据类型是json文本
+			 		success: function(result) {
+			 			if(result.data<=ku_p){
+			 				myProcessErr("超出最大库存，已为您恢复为最大可下单数量："+result.data);
+			 				document.getElementById("num_"+pid).value=result.data;	
+			 			}else{
+			 				document.getElementById("num_"+pid).value=ku_p;		
+			 			}
+			 		}
+			 	})
+			 	//allPrice();
+			 }
+			// 加载购物车
+			$(function() {
+				var tkn = getCookie(tk);
+				$.ajax({
+					url: path + '/linA/listgwc',
+					type: 'GET',
+					data: {
+
+					},
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+
+						if (result != "" && result.code == 1) {
+							var shopCart = result.data; //购物车商品
+							var shopEve = result.coupon //优惠券
+							var shopIous = result.whiteNote //白条
+							var shopPoint = result.address //收货地址
+							$('.cart-num').html(shopCart.length);
+							if (shopCart.length == 0) {
+								$('.cart-empty').removeClass('hidden');
+							} else {
+								$('.cartFull-box').removeClass('hidden');
+								for (var i in shopCart) {
+									var cartList =
+
+										'<li class="car-list"><div class="car-address">' +
+										'<span>仓库： ' + shopCart[i].stStoreaddress + '</span><span class="cartFull-del"  onclick="oneDel(this,\'' +
+										shopCart[i].stId + '\')">删除</span></div>' +
+										'<div class="car-goods"><input class="check-goods" onclick="yhCheck()" type="checkbox" name="shopCar[]" jia="'+shopCart[i] +'" value="' + shopCart[i].stId + '" />' +
+										'<span>' + shopCart[i].stShopName + '&nbsp;&nbsp;&nbsp;' + shopCart[i].stProductName +
+										'</span> <span class="carGood-mage"><b>' + shopCart[i].stProducttexture +
+										'</b>　<t class="goods-weight">' + shopCart[i].stTonnum + ' 吨</span>' +
+										'<span class="carGood-price"><b class="goods-price">' + shopCart[i].stPrice + '</b>元/吨</span></div>' +
+										 '&nbsp;&nbsp;'+ shopCart[i].stProducttexture + '&nbsp;&nbsp;'+shopCart[i].stProductspec +
+										'</li>'
+
+									$('.car-box ul').append(cartList);
+
+									/*$('input[name="shopCar[]"]').each(function (item) {
+										if($(this).is(':checked')){
+											var res = getStId();
+											goto(res)
+										}
+									});*/
+								};
+
+							}
+
+						}
+						//console.log(res)
+
+					}
+				})
+			});
+/*
+			function goto(item){
+				var shopButHref ='<a href="submit-order.html?id='+ item +'" id="shopBut" style="background-color: red;color: #fff;padding: 5px 10px;">提交订单</a>';
+				$('#shopButHref').append(shopButHref)
+			}
+*/		
+			function yhCheck(){
+				var myChecked = $('.check-goods[type="checkbox"]:checked').length;
+				var allChecked = $('.check-goods[type="checkbox"]').length;
+				if(allChecked>myChecked){
+					 $('.checkAll').attr("checked",false);
+				}else if(myChecked = allChecked){
+					$(".checkAll:checkbox").prop("checked", true);
+				}
+				getStId()
+			}
+
+			// 单个商品删除
+			function oneDel(thiz, oneId) {
+				var tkn = getCookie(tk);
+				$.ajax({
+					url: path + '/linA/delgwc',
+					type: 'POST',
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					data: {
+						id: oneId
+					},
+					// contentType: 'application/json;charset=utf-8',
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != "" && result.code == 1) {
+							myProcessOk(result.msg)
+							var cartNum = parseInt($('.cart-num').html());
+							$('.cart-num').html(cartNum - 1);
+							$(thiz).parents('li').remove();
+						} else {
+							myProcessErr(result.msg)
+						}
+					}
+				})
+			};
+			// 清空购物车
+			function allDel() {
+				var tkn = getCookie(tk);
+				$.ajax({
+					url: path + '/linA/delallgwc',
+					type: 'POST',
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					data: {},
+					// contentType: 'application/json;charset=utf-8',
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != "" && result.code == 1) {
+							myProcessOk('删除成功')
+							$('.cart-num').html('0');
+							$('.cart-empty').removeClass('hidden');
+							$('.cartFull-box').addClass('hidden');
+							setTimeout(function () {
+								window.location.reload()
+							}, 1000);
+						} else {
+							myProcessErr(result.msg)
+						}
+					}
+				})
+			};
+
+
+
+
+			<!-- 提交选中 -->
+
+			function getStId(){
+				var data = '';
+				$('input[name="shopCar[]"]').each(function (item) {
+					if($(this).is(':checked')){
+						data += $(this).val()+',';
+					}
+				});
+				var ids = data.substr(0, data.length - 1);
+				if (ids == '') {
+					$("#sho").attr('href', 'javascript:void(0);');
+				} else {
+					$("#shopBut").attr('href', 'submit-order.html?id=' + ids);
+				}
+			}
+
+
+
+
+
+
+		</script>
+
+
+
+
+
+	</body>
+</html>
