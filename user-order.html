@@ -560,7 +560,7 @@
 							if(0<useTime<1800){
 								var minute=parseInt(useTime/60);
 								var second=parseInt(useTime%60);
-								$('.live'+i).html(minute+'分'+second+'秒后自动取消,请及时提交订单');
+								$('.live'+i).html('<i style="color:#ff0000;">'+minute+'分'+second+'秒</i>后自动取消,请及时提交订单');
 							}else{
 								$('.live'+i).html('订单失效');
 							}
