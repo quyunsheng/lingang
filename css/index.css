@@ -1023,10 +1023,19 @@
 	font-weight: 500;
 	text-shadow: 2px 2px 2px #2a2a2a;
 }
+.btnType a:first-child{
+	background: url(../img/index/btn-bg1.png);
+	background-size: cover;
+}
+.btnType a:nth-child(2){
+	background: url(../img/index/btn-bg1.png);
+	background-size: cover;
+}
 .btnType a:hover{
 	background: url(../img/index/btn-bg2.png);
 	background-size: cover;
 }
+
 .jump-hb{
 	position: fixed;
 	top: 0;
