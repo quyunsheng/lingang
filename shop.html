@@ -613,7 +613,11 @@
 									}else if(result.marketType == 0){
 										spBox+=	'<td>闭市中</td>'
 									}else{
-										spBox+=	'<td>' + spList[i].cNowPrice + ' ￥</td>'
+										if(spList[i].prnList[0].ifHidePrice == 1){
+											spBox+=	'<td>闭市中</td>'
+										}else{
+											spBox+=	'<td>' + spList[i].cNowPrice + ' ￥</td>'
+										}
 									}
 									spBox+=	
 									'<td>' + spList[i].cSummary + '</td><td><span class="good-more" onclick="goodMore(this)">查看</span></td></tr>'

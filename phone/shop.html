@@ -643,8 +643,12 @@
 								} else if (result.marketType == 0) {
 									spBox += '<span style="font-size:0.32rem;color:red;font-weight:bold;" class="good-list4">闭市中</span>'
 								} else {
-									spBox += '<span class="good-list4"><b>' + spList[i].cNowPrice + '</b>元/吨</span>' +
-										'<span class="good-list5"><b>库存:' + spList[i].cStockNum + '</b></span>';
+									if(spList[i].prnList[0].ifHidePrice == 1){
+										spBox += '<span style="font-size:0.32rem;color:red;font-weight:bold;" class="good-list4">闭市中</span>'
+									}else{
+										spBox += '<span class="good-list4"><b>' + spList[i].cNowPrice + '</b>元/吨</span>' +
+											'<span class="good-list5"><b>库存:' + spList[i].cStockNum + '</b></span>';
+									}
 								}
 								spBox +=
 									'<span class="goodMore" onclick="goodMore(this)">商品详单</span><table><tbody>'
