@@ -656,29 +656,37 @@
 									} else if (result.marketType == 0) {
 										spBox += '<td>闭市中</td>'
 									} else {
-										spBox += '<td>' + spList[i].prnList[j].cNowPrice + ' ￥</td>'
+										if(spList[i].prnList[j].ifHidePrice == 0){
+											spBox += '<td>' + spList[i].prnList[j].cNowPrice + ' ￥</td>'
+										}else if(spList[i].prnList[j].ifHidePrice == 1){
+											spBox+=	'<td>闭市中</td>'
+										}
+										
 									}
 									spBox +=
 										'<td>' + spList[i].prnList[j].cSummary + '</td><td class="clearfix">';
-									if (result.marketType == 0) {
-										spBox +=
-											'<span class="toCar" onclick="jumpNo()">购买</span>' +
-											'<span class="toPin" id="' + spList[i].cId + '" onclick="jumpNo()">拼购</span><td></tr>'
-									} else {
-										if (parseInt(spList[i].prnList[j].cStockNum) > 0) {
-											spBox += '<span class="toCar" onclick="goShopCart(this,\'' + spList[i].prnList[j].cId + '\')">购买</span>';
-											if (parseInt(spList[i].prnList[j].cGoodsSex) < 1) {
-												spBox += '<span class="toPin" id="' + spList[i].prnList[j].cId + '" onclick="showPin(this,\'' + spList[i]
-													.prnList[j].cId + '\')">拼购</span>';
-											}
-											spBox += '</td></tr>';
-										} else {
+									if(spList[i].prnList[j].ifHidePrice == 0){
+										if (result.marketType == 0) {
 											spBox +=
-												'<span class="toCar" onclick="myProcessErr(\'库存不足，请稍后下单！\')">购买</span>' +
-												'<span class="toPin" id="' + spList[i].prnList[j].cId +
-												'" onclick="myProcessErr(\'库存不足，请稍后下单！\')">拼购</span><td></tr>'
+												'<span class="toCar" onclick="jumpNo()">购买</span>' +
+												'<span class="toPin" id="' + spList[i].cId + '" onclick="jumpNo()">拼购</span><td></tr>'
+										} else {
+											if (parseInt(spList[i].prnList[j].cStockNum) > 0) {
+												spBox += '<span class="toCar" onclick="goShopCart(this,\'' + spList[i].prnList[j].cId + '\')">购买</span>';
+												if (parseInt(spList[i].prnList[j].cGoodsSex) < 1) {
+													spBox += '<span class="toPin" id="' + spList[i].prnList[j].cId + '" onclick="showPin(this,\'' + spList[i]
+														.prnList[j].cId + '\')">拼购</span>';
+												}
+												spBox += '</td></tr>';
+											} else {
+												spBox +=
+													'<span class="toCar" onclick="myProcessErr(\'库存不足，请稍后下单！\')">购买</span>' +
+													'<span class="toPin" id="' + spList[i].prnList[j].cId +
+													'" onclick="myProcessErr(\'库存不足，请稍后下单！\')">拼购</span><td></tr>'
+											}
 										}
 									}
+									
 								}
 								spBox +=
 									'</tbody></table>'

@@ -321,6 +321,12 @@
 	padding: 20px 15px;
 	display: block;
 }
+.price-list li:first-child .button-wrap{
+	color: #7beafd;
+}
+.price-list li:nth-child(2) .button-wrap{
+	color: #7beafd;
+}
 .button-wrap i{
 	font-size: 14px;
 }
